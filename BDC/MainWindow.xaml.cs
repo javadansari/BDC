@@ -43,7 +43,7 @@ namespace BDC
         {
             InitializeComponent();
             startInitialize();
-
+          
         }
         // Start
         private void startInitialize()
@@ -73,8 +73,12 @@ namespace BDC
                 secondLineButton = (Button)sender;
                 if (firstLineButton != secondLineButton) {
                     string pathName = firstLineButton.Tag.ToString();
+                    int i = items[int.Parse(firstLineButton.Tag.ToString())].connection;
+                    int b = int.Parse(secondLineButton.Tag.ToString());
+                    if (items[int.Parse(secondLineButton.Tag.ToString())].connection == int.Parse(firstLineButton.Tag.ToString()))
+                    pathName = secondLineButton.Tag.ToString();
                     removePath(pathName);
-                    double centerY = 50 + Canvas.GetTop(firstLineButton) + firstLineButton.ActualHeight / 2;
+                    double centerY = 230  + firstLineButton.ActualHeight / 2;
                     Point clickPoint = Mouse.GetPosition(clickedButton);
                  
                     DrawArrowBetweenButtons(firstLineButton, secondLineButton, pathName, clickPoint.Y > centerY);
@@ -93,7 +97,7 @@ namespace BDC
 
         }
 
-   
+
         private void removePath(string pathName)
         {
             string tagToRemove = pathName;
@@ -133,7 +137,7 @@ namespace BDC
             double dy = endPoint.Y - startPoint.Y;
 
             Random random = new Random();
-            int randomHeight = random.Next(20, 70); // Generates a random number between 20 and 70
+            int randomHeight = random.Next(20, 50); // Generates a random number between 20 and 50
 
             Point midPoint = new Point(startPoint.X + dx / 2, startPoint.Y + dy / 2);
 
@@ -268,9 +272,12 @@ namespace BDC
 
 
         }
-     
-       
-      
+
+        private void updateButton_Click(object sender, RoutedEventArgs e)
+        {
+            listView.ItemsSource = null;
+            listView.ItemsSource = items;
+        }
     }
 
 
