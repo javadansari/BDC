@@ -310,6 +310,7 @@ namespace BDC
                 items[int.Parse(button.Tag.ToString())].state = items[int.Parse(draggeButtonSource.Tag.ToString())].state;
                 items[int.Parse(button.Tag.ToString())].exist = true;
                 isMove = false;
+
             }
             else
             {
