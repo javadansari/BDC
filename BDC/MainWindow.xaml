@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        PreviewKeyDown="Window_PreviewKeyDown"
         xmlns:local="clr-namespace:BDC" 
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
@@ -28,20 +29,20 @@
         </Grid.RowDefinitions>
         <ToolBarTray Name="toolbarMenu" Grid.Row="1" Grid.RowSpan="4" Orientation="Vertical">
             <ToolBar >
-                <Button Name="ecoButton" Click="item_Click" Tag="eco" PreviewMouseLeftButtonDown="SourceButton_PreviewMouseLeftButtonDown">
+                <Button Name="ecoButton" Click="item_Click" Tag="eco" PreviewMouseLeftButtonDown="SourceToolsButton_PreviewMouseLeftButtonDown">
                     <Image Source="/economizer.png" Width="24" Height="24"/>
                 </Button>
-                <Button Name="evaButton" Click="item_Click" Tag="eva" PreviewMouseLeftButtonDown="SourceButton_PreviewMouseLeftButtonDown">
+                <Button Name="evaButton" Click="item_Click" Tag="eva" PreviewMouseLeftButtonDown="SourceToolsButton_PreviewMouseLeftButtonDown">
                     <Image Source="/evaporator.png" Width="24" Height="24" />
                 </Button>
-                <Button  Name="shButton" Click="item_Click" Tag="sh" PreviewMouseLeftButtonDown="SourceButton_PreviewMouseLeftButtonDown">
+                <Button  Name="shButton" Click="item_Click" Tag="sh" PreviewMouseLeftButtonDown="SourceToolsButton_PreviewMouseLeftButtonDown">
                     <Image Source="/superheater.png" Width="24" Height="24" />
                 </Button>
                 <Button  Name="lineButton" Tag="line" Click="lineButton_Click">
                     <Image Width="24" Height="24" Source="/SmokeRelation.png" />
                 </Button>
                 <Button  Name="update" Tag="line" Click="updateButton_Click">
-                    <Image Width="24" Height="24" Source="/SmokeRelation.png" />
+                    <Image Width="24" Height="24" Source="/do.png" />
                 </Button>
             </ToolBar>
         </ToolBarTray>
@@ -54,21 +55,22 @@
                     <GridViewColumn Header="connection" Width="100" DisplayMemberBinding="{Binding connection}" />
                     <GridViewColumn Header="pathName" Width="100" DisplayMemberBinding="{Binding pathName}" />
                     <GridViewColumn Header="state" Width="100" DisplayMemberBinding="{Binding state}" />
+                    <GridViewColumn Header="stateNumber" Width="100" DisplayMemberBinding="{Binding stateNumber}" />
                 </GridView>
             </ListView.View>
         </ListView>
 
         <Canvas  Grid.Row="3" Grid.Column="1" Name="canvas" >
 
-            <Button Name="levelButton1" Tag="1"  Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" Click="levelButton_Click" Drop="TargetButton_Drop" AllowDrop="True" Canvas.Left="50" Canvas.Top="40"/>
-            <Button Name="levelButton2" Tag="2"  Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" Click="levelButton_Click" Drop="TargetButton_Drop" AllowDrop="True" Canvas.Left="125" Canvas.Top="40"/>
-            <Button Name="levelButton3" Tag="3"  Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" Click="levelButton_Click" Drop="TargetButton_Drop" AllowDrop="True" Canvas.Left="200" Canvas.Top="40"/>
-            <Button Name="levelButton4" Tag="4"  Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" Click="levelButton_Click" Drop="TargetButton_Drop" AllowDrop="True" Canvas.Left="275" Canvas.Top="40"/>
-            <Button Name="levelButton5" Tag="5"  Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" Click="levelButton_Click" Drop="TargetButton_Drop" AllowDrop="True" Canvas.Left="350" Canvas.Top="40"/>
-            <Button Name="levelButton6" Tag="6"  Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" Click="levelButton_Click" Drop="TargetButton_Drop" AllowDrop="True" Canvas.Left="425" Canvas.Top="40"/>
-            <Button Name="levelButton7" Tag="7"  Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" Click="levelButton_Click" Drop="TargetButton_Drop" AllowDrop="True" Canvas.Left="500" Canvas.Top="40" />
-            <Button Name="levelButton8" Tag="8"  Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" Click="levelButton_Click" Drop="TargetButton_Drop" AllowDrop="True" Canvas.Left="575" Canvas.Top="40" />
-            <Button Name="levelButton9" Tag="9"  Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" Click="levelButton_Click" Drop="TargetButton_Drop" AllowDrop="True" Canvas.Left="650" Canvas.Top="40" />
+            <Button Name="levelButton1" Tag="1"  Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" PreviewMouseLeftButtonDown="SourceButton_PreviewMouseLeftButtonDown" Click="levelButton_Click" Drop="TargetButton_Drop" AllowDrop="True" Canvas.Left="50" Canvas.Top="40"/>
+            <Button Name="levelButton2" Tag="2"  Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" PreviewMouseLeftButtonDown="SourceButton_PreviewMouseLeftButtonDown" Click="levelButton_Click" Drop="TargetButton_Drop" AllowDrop="True" Canvas.Left="125" Canvas.Top="40"/>
+            <Button Name="levelButton3" Tag="3"  Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" PreviewMouseLeftButtonDown="SourceButton_PreviewMouseLeftButtonDown" Click="levelButton_Click" Drop="TargetButton_Drop" AllowDrop="True" Canvas.Left="200" Canvas.Top="40"/>
+            <Button Name="levelButton4" Tag="4"  Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" PreviewMouseLeftButtonDown="SourceButton_PreviewMouseLeftButtonDown" Click="levelButton_Click" Drop="TargetButton_Drop" AllowDrop="True" Canvas.Left="275" Canvas.Top="40"/>
+            <Button Name="levelButton5" Tag="5"  Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" PreviewMouseLeftButtonDown="SourceButton_PreviewMouseLeftButtonDown" Click="levelButton_Click" Drop="TargetButton_Drop" AllowDrop="True" Canvas.Left="350" Canvas.Top="40"/>
+            <Button Name="levelButton6" Tag="6"  Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" PreviewMouseLeftButtonDown="SourceButton_PreviewMouseLeftButtonDown" Click="levelButton_Click" Drop="TargetButton_Drop" AllowDrop="True" Canvas.Left="425" Canvas.Top="40"/>
+            <Button Name="levelButton7" Tag="7"  Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" PreviewMouseLeftButtonDown="SourceButton_PreviewMouseLeftButtonDown" Click="levelButton_Click" Drop="TargetButton_Drop" AllowDrop="True" Canvas.Left="500" Canvas.Top="40" />
+            <Button Name="levelButton8" Tag="8"  Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" PreviewMouseLeftButtonDown="SourceButton_PreviewMouseLeftButtonDown" Click="levelButton_Click" Drop="TargetButton_Drop" AllowDrop="True" Canvas.Left="575" Canvas.Top="40" />
+            <Button Name="levelButton9" Tag="9"  Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" PreviewMouseLeftButtonDown="SourceButton_PreviewMouseLeftButtonDown" Click="levelButton_Click" Drop="TargetButton_Drop" AllowDrop="True" Canvas.Left="650" Canvas.Top="40" />
 
         </Canvas>
         <Canvas  Grid.Row="4" Grid.Column="1" />

@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="do.png" />
     <None Remove="economizer.png" />
     <None Remove="evaporator.png" />
     <None Remove="SmokeRelation.png" />
@@ -26,6 +27,7 @@
     <Resource Include="evaporator.png" />
     <Resource Include="smokeRelation.png" />
     <Resource Include="superheater.png" />
+    <Resource Include="do.png" />
   </ItemGroup>
 
 </Project>

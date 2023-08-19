@@ -14,8 +14,11 @@ namespace BDC.Classes
         public string name { get; set; }
         public int connection { get; set; }
         public string pathName { get; set; }
-        public string state { get; set; }
+        public string state { get; set; } = "def";
+        public int stateNumber { get; set; }
 
 
     }
+
+   
 }

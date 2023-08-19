@@ -38,6 +38,9 @@ namespace BDC
         private bool isFirstLine = true;
         private Button firstLineButton;
         private Button secondLineButton;
+        private bool isLine = false;
+        private bool isMove = false;
+        private Dictionary<string, int> stateCounters;
 
         public MainWindow()
         {
@@ -60,8 +63,12 @@ namespace BDC
         // Path
         private void levelButton_Click(object sender, RoutedEventArgs e)
         {
+            Button button = (Button)sender;
+            int tagNumber = int.Parse(button.Tag.ToString());
+            if (items[tagNumber].state != null)
+            {
 
-            if (isFirstLine)
+                if (isFirstLine)
             {
 
                 firstLineButton = (Button)sender;
@@ -88,16 +95,32 @@ namespace BDC
                     items[int.Parse(firstLineButton.Tag.ToString())].pathName = pathName;
 
                 }
-                toolbarMenu.Visibility = Visibility.Visible;
-                isFirstLine = true;
-                reportText.Text = "";
+                    escapePath();
+                }
             }
 
             //   clickedButton = (Button)sender;
 
         }
-
-
+        private void escapePath()
+        {
+            if (isLine)
+            {
+                toolbarMenu.Visibility = Visibility.Visible;
+                isFirstLine = true;
+                reportText.Text = "";
+                isLine = false;
+            }
+        }
+        private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+            {
+                escapePath();
+                e.Handled = true;
+            }
+        }
+      
         private void removePath(string pathName)
         {
             string tagToRemove = pathName;
@@ -213,7 +236,7 @@ namespace BDC
         {
             toolbarMenu.Visibility = Visibility.Hidden;
             reportText.Text = "Choose the first level";
-
+            isLine = true;
             //    removePath("MyUniqueTag");
         }
 
@@ -249,16 +272,31 @@ namespace BDC
         }
 
 
-
         // Drag
         private void SourceButton_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {     
+            Button button = (Button)sender;
+            int tagNumber = int.Parse(button.Tag.ToString());
+            if (!isLine && items[tagNumber].state != null)
+            {
+                isMove = true;
+                Image image = (Image)button.Content;
+                draggedImageSource = image.Source;
+                draggeButtonSource = button;
+                DragDrop.DoDragDrop(button, draggedImageSource, DragDropEffects.Copy);
+            }        
+        }
+        private void SourceToolsButton_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
 
-            Button button = (Button)sender;
-            Image image = (Image)button.Content;
-            draggedImageSource = image.Source;
-            draggeButtonSource = button;
-            DragDrop.DoDragDrop(button, draggedImageSource, DragDropEffects.Copy);
+            if (!isLine)
+            {
+                Button button = (Button)sender;
+                Image image = (Image)button.Content;
+                draggedImageSource = image.Source;
+                draggeButtonSource = button;
+                DragDrop.DoDragDrop(button, draggedImageSource, DragDropEffects.Copy);
+            }
         }
         private void TargetButton_Drop(object sender, DragEventArgs e)
         {
@@ -266,18 +304,65 @@ namespace BDC
             Image image = new Image();
             image.Source = draggedImageSource;
             button.Content = image;
-            items[int.Parse(button.Tag.ToString())].id = int.Parse(button.Tag.ToString());
-            items[int.Parse(button.Tag.ToString())].state = draggeButtonSource.Tag.ToString();
-            items[int.Parse(button.Tag.ToString())].exist = true;
+            if (isMove)
+            {
+                items[int.Parse(button.Tag.ToString())].id = int.Parse(button.Tag.ToString());
+                items[int.Parse(button.Tag.ToString())].state = items[int.Parse(draggeButtonSource.Tag.ToString())].state;
+                items[int.Parse(button.Tag.ToString())].exist = true;
+                isMove = false;
+            }
+            else
+            {
+                items[int.Parse(button.Tag.ToString())].id = int.Parse(button.Tag.ToString());
+                items[int.Parse(button.Tag.ToString())].state = draggeButtonSource.Tag.ToString();
+                items[int.Parse(button.Tag.ToString())].exist = true;
 
+            }
+           
+          
 
         }
 
         private void updateButton_Click(object sender, RoutedEventArgs e)
         {
+            AssignStateNumbers(items);
             listView.ItemsSource = null;
             listView.ItemsSource = items;
         }
+
+
+        // Item
+     
+        private void AssignStateNumbers(List<Item> items)
+        {
+            stateCounters = new Dictionary<string, int>();
+            foreach (var item in items)
+            {
+                item.stateNumber = 0;
+
+            }
+                foreach (var item in items)
+            {
+                if (item.state == "sh" || item.state == "eva" || item.state == "eco")
+                {
+                    if (!stateCounters.ContainsKey(item.state))
+                    {
+                        stateCounters[item.state] = 1;
+                    }
+                    else
+                    {
+                        stateCounters[item.state]++;
+                        if (stateCounters[item.state] > 3)
+                        {
+                            // You can handle the case when you exceed 3 items with the same state here
+                        }
+                    }
+
+                    item.stateNumber = stateCounters[item.state];
+                }
+            }
+        }
+
     }
 
 
