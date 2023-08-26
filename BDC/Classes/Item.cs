@@ -15,8 +15,5 @@ namespace BDC.Classes
         public List<ItemAttribute> Attributes { get; set; }
     }
 
-    public class ItemAttribute
-    {
-        public string name { get; set; }
-    }
+
 }
