@@ -27,6 +27,23 @@
             <RowDefinition Height="95"/>
             <RowDefinition  Height="*"/>
         </Grid.RowDefinitions>
+        <Menu VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Row="0">
+            <MenuItem Header="File">
+                <MenuItem Header="New" Click="New_Click"/>
+                <MenuItem Header="Open" Click="Open_Click"/>
+                <Separator/>
+                <MenuItem Header="Exit" Click="Exit_Click"/>
+            </MenuItem>
+            <MenuItem Header="Edit">
+                <MenuItem Header="Cut"/>
+                <MenuItem Header="Copy"/>
+                <MenuItem Header="Paste"/>
+            </MenuItem>
+            <MenuItem Header="Information">
+                <MenuItem Header="Items" Click="Items_Click"/>
+                <MenuItem Header="Attributes" Click="Attributes_Click"/>
+            </MenuItem>
+        </Menu>
         <ToolBarTray Name="toolbarMenu" Grid.Row="1" Grid.RowSpan="4" Orientation="Vertical">
             <ToolBar >
                 <Button Name="ecoButton" Click="item_Click" Tag="eco" PreviewMouseLeftButtonDown="SourceToolsButton_PreviewMouseLeftButtonDown">
@@ -62,15 +79,15 @@
 
         <Canvas  Grid.Row="3" Grid.Column="1" Name="canvas" >
 
-            <Button Name="levelButton1" Tag="1"  Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" PreviewMouseLeftButtonDown="SourceButton_PreviewMouseLeftButtonDown" Click="levelButton_Click" Drop="TargetButton_Drop" AllowDrop="True" Canvas.Left="50" Canvas.Top="40"/>
-            <Button Name="levelButton2" Tag="2"  Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" PreviewMouseLeftButtonDown="SourceButton_PreviewMouseLeftButtonDown" Click="levelButton_Click" Drop="TargetButton_Drop" AllowDrop="True" Canvas.Left="125" Canvas.Top="40"/>
-            <Button Name="levelButton3" Tag="3"  Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" PreviewMouseLeftButtonDown="SourceButton_PreviewMouseLeftButtonDown" Click="levelButton_Click" Drop="TargetButton_Drop" AllowDrop="True" Canvas.Left="200" Canvas.Top="40"/>
-            <Button Name="levelButton4" Tag="4"  Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" PreviewMouseLeftButtonDown="SourceButton_PreviewMouseLeftButtonDown" Click="levelButton_Click" Drop="TargetButton_Drop" AllowDrop="True" Canvas.Left="275" Canvas.Top="40"/>
-            <Button Name="levelButton5" Tag="5"  Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" PreviewMouseLeftButtonDown="SourceButton_PreviewMouseLeftButtonDown" Click="levelButton_Click" Drop="TargetButton_Drop" AllowDrop="True" Canvas.Left="350" Canvas.Top="40"/>
-            <Button Name="levelButton6" Tag="6"  Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" PreviewMouseLeftButtonDown="SourceButton_PreviewMouseLeftButtonDown" Click="levelButton_Click" Drop="TargetButton_Drop" AllowDrop="True" Canvas.Left="425" Canvas.Top="40"/>
-            <Button Name="levelButton7" Tag="7"  Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" PreviewMouseLeftButtonDown="SourceButton_PreviewMouseLeftButtonDown" Click="levelButton_Click" Drop="TargetButton_Drop" AllowDrop="True" Canvas.Left="500" Canvas.Top="40" />
-            <Button Name="levelButton8" Tag="8"  Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" PreviewMouseLeftButtonDown="SourceButton_PreviewMouseLeftButtonDown" Click="levelButton_Click" Drop="TargetButton_Drop" AllowDrop="True" Canvas.Left="575" Canvas.Top="40" />
-            <Button Name="levelButton9" Tag="9"  Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" PreviewMouseLeftButtonDown="SourceButton_PreviewMouseLeftButtonDown" Click="levelButton_Click" Drop="TargetButton_Drop" AllowDrop="True" Canvas.Left="650" Canvas.Top="40" />
+            <Button Name="levelButton1" Tag="1"  Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" PreviewMouseRightButtonDown="SourceButton_PreviewMouseRightButtonDown" PreviewMouseLeftButtonDown="SourceButton_PreviewMouseLeftButtonDown" Click="levelButton_Click" Drop="TargetButton_Drop" AllowDrop="True" Canvas.Left="50" Canvas.Top="40"/>
+            <Button Name="levelButton2" Tag="2"  Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" PreviewMouseRightButtonDown="SourceButton_PreviewMouseRightButtonDown" PreviewMouseLeftButtonDown="SourceButton_PreviewMouseLeftButtonDown" Click="levelButton_Click" Drop="TargetButton_Drop" AllowDrop="True" Canvas.Left="125" Canvas.Top="40"/>
+            <Button Name="levelButton3" Tag="3"  Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" PreviewMouseRightButtonDown="SourceButton_PreviewMouseRightButtonDown" PreviewMouseLeftButtonDown="SourceButton_PreviewMouseLeftButtonDown" Click="levelButton_Click" Drop="TargetButton_Drop" AllowDrop="True" Canvas.Left="200" Canvas.Top="40"/>
+            <Button Name="levelButton4" Tag="4"  Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" PreviewMouseRightButtonDown="SourceButton_PreviewMouseRightButtonDown" PreviewMouseLeftButtonDown="SourceButton_PreviewMouseLeftButtonDown" Click="levelButton_Click" Drop="TargetButton_Drop" AllowDrop="True" Canvas.Left="275" Canvas.Top="40"/>
+            <Button Name="levelButton5" Tag="5"  Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" PreviewMouseRightButtonDown="SourceButton_PreviewMouseRightButtonDown" PreviewMouseLeftButtonDown="SourceButton_PreviewMouseLeftButtonDown" Click="levelButton_Click" Drop="TargetButton_Drop" AllowDrop="True" Canvas.Left="350" Canvas.Top="40"/>
+            <Button Name="levelButton6" Tag="6"  Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" PreviewMouseRightButtonDown="SourceButton_PreviewMouseRightButtonDown" PreviewMouseLeftButtonDown="SourceButton_PreviewMouseLeftButtonDown" Click="levelButton_Click" Drop="TargetButton_Drop" AllowDrop="True" Canvas.Left="425" Canvas.Top="40"/>
+            <Button Name="levelButton7" Tag="7"  Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" PreviewMouseRightButtonDown="SourceButton_PreviewMouseRightButtonDown" PreviewMouseLeftButtonDown="SourceButton_PreviewMouseLeftButtonDown" Click="levelButton_Click" Drop="TargetButton_Drop" AllowDrop="True" Canvas.Left="500" Canvas.Top="40" />
+            <Button Name="levelButton8" Tag="8"  Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" PreviewMouseRightButtonDown="SourceButton_PreviewMouseRightButtonDown" PreviewMouseLeftButtonDown="SourceButton_PreviewMouseLeftButtonDown" Click="levelButton_Click" Drop="TargetButton_Drop" AllowDrop="True" Canvas.Left="575" Canvas.Top="40" />
+            <Button Name="levelButton9" Tag="9"  Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" PreviewMouseRightButtonDown="SourceButton_PreviewMouseRightButtonDown" PreviewMouseLeftButtonDown="SourceButton_PreviewMouseLeftButtonDown" Click="levelButton_Click" Drop="TargetButton_Drop" AllowDrop="True" Canvas.Left="650" Canvas.Top="40" />
 
         </Canvas>
         <Canvas  Grid.Row="4" Grid.Column="1" />

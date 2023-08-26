@@ -19,6 +19,8 @@ using System.Xml.Linq;
 using Image = System.Windows.Controls.Image;
 using BDC.Classes;
 using System.Net;
+using System.Security.AccessControl;
+using BDC.Forms;
 
 namespace BDC
 {
@@ -48,7 +50,8 @@ namespace BDC
             startInitialize();
           
         }
-        // Start
+
+        #region Start
         private void startInitialize()
         {
             items = new List<Item>();
@@ -59,49 +62,52 @@ namespace BDC
             }
 
         }
+        #endregion
 
-        // Path
+        #region Path
         private void levelButton_Click(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
             int tagNumber = int.Parse(button.Tag.ToString());
-            if (items[tagNumber].state != null)
+            if (checkButtonExist(button) && isLine)
             {
 
                 if (isFirstLine)
-            {
+                 {
 
-                firstLineButton = (Button)sender;
-                reportText.Text = "Choose the second level";
-                isFirstLine = false;
-            } else
-            {
+                            firstLineButton = (Button)sender;
+                            reportText.Text = "Choose the second level";
+                             isFirstLine = false;
+                } else
+                {
 
-                secondLineButton = (Button)sender;
-                if (firstLineButton != secondLineButton) {
-                    string pathName = firstLineButton.Tag.ToString();
-                    int i = items[int.Parse(firstLineButton.Tag.ToString())].connection;
-                    int b = int.Parse(secondLineButton.Tag.ToString());
-                    if (items[int.Parse(secondLineButton.Tag.ToString())].connection == int.Parse(firstLineButton.Tag.ToString()))
-                    pathName = secondLineButton.Tag.ToString();
-                    removePath(pathName);
-                    double centerY = 230  + firstLineButton.ActualHeight / 2;
-                    Point clickPoint = Mouse.GetPosition(clickedButton);
-                 
-                    DrawArrowBetweenButtons(firstLineButton, secondLineButton, pathName, clickPoint.Y > centerY);
+                         secondLineButton = (Button)sender;
+                         if (firstLineButton != secondLineButton) {
+                             string pathName = firstLineButton.Tag.ToString();
+                             int i = items[int.Parse(firstLineButton.Tag.ToString())].connection;
+                             int b = int.Parse(secondLineButton.Tag.ToString());
+                             if (items[int.Parse(secondLineButton.Tag.ToString())].connection == int.Parse(firstLineButton.Tag.ToString()))
+                             pathName = secondLineButton.Tag.ToString();
+                             removePath(pathName);
+                             double centerY = 230  + firstLineButton.ActualHeight / 2;
+                             Point clickPoint = Mouse.GetPosition(clickedButton);
+
+                            generatePath(firstLineButton, secondLineButton, pathName, clickPoint.Y > centerY);
 
 
-                    items[int.Parse(firstLineButton.Tag.ToString())].connection = int.Parse(secondLineButton.Tag.ToString());
-                    items[int.Parse(firstLineButton.Tag.ToString())].pathName = pathName;
+                             items[int.Parse(firstLineButton.Tag.ToString())].connection = int.Parse(secondLineButton.Tag.ToString());
+                             items[int.Parse(firstLineButton.Tag.ToString())].pathName = pathName;
+                             items[int.Parse(secondLineButton.Tag.ToString())].pathName = firstLineButton.Tag.ToString();
 
-                }
-                    escapePath();
+                             }
+               escapePath();
                 }
             }
 
             //   clickedButton = (Button)sender;
 
         }
+     
         private void escapePath()
         {
             if (isLine)
@@ -151,7 +157,7 @@ namespace BDC
                 }
             }
         }
-        private void DrawArrowBetweenButtons(Button firstButton, Button secondButton, string pathName, bool invertY = false)
+        private void generatePath(Button firstButton, Button secondButton, string pathName, bool invertY = false)
         {
             Point startPoint = new Point(Canvas.GetLeft(firstButton) + firstButton.ActualWidth / 2, Canvas.GetTop(firstButton) + firstButton.ActualHeight / 2);
             Point endPoint = new Point(Canvas.GetLeft(secondButton) + secondButton.ActualWidth / 2, Canvas.GetTop(secondButton) + secondButton.ActualHeight / 2);
@@ -239,9 +245,9 @@ namespace BDC
             isLine = true;
             //    removePath("MyUniqueTag");
         }
+        #endregion
 
-
-        // Image
+        #region Image
         private void item_Click(object sender, RoutedEventArgs e)
         {
 
@@ -270,20 +276,23 @@ namespace BDC
 
 
         }
+        #endregion
 
-
-        // Drag
+        #region Drag
         private void SourceButton_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {     
+   
             Button button = (Button)sender;
             int tagNumber = int.Parse(button.Tag.ToString());
-            if (!isLine && items[tagNumber].state != null)
+            if (!isLine && items[tagNumber].state !=  "-")
             {
                 isMove = true;
                 Image image = (Image)button.Content;
                 draggedImageSource = image.Source;
                 draggeButtonSource = button;
                 DragDrop.DoDragDrop(button, draggedImageSource, DragDropEffects.Copy);
+             //   clreaButton(button);
+                
             }        
         }
         private void SourceToolsButton_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -296,20 +305,53 @@ namespace BDC
                 draggedImageSource = image.Source;
                 draggeButtonSource = button;
                 DragDrop.DoDragDrop(button, draggedImageSource, DragDropEffects.Copy);
+                
             }
         }
+    
         private void TargetButton_Drop(object sender, DragEventArgs e)
         {
             Button button = (Button)sender;
             Image image = new Image();
             image.Source = draggedImageSource;
             button.Content = image;
+
+            if (button== draggeButtonSource) return;
+
             if (isMove)
             {
+
+               
+
                 items[int.Parse(button.Tag.ToString())].id = int.Parse(button.Tag.ToString());
                 items[int.Parse(button.Tag.ToString())].state = items[int.Parse(draggeButtonSource.Tag.ToString())].state;
                 items[int.Parse(button.Tag.ToString())].exist = true;
+                if  (items[int.Parse(draggeButtonSource.Tag.ToString())].connection != 0)
+                {
+                    removePath(draggeButtonSource.Tag.ToString());
+                    generatePath(button, FindButtonByTag(items[int.Parse(draggeButtonSource.Tag.ToString())].connection.ToString()), button.Tag.ToString(), new Random().Next(2) == 0);
+                    items[int.Parse(button.Tag.ToString())].connection = items[int.Parse(draggeButtonSource.Tag.ToString())].connection;
+                    items[int.Parse(button.Tag.ToString())].pathName = items[int.Parse(draggeButtonSource.Tag.ToString())].pathName;
+                    items[int.Parse(draggeButtonSource.Tag.ToString())].connection = 0;
+                    items[int.Parse(draggeButtonSource.Tag.ToString())].pathName = "";
+                    items[items[int.Parse(button.Tag.ToString())].connection].pathName = button.Tag.ToString();
+                }
+                else
+                {
+                    if (items[int.Parse(draggeButtonSource.Tag.ToString())].pathName != "-")
+                    {
+                     
+                        removePath(items[int.Parse(draggeButtonSource.Tag.ToString())].pathName);
+                        items[int.Parse(button.Tag.ToString())].pathName = items[int.Parse(draggeButtonSource.Tag.ToString())].pathName.ToString();
+                        items[int.Parse(draggeButtonSource.Tag.ToString())].pathName = "-";
+                        items[int.Parse(items[int.Parse(button.Tag.ToString())].pathName.ToString())].connection = int.Parse(button.Tag.ToString());
+                        generatePath(FindButtonByTag(items[int.Parse(button.Tag.ToString())].pathName.ToString()), button, items[int.Parse(button.Tag.ToString())].pathName, new Random().Next(2) == 0);
+
+                    }
+                }
+
                 isMove = false;
+                clreaButton(draggeButtonSource);
 
             }
             else
@@ -323,17 +365,36 @@ namespace BDC
           
 
         }
-
+        private Button FindButtonByTag(string tagValue)
+        {
+            foreach (UIElement element in canvas.Children)
+            {
+                if (element is Button button && button.Tag != null && button.Tag.ToString() == tagValue)
+                {
+                    return button;
+                }
+            }
+            return null; // Button not found
+        }
         private void updateButton_Click(object sender, RoutedEventArgs e)
         {
             AssignStateNumbers(items);
             listView.ItemsSource = null;
             listView.ItemsSource = items;
         }
+       
+        private void clreaButton(Button button)
+        {
+            button.Content = null;
+            items[int.Parse(button.Tag.ToString())].state = "-";
+            items[int.Parse(button.Tag.ToString())].exist = false;
+            items[int.Parse(button.Tag.ToString())].connection = 0;
 
+        }
+        #endregion
 
-        // Item
-     
+        #region Item
+
         private void AssignStateNumbers(List<Item> items)
         {
             stateCounters = new Dictionary<string, int>();
@@ -364,7 +425,66 @@ namespace BDC
             }
         }
 
-    }
+        #endregion 
 
+        #region Attribute
+        private void SourceButton_PreviewMouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Button button = (Button)sender;
+            if (checkButtonExist(button))
+            {
+
+            }
+
+        }
+        #endregion
+
+        #region Tools
+        private bool checkButtonExist(Button button)
+        {
+            
+            if (items[int.Parse(button.Tag.ToString())].exist) return true;
+            else return false;
+        }
+        #endregion
+
+
+        #region Menu
+        private void New_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Open_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+      
+
+        private void Items_Click(object sender, RoutedEventArgs e)
+        {
+            AssignStateNumbers(items);
+            FormItems formItems = new FormItems(items);
+            formItems.Show();
+
+        }
+
+      
+        
+
+        private void Attributes_Click(object sender, RoutedEventArgs e)
+        {
+            AssignStateNumbers(items);
+            FormAttributes formAttributes = new FormAttributes();
+            formAttributes.Show();
+        }
+        #endregion
+    }
 
 }
