@@ -43,7 +43,7 @@ namespace BDC
         private bool isLine = false;
         private bool isMove = false;
         private Dictionary<string, int> stateCounters;
-
+        private Image draggedImage;
         public MainWindow()
         {
             InitializeComponent();
@@ -279,6 +279,54 @@ namespace BDC
         #endregion
 
         #region Drag
+
+        private void ItemOutButton_Drop(object sender, DragEventArgs e)
+        {
+            if (draggedImage != null)
+            {
+                // Create a new Image and position it on the Canvas
+                Image droppedImage = new Image
+                {
+                    Source = draggedImage.Source,
+                    Width = draggedImage.Width,
+                    Height = draggedImage.Height
+                };
+
+                Point dropPosition = e.GetPosition(canvas);
+
+                Canvas.SetLeft(droppedImage, dropPosition.X - draggedImage.Width / 2);
+                Canvas.SetTop(droppedImage, dropPosition.Y - draggedImage.Height / 2);
+
+                canvas.Children.Add(droppedImage);
+            }
+
+        }
+        private void SourceoutElementButton_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+            if (!isLine)
+            {
+                Image image = sender as Image;
+
+                // Prepare image for dragging
+                draggedImage = new Image
+                {
+                    Source = image.Source,
+                    Width = image.Width,
+                    Height = image.Height
+                };
+
+                if (draggedImage != null)
+                {
+                    DragDrop.DoDragDrop(image, draggedImage, DragDropEffects.Copy);
+                }
+
+            }
+        }
+        private void outElementButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
         private void SourceButton_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {     
    
@@ -376,13 +424,7 @@ namespace BDC
             }
             return null; // Button not found
         }
-        private void updateButton_Click(object sender, RoutedEventArgs e)
-        {
-            AssignStateNumbers(items);
-            listView.ItemsSource = null;
-            listView.ItemsSource = items;
-        }
-       
+     
         private void clreaButton(Button button)
         {
             button.Content = null;
@@ -484,7 +526,11 @@ namespace BDC
             FormAttributes formAttributes = new FormAttributes();
             formAttributes.Show();
         }
+
+
         #endregion
+
+      
     }
 
 }
