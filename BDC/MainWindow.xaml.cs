@@ -49,6 +49,8 @@ namespace BDC
         private Image draggedImage;
         private Image currentDraggedImage;
         private Point startPoint;
+        private double currentScale = 1.0;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -450,8 +452,23 @@ namespace BDC
 
                 // check if exist
                 if (elementer(image)){
-                Element foundElement = returnName(image.Tag.ToString()); 
-                if (foundElement != null) return; }
+                Element foundElement = returnName(image.Tag.ToString());
+                    if (foundElement != null)
+                    {
+                        image.Cursor = Cursors.No;
+                        return;
+
+                    }
+                    }
+
+                // check state
+                if (checkState(image.Tag.ToString()))
+                {
+                    image.Cursor = Cursors.No;
+                    return;
+
+                }
+
                 // Prepare image for dragging
                 draggedImage = new Image
                 {
@@ -722,6 +739,7 @@ namespace BDC
                         if (stateCounters[element.state] > 3)
                         {
                             // You can handle the case when you exceed 3 items with the same state here
+                         
                         }
                     }
 
@@ -773,14 +791,14 @@ namespace BDC
             return null;
 
         }
-            private Element returnName(string name)
+        private Element returnName(string name)
             {
                 Element foundElement = elements.FirstOrDefault(element => element.name == name); if (foundElement != null)
                     return foundElement;
                 return null;
 
             }
-            private Element returnElement(string pathName)
+        private Element returnElement(string pathName)
         {
             Element foundElement = elements.FirstOrDefault(element => element.pathName == pathName); if (foundElement != null)
                 return foundElement;
@@ -788,6 +806,10 @@ namespace BDC
 
         }
 
+        private bool checkState(string state)
+        {
+            if ( elements.Count(element => element.state == state) > 2) return true;return false;
+        }
         private bool elementer(Image image)
         {
             switch (image.Tag)
@@ -850,7 +872,20 @@ namespace BDC
 
         #endregion
 
-     
+
+        #region canvasZoom
+
+        private void ZoomSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            double zoomValue = e.NewValue;
+            ApplyZoom(zoomValue);
+        }
+
+        private void ApplyZoom(double zoomValue)
+        {
+            canvas.LayoutTransform = new ScaleTransform(zoomValue, zoomValue);
+        }
+        #endregion
     }
 
 }
