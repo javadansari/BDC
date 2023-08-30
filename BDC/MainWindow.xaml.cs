@@ -33,17 +33,22 @@ namespace BDC
     public partial class MainWindow : Window
     {
         private List<Item> items;
+        private List<Element> elements;
         private Button clickedButton;
         private Image imageLevelButton;
         private ImageSource draggedImageSource;
         private Button draggeButtonSource;
         private bool isFirstLine = true;
+        private Image firstLineImage;
+        private Image secondLineImage;
         private Button firstLineButton;
         private Button secondLineButton;
         private bool isLine = false;
         private bool isMove = false;
         private Dictionary<string, int> stateCounters;
         private Image draggedImage;
+        private Image currentDraggedImage;
+        private Point startPoint;
         public MainWindow()
         {
             InitializeComponent();
@@ -55,16 +60,19 @@ namespace BDC
         private void startInitialize()
         {
             items = new List<Item>();
+           
             for (int i = 0; i < 11; i++)
             {
                 Item item = new Item { id = i };
                 items.Add(item);
             }
-
+            elements = new List<Element>();
         }
         #endregion
 
         #region Path
+
+
         private void levelButton_Click(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
@@ -99,7 +107,7 @@ namespace BDC
                              items[int.Parse(firstLineButton.Tag.ToString())].pathName = pathName;
                              items[int.Parse(secondLineButton.Tag.ToString())].pathName = firstLineButton.Tag.ToString();
 
-                             }
+                     }
                escapePath();
                 }
             }
@@ -247,6 +255,155 @@ namespace BDC
         }
         #endregion
 
+        #region PathPlut
+        private void line_Click(object sender, MouseButtonEventArgs e)
+        {
+            toolbarMenu.Visibility = Visibility.Hidden;
+            reportText.Text = "Choose the first level";
+            isLine = true;
+        }
+
+
+        private void DroppedImage_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (isLine)
+            {
+
+                if (isFirstLine)
+                {
+                    firstLineImage = (Image)sender;
+                    reportText.Text = "Choose the second level";
+                    isFirstLine = false;
+                }
+                else
+                {
+                    secondLineImage = (Image)sender;
+                    if (firstLineImage != secondLineImage)
+                    {
+                      
+                        //     int i = items[int.Parse(firstLineButton.Tag.ToString())].connection;
+                        //     int b = int.Parse(secondLineButton.Tag.ToString());
+                        Element firstImage = returnElement(firstLineImage);
+                        Element secondImage = returnElement(secondLineImage);
+                        string pathName = firstImage.id.ToString();
+                        if (secondImage.connection == firstImage.id)
+                               pathName = secondImage.id.ToString();
+                               removePath(pathName);
+                        //       double centerY = 230 + firstLineButton.ActualHeight / 2;
+                        //       Point clickPoint = Mouse.GetPosition(clickedButton);
+
+                        generateImagePath(firstLineImage, secondLineImage, pathName, true);
+
+
+                        firstImage.connection = secondImage.id;
+                        firstImage.pathName = pathName;
+                        secondImage.pathName = firstImage.id.ToString();
+
+                    }
+                    escapePath();
+                }
+               
+
+            }
+            else
+            {
+                currentDraggedImage = (Image)sender;
+                startPoint = e.GetPosition(canvas);
+                currentDraggedImage.CaptureMouse();
+            }
+
+          
+        }
+
+
+        private void generateImagePath(Image firstImage, Image secondImage, string pathName, bool invertY = false)
+        {
+            Point startPoint = new Point(Canvas.GetLeft(firstImage) + firstImage.ActualWidth / 2, Canvas.GetTop(firstImage) + firstImage.ActualHeight / 2);
+            Point endPoint = new Point(Canvas.GetLeft(secondImage) + secondImage.ActualWidth / 2, Canvas.GetTop(secondImage) + secondImage.ActualHeight / 2);
+
+            double dx = endPoint.X - startPoint.X;
+            double dy = endPoint.Y - startPoint.Y;
+
+         //   Random random = new Random();
+         //   int randomHeight = random.Next(20, 50) ; // Generates a random number between 20 and 50
+            int randomHeight = (int)(endPoint.Y); 
+            Point midPoint = new Point(startPoint.X + dx / 2, startPoint.Y + dy / 2);
+
+            if (invertY)
+            {
+                startPoint.Y = startPoint.Y + firstImage.ActualHeight / 2;
+                endPoint.Y = endPoint.Y + secondImage.ActualHeight / 2;
+                midPoint.Y = midPoint.Y + firstImage.ActualHeight / 2;
+                randomHeight = -randomHeight;
+            }
+            else
+            {
+                startPoint.Y = startPoint.Y - firstImage.ActualHeight / 2;
+                endPoint.Y = endPoint.Y - secondImage.ActualHeight / 2;
+                midPoint.Y = midPoint.Y - firstImage.ActualHeight / 2;
+            }
+
+            PathGeometry pathGeometry = new PathGeometry();
+            PathFigure pathFigure = new PathFigure();
+            pathFigure.StartPoint = startPoint;
+
+            LineSegment lineSegment1 = new LineSegment(new Point(startPoint.X, startPoint.Y - randomHeight), true);
+            BezierSegment bezierSegment = new BezierSegment(new Point(midPoint.X, startPoint.Y - randomHeight),
+                                                            new Point(midPoint.X, startPoint.Y - randomHeight),
+                                                            new Point(endPoint.X, startPoint.Y - randomHeight), true);
+            LineSegment lineSegment2 = new LineSegment(endPoint, true);
+
+            pathFigure.Segments.Add(lineSegment1);
+            pathFigure.Segments.Add(bezierSegment);
+
+            pathFigure.Segments.Add(lineSegment2);
+
+            pathGeometry.Figures.Add(pathFigure);
+
+            Path path = new Path
+            {
+                Data = pathGeometry,
+                Stroke = Brushes.Red,
+                StrokeThickness = 2,
+                Tag = pathName // Set the Tag property to the provided path name
+            };
+
+            canvas.Children.Add(path);
+
+            // Calculate the angle of the line
+            double angle = Math.Atan2(dy, dx) / Math.PI;
+
+            // Calculate the horizontal position of the arrowhead
+            double arrowWidth = 10; // Width of the arrowhead
+            double arrowX = midPoint.X - arrowWidth / 2; // Position centered on the midpoint
+
+            int renderTransform = (int)midPoint.Y;
+            if (invertY) renderTransform = -(int)midPoint.Y;
+
+            // Add an arrowhead (triangle) at the midpoint
+            double arrowEnd = arrowWidth;
+            if (startPoint.X - endPoint.X < 0) arrowEnd = -arrowWidth;
+            Polygon arrowhead = new Polygon
+            {
+                Points = new PointCollection
+                    {
+                   new Point(arrowX, startPoint.Y - randomHeight ), // Tip of the arrowhead
+               new Point(arrowX + arrowEnd, startPoint.Y - 5 - randomHeight), // Bottom-right corner of the arrowhead
+                new Point(arrowX + arrowEnd, startPoint.Y + 5 - randomHeight) // Top-right corner of the arrowhead
+                 },
+                Fill = Brushes.Red,
+                //   RenderTransform = new RotateTransform(180 + angle * 180, midPoint.X, renderTransform), // Rotate the arrowhead by 180 degrees
+                Tag = pathName
+            };
+
+            canvas.Children.Add(arrowhead);
+        }
+
+
+
+
+        #endregion
+
         #region Image
         private void item_Click(object sender, RoutedEventArgs e)
         {
@@ -280,37 +437,25 @@ namespace BDC
 
         #region Drag
 
-        private void ItemOutButton_Drop(object sender, DragEventArgs e)
-        {
-            if (draggedImage != null)
-            {
-                // Create a new Image and position it on the Canvas
-                Image droppedImage = new Image
-                {
-                    Source = draggedImage.Source,
-                    Width = draggedImage.Width,
-                    Height = draggedImage.Height
-                };
+        #region DragImage
 
-                Point dropPosition = e.GetPosition(canvas);
-
-                Canvas.SetLeft(droppedImage, dropPosition.X - draggedImage.Width / 2);
-                Canvas.SetTop(droppedImage, dropPosition.Y - draggedImage.Height / 2);
-
-                canvas.Children.Add(droppedImage);
-            }
-
-        }
         private void SourceoutElementButton_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
 
             if (!isLine)
             {
+
                 Image image = sender as Image;
 
+
+                // check if exist
+                if (elementer(image)){
+                Element foundElement = returnName(image.Tag.ToString()); 
+                if (foundElement != null) return; }
                 // Prepare image for dragging
                 draggedImage = new Image
                 {
+                    Tag = image.Tag,
                     Source = image.Source,
                     Width = image.Width,
                     Height = image.Height
@@ -323,6 +468,96 @@ namespace BDC
 
             }
         }
+
+      
+
+        private void DroppedImage_MouseMove(object sender, MouseEventArgs e)
+        {
+            Image image = sender as Image;
+            if (!isLine)
+            {
+                if (currentDraggedImage != null && e.LeftButton == MouseButtonState.Pressed)
+                {
+                    Point currentPoint = e.GetPosition(canvas);
+                    double offsetX = currentPoint.X - startPoint.X;
+                    double offsetY = currentPoint.Y - startPoint.Y;
+
+                    double newLeft = Canvas.GetLeft(currentDraggedImage) + offsetX;
+                    double newTop = Canvas.GetTop(currentDraggedImage) + offsetY;
+
+                    Canvas.SetLeft(currentDraggedImage, newLeft);
+                    Canvas.SetTop(currentDraggedImage, newTop);
+
+                    startPoint = currentPoint;
+
+                    removePath(returnElement(image).pathName);
+                }
+            }
+        }
+
+        private void DroppedImage_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            Image image = sender as Image;
+            if (currentDraggedImage != null)
+            {
+                currentDraggedImage.ReleaseMouseCapture();
+                currentDraggedImage = null;
+            }
+
+             if(returnElement(image).pathName != "-"){
+              
+                if (returnElement(image).connection == 0)
+                {
+                   
+                generateImagePath(returnElement(returnElement(image).pathName).image,returnElement(image).image , returnElement(image).pathName, true);
+                }
+                else
+                {
+                generateImagePath( returnElement(image).image, returnElementID(returnElement(image).connection).image, returnElement(image).pathName, true);
+                }
+            }
+        }
+       
+
+        private void ItemOutButton_Drop(object sender, DragEventArgs e)
+        {
+            if (draggedImage != null)
+            {
+                // Create a new Image and position it on the Canvas
+                Image droppedImage = new Image
+                {
+                    Tag = draggedImage.Tag,
+                    Source = draggedImage.Source,
+                    Width = draggedImage.Width,
+                    Height = draggedImage.Height
+                };
+
+                Point dropPosition = e.GetPosition(canvas);
+
+                Canvas.SetLeft(droppedImage, dropPosition.X - draggedImage.Width / 2);
+                Canvas.SetTop(droppedImage, dropPosition.Y - draggedImage.Height / 2);
+
+                canvas.Children.Add(droppedImage);
+
+                droppedImage.MouseLeftButtonDown += DroppedImage_MouseLeftButtonDown;
+                droppedImage.MouseMove += DroppedImage_MouseMove;
+                droppedImage.MouseLeftButtonUp += DroppedImage_MouseLeftButtonUp;
+
+
+                Element  element = new Element();
+                element.exist = true;
+                element.name = draggedImage.Tag.ToString();
+                element.state = draggedImage.Tag.ToString();
+                element.connection = 0;
+                element.image = droppedImage;
+                elements.Add(element);
+
+                AssignStateNumbers(elements);
+            }
+
+        }
+        #endregion
+
         private void outElementButton_Click(object sender, RoutedEventArgs e)
         {
 
@@ -436,7 +671,6 @@ namespace BDC
         #endregion
 
         #region Item
-
         private void AssignStateNumbers(List<Item> items)
         {
             stateCounters = new Dictionary<string, int>();
@@ -466,7 +700,36 @@ namespace BDC
                 }
             }
         }
+        private void AssignStateNumbers(List<Element> elements)
+        {
+            stateCounters = new Dictionary<string, int>();
+            foreach (var element in elements)
+            {
+                element.stateNumber = 0;
 
+            }
+            foreach (var element in elements)
+            {
+                if (element.state == "sh" || element.state == "eva" || element.state == "eco")
+                {
+                    if (!stateCounters.ContainsKey(element.state))
+                    {
+                        stateCounters[element.state] = 1;
+                    }
+                    else
+                    {
+                        stateCounters[element.state]++;
+                        if (stateCounters[element.state] > 3)
+                        {
+                            // You can handle the case when you exceed 3 items with the same state here
+                        }
+                    }
+
+                    element.stateNumber = stateCounters[element.state];
+                    element.name = element.state + stateCounters[element.state];
+                }
+            }
+        }
         #endregion 
 
         #region Attribute
@@ -487,6 +750,56 @@ namespace BDC
             
             if (items[int.Parse(button.Tag.ToString())].exist) return true;
             else return false;
+        }
+
+        private Element returnElement(Image image)
+        {
+            Element foundElement = elements.FirstOrDefault(element => element.image == image); if (foundElement != null) 
+            return foundElement; 
+            return null;
+
+        }
+        private Element returnElement(int connection)
+        {
+            Element foundElement = elements.FirstOrDefault(element => element.connection == connection); if (foundElement != null)
+                return foundElement;
+            return null;
+
+        }
+        private Element returnElementID(int id)
+        {
+            Element foundElement = elements.FirstOrDefault(element => element.id == id); if (foundElement != null)
+                return foundElement;
+            return null;
+
+        }
+            private Element returnName(string name)
+            {
+                Element foundElement = elements.FirstOrDefault(element => element.name == name); if (foundElement != null)
+                    return foundElement;
+                return null;
+
+            }
+            private Element returnElement(string pathName)
+        {
+            Element foundElement = elements.FirstOrDefault(element => element.pathName == pathName); if (foundElement != null)
+                return foundElement;
+            return null;
+
+        }
+
+        private bool elementer(Image image)
+        {
+            switch (image.Tag)
+            {
+                case "fr":
+                    return true;
+                case "du":
+                    return true;
+                default:
+                    return false;
+            }
+
         }
         #endregion
 
@@ -517,8 +830,13 @@ namespace BDC
 
         }
 
-      
-        
+
+        private void Elements_Click(object sender, RoutedEventArgs e)
+        {
+         //   AssignStateNumbers(items);
+            FormElements formElements = new FormElements(elements);
+            formElements.Show();
+        }
 
         private void Attributes_Click(object sender, RoutedEventArgs e)
         {
@@ -528,9 +846,11 @@ namespace BDC
         }
 
 
+
+
         #endregion
 
-      
+     
     }
 
 }
