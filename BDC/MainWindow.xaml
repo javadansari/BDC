@@ -14,6 +14,7 @@
         <sys:Double x:Key="margin">2</sys:Double>
         <sys:Double x:Key="marginTop">200</sys:Double>
         <sys:Double x:Key="marginRecTop">150</sys:Double>
+        <sys:Double x:Key="iconSize">48</sys:Double>
     </Window.Resources>
 
     <Grid>
@@ -39,7 +40,6 @@
                 <MenuItem Header="Paste"/>
             </MenuItem>
             <MenuItem Header="Information">
-                <MenuItem Header="Items" Click="Items_Click"/>
                 <MenuItem Header="Elements" Click="Elements_Click"/>
                 <MenuItem Header="Attributes" Click="Attributes_Click"/>
             </MenuItem>
@@ -49,61 +49,28 @@
             <ToolBar >
                 <StackPanel Orientation="Vertical">
                     <StackPanel Orientation="Horizontal">
-                        <Button Name="ecoButton" Click="item_Click" Tag="eco" PreviewMouseLeftButtonDown="SourceToolsButton_PreviewMouseLeftButtonDown">
-                            <Image Source="/economizer.png" Width="24" Height="24"/>
-                        </Button>
-                        <Button Name="evaButton" Click="item_Click" Tag="eva" PreviewMouseLeftButtonDown="SourceToolsButton_PreviewMouseLeftButtonDown">
-                            <Image Source="/evaporator.png" Width="24" Height="24" />
-                        </Button>
-                        <Button  Name="shButton" Click="item_Click" Tag="sh" PreviewMouseLeftButtonDown="SourceToolsButton_PreviewMouseLeftButtonDown">
-                            <Image Source="/superheater.png" Width="24" Height="24" />
-                        </Button>
+                        <Image  Tag="eco" Width="{StaticResource iconSize}" Height="{StaticResource iconSize}" Source="/economizer.png"    PreviewMouseLeftButtonDown="SourceoutElementButton_PreviewMouseLeftButtonDown"/>
+                        <Image  Tag="eva" Width="{StaticResource iconSize}" Height="{StaticResource iconSize}" Source="/evaporator.png"    PreviewMouseLeftButtonDown="SourceoutElementButton_PreviewMouseLeftButtonDown"/>
+                     </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                         <Image  Tag="sh" Width="{StaticResource iconSize}" Height="{StaticResource iconSize}" Source="/superheater.png"    PreviewMouseLeftButtonDown="SourceoutElementButton_PreviewMouseLeftButtonDown"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <Image  Tag="eco" Width="24" Height="24" Source="/economizer.png"    PreviewMouseLeftButtonDown="SourceoutElementButton_PreviewMouseLeftButtonDown"/>
-                        <Image  Tag="eva" Width="24" Height="24" Source="/evaporator.png"    PreviewMouseLeftButtonDown="SourceoutElementButton_PreviewMouseLeftButtonDown"/>
-                        <Image  Tag="sh" Width="24" Height="24" Source="/superheater.png"    PreviewMouseLeftButtonDown="SourceoutElementButton_PreviewMouseLeftButtonDown"/>
+                        <Image  Tag="pu" Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"    PreviewMouseLeftButtonDown="SourceoutElementButton_PreviewMouseLeftButtonDown" Source="/pump.png"/>
+                        <Image  Tag="fan" Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"    PreviewMouseLeftButtonDown="SourceoutElementButton_PreviewMouseLeftButtonDown" Source="/fan.png"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <Image  Tag="pu" Width="24" Height="24" Source="/pump.png"    PreviewMouseLeftButtonDown="SourceoutElementButton_PreviewMouseLeftButtonDown"/>
-                        <Image  Tag="fan" Width="24" Height="24" Source="/fan.png"    PreviewMouseLeftButtonDown="SourceoutElementButton_PreviewMouseLeftButtonDown"/>
+                        <Image  Tag="fr" Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"    PreviewMouseLeftButtonDown="SourceoutElementButton_PreviewMouseLeftButtonDown" Source="/furnace.png"/>
+                        <Image  Tag="bu" Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"    PreviewMouseLeftButtonDown="SourceoutElementButton_PreviewMouseLeftButtonDown" Source="/burner.png"/>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <Image  Tag="fr" Width="24" Height="24" Source="/furnace.png"    PreviewMouseLeftButtonDown="SourceoutElementButton_PreviewMouseLeftButtonDown"/>
-                        <Image  Tag="bu" Width="24" Height="24" Source="/burner.png"    PreviewMouseLeftButtonDown="SourceoutElementButton_PreviewMouseLeftButtonDown"/>
-                    </StackPanel>
-                    <Image Width="24" Height="24" Source="/SmokeRelation.png" MouseDown="line_Click" />
-                    <Button  Name="lineButton" Tag="line" Click="lineButton_Click">
-                        <Image Width="24" Height="24" Source="/SmokeRelation.png" />
-                    </Button>
-                    <Button  Name="update" Tag="line">
-                        <Image Width="24" Height="24" Source="/do.png" />
-                    </Button>
+                    <Image Width="{StaticResource iconSize}" Height="{StaticResource iconSize}" Source="/SmokeRelation.png" MouseDown="line_Click" />
+                    <Image Width="{StaticResource iconSize}" Height="{StaticResource iconSize}" Source="/do.png" MouseDown="label_Click" />
                 </StackPanel>
             </ToolBar>
         </ToolBarTray>
         <ScrollViewer Grid.Row="1" Grid.Column="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
 
-            <Canvas  Background="Green"  Name="canvas"  Drop="ItemOutButton_Drop"  AllowDrop="True">
-              
-                <Rectangle Name="levelStep1" AllowDrop="True" Fill="Aqua" Canvas.Left="50" Canvas.Top="{StaticResource marginRecTop}" Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" ></Rectangle>
-                <Rectangle Name="levelStep2" AllowDrop="True" Fill="Aqua" Canvas.Left="125" Canvas.Top="{StaticResource marginRecTop}" Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" ></Rectangle>
-                <Rectangle Name="levelStep3" AllowDrop="True" Fill="Aqua" Canvas.Left="200" Canvas.Top="{StaticResource marginRecTop}" Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" ></Rectangle>
-                <Rectangle Name="levelStep4" AllowDrop="True" Fill="Aqua" Canvas.Left="275" Canvas.Top="{StaticResource marginRecTop}" Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" ></Rectangle>
-                <Rectangle Name="levelStep5" AllowDrop="True" Fill="Aqua" Canvas.Left="350" Canvas.Top="{StaticResource marginRecTop}" Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" ></Rectangle>
-                <Rectangle Name="levelStep6" AllowDrop="True" Fill="Aqua" Canvas.Left="425" Canvas.Top="{StaticResource marginRecTop}" Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" ></Rectangle>
-                <Rectangle Name="levelStep7" AllowDrop="True" Fill="Aqua" Canvas.Left="500" Canvas.Top="{StaticResource marginRecTop}" Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" ></Rectangle>
-                <Rectangle Name="levelStep8" AllowDrop="True" Fill="Aqua" Canvas.Left="575" Canvas.Top="{StaticResource marginRecTop}" Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" ></Rectangle>
-                <Rectangle Name="levelStep9" AllowDrop="True" Fill="Aqua" Canvas.Left="650" Canvas.Top="{StaticResource marginRecTop}" Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" ></Rectangle>
-                <Button Name="levelButton1" Tag="1"  Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" PreviewMouseRightButtonDown="SourceButton_PreviewMouseRightButtonDown" PreviewMouseLeftButtonDown="SourceButton_PreviewMouseLeftButtonDown" Click="levelButton_Click" Drop="TargetButton_Drop" AllowDrop="True" Canvas.Left="50" Canvas.Top="{StaticResource marginTop}"/>
-                <Button Name="levelButton2" Tag="2"  Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" PreviewMouseRightButtonDown="SourceButton_PreviewMouseRightButtonDown" PreviewMouseLeftButtonDown="SourceButton_PreviewMouseLeftButtonDown" Click="levelButton_Click" Drop="TargetButton_Drop" AllowDrop="True" Canvas.Left="125" Canvas.Top="{StaticResource marginTop}"/>
-                <Button Name="levelButton3" Tag="3"  Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" PreviewMouseRightButtonDown="SourceButton_PreviewMouseRightButtonDown" PreviewMouseLeftButtonDown="SourceButton_PreviewMouseLeftButtonDown" Click="levelButton_Click" Drop="TargetButton_Drop" AllowDrop="True" Canvas.Left="200" Canvas.Top="{StaticResource marginTop}"/>
-                <Button Name="levelButton4" Tag="4"  Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" PreviewMouseRightButtonDown="SourceButton_PreviewMouseRightButtonDown" PreviewMouseLeftButtonDown="SourceButton_PreviewMouseLeftButtonDown" Click="levelButton_Click" Drop="TargetButton_Drop" AllowDrop="True" Canvas.Left="275" Canvas.Top="{StaticResource marginTop}"/>
-                <Button Name="levelButton5" Tag="5"  Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" PreviewMouseRightButtonDown="SourceButton_PreviewMouseRightButtonDown" PreviewMouseLeftButtonDown="SourceButton_PreviewMouseLeftButtonDown" Click="levelButton_Click" Drop="TargetButton_Drop" AllowDrop="True" Canvas.Left="350" Canvas.Top="{StaticResource marginTop}"/>
-                <Button Name="levelButton6" Tag="6"  Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" PreviewMouseRightButtonDown="SourceButton_PreviewMouseRightButtonDown" PreviewMouseLeftButtonDown="SourceButton_PreviewMouseLeftButtonDown" Click="levelButton_Click" Drop="TargetButton_Drop" AllowDrop="True" Canvas.Left="425" Canvas.Top="{StaticResource marginTop}"/>
-                <Button Name="levelButton7" Tag="7"  Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" PreviewMouseRightButtonDown="SourceButton_PreviewMouseRightButtonDown" PreviewMouseLeftButtonDown="SourceButton_PreviewMouseLeftButtonDown" Click="levelButton_Click" Drop="TargetButton_Drop" AllowDrop="True" Canvas.Left="500" Canvas.Top="{StaticResource marginTop}" />
-                <Button Name="levelButton8" Tag="8"  Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" PreviewMouseRightButtonDown="SourceButton_PreviewMouseRightButtonDown" PreviewMouseLeftButtonDown="SourceButton_PreviewMouseLeftButtonDown" Click="levelButton_Click" Drop="TargetButton_Drop" AllowDrop="True" Canvas.Left="575" Canvas.Top="{StaticResource marginTop}" />
-                <Button Name="levelButton9" Tag="9"  Width="{StaticResource sizeBox}" Height="{StaticResource sizeBox}" PreviewMouseRightButtonDown="SourceButton_PreviewMouseRightButtonDown" PreviewMouseLeftButtonDown="SourceButton_PreviewMouseLeftButtonDown" Click="levelButton_Click" Drop="TargetButton_Drop" AllowDrop="True" Canvas.Left="650" Canvas.Top="{StaticResource marginTop}" />
+            <Canvas  Background="White"  Name="canvas"  Drop="ItemOutButton_Drop"  AllowDrop="True">
             </Canvas>
 
         </ScrollViewer>

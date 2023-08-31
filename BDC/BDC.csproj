@@ -12,9 +12,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="burner.png" />
     <None Remove="do.png" />
     <None Remove="economizer.png" />
     <None Remove="evaporator.png" />
+    <None Remove="fan.png" />
+    <None Remove="furnace.png" />
+    <None Remove="pump.png" />
     <None Remove="SmokeRelation.png" />
     <None Remove="superheater.png" />
   </ItemGroup>
@@ -23,8 +27,12 @@
     <Resource Include="App.xaml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="burner.png" />
     <Resource Include="economizer.png" />
     <Resource Include="evaporator.png" />
+    <Resource Include="fan.png" />
+    <Resource Include="furnace.png" />
+    <Resource Include="pump.png" />
     <Resource Include="smokeRelation.png" />
     <Resource Include="superheater.png" />
     <Resource Include="do.png" />
