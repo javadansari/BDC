@@ -325,8 +325,8 @@ namespace BDC
             WriteLine(leftCanvas + " , " + topCanvas);
             canvas.AllowDrop = false;
 
-            if (leftCanvas < 100 || topCanvas < 100)
-                return;
+         //   if (leftCanvas < 100 || topCanvas < 100)
+         //       return;
 
             if (!isLine)
             {
