@@ -18,9 +18,27 @@
     <None Remove="evaporator.png" />
     <None Remove="fan.png" />
     <None Remove="furnace.png" />
+    <None Remove="Image2.png" />
+    <None Remove="Images\Image1.png" />
+    <None Remove="Images\Image2.png" />
+    <None Remove="Images\Image3.png" />
+    <None Remove="Images\Image4.png" />
+    <None Remove="Images\Image5.png" />
     <None Remove="pump.png" />
     <None Remove="SmokeRelation.png" />
     <None Remove="superheater.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Images\Canvas\Image3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Canvas\Image4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Canvas\Image5.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
@@ -32,6 +50,12 @@
     <Resource Include="evaporator.png" />
     <Resource Include="fan.png" />
     <Resource Include="furnace.png" />
+    <Content Include="Images\Canvas\Image1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Canvas\Image2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Resource Include="pump.png" />
     <Resource Include="smokeRelation.png" />
     <Resource Include="superheater.png" />

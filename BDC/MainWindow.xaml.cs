@@ -54,7 +54,7 @@ namespace BDC
         {
             InitializeComponent();
             startInitialize();
-
+          
         }
 
         #region Start
@@ -318,6 +318,16 @@ namespace BDC
         private void SourceoutElementButton_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
 
+            // Get Postion
+            double leftCanvas = e.GetPosition(canvas).X;
+            double topCanvas = e.GetPosition(canvas).Y;
+
+            WriteLine(leftCanvas + " , " + topCanvas);
+            canvas.AllowDrop = false;
+
+            if (leftCanvas < 100 || topCanvas < 100)
+                return;
+
             if (!isLine)
             {
 
@@ -364,11 +374,13 @@ namespace BDC
 
         private void DroppedImage_MouseMove(object sender, MouseEventArgs e)
         {
+        
             Image image = sender as Image;
             if (!isLine)
             {
                 if (currentDraggedImage != null && e.LeftButton == MouseButtonState.Pressed)
                 {
+
                     Point currentPoint = e.GetPosition(canvas);
                     double offsetX = currentPoint.X - startPoint.X;
                     double offsetY = currentPoint.Y - startPoint.Y;
@@ -388,6 +400,7 @@ namespace BDC
 
         private void DroppedImage_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+       
             Image image = sender as Image;
             if (currentDraggedImage != null)
             {
@@ -501,6 +514,11 @@ namespace BDC
         #endregion
 
         #region Tools
+
+        private void WriteLine(string text)
+        {
+            reportText.Text = text ;
+        }
         private bool checkButtonExist(Button button)
         {
 

@@ -51,9 +51,9 @@
                     <StackPanel Orientation="Horizontal">
                         <Image  Tag="eco" Width="{StaticResource iconSize}" Height="{StaticResource iconSize}" Source="/economizer.png"    PreviewMouseLeftButtonDown="SourceoutElementButton_PreviewMouseLeftButtonDown"/>
                         <Image  Tag="eva" Width="{StaticResource iconSize}" Height="{StaticResource iconSize}" Source="/evaporator.png"    PreviewMouseLeftButtonDown="SourceoutElementButton_PreviewMouseLeftButtonDown"/>
-                     </StackPanel>
+                    </StackPanel>
                     <StackPanel Orientation="Horizontal">
-                         <Image  Tag="sh" Width="{StaticResource iconSize}" Height="{StaticResource iconSize}" Source="/superheater.png"    PreviewMouseLeftButtonDown="SourceoutElementButton_PreviewMouseLeftButtonDown"/>
+                        <Image  Tag="sh" Width="{StaticResource iconSize}" Height="{StaticResource iconSize}" Source="/superheater.png"    PreviewMouseLeftButtonDown="SourceoutElementButton_PreviewMouseLeftButtonDown"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Image  Tag="pu" Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"    PreviewMouseLeftButtonDown="SourceoutElementButton_PreviewMouseLeftButtonDown" Source="/pump.png"/>
@@ -71,6 +71,12 @@
         <ScrollViewer Grid.Row="1" Grid.Column="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
 
             <Canvas  Background="White"  Name="canvas"  Drop="ItemOutButton_Drop"  AllowDrop="True">
+                <Image Height="201" Source="Images/Canvas/Image1.png" Stretch="Fill" Width="39" Canvas.Left="686" Canvas.Top="23" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Image Height="251" Source="Images/Canvas/Image2.png" Stretch="Fill" Width="468" HorizontalAlignment="Left" Canvas.Top="131" VerticalAlignment="Top" Canvas.Left="36"/>
+                <Image Height="108" Source="Images/Canvas/Image3.png" Stretch="Fill" Width="184" Canvas.Left="502" Canvas.Top="131" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <Image Height="80" Source="Images/Canvas/Image5.png" Stretch="Fill" Width="59" Canvas.Left="502" Canvas.Top="256" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <Image Height="69" Source="Images/Canvas/Image6.png" Stretch="Fill" Width="54" Canvas.Left="561" Canvas.Top="272" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Rectangle Fill="AliceBlue" Height="103" Width="57" Canvas.Top="136" Canvas.Left="36" />
             </Canvas>
 
         </ScrollViewer>
@@ -83,7 +89,7 @@
                 </Grid.ColumnDefinitions>
 
                 <TextBlock  Name="reportText" Padding="50 5 0 0" VerticalAlignment="Center" Text="Application"/>
-
+               
                 <Slider x:Name="zoomSlider" Minimum="0.6" Maximum="1" Value="1" TickFrequency="0.1" 
                 TickPlacement="BottomRight" Width="200" Margin="10 0" 
                 HorizontalAlignment="Right" Grid.Column="1" ValueChanged="ZoomSlider_ValueChanged" />
