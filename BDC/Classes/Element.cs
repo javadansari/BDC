@@ -15,6 +15,10 @@ namespace BDC.Classes
         public string state { get; set; } = "-";
         public int stateNumber { get; set; }
         public Image image { get; set; }
+
+        public int position { get; set; } 
+        public double x { get; set; } 
+        public double y { get; set; } 
         public List<ItemAttribute> Attributes { get; set; }
         public Element()
         {

@@ -76,7 +76,7 @@
                 <Image Height="108" Source="Images/Canvas/Image3.png" Stretch="Fill" Width="184" Canvas.Left="502" Canvas.Top="131" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                 <Image Height="80" Source="Images/Canvas/Image5.png" Stretch="Fill" Width="59" Canvas.Left="502" Canvas.Top="256" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                 <Image Height="69" Source="Images/Canvas/Image6.png" Stretch="Fill" Width="54" Canvas.Left="561" Canvas.Top="272" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <Rectangle Fill="AliceBlue" Height="103" Width="57" Canvas.Top="136" Canvas.Left="36" />
+                <Rectangle Fill="AliceBlue" Height="100" Width="50" Canvas.Top="135" Canvas.Left="100" HorizontalAlignment="Left" VerticalAlignment="Center" />
             </Canvas>
 
         </ScrollViewer>
@@ -89,7 +89,7 @@
                 </Grid.ColumnDefinitions>
 
                 <TextBlock  Name="reportText" Padding="50 5 0 0" VerticalAlignment="Center" Text="Application"/>
-               
+
                 <Slider x:Name="zoomSlider" Minimum="0.6" Maximum="1" Value="1" TickFrequency="0.1" 
                 TickPlacement="BottomRight" Width="200" Margin="10 0" 
                 HorizontalAlignment="Right" Grid.Column="1" ValueChanged="ZoomSlider_ValueChanged" />

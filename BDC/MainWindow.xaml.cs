@@ -21,6 +21,7 @@ using BDC.Classes;
 using System.Net;
 using System.Security.AccessControl;
 using BDC.Forms;
+using System.Windows.Media.Media3D;
 
 namespace BDC
 {
@@ -192,8 +193,12 @@ namespace BDC
 
         private void generateImagePath(Image firstImage, Image secondImage, string pathName, bool invertY = false)
         {
-            Point startPoint = new Point(Canvas.GetLeft(firstImage) + firstImage.ActualWidth / 2, Canvas.GetTop(firstImage) + firstImage.ActualHeight / 2);
-            Point endPoint = new Point(Canvas.GetLeft(secondImage) + secondImage.ActualWidth / 2, Canvas.GetTop(secondImage) + secondImage.ActualHeight / 2);
+         //   Point startPoint = new Point(Canvas.GetLeft(firstImage) + firstImage.ActualWidth / 2, Canvas.GetTop(firstImage) + firstImage.ActualHeight / 2);
+            Point startPoint = new Point(Canvas.GetLeft(firstImage) + firstImage.ActualWidth , Canvas.GetTop(firstImage) + firstImage.ActualHeight / 2);
+        //    Point endPoint = new Point(Canvas.GetLeft(secondImage) + secondImage.ActualWidth / 2, Canvas.GetTop(secondImage) + secondImage.ActualHeight / 2);
+            Point endPoint = new Point(Canvas.GetLeft(secondImage) + secondImage.ActualWidth , Canvas.GetTop(secondImage) + secondImage.ActualHeight / 2);
+
+            WriteLine(startPoint.X + " - " + endPoint.X + " / " + Canvas.GetLeft(firstImage) + " - " + Canvas.GetLeft(secondImage));
 
             double dx = endPoint.X - startPoint.X;
             double dy = endPoint.Y - startPoint.Y;
@@ -318,15 +323,6 @@ namespace BDC
         private void SourceoutElementButton_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
 
-            // Get Postion
-            double leftCanvas = e.GetPosition(canvas).X;
-            double topCanvas = e.GetPosition(canvas).Y;
-
-            WriteLine(leftCanvas + " , " + topCanvas);
-            canvas.AllowDrop = false;
-
-         //   if (leftCanvas < 100 || topCanvas < 100)
-         //       return;
 
             if (!isLine)
             {
@@ -381,6 +377,8 @@ namespace BDC
                 if (currentDraggedImage != null && e.LeftButton == MouseButtonState.Pressed)
                 {
 
+                //    MessageBox.Show("jj");
+
                     Point currentPoint = e.GetPosition(canvas);
                     double offsetX = currentPoint.X - startPoint.X;
                     double offsetY = currentPoint.Y - startPoint.Y;
@@ -388,9 +386,14 @@ namespace BDC
                     double newLeft = Canvas.GetLeft(currentDraggedImage) + offsetX;
                     double newTop = Canvas.GetTop(currentDraggedImage) + offsetY;
 
+                    if (!elementer(draggedImage))
+                    {
+                        var result = checkInBox(newLeft, newTop);
+                        if (!result.IsInside) return;
+                    }
+
                     Canvas.SetLeft(currentDraggedImage, newLeft);
                     Canvas.SetTop(currentDraggedImage, newTop);
-
                     startPoint = currentPoint;
 
                     removePath(returnElement(image).pathName);
@@ -400,19 +403,32 @@ namespace BDC
 
         private void DroppedImage_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-       
-            Image image = sender as Image;
+
+             Image image = sender as Image;
             if (currentDraggedImage != null)
             {
+
+
+                // Check Postion
+                double x = e.GetPosition(canvas).X;
+                double y = e.GetPosition(canvas).Y;
+
+                if (!elementer(draggedImage))
+                {
+                    var result = checkInBox(x, y);
+                    x = result.X; y = result.Y;
+                    if (!result.IsInside) return;
+                }  
+                Canvas.SetLeft(currentDraggedImage, x - currentDraggedImage.Width / 2);
+                Canvas.SetTop(currentDraggedImage, y - currentDraggedImage.Height / 2);
+
                 currentDraggedImage.ReleaseMouseCapture();
                 currentDraggedImage = null;
-            }
-
+          
             if (returnElement(image).pathName != "-") {
 
                 if (returnElement(image).connection == 0)
                 {
-
                     generateImagePath(returnElement(returnElement(image).pathName).image, returnElement(image).image, returnElement(image).pathName, true);
                 }
                 else
@@ -420,15 +436,32 @@ namespace BDC
                     generateImagePath(returnElement(image).image, returnElementID(returnElement(image).connection).image, returnElement(image).pathName, true);
                 }
             }
+            }
+
         }
 
 
         private void ItemOutButton_Drop(object sender, DragEventArgs e)
         {
+
+
+
             if (draggedImage != null)
             {
-                // Create a new Image and position it on the Canvas
-                Image droppedImage = new Image
+                // Check Postion
+                double x = e.GetPosition(canvas).X;
+                double y = e.GetPosition(canvas).Y;
+                int position = 0;
+                if (!elementer(draggedImage)){
+                    var result = checkInBox(x,y);
+                    x = result.X; y = result.Y; position = result.position;
+                    if (!result.IsInside) return;
+                }
+
+
+
+                    // Create a new Image and position it on the Canvas
+                    Image droppedImage = new Image
                 {
                     Tag = draggedImage.Tag,
                     Source = draggedImage.Source,
@@ -438,8 +471,11 @@ namespace BDC
 
                 Point dropPosition = e.GetPosition(canvas);
 
-                Canvas.SetLeft(droppedImage, dropPosition.X - draggedImage.Width / 2);
-                Canvas.SetTop(droppedImage, dropPosition.Y - draggedImage.Height / 2);
+                Canvas.SetLeft(droppedImage, x - draggedImage.Width / 2);
+                Canvas.SetTop(droppedImage, y - draggedImage.Height / 2);
+
+            //   Canvas.SetLeft(droppedImage, dropPosition.X - draggedImage.Width / 2);
+            //   Canvas.SetTop(droppedImage, dropPosition.Y - draggedImage.Height / 2);
 
                 canvas.Children.Add(droppedImage);
 
@@ -454,20 +490,46 @@ namespace BDC
                 element.state = draggedImage.Tag.ToString();
                 element.connection = 0;
                 element.image = droppedImage;
+                element.position = position;
+                element.x = x;
+                element.y = y;
                 elements.Add(element);
-
                 AssignStateNumbers(elements);
+
+
+
             }
 
+
+           
+
         }
+        private (bool IsInside, double X, double Y, int position) checkInBox(double leftCanvas, double topCanvas )
+        {
+    
+
+            int x = -20; 
+            int y = 135;
+            int width = 57;
+            int height = 103;
+
+            for (int i = 1; i < 12; i++)
+            {
+                x = x + 58;
+                if (leftCanvas > x && leftCanvas < x + width && topCanvas > y & topCanvas < y + height) return (true, (2 * x + width) / 2, (2 * y + height) / 2 , i);
+            }
+          return (false, 0, 0,0);
+
+        }
+  
         #endregion
 
-     
-      
+
+
         #endregion
 
         #region Item
-      
+
         private void AssignStateNumbers(List<Element> elements)
         {
             stateCounters = new Dictionary<string, int>();
@@ -573,6 +635,10 @@ namespace BDC
                 case "fr":
                     return true;
                 case "du":
+                    return true;
+                case "pu":
+                    return true;
+                case "fan":
                     return true;
                 default:
                     return false;
