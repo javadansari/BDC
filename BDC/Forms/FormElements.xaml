@@ -10,17 +10,17 @@
         <ListView Name="listView" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="id" Width="30" DisplayMemberBinding="{Binding id}" />
-                    <GridViewColumn Header="image" Width="100" DisplayMemberBinding="{Binding image}" />
-                    <GridViewColumn Header="exist" Width="30" DisplayMemberBinding="{Binding exist}" />
-                    <GridViewColumn Header="name" Width="40" DisplayMemberBinding="{Binding name}" />
-                    <GridViewColumn Header="connection" Width="40" DisplayMemberBinding="{Binding connection}" />
-                    <GridViewColumn Header="pathName" Width="40" DisplayMemberBinding="{Binding pathName}" />
-                    <GridViewColumn Header="state" Width="40" DisplayMemberBinding="{Binding state}" />
-                    <GridViewColumn Header="stateNumber" Width="40" DisplayMemberBinding="{Binding stateNumber}" />
-                    <GridViewColumn Header="position" Width="40" DisplayMemberBinding="{Binding position}" />
-                    <GridViewColumn Header="x" Width="40" DisplayMemberBinding="{Binding x}" />
-                    <GridViewColumn Header="y" Width="40" DisplayMemberBinding="{Binding y}" />
+                    <GridViewColumn Header="id" Width="30" DisplayMemberBinding="{Binding Id}" />
+                    <GridViewColumn Header="image" Width="100" DisplayMemberBinding="{Binding Image}" />
+                    <GridViewColumn Header="exist" Width="30" DisplayMemberBinding="{Binding Exist}" />
+                    <GridViewColumn Header="name" Width="40" DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="connection" Width="40" DisplayMemberBinding="{Binding Connection}" />
+                    <GridViewColumn Header="pathName" Width="40" DisplayMemberBinding="{Binding PathName}" />
+                    <GridViewColumn Header="state" Width="40" DisplayMemberBinding="{Binding State}" />
+                    <GridViewColumn Header="stateNumber" Width="40" DisplayMemberBinding="{Binding StateNumber}" />
+                    <GridViewColumn Header="position" Width="40" DisplayMemberBinding="{Binding Position}" />
+                    <GridViewColumn Header="x" Width="40" DisplayMemberBinding="{Binding X}" />
+                    <GridViewColumn Header="y" Width="40" DisplayMemberBinding="{Binding Y}" />
                 </GridView>
             </ListView.View>
         </ListView>

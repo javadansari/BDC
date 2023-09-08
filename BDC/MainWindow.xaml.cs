@@ -22,6 +22,15 @@ using System.Net;
 using System.Security.AccessControl;
 using BDC.Forms;
 using System.Windows.Media.Media3D;
+using Microsoft.Win32;
+using System.Xml;
+using System.IO;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Data.Sqlite;
+using BDC.DataBase;
+using System.Data.SQLite;
+using System.Data.Entity;
+using System.Windows.Controls.Primitives;
 
 namespace BDC
 {
@@ -47,6 +56,7 @@ namespace BDC
         private Image draggedImage;
         private Image currentDraggedImage;
         private Point startPoint;
+        private int iconSize = 48;
         private double currentScale = 1.0;
 
    
@@ -101,11 +111,11 @@ namespace BDC
         {
             string tagToRemove = pathName;
 
-            Path pathToRemove = null;
+            System.Windows.Shapes.Path pathToRemove = null;
 
             foreach (UIElement element in canvas.Children)
             {
-                if (element is Path path && path.Tag is string tag && tag == tagToRemove)
+                if (element is System.Windows.Shapes.Path path && path.Tag is string tag && tag == tagToRemove)
                 {
                     pathToRemove = path;
                     break; // Assuming you want to remove only the first path with the given tag
@@ -160,9 +170,9 @@ namespace BDC
                         //     int b = int.Parse(secondLineButton.Tag.ToString());
                         Element firstImage = returnElement(firstLineImage);
                         Element secondImage = returnElement(secondLineImage);
-                        string pathName = firstImage.id.ToString();
-                        if (secondImage.connection == firstImage.id)
-                            pathName = secondImage.id.ToString();
+                        string pathName = firstImage.Id.ToString();
+                        if (secondImage.Connection == firstImage.Id)
+                            pathName = secondImage.Id.ToString();
                         removePath(pathName);
                         //       double centerY = 230 + firstLineButton.ActualHeight / 2;
                         //       Point clickPoint = Mouse.GetPosition(clickedButton);
@@ -170,9 +180,9 @@ namespace BDC
                         generateImagePath(firstLineImage, secondLineImage, pathName, true);
 
 
-                        firstImage.connection = secondImage.id;
-                        firstImage.pathName = pathName;
-                        secondImage.pathName = firstImage.id.ToString();
+                        firstImage.Connection = secondImage.Id;
+                        firstImage.PathName = pathName;
+                        secondImage.PathName = firstImage.Id.ToString();
 
                     }
                     escapePath();
@@ -241,7 +251,7 @@ namespace BDC
 
             pathGeometry.Figures.Add(pathFigure);
 
-            Path path = new Path
+            System.Windows.Shapes.Path path = new System.Windows.Shapes.Path
             {
                 Data = pathGeometry,
                 Stroke = Brushes.Red,
@@ -396,7 +406,7 @@ namespace BDC
                     Canvas.SetTop(currentDraggedImage, newTop);
                     startPoint = currentPoint;
 
-                    removePath(returnElement(image).pathName);
+                    removePath(returnElement(image).PathName);
                 }
             }
         }
@@ -425,15 +435,15 @@ namespace BDC
                 currentDraggedImage.ReleaseMouseCapture();
                 currentDraggedImage = null;
           
-            if (returnElement(image).pathName != "-") {
+            if (returnElement(image).PathName != "-") {
 
-                if (returnElement(image).connection == 0)
+                if (returnElement(image).Connection == 0)
                 {
-                    generateImagePath(returnElement(returnElement(image).pathName).image, returnElement(image).image, returnElement(image).pathName, true);
+                    generateImagePath(returnElement(returnElement(image).PathName).Image, returnElement(image).Image, returnElement(image).PathName, true);
                 }
                 else
                 {
-                    generateImagePath(returnElement(image).image, returnElementID(returnElement(image).connection).image, returnElement(image).pathName, true);
+                    generateImagePath(returnElement(image).Image, returnElementID(returnElement(image).Connection).Image, returnElement(image).PathName, true);
                 }
             }
             }
@@ -458,10 +468,8 @@ namespace BDC
                     if (!result.IsInside) return;
                 }
 
-
-
-                    // Create a new Image and position it on the Canvas
-                    Image droppedImage = new Image
+                // Create a new Image and position it on the Canvas
+                Image droppedImage = new Image
                 {
                     Tag = draggedImage.Tag,
                     Source = draggedImage.Source,
@@ -469,30 +477,19 @@ namespace BDC
                     Height = draggedImage.Height
                 };
 
-                Point dropPosition = e.GetPosition(canvas);
-
-                Canvas.SetLeft(droppedImage, x - draggedImage.Width / 2);
-                Canvas.SetTop(droppedImage, y - draggedImage.Height / 2);
-
-            //   Canvas.SetLeft(droppedImage, dropPosition.X - draggedImage.Width / 2);
-            //   Canvas.SetTop(droppedImage, dropPosition.Y - draggedImage.Height / 2);
-
-                canvas.Children.Add(droppedImage);
-
-                droppedImage.MouseLeftButtonDown += DroppedImage_MouseLeftButtonDown;
-                droppedImage.MouseMove += DroppedImage_MouseMove;
-                droppedImage.MouseLeftButtonUp += DroppedImage_MouseLeftButtonUp;
-
+                CreateElement(droppedImage, x, y);
 
                 Element element = new Element();
-                element.exist = true;
-                element.name = draggedImage.Tag.ToString();
-                element.state = draggedImage.Tag.ToString();
-                element.connection = 0;
-                element.image = droppedImage;
-                element.position = position;
-                element.x = x;
-                element.y = y;
+                element.Exist = true;
+                element.Name = draggedImage.Tag.ToString();
+                element.State = draggedImage.Tag.ToString();
+                element.Connection = 0;
+                element.Image = droppedImage;
+                element.Position = position;
+                element.X = x;
+                element.Y = y;
+                 List<ItemAttribute> attributes = new List<ItemAttribute>();
+                element.Attributes = attributes;
                 elements.Add(element);
                 AssignStateNumbers(elements);
 
@@ -521,11 +518,33 @@ namespace BDC
           return (false, 0, 0,0);
 
         }
-  
+
         #endregion
 
 
 
+        #endregion
+
+        #region Element
+        private Image CreateElement( Image droppedImage, double x , double y)
+        {
+          
+
+          //  Point dropPosition = e.GetPosition(canvas);
+
+            Canvas.SetLeft(droppedImage, x - iconSize / 2);
+            Canvas.SetTop(droppedImage, y - iconSize / 2);
+
+            //   Canvas.SetLeft(droppedImage, dropPosition.X - draggedImage.Width / 2);
+            //   Canvas.SetTop(droppedImage, dropPosition.Y - draggedImage.Height / 2);
+
+            canvas.Children.Add(droppedImage);
+
+            droppedImage.MouseLeftButtonDown += DroppedImage_MouseLeftButtonDown;
+            droppedImage.MouseMove += DroppedImage_MouseMove;
+            droppedImage.MouseLeftButtonUp += DroppedImage_MouseLeftButtonUp;
+            return droppedImage;
+        }
         #endregion
 
         #region Item
@@ -535,29 +554,29 @@ namespace BDC
             stateCounters = new Dictionary<string, int>();
             foreach (var element in elements)
             {
-                element.stateNumber = 0;
+                element.StateNumber = 0;
 
             }
             foreach (var element in elements)
             {
-                if (element.state == "sh" || element.state == "eva" || element.state == "eco")
+                if (element.State == "sh" || element.State == "eva" || element.State == "eco")
                 {
-                    if (!stateCounters.ContainsKey(element.state))
+                    if (!stateCounters.ContainsKey(element.State))
                     {
-                        stateCounters[element.state] = 1;
+                        stateCounters[element.State] = 1;
                     }
                     else
                     {
-                        stateCounters[element.state]++;
-                        if (stateCounters[element.state] > 3)
+                        stateCounters[element.State]++;
+                        if (stateCounters[element.State] > 3)
                         {
                             // You can handle the case when you exceed 3 items with the same state here
 
                         }
                     }
 
-                    element.stateNumber = stateCounters[element.state];
-                    element.name = element.state + stateCounters[element.state];
+                    element.StateNumber = stateCounters[element.State];
+                    element.Name = element.State + stateCounters[element.State];
                 }
             }
         }
@@ -590,35 +609,35 @@ namespace BDC
 
         private Element returnElement(Image image)
         {
-            Element foundElement = elements.FirstOrDefault(element => element.image == image); if (foundElement != null)
+            Element foundElement = elements.FirstOrDefault(element => element.Image == image); if (foundElement != null)
                 return foundElement;
             return null;
 
         }
         private Element returnElement(int connection)
         {
-            Element foundElement = elements.FirstOrDefault(element => element.connection == connection); if (foundElement != null)
+            Element foundElement = elements.FirstOrDefault(element => element.Connection == connection); if (foundElement != null)
                 return foundElement;
             return null;
 
         }
         private Element returnElementID(int id)
         {
-            Element foundElement = elements.FirstOrDefault(element => element.id == id); if (foundElement != null)
+            Element foundElement = elements.FirstOrDefault(element => element.Id == id); if (foundElement != null)
                 return foundElement;
             return null;
 
         }
         private Element returnName(string name)
         {
-            Element foundElement = elements.FirstOrDefault(element => element.name == name); if (foundElement != null)
+            Element foundElement = elements.FirstOrDefault(element => element.Name == name); if (foundElement != null)
                 return foundElement;
             return null;
 
         }
         private Element returnElement(string pathName)
         {
-            Element foundElement = elements.FirstOrDefault(element => element.pathName == pathName); if (foundElement != null)
+            Element foundElement = elements.FirstOrDefault(element => element.PathName == pathName); if (foundElement != null)
                 return foundElement;
             return null;
 
@@ -626,7 +645,7 @@ namespace BDC
 
         private bool checkState(string state)
         {
-            if (elements.Count(element => element.state == state) > 2) return true; return false;
+            if (elements.Count(element => element.State == state) > 2) return true; return false;
         }
         private bool elementer(Image image)
         {
@@ -645,8 +664,10 @@ namespace BDC
             }
 
         }
-        #endregion
 
+
+     
+        #endregion
 
         #region Menu
         private void New_Click(object sender, RoutedEventArgs e)
@@ -712,7 +733,7 @@ namespace BDC
                 // Create an Image
                 Image image = new Image
                 {
-                    Source = new BitmapImage(new Uri(element.pathName, UriKind.Relative)),
+                    Source = new BitmapImage(new Uri(element.PathName, UriKind.Relative)),
                     Width = 100,
                     Height = 100
                 };
@@ -749,8 +770,61 @@ namespace BDC
         }
 
 
+
+
+
+
         #endregion
 
+        #endregion
+
+        #region Save
+        private void SaveButton_Click(object sender, MouseButtonEventArgs e)
+        {
+            DatabaseContext dbContext = new DatabaseContext();
+            dbContext.DeleteDatabase();
+            dbContext.CreateTableIfNotExists();
+
+            foreach (Element element in elements)
+            {
+                dbContext.SaveData(element);
+            }
+
+        }
+        #endregion
+        #region Load
+        private void OpenButton_Click(object sender, MouseButtonEventArgs e)
+        {
+            DatabaseContext dbContext = new DatabaseContext();
+             elements = dbContext.ReadData();
+             LoadElements(elements);
+        }
+
+        private void LoadElements(List<Element> elements)
+        {
+            foreach (Element element in elements)
+            {
+                Image image = new Image();
+                //   BitmapImage bitmapImage = new BitmapImage(new Uri("pack://application:,,,/BDC;component/Images/Elements/fan.png"));
+                //  image.src = 'img/base.png';
+
+                //       BitmapImage bitmapImage = new BitmapImage(new Uri(@"C:\FullPathToYourProject\YourProjectName\Images\Elemnts\fan.png"));
+       //         image.Source = new BitmapImage(new Uri(@"/Images/Elements/fan.png", UriKind.Relative));
+                image.Source = new BitmapImage(new Uri(@"pack://application:,,,/BDC;component/Images/Elements/superheater.png"));
+                // Set the image width and height
+                image.Width = 40; // Set your desired width
+                image.Height = 40; // Set your desired height
+
+                // Set the Canvas.Left and Canvas.Top properties to position the image on the canvas
+                CreateElement(image, element.X, element.Y);
+
+         
+                
+
+
+
+            }
+        }
         #endregion
 
 
