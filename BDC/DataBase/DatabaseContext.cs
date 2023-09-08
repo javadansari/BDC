@@ -6,6 +6,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 
 namespace BDC.DataBase
 {
@@ -103,6 +105,11 @@ namespace BDC.DataBase
                 {
                     while (reader.Read())
                     {
+                        Image image = new Image();
+                        image.Tag = reader.GetString(5).ToString();
+                        image.Width =48;
+                        image.Height =48;
+                        image.Source = new BitmapImage(new Uri(reader.GetString(7)));
                         Element element = new Element
                         {
                         //   Id = reader.GetInt32(0),
@@ -112,7 +119,7 @@ namespace BDC.DataBase
                             PathName = reader.GetString(4),
                             State = reader.GetString(5),
                             StateNumber = reader.GetInt32(6),
-                        //    Image = reader.GetString(7),
+                            Image = image,
                             Position = reader.GetInt32(8),
                             X = reader.GetDouble(9),
                             Y = reader.GetDouble(10)

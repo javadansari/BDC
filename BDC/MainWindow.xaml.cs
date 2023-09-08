@@ -71,6 +71,7 @@ namespace BDC
         #region Start
         private void startInitialize()
         {
+            draggedImage = new Image(); 
             items = new List<Item>();
 
             for (int i = 0; i < 11; i++)
@@ -216,8 +217,8 @@ namespace BDC
             //   Random random = new Random();
             //   int randomHeight = random.Next(20, 50) ; // Generates a random number between 20 and 50
           //  int randomHeight = (int)(endPoint.Y);
-            int randomHeight = (int)((dy)) + 20;
-            if (dy <0) randomHeight =  20;
+            int randomHeight = (int)((dy)) + 40;
+            if (dy <0) randomHeight =  40;
             Point midPoint = new Point(startPoint.X + dx / 2, startPoint.Y + dy / 2);
 
             if (invertY)
@@ -409,6 +410,7 @@ namespace BDC
                     removePath(returnElement(image).PathName);
                 }
             }
+          
         }
 
         private void DroppedImage_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -427,6 +429,9 @@ namespace BDC
                 {
                     var result = checkInBox(x, y);
                     x = result.X; y = result.Y;
+                    returnElement(image).Position = result.position;
+                    returnElement(image).X = x;
+                    returnElement(image).Y = y;
                     if (!result.IsInside) return;
                 }  
                 Canvas.SetLeft(currentDraggedImage, x - currentDraggedImage.Width / 2);
@@ -434,12 +439,21 @@ namespace BDC
 
                 currentDraggedImage.ReleaseMouseCapture();
                 currentDraggedImage = null;
-          
-            if (returnElement(image).PathName != "-") {
+
+             
+             
+
+
+              
+                
+
+                if (returnElement(image).PathName != "-") {
 
                 if (returnElement(image).Connection == 0)
                 {
-                    generateImagePath(returnElement(returnElement(image).PathName).Image, returnElement(image).Image, returnElement(image).PathName, true);
+                        string path = returnElement(image).PathName;
+
+                    generateImagePath(returnElementPath(returnElement(image).PathName).Image, returnElement(image).Image, returnElement(image).PathName, true);
                 }
                 else
                 {
@@ -447,6 +461,7 @@ namespace BDC
                 }
             }
             }
+       
 
         }
 
@@ -635,9 +650,9 @@ namespace BDC
             return null;
 
         }
-        private Element returnElement(string pathName)
+        private Element returnElementPath(string pathName)
         {
-            Element foundElement = elements.FirstOrDefault(element => element.PathName == pathName); if (foundElement != null)
+            Element foundElement = elements.FirstOrDefault(element => element.PathName == pathName && element.Connection != 0); if (foundElement != null)
                 return foundElement;
             return null;
 
@@ -804,16 +819,18 @@ namespace BDC
         {
             foreach (Element element in elements)
             {
-                Image image = new Image();
+                Image image = element.Image;
                 //   BitmapImage bitmapImage = new BitmapImage(new Uri("pack://application:,,,/BDC;component/Images/Elements/fan.png"));
                 //  image.src = 'img/base.png';
 
                 //       BitmapImage bitmapImage = new BitmapImage(new Uri(@"C:\FullPathToYourProject\YourProjectName\Images\Elemnts\fan.png"));
        //         image.Source = new BitmapImage(new Uri(@"/Images/Elements/fan.png", UriKind.Relative));
-                image.Source = new BitmapImage(new Uri(@"pack://application:,,,/BDC;component/Images/Elements/superheater.png"));
+
+             //   image.Source = new BitmapImage(new Uri(@"pack://application:,,,/BDC;component/Images/Elements/superheater.png"));
+            //    image.Source = new BitmapImage(new Uri(element.Image.ToString()));
                 // Set the image width and height
-                image.Width = 40; // Set your desired width
-                image.Height = 40; // Set your desired height
+             //   image.Width = 40; // Set your desired width
+             //   image.Height = 40; // Set your desired height
 
                 // Set the Canvas.Left and Canvas.Top properties to position the image on the canvas
                 CreateElement(image, element.X, element.Y);
