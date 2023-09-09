@@ -48,6 +48,7 @@ namespace BDC
         private Image imageLevelButton;
         private ImageSource draggedImageSource;
         private bool isFirstLine = true;
+        private bool isSelect = true;
         private Image firstLineImage;
         private Image secondLineImage;
         private bool isLine = false;
@@ -152,6 +153,11 @@ namespace BDC
 
         private void DroppedImage_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            if (isSelect)
+            {
+                showProperties(returnElement((Image)sender));
+                return;
+            }
             if (isLine)
             {
 
@@ -415,7 +421,6 @@ namespace BDC
 
         private void DroppedImage_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-
              Image image = sender as Image;
             if (currentDraggedImage != null)
             {
@@ -439,13 +444,7 @@ namespace BDC
 
                 currentDraggedImage.ReleaseMouseCapture();
                 currentDraggedImage = null;
-
-             
-             
-
-
-              
-                
+            
 
                 if (returnElement(image).PathName != "-") {
 
@@ -610,7 +609,7 @@ namespace BDC
         #endregion
 
         #region Tools
-
+        #region Other
         private void WriteLine(string text)
         {
             reportText.Text = text ;
@@ -679,9 +678,103 @@ namespace BDC
             }
 
         }
+        #endregion
+        #region Save
+        private void SaveButton_Click(object sender, MouseButtonEventArgs e)
+        {
+            DatabaseContext dbContext = new DatabaseContext();
+            dbContext.DeleteDatabase();
+            dbContext.CreateTableIfNotExists();
+
+            foreach (Element element in elements)
+            {
+                dbContext.SaveData(element);
+            }
+
+        }
+        #endregion
+        #region Load
+        private void OpenButton_Click(object sender, MouseButtonEventArgs e)
+        {
+            DatabaseContext dbContext = new DatabaseContext();
+            elements = dbContext.ReadData();
+            LoadElements(elements);
+        }
+
+        private void LoadElements(List<Element> elements)
+        {
+            foreach (Element element in elements)
+            {
+                Image image = element.Image;
+                //   BitmapImage bitmapImage = new BitmapImage(new Uri("pack://application:,,,/BDC;component/Images/Elements/fan.png"));
+                //  image.src = 'img/base.png';
+
+                //       BitmapImage bitmapImage = new BitmapImage(new Uri(@"C:\FullPathToYourProject\YourProjectName\Images\Elemnts\fan.png"));
+                //         image.Source = new BitmapImage(new Uri(@"/Images/Elements/fan.png", UriKind.Relative));
+
+                //   image.Source = new BitmapImage(new Uri(@"pack://application:,,,/BDC;component/Images/Elements/superheater.png"));
+                //    image.Source = new BitmapImage(new Uri(element.Image.ToString()));
+                // Set the image width and height
+                //   image.Width = 40; // Set your desired width
+                //   image.Height = 40; // Set your desired height
+
+                // Set the Canvas.Left and Canvas.Top properties to position the image on the canvas
+                CreateElement(image, element.X, element.Y);
 
 
+
+
+
+
+            }
+        }
+
+        #endregion
+
+        #region Select
+        public class PropertyDisplay
+        {
+            public string PropertyName { get; set; }
+            public string PropertyValue { get; set; }
+        }
+        private void SelectButton_Click(object sender, MouseButtonEventArgs e)
+        {
+
+            isSelect = true;
+            moveImage.Opacity = 0.2;
+            selectImage.Opacity = 1.0;
+            
+        }
+        public void showProperties(Element element)
+        {
+            List<PropertyDisplay> propertyList = new List<PropertyDisplay>
+                {
+                      new PropertyDisplay { PropertyName = "Id", PropertyValue = element.Id.ToString() },
+                      new PropertyDisplay { PropertyName = "Exist", PropertyValue = element.Exist.ToString() },
+                      new PropertyDisplay { PropertyName = "Name", PropertyValue = element.Name },
+                      new PropertyDisplay { PropertyName = "Connection", PropertyValue = element.Connection.ToString() },
+                      new PropertyDisplay { PropertyName = "PathName", PropertyValue = element.PathName },
+                      new PropertyDisplay { PropertyName = "State", PropertyValue = element.State },
+                      new PropertyDisplay { PropertyName = "StateNumber", PropertyValue = element.StateNumber.ToString() },
+                      new PropertyDisplay { PropertyName = "Image", PropertyValue = element.Image.ToString() }, // Assuming Image is convertible to a string
+                      new PropertyDisplay { PropertyName = "Position", PropertyValue = element.Position.ToString() },
+                      new PropertyDisplay { PropertyName = "X", PropertyValue = element.X.ToString() },
+                      new PropertyDisplay { PropertyName = "Y", PropertyValue = element.Y.ToString() }
+                };
+
+            propertyListBox.ItemsSource = propertyList;
+        }
      
+        #endregion
+        #region Move
+        private void MoveButton_Click(object sender, MouseButtonEventArgs e)
+        {
+            isSelect = false;
+            selectImage.Opacity = 0.1;
+            moveImage.Opacity = 1.0;
+        }
+        #endregion
+
         #endregion
 
         #region Menu
@@ -789,62 +882,42 @@ namespace BDC
 
 
 
-        #endregion
+
+
+
 
         #endregion
 
-        #region Save
-        private void SaveButton_Click(object sender, MouseButtonEventArgs e)
+        #endregion
+
+        private void CasesMenu_Click(object sender, RoutedEventArgs e)
         {
-            DatabaseContext dbContext = new DatabaseContext();
-            dbContext.DeleteDatabase();
-            dbContext.CreateTableIfNotExists();
-
-            foreach (Element element in elements)
-            {
-                dbContext.SaveData(element);
-            }
 
         }
-        #endregion
-        #region Load
-        private void OpenButton_Click(object sender, MouseButtonEventArgs e)
+        private void AddCase_Click(object sender, RoutedEventArgs e)
         {
-            DatabaseContext dbContext = new DatabaseContext();
-             elements = dbContext.ReadData();
-             LoadElements(elements);
+            // Create a new RadioButton for the case
+            RadioButton radioButton = new RadioButton();
+            radioButton.Content = "Case " + (casesToolBar.Items.Count + 1);
+            radioButton.GroupName = "Cases"; // Ensure they are mutually exclusive
+
+            // Add the new case to the toolbar
+            casesToolBar.Items.Add(radioButton);
         }
-
-        private void LoadElements(List<Element> elements)
+        private void DeleteCase_Click(object sender, RoutedEventArgs e)
         {
-            foreach (Element element in elements)
+            // Find the selected RadioButton and remove it
+            RadioButton selectedRadioButton = casesToolBar.Items.OfType<RadioButton>().FirstOrDefault(rb => rb.IsChecked == true);
+            if (selectedRadioButton != null)
             {
-                Image image = element.Image;
-                //   BitmapImage bitmapImage = new BitmapImage(new Uri("pack://application:,,,/BDC;component/Images/Elements/fan.png"));
-                //  image.src = 'img/base.png';
-
-                //       BitmapImage bitmapImage = new BitmapImage(new Uri(@"C:\FullPathToYourProject\YourProjectName\Images\Elemnts\fan.png"));
-       //         image.Source = new BitmapImage(new Uri(@"/Images/Elements/fan.png", UriKind.Relative));
-
-             //   image.Source = new BitmapImage(new Uri(@"pack://application:,,,/BDC;component/Images/Elements/superheater.png"));
-            //    image.Source = new BitmapImage(new Uri(element.Image.ToString()));
-                // Set the image width and height
-             //   image.Width = 40; // Set your desired width
-             //   image.Height = 40; // Set your desired height
-
-                // Set the Canvas.Left and Canvas.Top properties to position the image on the canvas
-                CreateElement(image, element.X, element.Y);
-
-         
-                
-
-
-
+                casesToolBar.Items.Remove(selectedRadioButton);
             }
         }
-        #endregion
 
+        private void ToolbarMenu_Click(object sender, RoutedEventArgs e)
+        {
 
+        }
     }
 
 }

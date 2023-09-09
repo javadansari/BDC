@@ -8,7 +8,7 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
          ResizeMode="CanMinimize"
-        Title="MainWindow" Height="470" Width="840">
+        Title="MainWindow" Height="470" Width="1040">
     <Window.Resources>
         <sys:Double x:Key="sizeBox">40</sys:Double>
         <sys:Double x:Key="margin">2</sys:Double>
@@ -21,6 +21,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="200"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition  Height="30"/>
@@ -43,6 +44,10 @@
                 <MenuItem Header="Elements" Click="Elements_Click"/>
                 <MenuItem Header="Attributes" Click="Attributes_Click"/>
             </MenuItem>
+            <MenuItem Header="Tools">
+                <MenuItem Header="Toolbar Menu" Click="ToolbarMenu_Click"/>
+                <MenuItem Header="Cases Menu" Click="CasesMenu_Click"/>
+            </MenuItem>
         </Menu>
 
         <ToolBarTray Name="toolbarMenu" Grid.Row="1" Orientation="Vertical">
@@ -54,14 +59,15 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Image  Tag="sh" Width="{StaticResource iconSize}" Height="{StaticResource iconSize}" Source="Images/Elements/superheater.png"    PreviewMouseLeftButtonDown="SourceoutElementButton_PreviewMouseLeftButtonDown"/>
+                        <Image  Tag="du" Width="{StaticResource iconSize}" Height="{StaticResource iconSize}" Source="Images/Elements/duct.png"    PreviewMouseLeftButtonDown="SourceoutElementButton_PreviewMouseLeftButtonDown"/>
                     </StackPanel>
-                      <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Horizontal">
                         <Image  Tag="save" Width="{StaticResource iconSize}" Height="{StaticResource iconSize}" Source="Images/Other/save.png"    PreviewMouseLeftButtonDown="SaveButton_Click"/>
                         <Image  Tag="open" Width="{StaticResource iconSize}" Height="{StaticResource iconSize}" Source="Images/Other/open.png"    PreviewMouseLeftButtonDown="OpenButton_Click"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <Image  Tag="pu" Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"    PreviewMouseLeftButtonDown="SourceoutElementButton_PreviewMouseLeftButtonDown" Source="Images/Elements/pump.png"/>
-                        <Image  Tag="fan" Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"    PreviewMouseLeftButtonDown="SourceoutElementButton_PreviewMouseLeftButtonDown" Source="Images/Elements/fan.png"/>
+                        <Image Name="selectImage"  Tag="select" Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"    Source="Images/Other/select.png" PreviewMouseLeftButtonDown="SelectButton_Click"/>
+                        <Image Name="moveImage"  Tag="move" Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"     Source="Images/Other/move.png" PreviewMouseLeftButtonDown="MoveButton_Click"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Image  Tag="fr" Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"    PreviewMouseLeftButtonDown="SourceoutElementButton_PreviewMouseLeftButtonDown" Source="Images/Elements/furnace.png"/>
@@ -72,6 +78,26 @@
                 </StackPanel>
             </ToolBar>
         </ToolBarTray>
+        <ToolBarTray Name="casesMenu" Grid.Row="1" Orientation="Vertical">
+          
+            <ToolBar Name="casesToolBar">
+                <!-- Add Case Button -->
+                <Button Content="Add Case" Click="AddCase_Click" />
+
+                <!-- Delete Case Button -->
+                <Button Content="Delete Case" Click="DeleteCase_Click" />
+            </ToolBar>
+        </ToolBarTray>
+        <ListBox Name="propertyListBox" Grid.Row="1" Grid.Column="2" Background="AntiqueWhite">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="{Binding PropertyName}" FontWeight="Bold"/>
+                        <TextBox Text="{Binding PropertyValue}" Width="100"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
         <ScrollViewer Grid.Row="1" Grid.Column="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
 
             <Canvas  Background="White"  Name="canvas"  Drop="ItemOutButton_Drop"  AllowDrop="True">
