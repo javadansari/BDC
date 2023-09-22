@@ -72,6 +72,9 @@ namespace BDC
         #region Start
         private void startInitialize()
         {
+
+          
+
             draggedImage = new Image(); 
             items = new List<Item>();
 
@@ -81,8 +84,10 @@ namespace BDC
                 items.Add(item);
             }
             elements = new List<Element>();
-
-          
+        
+            
+            canvas.LayoutTransform = new ScaleTransform(0.8, 0.8);
+            
 
         }
         #endregion
@@ -775,6 +780,21 @@ namespace BDC
         }
         #endregion
 
+
+        #region case
+        private void CasesMenu_Click(object sender, RoutedEventArgs e)
+        {
+            toolbarMenu.Visibility = Visibility.Hidden;
+            casesMenu.Visibility = Visibility.Visible;
+        }
+        private void ToolbarMenu_Click(object sender, RoutedEventArgs e)
+        {
+            toolbarMenu.Visibility = Visibility.Visible;
+            casesMenu.Visibility = Visibility.Hidden;
+        }
+        #endregion
+
+
         #endregion
 
         #region Menu
@@ -806,7 +826,7 @@ namespace BDC
         private void Attributes_Click(object sender, RoutedEventArgs e)
         {
             AssignStateNumbers(elements);
-            FormAttributes formAttributes = new FormAttributes();
+            FormAttributes formAttributes = new FormAttributes(elements);
             formAttributes.Show();
         }
 
@@ -890,10 +910,7 @@ namespace BDC
 
         #endregion
 
-        private void CasesMenu_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+   
         private void AddCase_Click(object sender, RoutedEventArgs e)
         {
             // Create a new RadioButton for the case
@@ -914,10 +931,7 @@ namespace BDC
             }
         }
 
-        private void ToolbarMenu_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+     
     }
 
 }

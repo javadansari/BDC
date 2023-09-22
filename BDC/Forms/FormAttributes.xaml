@@ -19,24 +19,10 @@
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
 
-                    <ItemsControl ItemsSource="{Binding ItemsList}" Grid.Column="1" Padding="20">
-                        <ItemsControl.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <StackPanel Orientation="Horizontal"/>
-                            </ItemsPanelTemplate>
-                        </ItemsControl.ItemsPanel>
+                    <ItemsControl Background="AliceBlue" ItemsSource="{Binding elements}" Grid.Column="1" >
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Margin="5">
-                                    <TextBlock Text="{Binding name}" Margin="0 0 0 5"/>
-                                    <ItemsControl ItemsSource="{Binding Attributes}">
-                                        <ItemsControl.ItemTemplate>
-                                            <DataTemplate>
-                                                <TextBox Width="100" Margin="0 0 0 5" Text="{Binding name}"/>
-                                            </DataTemplate>
-                                        </ItemsControl.ItemTemplate>
-                                    </ItemsControl>
-                                </StackPanel>
+                                <TextBlock Text="{Binding name}" Margin="0 0 0 5" />
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>

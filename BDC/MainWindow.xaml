@@ -78,7 +78,7 @@
                 </StackPanel>
             </ToolBar>
         </ToolBarTray>
-        <ToolBarTray Name="casesMenu" Grid.Row="1" Orientation="Vertical">
+        <ToolBarTray Name="casesMenu" Grid.Row="1" Orientation="Vertical" Visibility="Hidden">
           
             <ToolBar Name="casesToolBar">
                 <!-- Add Case Button -->
@@ -120,7 +120,7 @@
 
                 <TextBlock  Name="reportText" Padding="50 5 0 0" VerticalAlignment="Center" Text="Application"/>
 
-                <Slider x:Name="zoomSlider" Minimum="0.6" Maximum="1" Value="1" TickFrequency="0.1" 
+                <Slider x:Name="zoomSlider" Visibility="Hidden" Minimum="0.6" Maximum="1" Value="1" TickFrequency="0.1" 
                 TickPlacement="BottomRight" Width="200" Margin="10 0" 
                 HorizontalAlignment="Right" Grid.Column="1" ValueChanged="ZoomSlider_ValueChanged" />
             </Grid>

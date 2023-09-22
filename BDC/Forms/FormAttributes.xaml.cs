@@ -7,42 +7,14 @@ namespace BDC.Forms
 {
     public partial class FormAttributes : Window
     {
-        public List<Item> ItemsList { get; set; }
+        public List<Element> elements { get; set; }
+    
         public List<ItemAttribute> gfgfgf { get; set; }
-
-        public FormAttributes()
+        
+        
+        public FormAttributes(List<Element> elements)
         {
        
-
-            List<Item> items = new List<Item>
-            {
-                new Item { id = 0, name = "sj", pathName = "path" },
-                new Item { id = 0, name = "sj", pathName = "path" },
-                new Item { id = 0, name = "sj", pathName = "path" },
-                new Item { id = 0, name = "sj", pathName = "path" },
-                new Item { id = 0, name = "sj", pathName = "path" },
-                new Item { id = 0, name = "sj", pathName = "path" },
-                new Item { id = 0, name = "sj", pathName = "path" },
-                new Item { id = 0, name = "sj", pathName = "path" },
-                new Item { id = 0, name = "sj", pathName = "path" },
-                new Item { id = 0, name = "sj", pathName = "path" },
-                new Item { id = 0, name = "sj", pathName = "path" },
-                new Item { id = 0, name = "sj", pathName = "path" },
-                new Item { id = 0, name = "sj", pathName = "path" },
-                new Item { id = 0, name = "sj", pathName = "path" },
-                new Item { id = 0, name = "sj", pathName = "path" },
-                new Item { id = 0, name = "sj", pathName = "path" },
-                new Item { id = 0, name = "sj", pathName = "path" },
-                new Item { id = 0, name = "sj", pathName = "path" },
-                new Item { id = 0, name = "sj", pathName = "path" },
-                new Item { id = 0, name = "sj", pathName = "path" },
-                new Item { id = 0, name = "sj", pathName = "path" },
-                new Item { id = 0, name = "sj", pathName = "path" },
-                new Item { id = 0, name = "sj", pathName = "path" },
-                new Item { id = 0, name = "sj", pathName = "path" },
-                new Item { id = 1, name = "bjh", pathName = "pagjhgth" }
-            };
-
             List<ItemAttribute> attributes = new List<ItemAttribute>
             {
                 new ItemAttribute { name = "jkklj" },
@@ -85,13 +57,10 @@ namespace BDC.Forms
                 new ItemAttribute { name = "gfgfd" }
             };
 
-            foreach (var item in items)
-            {
-                item.Attributes = new List<ItemAttribute>(attributes);
-            }
+           
 
             InitializeComponent();
-            ItemsList = items;
+         
             gfgfgf = attributes;
             DataContext = this;
         }
