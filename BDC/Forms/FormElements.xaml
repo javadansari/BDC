@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="FormElements" Height="450" Width="800">
     <Grid>
-        <ListView Name="listView" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2">
+        <ListView Name="listView" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" >
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="id" Width="30" DisplayMemberBinding="{Binding Id}" />

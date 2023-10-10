@@ -31,5 +31,8 @@ namespace BDC.Forms
             listView.ItemsSource = null;
             listView.ItemsSource = elements;
         }
+
     }
+
+
 }
