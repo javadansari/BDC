@@ -20,7 +20,7 @@ namespace BDC.Classes
         public int Position { get; set; }
         public double X { get; set; }
         public double Y { get; set; }
-        public List<ItemAttribute> Attributes { get; set; }
+        public ItemAttribute attribute { get; set; }
 
         public Element()
         {

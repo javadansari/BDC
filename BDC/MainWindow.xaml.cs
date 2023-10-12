@@ -44,6 +44,7 @@ namespace BDC
     {
         private List<Item> items;
         private List<Element> elements;
+        private List<ItemAttribute> itemAttribute;
         private Button clickedButton;
         private Image imageLevelButton;
         private ImageSource draggedImageSource;
@@ -59,8 +60,8 @@ namespace BDC
         private Point startPoint;
         private int iconSize = 48;
         private double currentScale = 1.0;
+        private string loadCalse = "base";
 
-   
 
         public MainWindow()
         {
@@ -507,8 +508,6 @@ namespace BDC
                 element.Position = position;
                 element.X = x;
                 element.Y = y;
-                 List<ItemAttribute> attributes = new List<ItemAttribute>();
-                element.Attributes = attributes;
                 elements.Add(element);
                 AssignStateNumbers(elements);
 
@@ -574,7 +573,7 @@ namespace BDC
             foreach (var element in elements)
             {
                 element.StateNumber = 0;
-
+                AssignItemAttribute(element);
             }
             foreach (var element in elements)
             {
@@ -598,18 +597,19 @@ namespace BDC
                     element.Name = element.State + stateCounters[element.State];
                 }
             }
+           
         }
-        #endregion 
+        #endregion
 
         #region Attribute
-        private void SourceButton_PreviewMouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        private void AssignItemAttribute(Element element)
         {
-            Button button = (Button)sender;
-            if (checkButtonExist(button))
-            {
 
-            }
-
+                ItemAttribute attribute = new ItemAttribute();
+                attribute.loadCase = loadCalse;
+                attribute.stage = element.State;
+                element.attribute = attribute;
+         
         }
         #endregion
 
@@ -701,6 +701,7 @@ namespace BDC
         #region Load
         private void OpenButton_Click(object sender, MouseButtonEventArgs e)
         {
+           
             DatabaseContext dbContext = new DatabaseContext();
             elements = dbContext.ReadData();
             LoadElements(elements);
@@ -752,19 +753,16 @@ namespace BDC
         }
         public void showProperties(Element element)
         {
+        
             List<PropertyDisplay> propertyList = new List<PropertyDisplay>
                 {
-                      new PropertyDisplay { PropertyName = "Id", PropertyValue = element.Id.ToString() },
-                      new PropertyDisplay { PropertyName = "Exist", PropertyValue = element.Exist.ToString() },
-                      new PropertyDisplay { PropertyName = "Name", PropertyValue = element.Name },
-                      new PropertyDisplay { PropertyName = "Connection", PropertyValue = element.Connection.ToString() },
-                      new PropertyDisplay { PropertyName = "PathName", PropertyValue = element.PathName },
-                      new PropertyDisplay { PropertyName = "State", PropertyValue = element.State },
-                      new PropertyDisplay { PropertyName = "StateNumber", PropertyValue = element.StateNumber.ToString() },
-                      new PropertyDisplay { PropertyName = "Image", PropertyValue = element.Image.ToString() }, // Assuming Image is convertible to a string
-                      new PropertyDisplay { PropertyName = "Position", PropertyValue = element.Position.ToString() },
-                      new PropertyDisplay { PropertyName = "X", PropertyValue = element.X.ToString() },
-                      new PropertyDisplay { PropertyName = "Y", PropertyValue = element.Y.ToString() }
+                      new PropertyDisplay { PropertyName = "stage", PropertyValue = element.attribute.stage.ToString() },
+                      new PropertyDisplay { PropertyName = "loadCase", PropertyValue = element.attribute.loadCase.ToString() },
+                      new PropertyDisplay { PropertyName = "TubeArrangement", PropertyValue = element.attribute.TubeArrangement },
+                      new PropertyDisplay { PropertyName = "Water_Gas_Flow_Pattern", PropertyValue = element.attribute.Water_Gas_Flow_Pattern.ToString() },
+                      new PropertyDisplay { PropertyName = "No_Rows", PropertyValue = element.attribute.No_Rows },
+                      new PropertyDisplay { PropertyName = "SLN", PropertyValue = element.attribute.SLN },
+                      new PropertyDisplay { PropertyName = "STN", PropertyValue = element.attribute.STN.ToString() },
                 };
 
             propertyListBox.ItemsSource = propertyList;
@@ -825,9 +823,14 @@ namespace BDC
 
         private void Attributes_Click(object sender, RoutedEventArgs e)
         {
-            AssignStateNumbers(elements);
-            FormAttributes formAttributes = new FormAttributes(elements);
+         //   AssignStateNumbers(elements);
+          //  FormAttributes formAttributes = new FormAttributes(elements);
+          //  formAttributes.Show();
+
+            FormItemAttribute formAttributes = new FormItemAttribute(elements);
             formAttributes.Show();
+
+
         }
 
 
@@ -896,12 +899,6 @@ namespace BDC
 
             AddLabelsToImages(elements);
         }
-
-
-
-
-
-
 
 
 

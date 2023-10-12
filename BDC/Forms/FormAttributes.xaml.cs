@@ -19,15 +19,25 @@ namespace BDC.Forms
 
 
             InitializeComponent();
-            
-            c_dataGrid.ItemsSource = elements;
-            int columnsToRemove = 2;
+            List<ItemAttribute> attributes = new List<ItemAttribute>();
+            foreach (Element element in elements) attributes.Add(element.attribute);
 
-            // Loop through and remove the first three columns
-            for (int i = 0; i < columnsToRemove && i < c_dataGrid.Columns.Count; i++)
-            {
-                c_dataGrid.Columns.RemoveAt(0);
-            }
+            
+            c_dataGrid.ItemsSource = attributes;
+
+
+
+            List<string> comboBoxItems = new List<string>
+        {
+            "Option 1",
+            "Option 2",
+            "Option 3"
+        };
+
+            // Assuming you have a DataGrid named c_dataGrid and a DataGridComboBoxColumn named comboBoxColumn
+            comboBoxColumn.ItemsSource = comboBoxItems;
+
+
 
         }
         private void c_dataGridScrollViewer_Loaded(object sender, RoutedEventArgs e)
