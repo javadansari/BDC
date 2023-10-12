@@ -43,7 +43,7 @@ namespace BDC
     public partial class MainWindow : Window
     {
         private List<Item> items;
-        private List<Element> elements;
+        public List<Element> elements { get; set; }
         private List<ItemAttribute> itemAttribute;
         private Button clickedButton;
         private Image imageLevelButton;
@@ -758,7 +758,7 @@ namespace BDC
                 {
                       new PropertyDisplay { PropertyName = "stage", PropertyValue = element.attribute.stage.ToString() },
                       new PropertyDisplay { PropertyName = "loadCase", PropertyValue = element.attribute.loadCase.ToString() },
-                      new PropertyDisplay { PropertyName = "TubeArrangement", PropertyValue = element.attribute.TubeArrangement },
+                      new PropertyDisplay { PropertyName = "TubeArrangement", PropertyValue = element.attribute.TubeArrangement.ToString() },
                       new PropertyDisplay { PropertyName = "Water_Gas_Flow_Pattern", PropertyValue = element.attribute.Water_Gas_Flow_Pattern.ToString() },
                       new PropertyDisplay { PropertyName = "No_Rows", PropertyValue = element.attribute.No_Rows },
                       new PropertyDisplay { PropertyName = "SLN", PropertyValue = element.attribute.SLN },
@@ -827,7 +827,7 @@ namespace BDC
           //  FormAttributes formAttributes = new FormAttributes(elements);
           //  formAttributes.Show();
 
-            FormItemAttribute formAttributes = new FormItemAttribute(elements);
+            FormItemAttribute formAttributes = new FormItemAttribute(elements,this);
             formAttributes.Show();
 
 
