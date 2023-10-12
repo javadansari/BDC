@@ -34,6 +34,7 @@ namespace BDC.Forms
             StackPanel verticalStackPanelVertical = new StackPanel
             {
                 Orientation = Orientation.Vertical,
+                Background = new SolidColorBrush(Colors.LightBlue),
             };
 
             Type elementType = typeof(ItemAttribute);
@@ -45,6 +46,8 @@ namespace BDC.Forms
                 {
                     Content = property.Name,
                     VerticalAlignment = VerticalAlignment.Center,
+                    Margin = new Thickness(10), // Set the margin to 10 units on all sides
+
                 };
 
                 // Add the label to your layout (e.g., a StackPanel or Grid)
@@ -58,6 +61,7 @@ namespace BDC.Forms
                 StackPanel verticalStackPanel = new StackPanel
                 {
                     Orientation = Orientation.Vertical,
+                    Margin = new Thickness(10), // Set the margin to 10 units on all sides
                 };
                 Label label = new Label
                 {
