@@ -85,30 +85,46 @@ namespace BDC.Forms
 
                 // TubeArrangement
                 List<string> itemsList = new List<string> {"Staggered","In-line", };
-                ComboBox comboBoxTubeArrangement = buildCombo(itemsList);
-                comboBoxTubeArrangement.SelectedIndex = element.attribute.TubeArrangement;
-                //     comboBox.SelectionChanged += (sender, e) => Elements.Find(element => element.Id == element.Id).attribute.TubeArrangement = comboBox.SelectedIndex;
-                comboBoxTubeArrangement.SelectionChanged += (sender, e) =>
-                {
-                    // Find the associated element (assuming you have a reference to the 'element')
-                    Element associatedElement = Elements.Find(e => e.Id == element.Id);
+                //     ComboBox comboBoxTubeArrangement = buildCombo(itemsList);
+                buildCombo(itemsList, e => e.attribute.TubeArrangement, element, (e, index) => e.attribute.TubeArrangement = index);
+                //comboBoxTubeArrangement.SelectedIndex = element.attribute.TubeArrangement;
+                ////     comboBox.SelectionChanged += (sender, e) => Elements.Find(element => element.Id == element.Id).attribute.TubeArrangement = comboBox.SelectedIndex;
+                //comboBoxTubeArrangement.SelectionChanged += (sender, e) =>
+                //{
+                //    // Find the associated element (assuming you have a reference to the 'element')
+                //    Element associatedElement = Elements.Find(e => e.Id == element.Id);
 
-                    if (associatedElement != null)
-                    {
-                        associatedElement.attribute.TubeArrangement = comboBoxTubeArrangement.SelectedIndex;
-                        int index = Elements.FindIndex(e => e.Id == element.Id);
-                        if (index != -1)
-                        {
-                            Elements[index] = associatedElement;
-                        }
-                    }
-                };
+                //    if (associatedElement != null)
+                //    {
+                //        associatedElement.attribute.TubeArrangement = comboBoxTubeArrangement.SelectedIndex;
+                //        int index = Elements.FindIndex(e => e.Id == element.Id);
+                //        if (index != -1)
+                //        {
+                //            Elements[index] = associatedElement;
+                //        }
+                //    }
+                //};
 
                 // WaterGass
                 itemsList = new List<string> { "Counter", };
-                ComboBox comboBoxWaterGass = buildCombo(itemsList);
-                comboBoxWaterGass.SelectedIndex = element.attribute.TubeArrangement;
-                comboBoxWaterGass.SelectionChanged += (sender, e) =>Elements.Find(element => element.Id == element.Id).attribute.TubeArrangement = comboBoxWaterGass.SelectedIndex;
+                buildCombo(itemsList, e => e.attribute.Water_Gas_Flow_Pattern, element, (e, index) => e.attribute.Water_Gas_Flow_Pattern = index);
+                //ComboBox comboBoxWaterGass = buildCombo(itemsList, element.attribute.Water_Gas_Flow_Pattern,element, associatedElement.attribute.Water_Gas_Flow_Pattern);
+                //comboBoxWaterGass.SelectedIndex = element.attribute.Water_Gas_Flow_Pattern;
+                //comboBoxWaterGass.SelectionChanged += (sender, e) =>
+                //{
+                //    // Find the associated element (assuming you have a reference to the 'element')
+                //    Element associatedElement = Elements.Find(e => e.Id == element.Id);
+
+                //    if (associatedElement != null)
+                //    {
+                //        associatedElement.attribute.Water_Gas_Flow_Pattern = comboBoxTubeArrangement.SelectedIndex;
+                //        int index = Elements.FindIndex(e => e.Id == element.Id);
+                //        if (index != -1)
+                //        {
+                //            Elements[index] = associatedElement;
+                //        }
+                //    }
+                //};
 
 
                 for (int k = 0; k < 3; k++)
@@ -163,7 +179,7 @@ namespace BDC.Forms
                     };
                    childStackPanel.Children.Add(label);
         }
-        private ComboBox buildCombo(List<string> itemsList)
+        private void buildCombo(List<string> itemsList, Func<Element, int> getIndexFunc, Element element, Action<Element, int> setIndexAction)
         {
             ComboBox comboBox = new ComboBox
             {
@@ -174,8 +190,41 @@ namespace BDC.Forms
             {
                 comboBox.Items.Add(item);
             }
+            comboBox.SelectedIndex = getIndexFunc(element);
+
+           // comboBox.SelectedIndex = select;
+            //comboBox.SelectionChanged += (sender, e) =>
+            //{
+            //    // Find the associated element (assuming you have a reference to the 'element')
+            //    Element associatedElement = Elements.Find(e => e.Id == element.Id);
+
+            //    if (associatedElement != null)
+            //    {
+            //        property = comboBox.SelectedIndex;
+            //        int index = Elements.FindIndex(e => e.Id == element.Id);
+            //        if (index != -1)
+            //        {
+            //            Elements[index] = associatedElement;
+            //        }
+            //    }
+            //};
+            comboBox.SelectionChanged += (sender, e) =>
+            {
+                Element associatedElement = Elements.Find(e => e.Id == element.Id);
+
+                if (associatedElement != null)
+                {
+                    setIndexAction(associatedElement, comboBox.SelectedIndex);
+                    int index = Elements.FindIndex(e => e.Id == element.Id);
+                    if (index != -1)
+                    {
+                        Elements[index] = associatedElement;
+                    }
+                }
+            };
+
             childStackPanel.Children.Add(comboBox);
-            return comboBox;
+         //   return comboBox;
         }
         private void buildComponent(int type, StackPanel stackPanel, string text = "")
         {
