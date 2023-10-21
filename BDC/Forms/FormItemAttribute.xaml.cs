@@ -82,61 +82,27 @@ namespace BDC.Forms
                 buildLabel(element.attribute.stage);
                 buildLabel(element.attribute.loadCase);
 
-
+              
                 // TubeArrangement
                 List<string> itemsList = new List<string> {"Staggered","In-line", };
-                //     ComboBox comboBoxTubeArrangement = buildCombo(itemsList);
+             
                 buildCombo(itemsList, e => e.attribute.TubeArrangement, element, (e, index) => e.attribute.TubeArrangement = index);
-                //comboBoxTubeArrangement.SelectedIndex = element.attribute.TubeArrangement;
-                ////     comboBox.SelectionChanged += (sender, e) => Elements.Find(element => element.Id == element.Id).attribute.TubeArrangement = comboBox.SelectedIndex;
-                //comboBoxTubeArrangement.SelectionChanged += (sender, e) =>
-                //{
-                //    // Find the associated element (assuming you have a reference to the 'element')
-                //    Element associatedElement = Elements.Find(e => e.Id == element.Id);
-
-                //    if (associatedElement != null)
-                //    {
-                //        associatedElement.attribute.TubeArrangement = comboBoxTubeArrangement.SelectedIndex;
-                //        int index = Elements.FindIndex(e => e.Id == element.Id);
-                //        if (index != -1)
-                //        {
-                //            Elements[index] = associatedElement;
-                //        }
-                //    }
-                //};
+               
 
                 // WaterGass
                 itemsList = new List<string> { "Counter", };
                 buildCombo(itemsList, e => e.attribute.Water_Gas_Flow_Pattern, element, (e, index) => e.attribute.Water_Gas_Flow_Pattern = index);
-                //ComboBox comboBoxWaterGass = buildCombo(itemsList, element.attribute.Water_Gas_Flow_Pattern,element, associatedElement.attribute.Water_Gas_Flow_Pattern);
-                //comboBoxWaterGass.SelectedIndex = element.attribute.Water_Gas_Flow_Pattern;
-                //comboBoxWaterGass.SelectionChanged += (sender, e) =>
-                //{
-                //    // Find the associated element (assuming you have a reference to the 'element')
-                //    Element associatedElement = Elements.Find(e => e.Id == element.Id);
 
-                //    if (associatedElement != null)
-                //    {
-                //        associatedElement.attribute.Water_Gas_Flow_Pattern = comboBoxTubeArrangement.SelectedIndex;
-                //        int index = Elements.FindIndex(e => e.Id == element.Id);
-                //        if (index != -1)
-                //        {
-                //            Elements[index] = associatedElement;
-                //        }
-                //    }
-                //};
-
-
-                for (int k = 0; k < 3; k++)
+                for (int i = 0; i < 10; i++)
                 {
+                    buildTextBox(childStackPanel);
 
-                    buildComponent(1, childStackPanel);
                 }
 
-                for (int k = 0; k < 2; k++)
-                {
-                    buildComponent(2, childStackPanel);
-                }
+                // Tube Rows (SLN)
+                buildTextBox(childStackPanel);
+
+
           
                     horizontalStackPanelOuter.Children.Add(childStackPanel);
             }
@@ -179,35 +145,69 @@ namespace BDC.Forms
                     };
                    childStackPanel.Children.Add(label);
         }
+        private void buildTextBox( StackPanel stackPanel)
+        {
+
+            TextBox textBox = new TextBox
+            {
+                Width = 100,
+                Height = 25,
+                Margin = new Thickness(10,11,10,10),
+                
+            };
+            textBox.TextChanged += TextBox_TextChanged;
+        //    Content = textBox;
+            stackPanel.Children.Add(textBox);
+           
+
+        }
+        //private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        //{
+        //    if (sender is TextBox textBox)
+        //    {
+        //        // Try to parse the text as an integer
+        //        if (int.TryParse(textBox.Text, out int result))
+        //        {
+        //            textBox.Text = result.ToString();
+        //        }
+        //        else
+        //        {
+        //            if (textBox.Text.Length > 0)   textBox.Text = textBox.Text.Substring(0, textBox.Text.Length - 1);
+        //            textBox.Select(textBox.Text.Length, 0);
+        //            textBox.Focus();
+        //        }
+        //    }
+        //}
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (sender is TextBox textBox)
+            {
+                // Try to parse the text as a double
+                if (double.TryParse(textBox.Text, out double result))
+                {
+                    textBox.Text = result.ToString();
+                }
+                else
+                {
+                    if (textBox.Text.Length > 0) textBox.Text = textBox.Text.Substring(0, textBox.Text.Length - 1);
+                    textBox.Select(textBox.Text.Length, 0);
+                    textBox.Focus();
+                }
+            }
+        }
         private void buildCombo(List<string> itemsList, Func<Element, int> getIndexFunc, Element element, Action<Element, int> setIndexAction)
         {
             ComboBox comboBox = new ComboBox
             {
                 Width = 100,
-                Margin = new Thickness(10),
+                Height = 25,
+                Margin = new Thickness(10,11,10,10),
             };
             foreach (string item in itemsList)
             {
                 comboBox.Items.Add(item);
             }
             comboBox.SelectedIndex = getIndexFunc(element);
-
-           // comboBox.SelectedIndex = select;
-            //comboBox.SelectionChanged += (sender, e) =>
-            //{
-            //    // Find the associated element (assuming you have a reference to the 'element')
-            //    Element associatedElement = Elements.Find(e => e.Id == element.Id);
-
-            //    if (associatedElement != null)
-            //    {
-            //        property = comboBox.SelectedIndex;
-            //        int index = Elements.FindIndex(e => e.Id == element.Id);
-            //        if (index != -1)
-            //        {
-            //            Elements[index] = associatedElement;
-            //        }
-            //    }
-            //};
             comboBox.SelectionChanged += (sender, e) =>
             {
                 Element associatedElement = Elements.Find(e => e.Id == element.Id);
