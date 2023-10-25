@@ -1,6 +1,7 @@
 ﻿using BDC.Classes;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
@@ -49,17 +50,14 @@ namespace BDC.Forms
             PropertyInfo[] properties = elementType.GetProperties();
             foreach (PropertyInfo property in properties)
             {
-                // Create a label with the content set to the property name
+                string displayName = property.GetCustomAttribute<DisplayNameAttribute>()?.DisplayName ?? property.Name;
                 Label label = new Label
                 {
-                    Content = property.Name,
+                    Content = displayName,
                     VerticalAlignment = VerticalAlignment.Center,
                     Margin = new Thickness(10), // Set the margin to 10 units on all sides
 
                 };
-
-                // Add the label to your layout (e.g., a StackPanel or Grid)
-                // For example, you can add it to a StackPanel named verticalStackPanelOuter
                 verticalStackPanelVertical.Children.Add(label);
             }
             horizontalStackPanelOuter.Children.Add(verticalStackPanelVertical);
@@ -156,28 +154,11 @@ namespace BDC.Forms
                 
             };
             textBox.TextChanged += TextBox_TextChanged;
-        //    Content = textBox;
             stackPanel.Children.Add(textBox);
            
 
         }
-        //private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        //{
-        //    if (sender is TextBox textBox)
-        //    {
-        //        // Try to parse the text as an integer
-        //        if (int.TryParse(textBox.Text, out int result))
-        //        {
-        //            textBox.Text = result.ToString();
-        //        }
-        //        else
-        //        {
-        //            if (textBox.Text.Length > 0)   textBox.Text = textBox.Text.Substring(0, textBox.Text.Length - 1);
-        //            textBox.Select(textBox.Text.Length, 0);
-        //            textBox.Focus();
-        //        }
-        //    }
-        //}
+
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (sender is TextBox textBox)
@@ -226,39 +207,6 @@ namespace BDC.Forms
             childStackPanel.Children.Add(comboBox);
          //   return comboBox;
         }
-        private void buildComponent(int type, StackPanel stackPanel, string text = "")
-        {
-            switch (type)
-            {
-                case 1:
-                    ComboBox comboBox = new ComboBox
-                    {
-                        Width = 100,
-                        Margin = new Thickness(10),
-                    };
-                    stackPanel.Children.Add(comboBox);
-                    break;
-                case 2:
-                    TextBox textBox = new TextBox
-                    {
-                        Width = 100,
-                        Margin = new Thickness(10),     
-                    };
-                    stackPanel.Children.Add(textBox);
-                    break;
-                case 3:
-                    Label label = new Label
-                    {
-                        Width = 100,
-                        Margin = new Thickness(10),
-                        Content = text,
-                    };
-                    stackPanel.Children.Add(label);
-                    break;
-
-                default:
-                    break;
-            }
-        }
+     
     }
 }
