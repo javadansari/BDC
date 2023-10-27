@@ -91,18 +91,29 @@ namespace BDC.Forms
                 itemsList = new List<string> { "Counter", };
                 buildCombo(itemsList, e => e.attribute.Water_Gas_Flow_Pattern, element, (e, index) => e.attribute.Water_Gas_Flow_Pattern = index);
 
-                for (int i = 0; i < 10; i++)
-                {
-                    buildTextBox(childStackPanel);
 
-                }
+                buildTextBox(childStackPanel, e => e.attribute.SLN, element, (e, value) => e.attribute.SLN = value);
+                buildTextBox(childStackPanel, e => e.attribute.STN, element, (e, value) => e.attribute.STN = value);
+                buildTextBox(childStackPanel, e => e.attribute.Tube_Rows_Path, element, (e, value) => e.attribute.Tube_Rows_Path = value);
+                buildTextBox(childStackPanel, e => e.attribute.Path_Wide, element, (e, value) => e.attribute.Path_Wide = value);
+                buildTextBox(childStackPanel, e => e.attribute.SL, element, (e, value) => e.attribute.SL = value);
+                buildTextBox(childStackPanel, e => e.attribute.ST, element, (e, value) => e.attribute.ST = value);
+                buildTextBox(childStackPanel, e => e.attribute.Tube_Length, element, (e, value) => e.attribute.Tube_Length = value);
+                buildTextBox(childStackPanel, e => e.attribute.Tube_Outer_Diameter, element, (e, value) => e.attribute.Tube_Outer_Diameter = value);
+                buildTextBox(childStackPanel, e => e.attribute.Tube_Wall_Thickness, element, (e, value) => e.attribute.Tube_Wall_Thickness = value);
+                buildTextBox(childStackPanel, e => e.attribute.Incidence_Angle, element, (e, value) => e.attribute.Incidence_Angle = value);
+                buildTextBox(childStackPanel, e => e.attribute.Tubes_Material, element, (e, value) => e.attribute.Tubes_Material = value);
+                buildTextBox(childStackPanel, e => e.attribute.Fin_Type, element, (e, value) => e.attribute.Fin_Type = value);
+                buildTextBox(childStackPanel, e => e.attribute.Fin_Height, element, (e, value) => e.attribute.Fin_Height = value);
+                buildTextBox(childStackPanel, e => e.attribute.Fin_Density, element, (e, value) => e.attribute.Fin_Density = value);
+                buildTextBox(childStackPanel, e => e.attribute.Fin_Uncut_Height, element, (e, value) => e.attribute.Fin_Uncut_Height = value);
+                buildTextBox(childStackPanel, e => e.attribute.Fin_Segment_Width, element, (e, value) => e.attribute.Fin_Segment_Width = value);
+                buildTextBox(childStackPanel, e => e.attribute.Fin_Material, element, (e, value) => e.attribute.Fin_Material = value);
+                buildTextBox(childStackPanel, e => e.attribute.Water_Side_Founling_Factor, element, (e, value) => e.attribute.Water_Side_Founling_Factor = value);
+                buildTextBox(childStackPanel, e => e.attribute.Usage_Factor, element, (e, value) => e.attribute.Usage_Factor = value);
 
-                // Tube Rows (SLN)
-                buildTextBox(childStackPanel);
 
-
-          
-                    horizontalStackPanelOuter.Children.Add(childStackPanel);
+        horizontalStackPanelOuter.Children.Add(childStackPanel);
             }
 
             verticalStackPanelOuter.Children.Add(horizontalStackPanelOuter);
@@ -143,7 +154,7 @@ namespace BDC.Forms
                     };
                    childStackPanel.Children.Add(label);
         }
-        private void buildTextBox( StackPanel stackPanel)
+        private void buildTextBox(StackPanel stackPanel ,  Func<Element, string> getIndexFunc , Element element, Action<Element, string> setIndexAction)
         {
 
             TextBox textBox = new TextBox
@@ -153,29 +164,44 @@ namespace BDC.Forms
                 Margin = new Thickness(10,11,10,10),
                 
             };
-            textBox.TextChanged += TextBox_TextChanged;
+            textBox.Text = getIndexFunc(element);
+            textBox.TextChanged += (sender, e) =>
+            {
+                if (sender is TextBox textBox)
+                {
+                    // Try to parse the text as a double
+                    if (double.TryParse(textBox.Text, out double result))
+                    {
+                        textBox.Text = result.ToString();
+                    }
+                    else
+                    {
+                        if (textBox.Text.Length > 0) textBox.Text = textBox.Text.Substring(0, textBox.Text.Length - 1);
+                        textBox.Select(textBox.Text.Length, 0);
+                        textBox.Focus();
+                    }
+
+
+                    Element associatedElement = Elements.Find(e => e.Id == element.Id);
+
+                    if (associatedElement != null)
+                    {
+                        setIndexAction(associatedElement, textBox.Text);
+                        int index = Elements.FindIndex(e => e.Id == element.Id);
+                        if (index != -1)
+                        {
+                            Elements[index] = associatedElement;
+                        }
+                    }
+
+                }
+
+            };
             stackPanel.Children.Add(textBox);
            
 
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (sender is TextBox textBox)
-            {
-                // Try to parse the text as a double
-                if (double.TryParse(textBox.Text, out double result))
-                {
-                    textBox.Text = result.ToString();
-                }
-                else
-                {
-                    if (textBox.Text.Length > 0) textBox.Text = textBox.Text.Substring(0, textBox.Text.Length - 1);
-                    textBox.Select(textBox.Text.Length, 0);
-                    textBox.Focus();
-                }
-            }
-        }
         private void buildCombo(List<string> itemsList, Func<Element, int> getIndexFunc, Element element, Action<Element, int> setIndexAction)
         {
             ComboBox comboBox = new ComboBox
