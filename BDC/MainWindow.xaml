@@ -106,7 +106,6 @@
                 <Image Height="108" Source="Images/Canvas/Image3.png" Stretch="Fill" Width="184" Canvas.Left="502" Canvas.Top="131" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                 <Image Height="80" Source="Images/Canvas/Image5.png" Stretch="Fill" Width="59" Canvas.Left="502" Canvas.Top="256" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                 <Image Height="69" Source="Images/Canvas/Image6.png" Stretch="Fill" Width="54" Canvas.Left="561" Canvas.Top="272" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <Rectangle Fill="AliceBlue" Height="100" Width="50" Canvas.Top="135" Canvas.Left="100" HorizontalAlignment="Left" VerticalAlignment="Center" />
             </Canvas>
 
         </ScrollViewer>
