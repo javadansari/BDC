@@ -15,6 +15,8 @@
         <sys:Double x:Key="marginTop">200</sys:Double>
         <sys:Double x:Key="marginRecTop">150</sys:Double>
         <sys:Double x:Key="iconSize">48</sys:Double>
+        <sys:Double x:Key="smallIconSize">16</sys:Double>
+        <sys:Double x:Key="smallestIconSize">8</sys:Double>
     </Window.Resources>
 
     <Grid>
@@ -24,11 +26,12 @@
             <ColumnDefinition Width="200"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition  Height="30"/>
+            <RowDefinition  Height="20"/>
+            <RowDefinition  Height="20"/>
             <RowDefinition Height="*"/>
             <RowDefinition  Height="20"/>
         </Grid.RowDefinitions>
-        <Menu VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Row="0">
+        <Menu VerticalAlignment="Top" Grid.ColumnSpan="3" Grid.Row="0">
             <MenuItem Header="File">
                 <MenuItem Header="New" Click="New_Click"/>
                 <MenuItem Header="Open" Click="Open_Click"/>
@@ -49,8 +52,21 @@
                 <MenuItem Header="Cases Menu" Click="CasesMenu_Click"/>
             </MenuItem>
         </Menu>
-
-        <ToolBarTray Name="toolbarMenu" Grid.Row="1" Orientation="Vertical">
+        <ToolBarTray Name="mainToolbarMenu" Grid.Row="1" Grid.ColumnSpan="3" Orientation="Horizontal">
+            <ToolBar >
+                <StackPanel Orientation="Horizontal">
+                    <Image  Tag="new" Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}" Source="Images/Other/new.png"    PreviewMouseLeftButtonDown="SaveButton_Click"/>
+                    <Image  Tag="save" Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}" Source="Images/Other/save.png"    PreviewMouseLeftButtonDown="SaveButton_Click"/>
+                    <Image  Tag="open" Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}" Source="Images/Other/open.png"    PreviewMouseLeftButtonDown="OpenButton_Click"/>
+                </StackPanel>
+            </ToolBar>
+            <ToolBar >
+                <StackPanel Orientation="Horizontal">
+                    <Image Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}" Source="Images/Elements/SmokeRelation.png" MouseDown="line_Click" />
+                </StackPanel>
+            </ToolBar>
+        </ToolBarTray>
+        <ToolBarTray Name="toolbarMenu" Grid.Row="2" Orientation="Vertical" Visibility="Hidden">
             <ToolBar >
                 <StackPanel Orientation="Vertical">
                     <StackPanel Orientation="Horizontal">
@@ -78,17 +94,36 @@
                 </StackPanel>
             </ToolBar>
         </ToolBarTray>
-        <ToolBarTray Name="casesMenu" Grid.Row="1" Orientation="Vertical" Visibility="Hidden">
-          
-            <ToolBar Name="casesToolBar">
-                <!-- Add Case Button -->
-                <Button Content="Add Case" Click="AddCase_Click" />
-
-                <!-- Delete Case Button -->
-                <Button Content="Delete Case" Click="DeleteCase_Click" />
+        <ToolBarTray Name="casesMenu" Grid.Row="2" Orientation="Vertical"  IsLocked="True"  >
+            <ToolBar Name="optionCaseToolBar"   Loaded="ToolBar_Loaded" >
+                <StackPanel Orientation="Horizontal">
+                    <Button Click="UpCase_Click" Background="Transparent">
+                        <StackPanel>
+                            <Image Source="Images/Other/up.png" Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}" />
+                        </StackPanel>
+                    </Button>
+                    <Button Click="DownCase_Click" Background="Transparent" >
+                        <StackPanel>
+                            <Image Source="Images/Other/down.png" Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}" />
+                        </StackPanel>
+                    </Button>
+                    <Button Click="AddCase_Click" Background="Transparent" >
+                        <StackPanel>
+                            <Image Source="Images/Other/plus.png" Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}" />
+                        </StackPanel>
+                    </Button>
+                    <Button Click="DeleteCase_Click" Background="Transparent">
+                        <StackPanel>
+                            <Image Source="Images/Other/minus.png" Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}" />
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </ToolBar>
+            <ToolBar Name="casesToolBar"  Loaded="ToolBar_Loaded" >
             </ToolBar>
         </ToolBarTray>
-        <ListBox Name="propertyListBox" Grid.Row="1" Grid.Column="2" Background="AntiqueWhite">
+
+        <ListBox Name="propertyListBox" Grid.Row="2" Grid.Column="2" Background="AntiqueWhite">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Vertical">
@@ -98,7 +133,7 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <ScrollViewer Grid.Row="1" Grid.Column="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <ScrollViewer Grid.Row="2" Grid.Column="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
 
             <Canvas  Background="White"  Name="canvas"  Drop="ItemOutButton_Drop"  AllowDrop="True">
                 <Image Height="201" Source="Images/Canvas/Image1.png" Stretch="Fill" Width="39" Canvas.Left="686" Canvas.Top="23" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -110,7 +145,7 @@
 
         </ScrollViewer>
 
-        <ToolBarPanel Grid.Row="5" Grid.ColumnSpan="2" Background="LightGray">
+        <ToolBarPanel Grid.Row="3" Grid.ColumnSpan="2" Background="LightGray">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>

@@ -25,10 +25,15 @@
     <None Remove="Images\Image3.png" />
     <None Remove="Images\Image4.png" />
     <None Remove="Images\Image5.png" />
+    <None Remove="Images\Other\down.png" />
+    <None Remove="Images\Other\minus.png" />
     <None Remove="Images\Other\move.png" />
+    <None Remove="Images\Other\new.png" />
     <None Remove="Images\Other\open.png" />
+    <None Remove="Images\Other\plus.png" />
     <None Remove="Images\Other\save.png" />
     <None Remove="Images\Other\select.png" />
+    <None Remove="Images\Other\up.png" />
     <None Remove="pump.png" />
     <None Remove="SmokeRelation.png" />
     <None Remove="superheater.png" />
@@ -47,16 +52,31 @@
     <Content Include="Images\Elements\duct.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\Other\down.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Other\minus.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\Other\move.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\Other\new.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\Other\open.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Other\plus.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Other\save.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Other\select.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Other\up.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

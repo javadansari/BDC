@@ -67,16 +67,16 @@ namespace BDC
         {
             InitializeComponent();
             startInitialize();
-          
+
         }
 
         #region Start
         private void startInitialize()
         {
 
-          
 
-            draggedImage = new Image(); 
+
+            draggedImage = new Image();
             items = new List<Item>();
 
             for (int i = 0; i < 11; i++)
@@ -85,10 +85,10 @@ namespace BDC
                 items.Add(item);
             }
             elements = new List<Element>();
-        
-            
+
+
             canvas.LayoutTransform = new ScaleTransform(0.8, 0.8);
-            
+
 
         }
         #endregion
@@ -145,7 +145,7 @@ namespace BDC
                 }
             }
         }
-     
+
         #endregion
 
         #region PathPlut
@@ -216,10 +216,10 @@ namespace BDC
 
         private void generateImagePath(Image firstImage, Image secondImage, string pathName, bool invertY = false)
         {
-         //   Point startPoint = new Point(Canvas.GetLeft(firstImage) + firstImage.ActualWidth / 2, Canvas.GetTop(firstImage) + firstImage.ActualHeight / 2);
-            Point startPoint = new Point(Canvas.GetLeft(firstImage) + firstImage.ActualWidth , Canvas.GetTop(firstImage) + firstImage.ActualHeight / 2);
-        //    Point endPoint = new Point(Canvas.GetLeft(secondImage) + secondImage.ActualWidth / 2, Canvas.GetTop(secondImage) + secondImage.ActualHeight / 2);
-            Point endPoint = new Point(Canvas.GetLeft(secondImage) + secondImage.ActualWidth , Canvas.GetTop(secondImage) + secondImage.ActualHeight / 2);
+            //   Point startPoint = new Point(Canvas.GetLeft(firstImage) + firstImage.ActualWidth / 2, Canvas.GetTop(firstImage) + firstImage.ActualHeight / 2);
+            Point startPoint = new Point(Canvas.GetLeft(firstImage) + firstImage.ActualWidth, Canvas.GetTop(firstImage) + firstImage.ActualHeight / 2);
+            //    Point endPoint = new Point(Canvas.GetLeft(secondImage) + secondImage.ActualWidth / 2, Canvas.GetTop(secondImage) + secondImage.ActualHeight / 2);
+            Point endPoint = new Point(Canvas.GetLeft(secondImage) + secondImage.ActualWidth, Canvas.GetTop(secondImage) + secondImage.ActualHeight / 2);
 
             WriteLine(startPoint.X + " - " + endPoint.X + " / " + Canvas.GetLeft(firstImage) + " - " + Canvas.GetLeft(secondImage));
 
@@ -228,9 +228,9 @@ namespace BDC
 
             //   Random random = new Random();
             //   int randomHeight = random.Next(20, 50) ; // Generates a random number between 20 and 50
-          //  int randomHeight = (int)(endPoint.Y);
+            //  int randomHeight = (int)(endPoint.Y);
             int randomHeight = (int)((dy)) + 40;
-            if (dy <0) randomHeight =  40;
+            if (dy < 0) randomHeight = 40;
             Point midPoint = new Point(startPoint.X + dx / 2, startPoint.Y + dy / 2);
 
             if (invertY)
@@ -393,14 +393,14 @@ namespace BDC
 
         private void DroppedImage_MouseMove(object sender, MouseEventArgs e)
         {
-        
+
             Image image = sender as Image;
             if (!isLine)
             {
                 if (currentDraggedImage != null && e.LeftButton == MouseButtonState.Pressed)
                 {
 
-                //    MessageBox.Show("jj");
+                    //    MessageBox.Show("jj");
 
                     Point currentPoint = e.GetPosition(canvas);
                     double offsetX = currentPoint.X - startPoint.X;
@@ -422,12 +422,12 @@ namespace BDC
                     removePath(returnElement(image).PathName);
                 }
             }
-          
+
         }
 
         private void DroppedImage_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-             Image image = sender as Image;
+            Image image = sender as Image;
             if (currentDraggedImage != null)
             {
 
@@ -444,29 +444,29 @@ namespace BDC
                     returnElement(image).X = x;
                     returnElement(image).Y = y;
                     if (!result.IsInside) return;
-                }  
+                }
                 Canvas.SetLeft(currentDraggedImage, x - currentDraggedImage.Width / 2);
                 Canvas.SetTop(currentDraggedImage, y - currentDraggedImage.Height / 2);
 
                 currentDraggedImage.ReleaseMouseCapture();
                 currentDraggedImage = null;
-            
+
 
                 if (returnElement(image).PathName != "-") {
 
-                if (returnElement(image).Connection == 0)
-                {
+                    if (returnElement(image).Connection == 0)
+                    {
                         string path = returnElement(image).PathName;
 
-                    generateImagePath(returnElementPath(returnElement(image).PathName).Image, returnElement(image).Image, returnElement(image).PathName, true);
-                }
-                else
-                {
-                    generateImagePath(returnElement(image).Image, returnElementID(returnElement(image).Connection).Image, returnElement(image).PathName, true);
+                        generateImagePath(returnElementPath(returnElement(image).PathName).Image, returnElement(image).Image, returnElement(image).PathName, true);
+                    }
+                    else
+                    {
+                        generateImagePath(returnElement(image).Image, returnElementID(returnElement(image).Connection).Image, returnElement(image).PathName, true);
+                    }
                 }
             }
-            }
-       
+
 
         }
 
@@ -482,8 +482,8 @@ namespace BDC
                 double x = e.GetPosition(canvas).X;
                 double y = e.GetPosition(canvas).Y;
                 int position = 0;
-                if (!elementer(draggedImage)){
-                    var result = checkInBox(x,y);
+                if (!elementer(draggedImage)) {
+                    var result = checkInBox(x, y);
                     x = result.X; y = result.Y; position = result.position;
                     if (!result.IsInside) return;
                 }
@@ -516,14 +516,14 @@ namespace BDC
             }
 
 
-           
+
 
         }
-        private (bool IsInside, double X, double Y, int position) checkInBox(double leftCanvas, double topCanvas )
+        private (bool IsInside, double X, double Y, int position) checkInBox(double leftCanvas, double topCanvas)
         {
-    
 
-            int x = -20; 
+
+            int x = -20;
             int y = 135;
             int width = 57;
             int height = 103;
@@ -531,9 +531,9 @@ namespace BDC
             for (int i = 1; i < 12; i++)
             {
                 x = x + 58;
-                if (leftCanvas > x && leftCanvas < x + width && topCanvas > y & topCanvas < y + height) return (true, (2 * x + width) / 2, (2 * y + height) / 2 , i);
+                if (leftCanvas > x && leftCanvas < x + width && topCanvas > y & topCanvas < y + height) return (true, (2 * x + width) / 2, (2 * y + height) / 2, i);
             }
-          return (false, 0, 0,0);
+            return (false, 0, 0, 0);
 
         }
 
@@ -544,11 +544,11 @@ namespace BDC
         #endregion
 
         #region Element
-        private Image CreateElement( Image droppedImage, double x , double y)
+        private Image CreateElement(Image droppedImage, double x, double y)
         {
-          
 
-          //  Point dropPosition = e.GetPosition(canvas);
+
+            //  Point dropPosition = e.GetPosition(canvas);
 
             Canvas.SetLeft(droppedImage, x - iconSize / 2);
             Canvas.SetTop(droppedImage, y - iconSize / 2);
@@ -597,7 +597,7 @@ namespace BDC
                     element.Name = element.State + stateCounters[element.State];
                 }
             }
-           
+
         }
         #endregion
 
@@ -605,11 +605,11 @@ namespace BDC
         private void AssignItemAttribute(Element element)
         {
 
-                ItemAttribute attribute = new ItemAttribute();
-                attribute.loadCase = loadCalse;
-                attribute.stage = element.State;
-                element.attribute = attribute;
-         
+            ItemAttribute attribute = new ItemAttribute();
+            attribute.loadCase = loadCalse;
+            attribute.stage = element.State;
+            element.attribute = attribute;
+
         }
         #endregion
 
@@ -617,7 +617,7 @@ namespace BDC
         #region Other
         private void WriteLine(string text)
         {
-            reportText.Text = text ;
+            reportText.Text = text;
         }
         private bool checkButtonExist(Button button)
         {
@@ -701,7 +701,7 @@ namespace BDC
         #region Load
         private void OpenButton_Click(object sender, MouseButtonEventArgs e)
         {
-           
+
             DatabaseContext dbContext = new DatabaseContext();
             elements = dbContext.ReadData();
             LoadElements(elements);
@@ -749,11 +749,11 @@ namespace BDC
             isSelect = true;
             moveImage.Opacity = 0.2;
             selectImage.Opacity = 1.0;
-            
+
         }
         public void showProperties(Element element)
         {
-        
+
             List<PropertyDisplay> propertyList = new List<PropertyDisplay>
                 {
                       new PropertyDisplay { PropertyName = "stage", PropertyValue = element.attribute.stage.ToString() },
@@ -767,7 +767,7 @@ namespace BDC
 
             propertyListBox.ItemsSource = propertyList;
         }
-     
+
         #endregion
         #region Move
         private void MoveButton_Click(object sender, MouseButtonEventArgs e)
@@ -823,11 +823,11 @@ namespace BDC
 
         private void Attributes_Click(object sender, RoutedEventArgs e)
         {
-         //   AssignStateNumbers(elements);
-          //  FormAttributes formAttributes = new FormAttributes(elements);
-          //  formAttributes.Show();
+            //   AssignStateNumbers(elements);
+            //  FormAttributes formAttributes = new FormAttributes(elements);
+            //  formAttributes.Show();
 
-            FormItemAttribute formAttributes = new FormItemAttribute(elements,this);
+            FormItemAttribute formAttributes = new FormItemAttribute(elements, this);
             formAttributes.Show();
 
 
@@ -907,7 +907,8 @@ namespace BDC
 
         #endregion
 
-   
+        #region case
+
         private void AddCase_Click(object sender, RoutedEventArgs e)
         {
             // Create a new RadioButton for the case
@@ -915,9 +916,54 @@ namespace BDC
             radioButton.Content = "Case " + (casesToolBar.Items.Count + 1);
             radioButton.GroupName = "Cases"; // Ensure they are mutually exclusive
 
+            // Attach a double-click event handler to the RadioButton
+            radioButton.MouseDoubleClick += RadioButton_MouseDoubleClick;
+
             // Add the new case to the toolbar
             casesToolBar.Items.Add(radioButton);
         }
+
+        private void RadioButton_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            RadioButton radioButton = (RadioButton)sender;
+
+            // Create a TextBox to replace the RadioButton
+            TextBox textBox = new TextBox();
+            textBox.Text = radioButton.Content.ToString();
+
+            // Handle the LostFocus event to save the changes when the TextBox loses focus
+            textBox.LostFocus += TextBox_LostFocus;
+
+            // Replace the RadioButton with the TextBox in the toolbar
+            int index = casesToolBar.Items.IndexOf(radioButton);
+            casesToolBar.Items.Insert(index, textBox);
+            casesToolBar.Items.Remove(radioButton);
+
+            // Set focus to the TextBox and select all text
+            textBox.Focus();
+            textBox.SelectAll();
+        }
+
+        private void TextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+
+            // Get the index of the TextBox in the toolbar
+            int index = casesToolBar.Items.IndexOf(textBox);
+
+            // Create a new RadioButton with the updated text
+            RadioButton newRadioButton = new RadioButton();
+            newRadioButton.Content = textBox.Text;
+            newRadioButton.GroupName = "Cases";
+
+            // Attach the double-click event handler to the new RadioButton
+            newRadioButton.MouseDoubleClick += RadioButton_MouseDoubleClick;
+
+            // Replace the TextBox with the new RadioButton
+            casesToolBar.Items.Insert(index, newRadioButton);
+            casesToolBar.Items.Remove(textBox);
+        }
+
         private void DeleteCase_Click(object sender, RoutedEventArgs e)
         {
             // Find the selected RadioButton and remove it
@@ -928,7 +974,57 @@ namespace BDC
             }
         }
 
-     
+        private void DownCase_Click(object sender, RoutedEventArgs e)
+        {
+            RadioButton selectedRadioButton = casesToolBar.Items.OfType<RadioButton>().FirstOrDefault(rb => rb.IsChecked == true);
+
+            if (selectedRadioButton != null)
+            {
+                int currentIndex = casesToolBar.Items.IndexOf(selectedRadioButton);
+
+                if (currentIndex < casesToolBar.Items.Count - 1)
+                {
+                    // Swap the positions of the selected RadioButton and the one below it
+                    casesToolBar.Items.RemoveAt(currentIndex);
+                    casesToolBar.Items.Insert(currentIndex + 1, selectedRadioButton);
+                    selectedRadioButton.IsChecked = true; // Re-select the moved RadioButton
+                }
+            }
+        }
+
+        private void UpCase_Click(object sender, RoutedEventArgs e)
+        {
+            RadioButton selectedRadioButton = casesToolBar.Items.OfType<RadioButton>().FirstOrDefault(rb => rb.IsChecked == true);
+
+            if (selectedRadioButton != null)
+            {
+                int currentIndex = casesToolBar.Items.IndexOf(selectedRadioButton);
+
+                if (currentIndex > 0)
+                {
+                    // Swap the positions of the selected RadioButton and the one above it
+                    casesToolBar.Items.RemoveAt(currentIndex);
+                    casesToolBar.Items.Insert(currentIndex - 1, selectedRadioButton);
+                    selectedRadioButton.IsChecked = true; // Re-select the moved RadioButton
+                }
+            }
+        }
+
+        private void ToolBar_Loaded(object sender, RoutedEventArgs e)
+        {
+            ToolBar toolBar = sender as ToolBar;
+            var overflowGrid = toolBar.Template.FindName("OverflowGrid", toolBar) as FrameworkElement;
+            if (overflowGrid != null)
+            {
+                overflowGrid.Visibility = Visibility.Collapsed;
+            }
+            var mainPanelBorder = toolBar.Template.FindName("MainPanelBorder", toolBar) as FrameworkElement;
+            if (mainPanelBorder != null)
+            {
+                mainPanelBorder.Margin = new Thickness();
+            }
+        }
     }
+    #endregion
 
 }
