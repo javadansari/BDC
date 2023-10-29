@@ -66,12 +66,12 @@
                 </StackPanel>
             </ToolBar>
         </ToolBarTray>
-        <ToolBarTray Name="toolbarMenu" Grid.Row="2" Orientation="Vertical" Visibility="Hidden">
+        <ToolBarTray Name="toolbarMenu" Grid.Row="2" Orientation="Vertical" Visibility="Visible">
             <ToolBar >
                 <StackPanel Orientation="Vertical">
                     <StackPanel Orientation="Horizontal">
-                        <Image  Tag="eco" Width="{StaticResource iconSize}" Height="{StaticResource iconSize}" Source="Images/Elements/economizer.png"    PreviewMouseLeftButtonDown="SourceoutElementButton_PreviewMouseLeftButtonDown"/>
-                        <Image  Tag="eva" Width="{StaticResource iconSize}" Height="{StaticResource iconSize}" Source="Images/Elements/evaporator.png"    PreviewMouseLeftButtonDown="SourceoutElementButton_PreviewMouseLeftButtonDown"/>
+                        <Image  Tag="eco" Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}" Source="Images/Elements/economizer.png"    PreviewMouseLeftButtonDown="SourceoutElementButton_PreviewMouseLeftButtonDown"/>
+                        <Image  Tag="eva" Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}" Source="Images/Elements/evaporator.png"    PreviewMouseLeftButtonDown="SourceoutElementButton_PreviewMouseLeftButtonDown"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Image  Tag="sh" Width="{StaticResource iconSize}" Height="{StaticResource iconSize}" Source="Images/Elements/superheater.png"    PreviewMouseLeftButtonDown="SourceoutElementButton_PreviewMouseLeftButtonDown"/>
@@ -82,7 +82,7 @@
                         <Image  Tag="open" Width="{StaticResource iconSize}" Height="{StaticResource iconSize}" Source="Images/Other/open.png"    PreviewMouseLeftButtonDown="OpenButton_Click"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <Image Name="selectImage"  Tag="select" Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"    Source="Images/Other/select.png" PreviewMouseLeftButtonDown="SelectButton_Click"/>
+                        <Image Name="selectImage"  Tag="select" Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"    Source="Images/Other/select2.png" PreviewMouseLeftButtonDown="SelectButton_Click"/>
                         <Image Name="moveImage"  Tag="move" Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"     Source="Images/Other/move.png" PreviewMouseLeftButtonDown="MoveButton_Click"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
@@ -94,27 +94,32 @@
                 </StackPanel>
             </ToolBar>
         </ToolBarTray>
-        <ToolBarTray Name="casesMenu" Grid.Row="2" Orientation="Vertical"  IsLocked="True"  >
-            <ToolBar Name="optionCaseToolBar"   Loaded="ToolBar_Loaded" >
+        <ToolBarTray Name="casesMenu" Grid.Row="2" Orientation="Vertical"  IsLocked="True" Visibility="Hidden" >
+            <ToolBar Name="optionCaseToolBar"   Loaded="ToolBar_Loaded"  >
                 <StackPanel Orientation="Horizontal">
-                    <Button Click="UpCase_Click" Background="Transparent">
+                    <Button Click="UpCase_Click" Background="{x:Null}" BorderBrush="{x:Null}">
                         <StackPanel>
                             <Image Source="Images/Other/up.png" Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}" />
                         </StackPanel>
                     </Button>
-                    <Button Click="DownCase_Click" Background="Transparent" >
+                    <Button Click="DownCase_Click" Background="{x:Null}" BorderBrush="{x:Null}">
                         <StackPanel>
                             <Image Source="Images/Other/down.png" Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}" />
                         </StackPanel>
                     </Button>
-                    <Button Click="AddCase_Click" Background="Transparent" >
+                <Button Click="AddCase_Click" Background="{x:Null}" BorderBrush="{x:Null}" >
                         <StackPanel>
                             <Image Source="Images/Other/plus.png" Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}" />
                         </StackPanel>
                     </Button>
-                    <Button Click="DeleteCase_Click" Background="Transparent">
+                    <Button Click="DeleteCase_Click" Background="{x:Null}" BorderBrush="{x:Null}" >
                         <StackPanel>
                             <Image Source="Images/Other/minus.png" Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}" />
+                        </StackPanel>
+                    </Button>
+                    <Button Click="SelectCase_Click" Background="{x:Null}" BorderBrush="{x:Null}" >
+                        <StackPanel>
+                            <Image Source="Images/Other/select1.png" Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}" />
                         </StackPanel>
                     </Button>
                 </StackPanel>

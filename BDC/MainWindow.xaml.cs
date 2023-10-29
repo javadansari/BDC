@@ -1024,6 +1024,11 @@ namespace BDC
                 mainPanelBorder.Margin = new Thickness();
             }
         }
+
+        private void SelectCase_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
     #endregion
 
