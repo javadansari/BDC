@@ -70,8 +70,8 @@
             <ToolBar >
                 <StackPanel Orientation="Vertical">
                     <StackPanel Orientation="Horizontal">
-                        <Image  Tag="eco" Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}" Source="Images/Elements/economizer.png"    PreviewMouseLeftButtonDown="SourceoutElementButton_PreviewMouseLeftButtonDown"/>
-                        <Image  Tag="eva" Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}" Source="Images/Elements/evaporator.png"    PreviewMouseLeftButtonDown="SourceoutElementButton_PreviewMouseLeftButtonDown"/>
+                        <Image  Tag="eco" Width="{StaticResource iconSize}" Height="{StaticResource iconSize}" Source="Images/Elements/economizer.png"    PreviewMouseLeftButtonDown="SourceoutElementButton_PreviewMouseLeftButtonDown"/>
+                        <Image  Tag="eva" Width="{StaticResource iconSize}" Height="{StaticResource iconSize}" Source="Images/Elements/evaporator.png"    PreviewMouseLeftButtonDown="SourceoutElementButton_PreviewMouseLeftButtonDown"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Image  Tag="sh" Width="{StaticResource iconSize}" Height="{StaticResource iconSize}" Source="Images/Elements/superheater.png"    PreviewMouseLeftButtonDown="SourceoutElementButton_PreviewMouseLeftButtonDown"/>
