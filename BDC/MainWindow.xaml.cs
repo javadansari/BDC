@@ -824,11 +824,11 @@ namespace BDC
         private void Attributes_Click(object sender, RoutedEventArgs e)
         {
             //   AssignStateNumbers(elements);
-            //  FormAttributes formAttributes = new FormAttributes(elements);
-            //  formAttributes.Show();
+              FormAttributes formAttributes = new FormAttributes(elements);
+              formAttributes.Show();
 
-            FormItemAttribute formAttributes = new FormItemAttribute(elements, this);
-            formAttributes.Show();
+         //   FormItemAttribute formAttributes = new FormItemAttribute(elements, this);
+         //   formAttributes.Show();
 
 
         }
