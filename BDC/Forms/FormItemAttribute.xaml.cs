@@ -43,7 +43,7 @@ namespace BDC.Forms
             StackPanel verticalStackPanelVertical = new StackPanel
             {
                 Orientation = Orientation.Vertical,
-                Background = new SolidColorBrush(Colors.LightBlue),
+                Background = new SolidColorBrush(Colors.White),
             };
 
             Type elementType = typeof(ItemAttribute);
@@ -55,7 +55,7 @@ namespace BDC.Forms
                 {
                     Content = displayName,
                     VerticalAlignment = VerticalAlignment.Center,
-                    Margin = new Thickness(10), // Set the margin to 10 units on all sides
+               //     Margin = new Thickness(10), // Set the margin to 10 units on all sides
 
                 };
                 verticalStackPanelVertical.Children.Add(label);
@@ -65,12 +65,12 @@ namespace BDC.Forms
             bool odd = true;
             foreach (Element element in Elements)
             {
-                Color color = Colors.AliceBlue;
+                Color color = Colors.White;
                 if (odd) odd = false;
                 else
                 {
                     odd = true;
-                    color = Colors.AntiqueWhite;
+                    color = Colors.White;
                 }
                 childStackPanel = new StackPanel
                 {
@@ -148,8 +148,8 @@ namespace BDC.Forms
         {
                     Label label = new Label
                     {
-                        Width = 100,
-                        Margin = new Thickness(10),
+                //        Width = 100,
+               //         Margin = new Thickness(10),
                         Content = text,
                     };
                    childStackPanel.Children.Add(label);
@@ -159,9 +159,9 @@ namespace BDC.Forms
 
             TextBox textBox = new TextBox
             {
-                Width = 100,
-                Height = 25,
-                Margin = new Thickness(10,11,10,10),
+            //    Width = 100,
+                Height = 26,
+          //     Margin = new Thickness(0,0,0,0),
                 
             };
             textBox.Text = getIndexFunc(element);
@@ -206,9 +206,9 @@ namespace BDC.Forms
         {
             ComboBox comboBox = new ComboBox
             {
-                Width = 100,
-                Height = 25,
-                Margin = new Thickness(10,11,10,10),
+           //     Width = 100,
+                Height = 26,
+             //   Margin = new Thickness(0,0,0,0),
             };
             foreach (string item in itemsList)
             {

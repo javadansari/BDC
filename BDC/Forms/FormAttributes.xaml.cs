@@ -1,93 +1,44 @@
-﻿using BDC.Classes;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
-using System.Reflection;
-using System.Reflection.PortableExecutable;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Xml.Linq;
 
 namespace BDC.Forms
 {
     public partial class FormAttributes : Window
     {
-     
-
-
-        public FormAttributes(List<Element> elements)
+        public FormAttributes()
         {
             InitializeComponent();
 
-
-
-
-
-            List<object> propertyList = new List<object>();
-
-            // Create an instance of the ItemAttribute class
-            ItemAttribute item = new ItemAttribute();
-
-            // Use reflection to get the property names and values
-            PropertyInfo[] properties = item.GetType().GetProperties();
-
-            foreach (PropertyInfo property in properties)
+            // Create and configure the DataGrid
+            DataGrid dataGrid = new DataGrid
             {
-                propertyList.Add(new { PropertyName = property.Name, Value = property.GetValue(item) });
-            }
-
-            //   propertyList.Add(new { , Value = property.GetValue(item) });
-
-
-            // Set the DataGrid's ItemsSource to the collection
-            dataGrid.ItemsSource = propertyList;
-
-
-
-            var column = new DataGridTextColumn
-            {
-                Header = "stage",
-                Binding = new System.Windows.Data.Binding("stage")
+                Name = "dataGrid",
+                HorizontalAlignment = HorizontalAlignment.Stretch,
+                VerticalAlignment = VerticalAlignment.Stretch,
+                AutoGenerateColumns = false
             };
-            dataGrid.Columns.Add(column);
 
-            foreach (Element element in elements)
+            // Create columns
+            DataGridTextColumn propertyNameColumn = new DataGridTextColumn
             {
+                Header = "Property Name",
+                Binding = new System.Windows.Data.Binding("PropertyName")
+            };
+            dataGrid.Columns.Add(propertyNameColumn);
 
-                 column = new DataGridTextColumn
-                {
-                    Header = element.State,
-                    Binding = new System.Windows.Data.Binding(element.State)
-                };
-                dataGrid.Columns.Add(column);
+            // Add similar DataGridTextColumn elements for other properties
 
-            
-                //    dataGrid.Items.Add(new Item() { Num = 1, Start = "2012, 8, 15", Finich = "2012, 9, 15" });
-
-            }
-
-
-            List<ItemAttribute> attributes = new List<ItemAttribute>();
-            foreach (Element element in elements)
+            // Create the New Column
+            DataGridTextColumn newColumn = new DataGridTextColumn
             {
-                attributes.Add(element.attribute);
-            }
+                Header = "New Column",
+                Binding = new System.Windows.Data.Binding("NewColumn")
+            };
+            dataGrid.Columns.Add(newColumn);
 
-            dataGrid.ItemsSource = attributes;
-            // Bind the data items to the ListView
-           
-
-            //      dataGrid.ItemsSource = propertyList;
-
-
-
-
-            // Set the DataGrid's ItemsSource to the collection
-
-
+            // Set the DataGrid as the content of the Grid in the XAML
+            Grid grid = (Grid)Content;
+            grid.Children.Add(dataGrid);
         }
     }
 }
