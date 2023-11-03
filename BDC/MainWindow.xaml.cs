@@ -88,7 +88,7 @@ namespace BDC
                 items.Add(item);
             }
             elements = new List<Element>();
-
+            cases = new List<Case>();
 
             canvas.LayoutTransform = new ScaleTransform(0.8, 0.8);
 
@@ -702,6 +702,11 @@ namespace BDC
 
 
 
+            foreach (RadioButton item in casesToolBar.Items)
+            {
+                cases.Add(new Case {Name = item.Content.ToString()});
+
+            }
 
             foreach(Case @case in cases)
             {
@@ -921,21 +926,21 @@ namespace BDC
             RadioButton radioButton = new RadioButton();
             radioButton.Content = "Case " + (casesToolBar.Items.Count + 1);
             radioButton.GroupName = "Cases"; // Ensure they are mutually exclusive
-
+            radioButton.TabIndex = cases.Count();
             // Attach a double-click event handler to the RadioButton
             radioButton.MouseDoubleClick += RadioButton_MouseDoubleClick;
-
+            
             // Add the new case to the toolbar
             casesToolBar.Items.Add(radioButton);
-            cases.Add(new Case { Name = radioButton.Content.ToString() });
+          
+         //   cases.Add(new Case { Name = radioButton.Content.ToString() });
         }
 
         private void RadioButton_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             RadioButton radioButton = (RadioButton)sender;
-
-            // Create a TextBox to replace the RadioButton
-            TextBox textBox = new TextBox();
+                // Create a TextBox to replace the RadioButton
+             TextBox textBox = new TextBox();
             textBox.Text = radioButton.Content.ToString();
 
             // Handle the LostFocus event to save the changes when the TextBox loses focus
