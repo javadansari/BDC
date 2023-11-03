@@ -5,6 +5,7 @@ using System.Data.SQLite;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
@@ -45,7 +46,7 @@ namespace BDC.DataBase
             using (SQLiteCommand command = new SQLiteCommand())
             {
                 command.Connection = connection;
-                command.CommandText = "CREATE TABLE IF NOT EXISTS YourTableName (" +
+                command.CommandText = "CREATE TABLE IF NOT EXISTS Items (" +
                                       "Id INTEGER PRIMARY KEY AUTOINCREMENT," +
                                       "Exist INTEGER," +
                                       "Name TEXT," +
@@ -56,12 +57,33 @@ namespace BDC.DataBase
                                       "Image TEXT," +
                                       "Position INTEGER," +
                                       "X REAL," +
-                                      "Y REAL);";
+                                      "Y REAL," + 
+                                      "Attribute);";
                 command.ExecuteNonQuery();
             }
 
             CloseConnection();
+
+
+
+            OpenConnection();
+
+            using (SQLiteCommand command = new SQLiteCommand())
+            {
+                command.Connection = connection;
+                command.CommandText = "CREATE TABLE IF NOT EXISTS Cases (" +
+                                      "Id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                                      "Name TEXT);";
+                command.ExecuteNonQuery();
+            }
+
+            CloseConnection();
+
         }
+
+       
+
+
 
         public void SaveData(Element element)
         {
@@ -71,9 +93,8 @@ namespace BDC.DataBase
             {
                 command.Connection = connection;
 
-                // Replace 'YourTableName' with your actual table name
-                command.CommandText = "INSERT INTO YourTableName (Exist, Name, Connection, PathName, State, StateNumber, Image, Position, X, Y) " +
-                                      "VALUES (@Exist, @Name, @Connection, @PathName, @State, @StateNumber, @Image, @Position, @X, @Y);";
+                command.CommandText = "INSERT INTO Items (Exist, Name, Connection, PathName, State, StateNumber, Image, Position, X, Y , Attribute) " +
+                                      "VALUES (@Exist, @Name, @Connection, @PathName, @State, @StateNumber, @Image, @Position, @X, @Y , @Attribute);";
 
                 command.Parameters.AddWithValue("@Exist", element.Exist);
                 command.Parameters.AddWithValue("@Name", element.Name);
@@ -86,6 +107,10 @@ namespace BDC.DataBase
                 command.Parameters.AddWithValue("@X", element.X);
                 command.Parameters.AddWithValue("@Y", element.Y);
 
+                string serializedAttribute = SerializeItemAttributeToJson(element.attribute);
+                command.Parameters.AddWithValue("@Attribute", serializedAttribute);
+
+
                 command.ExecuteNonQuery();
             }
 
@@ -93,13 +118,39 @@ namespace BDC.DataBase
         }
 
 
+        public void SaveCases(Case @case)
+        {
+            OpenConnection();
+
+            using (SQLiteCommand command = new SQLiteCommand())
+            {
+                command.Connection = connection;
+
+                command.CommandText = "INSERT INTO Cases ( Name) " +
+                                      "VALUES ( @Name);";
+                command.Parameters.AddWithValue("@Name", @case.Name);
+
+                command.ExecuteNonQuery();
+            }
+
+            CloseConnection();
+        }
+
+        public ItemAttribute DeserializeJsonToItemAttribute(string json)
+        {
+            return JsonSerializer.Deserialize<ItemAttribute>(json);
+        }
+        public string SerializeItemAttributeToJson(ItemAttribute itemAttribute)
+        {
+            return JsonSerializer.Serialize(itemAttribute);
+        }
         public List<Element> ReadData()
         {
             OpenConnection();
 
             List<Element> elements = new List<Element>();
 
-            using (SQLiteCommand command = new SQLiteCommand("SELECT * FROM YourTableName", connection))
+            using (SQLiteCommand command = new SQLiteCommand("SELECT * FROM Items", connection))
             {
                 using (SQLiteDataReader reader = command.ExecuteReader())
                 {
@@ -110,6 +161,12 @@ namespace BDC.DataBase
                         image.Width =48;
                         image.Height =48;
                         image.Source = new BitmapImage(new Uri(reader.GetString(7)));
+
+
+                        string serializedAttribute = reader.GetString(11); // Assuming Attribute is at column index 11
+                        ItemAttribute attribute = DeserializeJsonToItemAttribute(serializedAttribute);
+
+
                         Element element = new Element
                         {
                         //   Id = reader.GetInt32(0),
@@ -122,7 +179,9 @@ namespace BDC.DataBase
                             Image = image,
                             Position = reader.GetInt32(8),
                             X = reader.GetDouble(9),
-                            Y = reader.GetDouble(10)
+                            Y = reader.GetDouble(10),
+                            attribute = attribute 
+
                         };
 
                         elements.Add(element);
@@ -134,6 +193,35 @@ namespace BDC.DataBase
 
             return elements;
         }
+
+        public List<Case> ReadCase()
+        {
+            OpenConnection();
+
+            List<Case> cases = new List<Case>();
+
+            using (SQLiteCommand command = new SQLiteCommand("SELECT * FROM Cases", connection))
+            {
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+
+                        Case @case = new Case
+                        {
+                            Name = reader.GetString(2),        
+                        };
+
+                        cases.Add(@case);
+                    }
+                }
+            }
+
+            CloseConnection();
+
+            return cases;
+        }
+
 
         public void DeleteDatabase()
         {

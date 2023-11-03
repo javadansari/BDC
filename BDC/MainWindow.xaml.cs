@@ -44,6 +44,9 @@ namespace BDC
     {
         private List<Item> items;
         public List<Element> elements { get; set; }
+        
+        public List<Case> cases{ get; set; }
+
         private List<ItemAttribute> itemAttribute;
         private Button clickedButton;
         private Image imageLevelButton;
@@ -696,6 +699,15 @@ namespace BDC
                 dbContext.SaveData(element);
             }
 
+
+
+
+
+            foreach(Case @case in cases)
+            {
+                dbContext.SaveCases(@case);
+            }
+
         }
         #endregion
         #region Load
@@ -705,6 +717,12 @@ namespace BDC
             DatabaseContext dbContext = new DatabaseContext();
             elements = dbContext.ReadData();
             LoadElements(elements);
+
+            cases = dbContext.ReadCase();
+            LoadCases(cases);
+
+
+
         }
 
         private void LoadElements(List<Element> elements)
@@ -712,26 +730,15 @@ namespace BDC
             foreach (Element element in elements)
             {
                 Image image = element.Image;
-                //   BitmapImage bitmapImage = new BitmapImage(new Uri("pack://application:,,,/BDC;component/Images/Elements/fan.png"));
-                //  image.src = 'img/base.png';
-
-                //       BitmapImage bitmapImage = new BitmapImage(new Uri(@"C:\FullPathToYourProject\YourProjectName\Images\Elemnts\fan.png"));
-                //         image.Source = new BitmapImage(new Uri(@"/Images/Elements/fan.png", UriKind.Relative));
-
-                //   image.Source = new BitmapImage(new Uri(@"pack://application:,,,/BDC;component/Images/Elements/superheater.png"));
-                //    image.Source = new BitmapImage(new Uri(element.Image.ToString()));
-                // Set the image width and height
-                //   image.Width = 40; // Set your desired width
-                //   image.Height = 40; // Set your desired height
-
-                // Set the Canvas.Left and Canvas.Top properties to position the image on the canvas
                 CreateElement(image, element.X, element.Y);
+            }
+        }
 
-
-
-
-
-
+        private void LoadCases(List<Case> cases)
+        {
+            foreach (Case @case in cases)
+            {
+              
             }
         }
 
@@ -920,6 +927,7 @@ namespace BDC
 
             // Add the new case to the toolbar
             casesToolBar.Items.Add(radioButton);
+            cases.Add(new Case { Name = radioButton.Content.ToString() });
         }
 
         private void RadioButton_MouseDoubleClick(object sender, MouseButtonEventArgs e)

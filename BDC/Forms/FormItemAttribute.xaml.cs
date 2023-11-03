@@ -143,6 +143,7 @@ namespace BDC.Forms
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
             Main.elements = Elements;
+            this.Close();
         }
         private void buildLabel( string text )
         {
