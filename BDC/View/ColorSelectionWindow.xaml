@@ -1,0 +1,11 @@
+﻿<Window x:Class="BDC.View.ColorSelectionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Select a Color" SizeToContent="WidthAndHeight">
+    <StackPanel>
+        <RadioButton Content="Blue" GroupName="ColorSelection" Name="BlueRadioButton" />
+        <RadioButton Content="Green" GroupName="ColorSelection" Name="GreenRadioButton" />
+        <RadioButton Content="Yellow" GroupName="ColorSelection" Name="YellowRadioButton" />
+        <Button Content="OK" Click="OK_Click" />
+    </StackPanel>
+</Window>

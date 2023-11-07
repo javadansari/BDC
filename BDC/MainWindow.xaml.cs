@@ -31,6 +31,7 @@ using BDC.DataBase;
 using System.Data.SQLite;
 using System.Data.Entity;
 using System.Windows.Controls.Primitives;
+using BDC.View;
 
 namespace BDC
 {
@@ -1041,7 +1042,39 @@ namespace BDC
         {
 
         }
+
+
+        private void CheckBox_Click(object sender, RoutedEventArgs e)
+        {
+            if (myCheckBox.IsChecked == true)
+            {
+                ColorSelectionWindow colorWindow = new ColorSelectionWindow();
+                if (colorWindow.ShowDialog() == true)
+                {
+                    if (colorWindow.BlueRadioButton.IsChecked == true)
+                    {
+                        myRectangle.Fill = new SolidColorBrush(Colors.Blue);
+                    }
+                    else if (colorWindow.GreenRadioButton.IsChecked == true)
+                    {
+                        myRectangle.Fill = new SolidColorBrush(Colors.Green);
+                    }
+                    else if (colorWindow.YellowRadioButton.IsChecked == true)
+                    {
+                        myRectangle.Fill = new SolidColorBrush(Colors.Yellow);
+                    }
+                }
+            }
+            else
+            {
+                myRectangle.Fill = new SolidColorBrush(Colors.LightBlue); // Reset the background color when the CheckBox is unchecked.
+            }
+        }
+
     }
     #endregion
+
+
+
 
 }

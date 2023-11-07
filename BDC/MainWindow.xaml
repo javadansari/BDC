@@ -138,6 +138,7 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+        
         <ScrollViewer Grid.Row="2" Grid.Column="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
 
             <Canvas  Background="White"  Name="canvas"  Drop="ItemOutButton_Drop"  AllowDrop="True">
@@ -146,6 +147,10 @@
                 <Image Height="108" Source="Images/Canvas/Image3.png" Stretch="Fill" Width="184" Canvas.Left="502" Canvas.Top="131" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                 <Image Height="80" Source="Images/Canvas/Image5.png" Stretch="Fill" Width="59" Canvas.Left="502" Canvas.Top="256" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                 <Image Height="69" Source="Images/Canvas/Image6.png" Stretch="Fill" Width="54" Canvas.Left="561" Canvas.Top="272" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Grid>
+                    <Rectangle x:Name="myRectangle" Width="70" Height="100" Fill="LightBlue" />
+                    <CheckBox Name="myCheckBox"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10" Click="CheckBox_Click" />
+                </Grid>
             </Canvas>
 
         </ScrollViewer>
