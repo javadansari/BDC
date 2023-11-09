@@ -523,6 +523,10 @@ namespace BDC
 
 
         }
+
+
+
+
         private (bool IsInside, double X, double Y, int position) checkInBox(double leftCanvas, double topCanvas)
         {
 
@@ -541,8 +545,93 @@ namespace BDC
 
         }
 
+
+
+
+
         #endregion
 
+
+        #region ImageChooser
+
+        private void CheckBox_Click(object sender, RoutedEventArgs e)
+        {
+            CheckBox checkBox = (CheckBox)sender;
+            Image image = boilerStage_1;
+            Label label = boilerStage_label_1;
+            switch (checkBox.Name)
+            {
+                case "boilerStage_check_2":
+                    image = boilerStage_2;
+                    label = boilerStage_label_2;
+                    break;
+                case "boilerStage_check_3":
+                    image = boilerStage_3;
+                    label = boilerStage_label_3;
+                    break;
+                case "boilerStage_check_4":
+                    image = boilerStage_4;
+                    label = boilerStage_label_4;
+                    break;
+                case "boilerStage_check_5":
+                    image = boilerStage_5;
+                    label = boilerStage_label_5;
+                    break;
+                case "boilerStage_check_6":
+                    image = boilerStage_6;
+                    label = boilerStage_label_6;
+                    break;
+                case "boilerStage_check_7":
+                    image = boilerStage_7;
+                    label = boilerStage_label_7;
+                    break;
+                default:
+                    break;
+            }
+            ImageChooser imageChooser = new ImageChooser();
+            if (checkBox.IsChecked == true)
+            {
+                if (imageChooser.ShowDialog() == true)
+                {
+                    if (imageChooser.EconomizerRadioButton.IsChecked == true)
+                    {
+                        image.Source = new BitmapImage(new Uri("/Images/Elements/economizer.png", UriKind.Relative));
+                        image.Tag = "eco";
+
+                    }
+                    else if (imageChooser.SuperheatRadioButton.IsChecked == true)
+                    {
+                        image.Source = new BitmapImage(new Uri("/Images/Elements/superheater.png", UriKind.Relative));
+                        image.Tag = "sh";
+                    }
+                    else if (imageChooser.EvaporatorRadioButton.IsChecked == true)
+                    {
+                        image.Source = new BitmapImage(new Uri("/Images/Elements/evaporator.png", UriKind.Relative));
+                        image.Tag = "eva";
+                    }
+                }
+
+                Element element = new Element();
+                element.Exist = true;
+                element.Name = image.Tag.ToString();
+                element.State = image.Tag.ToString();
+                element.Connection = 0;
+                element.Image = image;
+                //  element.Position = position;
+                //   element.X = x;
+                //   element.Y = y;
+                elements.Add(element);
+                AssignStateNumbers(elements);
+                label.Content = element.Name;
+            }
+            else
+            {
+                image.Source = null;
+                image.Tag = "";
+                label.Content = "";
+            }
+        }
+        #endregion
 
 
         #endregion
@@ -1043,46 +1132,6 @@ namespace BDC
 
         }
 
-
-        private void CheckBox_Click(object sender, RoutedEventArgs e)
-        {
-            CheckBox checkBox = (CheckBox)sender;
-            Image image = boilerStage_1;
-            switch (checkBox.Name)
-            {
-                case "boilerStage_check_2":
-                    image = boilerStage_2;
-                    break;
-                case "boilerStage_check_3":
-                    image = boilerStage_3;
-                    break;
-                case "boilerStage_check_4":
-                    image = boilerStage_4;
-                    break;
-                case "boilerStage_check_5":
-                    image = boilerStage_5;
-                    break;
-                case "boilerStage_check_6":
-                    image = boilerStage_6;
-                    break;
-                case "boilerStage_check_7":
-                    image = boilerStage_7;
-                    break;
-                default:
-                    break;
-            }
-            ImageChooser imageChooser = new ImageChooser();
-            if (checkBox.IsChecked == true)
-            { 
-                if (imageChooser.ShowDialog() == true)
-                {
-                    if (imageChooser.EconomizerRadioButton.IsChecked == true) image.Source = new BitmapImage(new Uri("/Images/Elements/economizer.png", UriKind.Relative));
-                    else if (imageChooser.SuperheatRadioButton.IsChecked == true) image.Source = new BitmapImage(new Uri("/Images/Elements/superheater.png", UriKind.Relative));
-                    else if (imageChooser.EvaporatorRadioButton.IsChecked == true) image.Source = new BitmapImage(new Uri("/Images/Elements/evaporator.png", UriKind.Relative));
-                }
-            }
-            else  image.Source = null;
-        }
 
     }
     #endregion
