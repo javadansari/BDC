@@ -1046,29 +1046,42 @@ namespace BDC
 
         private void CheckBox_Click(object sender, RoutedEventArgs e)
         {
-            if (myCheckBox.IsChecked == true)
+            CheckBox checkBox = (CheckBox)sender;
+            Image image = boilerStage_1;
+            switch (checkBox.Name)
             {
-                ColorSelectionWindow colorWindow = new ColorSelectionWindow();
-                if (colorWindow.ShowDialog() == true)
+                case "boilerStage_check_2":
+                    image = boilerStage_2;
+                    break;
+                case "boilerStage_check_3":
+                    image = boilerStage_3;
+                    break;
+                case "boilerStage_check_4":
+                    image = boilerStage_4;
+                    break;
+                case "boilerStage_check_5":
+                    image = boilerStage_5;
+                    break;
+                case "boilerStage_check_6":
+                    image = boilerStage_6;
+                    break;
+                case "boilerStage_check_7":
+                    image = boilerStage_7;
+                    break;
+                default:
+                    break;
+            }
+            ImageChooser imageChooser = new ImageChooser();
+            if (checkBox.IsChecked == true)
+            { 
+                if (imageChooser.ShowDialog() == true)
                 {
-                    if (colorWindow.EconomizerRadioButton.IsChecked == true)
-                    {
-                        myRectangle.Fill = new SolidColorBrush(Colors.Blue);
-                    }
-                    else if (colorWindow.SuperheatRadioButton.IsChecked == true)
-                    {
-                        myRectangle.Fill = new SolidColorBrush(Colors.Green);
-                    }
-                    else if (colorWindow.EvaporatorRadioButton.IsChecked == true)
-                    {
-                        myRectangle.Fill = new SolidColorBrush(Colors.Yellow);
-                    }
+                    if (imageChooser.EconomizerRadioButton.IsChecked == true) image.Source = new BitmapImage(new Uri("/Images/Elements/economizer.png", UriKind.Relative));
+                    else if (imageChooser.SuperheatRadioButton.IsChecked == true) image.Source = new BitmapImage(new Uri("/Images/Elements/superheater.png", UriKind.Relative));
+                    else if (imageChooser.EvaporatorRadioButton.IsChecked == true) image.Source = new BitmapImage(new Uri("/Images/Elements/evaporator.png", UriKind.Relative));
                 }
             }
-            else
-            {
-                myRectangle.Fill = new SolidColorBrush(Colors.LightBlue); // Reset the background color when the CheckBox is unchecked.
-            }
+            else  image.Source = null;
         }
 
     }

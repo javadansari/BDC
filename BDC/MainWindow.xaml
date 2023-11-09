@@ -17,6 +17,9 @@
         <sys:Double x:Key="iconSize">48</sys:Double>
         <sys:Double x:Key="smallIconSize">16</sys:Double>
         <sys:Double x:Key="smallestIconSize">8</sys:Double>
+        <sys:Double x:Key="imageHolderHeight">70</sys:Double>
+        <sys:Double x:Key="imageHolderWidth">45</sys:Double>
+        <sys:Double x:Key="imageMargin">10</sys:Double>
     </Window.Resources>
 
     <Grid>
@@ -147,10 +150,51 @@
                 <Image Height="108" Source="Images/Canvas/Image3.png" Stretch="Fill" Width="184" Canvas.Left="502" Canvas.Top="131" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                 <Image Height="80" Source="Images/Canvas/Image5.png" Stretch="Fill" Width="59" Canvas.Left="502" Canvas.Top="256" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                 <Image Height="69" Source="Images/Canvas/Image6.png" Stretch="Fill" Width="54" Canvas.Left="561" Canvas.Top="272" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <Grid>
-                    <Rectangle x:Name="myRectangle" Width="45" Height="70" Fill="LightBlue" />
-                    <CheckBox Name="myCheckBox"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,1,1" Click="CheckBox_Click" />
+
+                <StackPanel Orientation="Horizontal"  Canvas.Left="100" Canvas.Top="20">
+                    <Grid Margin="10">
+                    <Border BorderThickness="2" BorderBrush="Gray">
+                            <Image x:Name="boilerStage_1" Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}"  />
+                    </Border>
+                    <CheckBox Name="boilerStage_check_1"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,1,1" Click="CheckBox_Click" />
                 </Grid>
+                    <Grid Margin="10">
+                        <Border BorderThickness="2" BorderBrush="Gray">
+                            <Image x:Name="boilerStage_2" Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}"  />
+                        </Border>
+                    <CheckBox Name="boilerStage_check_2"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,1,1" Click="CheckBox_Click" />
+                </Grid>
+                    <Grid Margin="10">
+                        <Border BorderThickness="2" BorderBrush="Gray">
+                            <Image x:Name="boilerStage_3" Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}"  />
+                        </Border>
+                    <CheckBox Name="boilerStage_check_3"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,1,1" Click="CheckBox_Click" />
+                </Grid>
+                    <Grid Margin="10">
+                        <Border BorderThickness="2" BorderBrush="Gray">
+                            <Image x:Name="boilerStage_4" Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}"  />
+                        </Border>
+                    <CheckBox Name="boilerStage_check_4"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,1,1" Click="CheckBox_Click" />
+                </Grid>
+                    <Grid Margin="10">
+                        <Border BorderThickness="2" BorderBrush="Gray">
+                            <Image x:Name="boilerStage_5" Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}"  />
+                        </Border>
+                    <CheckBox Name="boilerStage_check_5"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,1,1" Click="CheckBox_Click" />
+                </Grid>
+                    <Grid Margin="10">
+                    <Border BorderThickness="2" BorderBrush="Gray">
+                            <Image x:Name="boilerStage_6" Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}"  />
+                        </Border>
+                    <CheckBox Name="boilerStage_check_6"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,1,1" Click="CheckBox_Click" />
+                </Grid>
+                    <Grid Margin="10">
+                        <Border BorderThickness="2" BorderBrush="Gray">
+                            <Image x:Name="boilerStage_7" Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}"  />
+                        </Border>
+                    <CheckBox Name="boilerStage_check_7"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,1,1" Click="CheckBox_Click" />
+                </Grid>
+                </StackPanel>
             </Canvas>
 
         </ScrollViewer>

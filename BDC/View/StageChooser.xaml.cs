@@ -14,12 +14,10 @@ using System.Windows.Shapes;
 
 namespace BDC.View
 {
-    /// <summary>
-    /// Interaction logic for ColorSelectionWindow.xaml
-    /// </summary>
-    public partial class ColorSelectionWindow : Window
+
+    public partial class ImageChooser : Window
     {
-        public ColorSelectionWindow()
+        public ImageChooser()
         {
             InitializeComponent();
         }
