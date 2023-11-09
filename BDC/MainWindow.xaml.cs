@@ -1051,15 +1051,15 @@ namespace BDC
                 ColorSelectionWindow colorWindow = new ColorSelectionWindow();
                 if (colorWindow.ShowDialog() == true)
                 {
-                    if (colorWindow.BlueRadioButton.IsChecked == true)
+                    if (colorWindow.EconomizerRadioButton.IsChecked == true)
                     {
                         myRectangle.Fill = new SolidColorBrush(Colors.Blue);
                     }
-                    else if (colorWindow.GreenRadioButton.IsChecked == true)
+                    else if (colorWindow.SuperheatRadioButton.IsChecked == true)
                     {
                         myRectangle.Fill = new SolidColorBrush(Colors.Green);
                     }
-                    else if (colorWindow.YellowRadioButton.IsChecked == true)
+                    else if (colorWindow.EvaporatorRadioButton.IsChecked == true)
                     {
                         myRectangle.Fill = new SolidColorBrush(Colors.Yellow);
                     }
