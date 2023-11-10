@@ -12,6 +12,7 @@ namespace BDC.Classes
         public int Id { get; private set; }
         public bool Exist { get; set; }
         public string Name { get; set; }
+        public string Content { get; set; }
         public int Connection { get; set; }
         public string PathName { get; set; } = "-";
         public string State { get; set; } = "-";

@@ -50,6 +50,7 @@ namespace BDC.DataBase
                                       "Id INTEGER PRIMARY KEY AUTOINCREMENT," +
                                       "Exist INTEGER," +
                                       "Name TEXT," +
+                                      "Content TEXT," +
                                       "Connection INTEGER," +
                                       "PathName TEXT DEFAULT '-'," +
                                       "State TEXT DEFAULT '-'," +
@@ -93,11 +94,12 @@ namespace BDC.DataBase
             {
                 command.Connection = connection;
 
-                command.CommandText = "INSERT INTO Items (Exist, Name, Connection, PathName, State, StateNumber, Image, Position, X, Y , Attribute) " +
+                command.CommandText = "INSERT INTO Items (Exist, Name, Content, Connection, PathName, State, StateNumber, Image, Position, X, Y , Attribute) " +
                                       "VALUES (@Exist, @Name, @Connection, @PathName, @State, @StateNumber, @Image, @Position, @X, @Y , @Attribute);";
 
                 command.Parameters.AddWithValue("@Exist", element.Exist);
                 command.Parameters.AddWithValue("@Name", element.Name);
+                command.Parameters.AddWithValue("@Content", element.Content);
                 command.Parameters.AddWithValue("@Connection", element.Connection);
                 command.Parameters.AddWithValue("@PathName", element.PathName);
                 command.Parameters.AddWithValue("@State", element.State);

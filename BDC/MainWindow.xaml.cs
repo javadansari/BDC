@@ -33,6 +33,7 @@ using System.Data.Entity;
 using System.Windows.Controls.Primitives;
 using BDC.View;
 
+
 namespace BDC
 {
     /// <summary>
@@ -558,32 +559,36 @@ namespace BDC
         {
             CheckBox checkBox = (CheckBox)sender;
             Image image = boilerStage_1;
-            Label label = boilerStage_label_1;
+            Label label = boilerStage_1_label;
             switch (checkBox.Name)
             {
+                case "boilerStage_check_1":
+                    image = boilerStage_1;
+                    label = boilerStage_1_label;
+                    break;
                 case "boilerStage_check_2":
                     image = boilerStage_2;
-                    label = boilerStage_label_2;
+                    label = boilerStage_2_label;
                     break;
                 case "boilerStage_check_3":
                     image = boilerStage_3;
-                    label = boilerStage_label_3;
+                    label = boilerStage_3_label;
                     break;
                 case "boilerStage_check_4":
                     image = boilerStage_4;
-                    label = boilerStage_label_4;
+                    label = boilerStage_4_label;
                     break;
                 case "boilerStage_check_5":
                     image = boilerStage_5;
-                    label = boilerStage_label_5;
+                    label = boilerStage_5_label;
                     break;
                 case "boilerStage_check_6":
                     image = boilerStage_6;
-                    label = boilerStage_label_6;
+                    label = boilerStage_6_label;
                     break;
                 case "boilerStage_check_7":
                     image = boilerStage_7;
-                    label = boilerStage_label_7;
+                    label = boilerStage_7_label;
                     break;
                 default:
                     break;
@@ -610,27 +615,100 @@ namespace BDC
                         image.Tag = "eva";
                     }
                 }
-
-                Element element = new Element();
-                element.Exist = true;
-                element.Name = image.Tag.ToString();
-                element.State = image.Tag.ToString();
-                element.Connection = 0;
-                element.Image = image;
-                //  element.Position = position;
-                //   element.X = x;
-                //   element.Y = y;
-                elements.Add(element);
-                AssignStateNumbers(elements);
-                label.Content = element.Name;
+    
+                label.Content = setElement(image).Name;
             }
             else
             {
+                elements.Remove(elements.FirstOrDefault(element => element.Image == image));
+                AssignStateNumbers(elements);
                 image.Source = null;
                 image.Tag = "";
                 label.Content = "";
             }
         }
+
+        private void CheckBoxDuct_Click(object sender, RoutedEventArgs e)
+        {
+            CheckBox checkBox = (CheckBox)sender;
+            Image image = boilerStage_11;
+            Label label = boilerStage_11_label;
+         
+            if (checkBox.IsChecked == true)
+            {
+                image.Source = new BitmapImage(new Uri("/Images/Elements/duct.png", UriKind.Relative));
+                image.Tag = "du";
+
+                label.Content = setElement(image).Name;
+            }
+            else
+            {
+                elements.Remove(elements.FirstOrDefault(element => element.Image == image));
+                AssignStateNumbers(elements);
+                image.Source = null;
+                image.Tag = "";
+                label.Content = "";
+            }
+        }
+
+        private void CheckBoxBurner_Click(object sender, RoutedEventArgs e)
+        {
+            CheckBox checkBox = (CheckBox)sender;
+            Image image = boilerStage_8;
+            Label label = boilerStage_8_label;
+            switch (checkBox.Name)
+            {
+                case "boilerStage_check_8":
+                    image = boilerStage_8;
+                    label = boilerStage_8_label;
+                    break;
+                case "boilerStage_check_9":
+                    image = boilerStage_9;
+                    label = boilerStage_9_label;
+                    break;
+                case "boilerStage_check_10":
+                    image = boilerStage_10;
+                    label = boilerStage_10_label;
+                    break;
+                default:
+                    break;
+            }
+
+            if (checkBox.IsChecked == true)
+            {
+                image.Source = new BitmapImage(new Uri("/Images/Elements/burner.png", UriKind.Relative));
+                image.Tag = "bu";
+                label.Content = setElement(image).Name;
+            }
+            else
+            {
+                elements.Remove(elements.FirstOrDefault(element => element.Image == image));
+                AssignStateNumbers(elements);
+                image.Source = null;
+                image.Tag = "";
+                label.Content = "";
+
+            }
+        }
+        private Element setElement(Image image)
+        {
+            Element element = new Element();
+            element.Exist = true;
+            element.Name = image.Tag.ToString();
+            element.Content = image.Tag.ToString();
+            element.State = image.Tag.ToString();
+            element.Connection = 0;
+            element.Image = image;
+
+            elements.Add(element);
+            AssignStateNumbers(elements);
+            return element;
+        }
+
+
+
+
+
         #endregion
 
 
@@ -656,10 +734,6 @@ namespace BDC
             droppedImage.MouseLeftButtonUp += DroppedImage_MouseLeftButtonUp;
             return droppedImage;
         }
-        #endregion
-
-        #region Item
-
         private void AssignStateNumbers(List<Element> elements)
         {
             stateCounters = new Dictionary<string, int>();
@@ -688,11 +762,16 @@ namespace BDC
 
                     element.StateNumber = stateCounters[element.State];
                     element.Name = element.State + stateCounters[element.State];
+
+                    //    Label label = FindName(element.Image.Name + "_label") as Label;
+                    //   label.Content = element.Name;
                 }
             }
 
         }
         #endregion
+
+
 
         #region Attribute
         private void AssignItemAttribute(Element element)
@@ -858,6 +937,7 @@ namespace BDC
 
             List<PropertyDisplay> propertyList = new List<PropertyDisplay>
                 {
+                      new PropertyDisplay { PropertyName = "content", PropertyValue = element.Content.ToString() },
                       new PropertyDisplay { PropertyName = "stage", PropertyValue = element.attribute.stage.ToString() },
                       new PropertyDisplay { PropertyName = "loadCase", PropertyValue = element.attribute.loadCase.ToString() },
                       new PropertyDisplay { PropertyName = "TubeArrangement", PropertyValue = element.attribute.TubeArrangement.ToString() },
@@ -868,6 +948,19 @@ namespace BDC
                 };
 
             propertyListBox.ItemsSource = propertyList;
+        }
+
+
+        private void GridElement_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (isSelect)
+            {
+                Grid grid = (Grid)sender;
+                string name = grid.Name.Replace("_grid", "");
+          //      Image image =;
+                showProperties(returnElement(FindName(name) as Image));
+                return;
+            }
         }
 
         #endregion
@@ -1132,7 +1225,7 @@ namespace BDC
 
         }
 
-
+       
     }
     #endregion
 

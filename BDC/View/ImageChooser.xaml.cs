@@ -20,12 +20,20 @@ namespace BDC.View
         public ImageChooser()
         {
             InitializeComponent();
+            Loaded += ImageChooser_Loaded;
         }
 
-        private void OK_Click(object sender, RoutedEventArgs e)
+        private void ImageChooser_Loaded(object sender, RoutedEventArgs e)
+        {
+            Point mousePosition = Mouse.GetPosition(null);
+            Left = mousePosition.X - Width / 2;
+            Top = mousePosition.Y - Height / 2;
+        }
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
         {
             DialogResult = true;
             Close();
         }
+
     }
 }
