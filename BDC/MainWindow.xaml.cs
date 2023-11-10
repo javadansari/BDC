@@ -98,62 +98,9 @@ namespace BDC
         }
         #endregion
 
+
+
         #region Path
-
-
-        private void escapePath()
-        {
-            if (isLine)
-            {
-                toolbarMenu.Visibility = Visibility.Visible;
-                isFirstLine = true;
-                reportText.Text = "";
-                isLine = false;
-            }
-        }
-        private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Escape)
-            {
-                escapePath();
-                e.Handled = true;
-            }
-        }
-
-        private void removePath(string pathName)
-        {
-            string tagToRemove = pathName;
-
-            System.Windows.Shapes.Path pathToRemove = null;
-
-            foreach (UIElement element in canvas.Children)
-            {
-                if (element is System.Windows.Shapes.Path path && path.Tag is string tag && tag == tagToRemove)
-                {
-                    pathToRemove = path;
-                    break; // Assuming you want to remove only the first path with the given tag
-                }
-
-            }
-            if (pathToRemove != null)
-            {
-                canvas.Children.Remove(pathToRemove);
-            }
-
-            foreach (UIElement element in canvas.Children)
-            {
-                if (element is Polygon polygon && polygon.Tag != null && polygon.Tag.ToString() == pathName)
-                {
-                    // Remove the Polygon from the canvas
-                    canvas.Children.Remove(polygon);
-                    break; // Exit the loop once you've found and removed the Polygon
-                }
-            }
-        }
-
-        #endregion
-
-        #region PathPlut
         private void line_Click(object sender, MouseButtonEventArgs e)
         {
             toolbarMenu.Visibility = Visibility.Hidden;
@@ -308,41 +255,49 @@ namespace BDC
             canvas.Children.Add(arrowhead);
         }
 
-
-
-
-        #endregion
-
-        #region Image
-        private void item_Click(object sender, RoutedEventArgs e)
+        private void escapePath()
         {
-
-            Button button = (Button)sender;
-            if (button.Content is Image sourceImage)
+            if (isLine)
             {
-                imageLevelButton = new Image();
-                imageLevelButton.Source = sourceImage.Source.Clone();
-
+                toolbarMenu.Visibility = Visibility.Visible;
+                isFirstLine = true;
+                reportText.Text = "";
+                isLine = false;
             }
-
-
-            clickedButton.Content = imageLevelButton;
-            switch (button.Tag)
-            {
-                case "sh":
-                    //   clickedButton.Content = imageLevelButton;
-                    break;
-                case "eco":
-                    //    SetButtonBackground(clickedButton, "/Images/economizer.png");
-                    break;
-                case "eva":
-                    //     SetButtonBackground(clickedButton, "/Images/evaporator.png");
-                    break;
-            }
-
-
         }
+        private void removePath(string pathName)
+        {
+            string tagToRemove = pathName;
+
+            System.Windows.Shapes.Path pathToRemove = null;
+
+            foreach (UIElement element in canvas.Children)
+            {
+                if (element is System.Windows.Shapes.Path path && path.Tag is string tag && tag == tagToRemove)
+                {
+                    pathToRemove = path;
+                    break; // Assuming you want to remove only the first path with the given tag
+                }
+
+            }
+            if (pathToRemove != null)
+            {
+                canvas.Children.Remove(pathToRemove);
+            }
+
+            foreach (UIElement element in canvas.Children)
+            {
+                if (element is Polygon polygon && polygon.Tag != null && polygon.Tag.ToString() == pathName)
+                {
+                    // Remove the Polygon from the canvas
+                    canvas.Children.Remove(polygon);
+                    break; // Exit the loop once you've found and removed the Polygon
+                }
+            }
+        }
+
         #endregion
+
 
         #region Drag
 
@@ -953,15 +908,142 @@ namespace BDC
 
         private void GridElement_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            Grid grid = (Grid)sender;
+            Image image = FindName(grid.Name.Replace("_grid", "")) as Image;
             if (isSelect)
             {
-                Grid grid = (Grid)sender;
-                string name = grid.Name.Replace("_grid", "");
-          //      Image image =;
-                showProperties(returnElement(FindName(name) as Image));
+                showProperties(returnElement(image));
                 return;
             }
+            if (isLine)
+            {
+                if (isFirstLine)
+                {
+                    firstLineImage = image;
+                    reportText.Text = "Choose the second level";
+                    isFirstLine = false;
+                }
+                else
+                {
+                    secondLineImage = image;
+                    if (firstLineImage != secondLineImage)
+                    {
+                        Element firstImage = returnElement(firstLineImage);
+                        Element secondImage = returnElement(secondLineImage);
+                        Grid grid1 = FindName(firstLineImage.Name + "_grid") as Grid;
+                        Grid grid2 = FindName(secondLineImage.Name + "_grid") as Grid;
+                        string pathName = firstImage.Id.ToString();
+                        if (secondImage.Connection == firstImage.Id)
+                            pathName = secondImage.Id.ToString();
+                        removePath(pathName);
+                        generatePath(grid1, grid2, pathName, true);
+                        firstImage.Connection = secondImage.Id;
+                        firstImage.PathName = pathName;
+                        secondImage.PathName = firstImage.Id.ToString();
+
+                    }
+                    escapePath();
+                }
+            }
+            else
+            {
+                currentDraggedImage = (Image)sender;
+                startPoint = e.GetPosition(canvas);
+                currentDraggedImage.CaptureMouse();
+            }
+
+
+
         }
+        private void generatePath(Grid firstImage, Grid secondImage, string pathName, bool invertY = false)
+        {
+            //   Point startPoint = new Point(Canvas.GetLeft(firstImage) + firstImage.ActualWidth / 2, Canvas.GetTop(firstImage) + firstImage.ActualHeight / 2);
+            Point startPoint = new Point(Canvas.GetLeft(firstImage) + firstImage.ActualWidth, Canvas.GetTop(firstImage) + firstImage.ActualHeight / 2);
+            //    Point endPoint = new Point(Canvas.GetLeft(secondImage) + secondImage.ActualWidth / 2, Canvas.GetTop(secondImage) + secondImage.ActualHeight / 2);
+            Point endPoint = new Point(Canvas.GetLeft(secondImage) + secondImage.ActualWidth, Canvas.GetTop(secondImage) + secondImage.ActualHeight / 2);
+
+            WriteLine(startPoint.X + " - " + endPoint.X + " / " + Canvas.GetLeft(firstImage) + " - " + Canvas.GetLeft(secondImage));
+
+            double dx = endPoint.X - startPoint.X;
+            double dy = endPoint.Y - startPoint.Y;
+
+            //   Random random = new Random();
+            //   int randomHeight = random.Next(20, 50) ; // Generates a random number between 20 and 50
+            //  int randomHeight = (int)(endPoint.Y);
+            int randomHeight = (int)((dy)) + 40;
+            if (dy < 0) randomHeight = 40;
+            Point midPoint = new Point(startPoint.X + dx / 2, startPoint.Y + dy / 2);
+
+            if (invertY)
+            {
+                startPoint.Y = startPoint.Y + firstImage.ActualHeight / 2;
+                endPoint.Y = endPoint.Y + secondImage.ActualHeight / 2;
+                midPoint.Y = midPoint.Y + firstImage.ActualHeight / 2;
+                randomHeight = -randomHeight;
+            }
+            else
+            {
+                startPoint.Y = startPoint.Y - firstImage.ActualHeight / 2;
+                endPoint.Y = endPoint.Y - secondImage.ActualHeight / 2;
+                midPoint.Y = midPoint.Y - firstImage.ActualHeight / 2;
+            }
+
+            PathGeometry pathGeometry = new PathGeometry();
+            PathFigure pathFigure = new PathFigure();
+            pathFigure.StartPoint = startPoint;
+
+            LineSegment lineSegment1 = new LineSegment(new Point(startPoint.X, startPoint.Y - randomHeight), true);
+            BezierSegment bezierSegment = new BezierSegment(new Point(midPoint.X, startPoint.Y - randomHeight),
+                                                            new Point(midPoint.X, startPoint.Y - randomHeight),
+                                                            new Point(endPoint.X, startPoint.Y - randomHeight), true);
+            LineSegment lineSegment2 = new LineSegment(endPoint, true);
+
+            pathFigure.Segments.Add(lineSegment1);
+            pathFigure.Segments.Add(bezierSegment);
+
+            pathFigure.Segments.Add(lineSegment2);
+
+            pathGeometry.Figures.Add(pathFigure);
+
+            System.Windows.Shapes.Path path = new System.Windows.Shapes.Path
+            {
+                Data = pathGeometry,
+                Stroke = Brushes.Red,
+                StrokeThickness = 2,
+                Tag = pathName // Set the Tag property to the provided path name
+            };
+
+            canvas.Children.Add(path);
+
+            // Calculate the angle of the line
+            double angle = Math.Atan2(dy, dx) / Math.PI;
+
+            // Calculate the horizontal position of the arrowhead
+            double arrowWidth = 10; // Width of the arrowhead
+            double arrowX = midPoint.X - arrowWidth / 2; // Position centered on the midpoint
+
+            int renderTransform = (int)midPoint.Y;
+            if (invertY) renderTransform = -(int)midPoint.Y;
+
+            // Add an arrowhead (triangle) at the midpoint
+            double arrowEnd = arrowWidth;
+            if (startPoint.X - endPoint.X < 0) arrowEnd = -arrowWidth;
+            Polygon arrowhead = new Polygon
+            {
+                Points = new PointCollection
+                    {
+                   new Point(arrowX, startPoint.Y - randomHeight ), // Tip of the arrowhead
+               new Point(arrowX + arrowEnd, startPoint.Y - 5 - randomHeight), // Bottom-right corner of the arrowhead
+                new Point(arrowX + arrowEnd, startPoint.Y + 5 - randomHeight) // Top-right corner of the arrowhead
+                 },
+                Fill = Brushes.Red,
+                //   RenderTransform = new RotateTransform(180 + angle * 180, midPoint.X, renderTransform), // Rotate the arrowhead by 180 degrees
+                Tag = pathName
+            };
+
+            canvas.Children.Add(arrowhead);
+        }
+
 
         #endregion
         #region Move
