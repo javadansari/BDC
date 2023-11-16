@@ -1,4 +1,4 @@
-﻿<Window x:Class="BDC.MainWindow"
+﻿<Window x:Class="BDC.Old.MainOld"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -23,7 +23,7 @@
     </Window.Resources>
 
     <Grid>
-        <Grid.ColumnDefinitions>
+        <!--<Grid.ColumnDefinitions>
             <ColumnDefinition Width="100"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="200"/>
@@ -51,57 +51,71 @@
                 <MenuItem Header="Attributes" Click="Attributes_Click"/>
             </MenuItem>
             <MenuItem Header="Tools">
+                <MenuItem Header="Toolbar Menu" Click="ToolbarMenu_Click"/>
                 <MenuItem Header="Cases Menu" Click="CasesMenu_Click"/>
             </MenuItem>
         </Menu>
         <ToolBarTray Name="mainToolbarMenu" Grid.Row="1" Grid.ColumnSpan="3" Orientation="Horizontal">
             <ToolBar >
                 <StackPanel Orientation="Horizontal">
-                    <Image  Tag="new" Width="{StaticResource topIconSize}" Height="{StaticResource topIconSize}" Source="Images/Other/new.png"    PreviewMouseLeftButtonDown="SaveButton_Click"/>
-                    <Image  Tag="save" Width="{StaticResource topIconSize}" Height="{StaticResource topIconSize}" Source="Images/Other/save.png"    PreviewMouseLeftButtonDown="SaveButton_Click"/>
-                    <Image  Tag="open" Width="{StaticResource topIconSize}" Height="{StaticResource topIconSize}" Source="Images/Other/open.png"    PreviewMouseLeftButtonDown="OpenButton_Click"/>
+                    <Image  Tag="new" Width="{StaticResource topIconSize}" Height="{StaticResource topIconSize}" Source="../Images/Other/new.png"    PreviewMouseLeftButtonDown="SaveButton_Click"/>
+                    <Image  Tag="save" Width="{StaticResource topIconSize}" Height="{StaticResource topIconSize}" Source="../Images/Other/save.png"    PreviewMouseLeftButtonDown="SaveButton_Click"/>
+                    <Image  Tag="open" Width="{StaticResource topIconSize}" Height="{StaticResource topIconSize}" Source="../Images/Other/open.png"    PreviewMouseLeftButtonDown="OpenButton_Click"/>
                 </StackPanel>
             </ToolBar>
             <ToolBar >
                 <StackPanel Orientation="Horizontal">
-                    <Image  Width="{StaticResource topIconSize}" Height="{StaticResource topIconSize}" Source="Images/Elements/SmokeRelation.png" MouseDown="line_Click" />
-                    <Image Name="selectImage" Width="{StaticResource topIconSize}" Height="{StaticResource topIconSize}" Source="Images/Other/select2.png" MouseDown="SelectButton_Click" />
-                    <Image Name="moveImage" Width="{StaticResource topIconSize}" Height="{StaticResource topIconSize}" Source="Images/Other/move.png" MouseDown="MoveButton_Click" />
+                    <Image  Width="{StaticResource topIconSize}" Height="{StaticResource topIconSize}" Source="../Images/Elements/SmokeRelation.png" MouseDown="line_Click" />
+                    <Image Name="selectImage" Width="{StaticResource topIconSize}" Height="{StaticResource topIconSize}" Source="../Images/Other/select2.png" MouseDown="SelectButton_Click" />
+                    <Image Name="moveImage" Width="{StaticResource topIconSize}" Height="{StaticResource topIconSize}" Source="../Images/Other/move.png" MouseDown="MoveButton_Click" />
                 </StackPanel>
-            </ToolBar>
-            <ToolBar >
-                <StackPanel Orientation="Horizontal">
-                    <Image  Width="{StaticResource topIconSize}" Height="{StaticResource topIconSize}" Source="Images/Elements/SmokeRelation.png" MouseDown="setNumber_Click" />
-                 </StackPanel>
             </ToolBar>
         </ToolBarTray>
-       
-        <ToolBarTray Name="casesMenu" Grid.Row="2" Orientation="Vertical"  IsLocked="True">
+        <ToolBarTray Name="toolbarMenu" Grid.Row="2" Orientation="Vertical" Visibility="Visible">
+            <ToolBar >
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
+                        <Image  Tag="eco" Width="{StaticResource iconSize}" Height="{StaticResource iconSize}" Source="../Images/Elements/economizer.png"    PreviewMouseLeftButtonDown="SourceoutElementButton_PreviewMouseLeftButtonDown"/>
+                        <Image  Tag="eva" Width="{StaticResource iconSize}" Height="{StaticResource iconSize}" Source="../../Images/Elements/evaporator.png"    PreviewMouseLeftButtonDown="SourceoutElementButton_PreviewMouseLeftButtonDown"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Image  Tag="sh" Width="{StaticResource iconSize}" Height="{StaticResource iconSize}" Source="../Images/Elements/superheater.png"    PreviewMouseLeftButtonDown="SourceoutElementButton_PreviewMouseLeftButtonDown"/>
+                        <Image  Tag="du" Width="{StaticResource iconSize}" Height="{StaticResource iconSize}" Source="../Images/Elements/duct.png"    PreviewMouseLeftButtonDown="SourceoutElementButton_PreviewMouseLeftButtonDown"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Image  Tag="fr" Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"    PreviewMouseLeftButtonDown="SourceoutElementButton_PreviewMouseLeftButtonDown" Source="../Images/Elements/furnace.png"/>
+                        <Image  Tag="bu" Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"    PreviewMouseLeftButtonDown="SourceoutElementButton_PreviewMouseLeftButtonDown" Source="../Images/Elements/burner.png"/>
+                    </StackPanel>
+                    <Image Width="{StaticResource iconSize}" Height="{StaticResource iconSize}" Source="../Images/Elements/do.png" MouseDown="label_Click" />
+                </StackPanel>
+            </ToolBar>
+        </ToolBarTray>
+        <ToolBarTray Name="casesMenu" Grid.Row="2" Orientation="Vertical"  IsLocked="True" Visibility="Hidden" >
             <ToolBar Name="optionCaseToolBar"   Loaded="ToolBar_Loaded"  >
                 <StackPanel Orientation="Horizontal">
                     <Button Click="UpCase_Click" Background="{x:Null}" BorderBrush="{x:Null}">
                         <StackPanel>
-                            <Image Source="Images/Other/up.png" Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}" />
+                            <Image Source="../Images/Other/up.png" Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}" />
                         </StackPanel>
                     </Button>
                     <Button Click="DownCase_Click" Background="{x:Null}" BorderBrush="{x:Null}">
                         <StackPanel>
-                            <Image Source="Images/Other/down.png" Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}" />
+                            <Image Source="../Images/Other/down.png" Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}" />
                         </StackPanel>
                     </Button>
-                <Button Click="AddCase_Click" Background="{x:Null}" BorderBrush="{x:Null}" >
+                    <Button Click="AddCase_Click" Background="{x:Null}" BorderBrush="{x:Null}" >
                         <StackPanel>
-                            <Image Source="Images/Other/plus.png" Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}" />
+                            <Image Source="../Images/Other/plus.png" Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}" />
                         </StackPanel>
                     </Button>
                     <Button Click="DeleteCase_Click" Background="{x:Null}" BorderBrush="{x:Null}" >
                         <StackPanel>
-                            <Image Source="Images/Other/minus.png" Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}" />
+                            <Image Source="../Images/Other/minus.png" Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}" />
                         </StackPanel>
                     </Button>
                     <Button Click="SelectCase_Click" Background="{x:Null}" BorderBrush="{x:Null}" >
                         <StackPanel>
-                            <Image Source="Images/Other/select1.png" Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}" />
+                            <Image Source="../Images/Other/select1.png" Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}" />
                         </StackPanel>
                     </Button>
                 </StackPanel>
@@ -120,62 +134,62 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        
+
         <ScrollViewer Grid.Row="2" Grid.Column="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
 
-            <Canvas  Background="White"  Name="canvas" >
-                <Image Height="201" Source="Images/Canvas/Image1.png" Stretch="Fill" Width="39" Canvas.Left="686" Canvas.Top="23" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <Image Height="69" Source="Images/Canvas/Image6.png" Stretch="Fill" Width="54" Canvas.Left="561" Canvas.Top="272" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Canvas  Background="White"  Name="canvas"  Drop="ItemOutButton_Drop"  AllowDrop="True">
+                <Image Height="201" Source="../Images/Canvas/Image1.png" Stretch="Fill" Width="39" Canvas.Left="686" Canvas.Top="23" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Image Height="69" Source="../Images/Canvas/Image6.png" Stretch="Fill" Width="54" Canvas.Left="561" Canvas.Top="272" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                 <StackPanel Orientation="Horizontal"  Canvas.Left="40" Canvas.Top="130">
                     <Grid Name="boilerStage_1_grid" Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}"  MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >
-                    <Border BorderThickness="2" BorderBrush="Gray" >
+                        <Border BorderThickness="2" BorderBrush="Gray" >
                             <Image x:Name="boilerStage_1" Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"  VerticalAlignment="Top"/>
-                     </Border>
+                        </Border>
                         <Label Name="boilerStage_1_label"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="1,0,0,1" />
                         <CheckBox Name="boilerStage_check_1"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,2,5" Click="CheckBox_Click" />
-                </Grid>
+                    </Grid>
                     <Grid Name="boilerStage_2_grid"  Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}" MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >
                         <Border BorderThickness="2" BorderBrush="Gray">
                             <Image x:Name="boilerStage_2"  Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"  VerticalAlignment="Top"  />
                         </Border>
                         <Label Name="boilerStage_2_label"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="1,0,0,1" />
                         <CheckBox Name="boilerStage_check_2"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,2,5" Click="CheckBox_Click" />
-                </Grid>
+                    </Grid>
                     <Grid Name="boilerStage_3_grid"  Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}" MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >
                         <Border BorderThickness="2" BorderBrush="Gray">
                             <Image x:Name="boilerStage_3"  Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"  VerticalAlignment="Top" />
                         </Border>
                         <Label Name="boilerStage_3_label"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="1,0,0,1" />
                         <CheckBox Name="boilerStage_check_3"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,2,5" Click="CheckBox_Click" />
-                </Grid>
+                    </Grid>
                     <Grid Name="boilerStage_4_grid" Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}" MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >
                         <Border BorderThickness="2" BorderBrush="Gray">
                             <Image x:Name="boilerStage_4"  Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"  VerticalAlignment="Top" />
                         </Border>
                         <Label Name="boilerStage_4_label" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="1,0,0,1" />
                         <CheckBox Name="boilerStage_check_4"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,2,5" Click="CheckBox_Click" />
-                </Grid>
+                    </Grid>
                     <Grid Name="boilerStage_5_grid" Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}" MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >
                         <Border BorderThickness="2" BorderBrush="Gray">
                             <Image x:Name="boilerStage_5"  Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"  VerticalAlignment="Top" />
                         </Border>
                         <Label Name="boilerStage_5_label"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="1,0,0,1" />
                         <CheckBox Name="boilerStage_check_5"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,2,5" Click="CheckBox_Click" />
-                </Grid>
+                    </Grid>
                     <Grid Name="boilerStage_6_grid" Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}" MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >
-                    <Border BorderThickness="2" BorderBrush="Gray">
+                        <Border BorderThickness="2" BorderBrush="Gray">
                             <Image x:Name="boilerStage_6"  Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"  VerticalAlignment="Top" />
                         </Border>
                         <Label Name="boilerStage_6_label"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="1,0,0,1" />
                         <CheckBox Name="boilerStage_check_6"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,2,5" Click="CheckBox_Click" />
-                </Grid>
+                    </Grid>
                     <Grid Name="boilerStage_7_grid"  Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}" MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >
                         <Border BorderThickness="2" BorderBrush="Gray">
                             <Image x:Name="boilerStage_7"  Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"  VerticalAlignment="Top"  />
                         </Border>
                         <Label Name="boilerStage_7_label"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="1,0,0,1" />
                         <CheckBox Name="boilerStage_check_7"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,2,5" Click="CheckBox_Click" />
-                </Grid>
+                    </Grid>
                     <Grid  Name="boilerStage_8_grid" Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}" MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >
                         <Border BorderThickness="2" BorderBrush="ForestGreen">
                             <Image x:Name="boilerStage_8"  Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"  VerticalAlignment="Top"  />
@@ -230,6 +244,6 @@
                 TickPlacement="BottomRight" Width="200" Margin="10 0" 
                 HorizontalAlignment="Right" Grid.Column="1" ValueChanged="ZoomSlider_ValueChanged" />
             </Grid>
-        </ToolBarPanel>
+        </ToolBarPanel>-->
     </Grid>
 </Window>

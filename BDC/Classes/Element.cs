@@ -7,9 +7,9 @@ namespace BDC.Classes
 {
     public class Element
     {
-        private static int _idCounter = 1; // Static counter for generating IDs
+     //   private static int _idCounter = 1; // Static counter for generating IDs
 
-        public int Id { get; private set; }
+        public int Id { get;  set; }
         public bool Exist { get; set; }
         public string Name { get; set; }
         public string Content { get; set; }
@@ -25,7 +25,7 @@ namespace BDC.Classes
 
         public Element()
         {
-            Id = _idCounter++; // Assign a new unique ID and increment the counter
+        //    Id = _idCounter++; // Assign a new unique ID and increment the counter
         }
 
       

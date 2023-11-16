@@ -1,5 +1,4 @@
-﻿using BDC.Classes;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,14 +12,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace BDC.Forms
+namespace BDC.Old
 {
     /// <summary>
-    /// Interaction logic for FormItems.xaml
+    /// Interaction logic for mainOld.xaml
     /// </summary>
-    public partial class FormItems : Window
+    public partial class mainOld : Window
     {
-      
-
+        public mainOld()
+        {
+          //  InitializeComponent();
+        }
     }
 }
