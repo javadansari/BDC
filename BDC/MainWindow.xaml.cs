@@ -49,6 +49,8 @@ namespace BDC
         
         public List<Case> cases{ get; set; }
 
+        private Element element;
+
         private List<ItemAttribute> itemAttribute;
         private Button clickedButton;
         private Image imageLevelButton;
@@ -267,6 +269,8 @@ namespace BDC
             element.Connection = 0;
             element.Image = image;
 
+            element.attribute = new ItemAttribute();
+
             elements.Add(element);
         
             return element;
@@ -296,14 +300,19 @@ namespace BDC
 
         private void setNumber_Click(object sender, MouseButtonEventArgs e)
         {
+            if (element != null) {
+     
             NumberInputDialog dialog = new NumberInputDialog();
             if (dialog.ShowDialog() == true)
             {
                 int selectedNumber = dialog.SelectedNumber;
-                MessageBox.Show($"You selected: {selectedNumber}");
-                // Use the selected number as needed
+                element.Name = element.State + selectedNumber;     
+                (FindName("boilerStage_" + element.Id + "_label") as Label).Content = element.Name;
+                }
             }
 
+
+        
         }
 
 
@@ -412,7 +421,8 @@ namespace BDC
             Image image = FindName(grid.Name.Replace("_grid", "")) as Image;
             int id = int.Parse(image.Name.Replace("boilerStage_", ""));
 
-            Element element = elements.Where(element => element.Id == id).FirstOrDefault();
+
+            element = elements.Where(element => element.Id == id).FirstOrDefault();
             showProperties(elements.Where(element => element.Id == id).FirstOrDefault());
            
         }
@@ -557,58 +567,68 @@ namespace BDC
 
         private void AddCase_Click(object sender, RoutedEventArgs e)
         {
+            string caseName = "Case";
+            CaseDialogBox caseDialogBox = new CaseDialogBox();
+            caseDialogBox.ShowDialog();
+            caseName = caseDialogBox.InputText;
+
+
             // Create a new RadioButton for the case
-            RadioButton radioButton = new RadioButton();
-            radioButton.Content = "Case " + (casesToolBar.Items.Count + 1);
+             RadioButton radioButton = new RadioButton();
+        //    radioButton.Content = "Case " + (casesToolBar.Items.Count + 1);
+            radioButton.Content = caseName;
             radioButton.GroupName = "Cases"; // Ensure they are mutually exclusive
             radioButton.TabIndex = cases.Count();
-            // Attach a double-click event handler to the RadioButton
             radioButton.MouseDoubleClick += RadioButton_MouseDoubleClick;
-            
-            // Add the new case to the toolbar
             casesToolBar.Items.Add(radioButton);
-          
-         //   cases.Add(new Case { Name = radioButton.Content.ToString() });
+
         }
 
         private void RadioButton_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+
             RadioButton radioButton = (RadioButton)sender;
                 // Create a TextBox to replace the RadioButton
-             TextBox textBox = new TextBox();
-            textBox.Text = radioButton.Content.ToString();
+         //   TextBox textBox = new TextBox();
+        //    textBox.Text = radioButton.Content.ToString();
+
+            string caseName = "Case";
+            CaseDialogBox caseDialogBox = new CaseDialogBox(radioButton.Content.ToString());
+            caseDialogBox.ShowDialog();
+            caseName = caseDialogBox.InputText;
+            radioButton.Content = caseName;
+
+
+
 
             // Handle the LostFocus event to save the changes when the TextBox loses focus
-            textBox.LostFocus += TextBox_LostFocus;
+            //    textBox.LostFocus += TextBox_LostFocus;
 
             // Replace the RadioButton with the TextBox in the toolbar
-            int index = casesToolBar.Items.IndexOf(radioButton);
-            casesToolBar.Items.Insert(index, textBox);
-            casesToolBar.Items.Remove(radioButton);
+          //  int index = casesToolBar.Items.IndexOf(radioButton);
+         //   casesToolBar.Items.Insert(index, textBox);
+         //   casesToolBar.Items.Remove(radioButton);
 
-            // Set focus to the TextBox and select all text
-            textBox.Focus();
-            textBox.SelectAll();
         }
 
         private void TextBox_LostFocus(object sender, RoutedEventArgs e)
         {
-            TextBox textBox = (TextBox)sender;
+            //TextBox textBox = (TextBox)sender;
 
-            // Get the index of the TextBox in the toolbar
-            int index = casesToolBar.Items.IndexOf(textBox);
+            //// Get the index of the TextBox in the toolbar
+            //int index = casesToolBar.Items.IndexOf(textBox);
 
-            // Create a new RadioButton with the updated text
-            RadioButton newRadioButton = new RadioButton();
-            newRadioButton.Content = textBox.Text;
-            newRadioButton.GroupName = "Cases";
+            //// Create a new RadioButton with the updated text
+            //RadioButton newRadioButton = new RadioButton();
+            //newRadioButton.Content = textBox.Text;
+            //newRadioButton.GroupName = "Cases";
 
-            // Attach the double-click event handler to the new RadioButton
-            newRadioButton.MouseDoubleClick += RadioButton_MouseDoubleClick;
+            //// Attach the double-click event handler to the new RadioButton
+            //newRadioButton.MouseDoubleClick += RadioButton_MouseDoubleClick;
 
-            // Replace the TextBox with the new RadioButton
-            casesToolBar.Items.Insert(index, newRadioButton);
-            casesToolBar.Items.Remove(textBox);
+            //// Replace the TextBox with the new RadioButton
+            //casesToolBar.Items.Insert(index, newRadioButton);
+            //casesToolBar.Items.Remove(textBox);
         }
 
         private void DeleteCase_Click(object sender, RoutedEventArgs e)

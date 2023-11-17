@@ -25,6 +25,7 @@
     <None Remove="Images\Image3.png" />
     <None Remove="Images\Image4.png" />
     <None Remove="Images\Image5.png" />
+    <None Remove="Images\Other\123.png" />
     <None Remove="Images\Other\down.png" />
     <None Remove="Images\Other\minus.png" />
     <None Remove="Images\Other\move.png" />
@@ -52,6 +53,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Elements\duct.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Other\123.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Other\down.png">

@@ -10,15 +10,20 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <Label Content="Select a number from 1 to 3:" Margin="10"/>
+        <Label Content="Select a number from 1 to 3:" />
         <ComboBox x:Name="cmbNumbers" Grid.Row="1" Margin="10" VerticalAlignment="Center" HorizontalAlignment="Stretch">
             <ComboBoxItem Content="1"/>
             <ComboBoxItem Content="2"/>
             <ComboBoxItem Content="3"/>
         </ComboBox>
 
-        <Button Content="OK" Grid.Row="1" Margin="10" HorizontalAlignment="Right" Width="75" Click="BtnOk_Click"/>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" >
+            <Button Content="OK" Width="75" Click="BtnOk_Click" Margin="10"/>
+            <Button Content="Cancel"  Width="75" Click="BtnCancel_Click" Margin="10"/>
+        
+        </StackPanel>
     </Grid>
 </Window>

@@ -39,5 +39,12 @@ namespace BDC.View
                 MessageBox.Show("Please select a number.", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
+
+        private void BtnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            // Perform any cancellation logic here if needed
+            DialogResult = false;
+
+        }
     }
 }

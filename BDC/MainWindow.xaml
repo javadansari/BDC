@@ -71,7 +71,7 @@
             </ToolBar>
             <ToolBar >
                 <StackPanel Orientation="Horizontal">
-                    <Image  Width="{StaticResource topIconSize}" Height="{StaticResource topIconSize}" Source="Images/Elements/SmokeRelation.png" MouseDown="setNumber_Click" />
+                    <Image  Width="{StaticResource topIconSize}" Height="{StaticResource topIconSize}" Source="Images/Other/123.png" MouseDown="setNumber_Click" />
                  </StackPanel>
             </ToolBar>
         </ToolBarTray>
