@@ -588,47 +588,12 @@ namespace BDC
         {
 
             RadioButton radioButton = (RadioButton)sender;
-                // Create a TextBox to replace the RadioButton
-         //   TextBox textBox = new TextBox();
-        //    textBox.Text = radioButton.Content.ToString();
-
             string caseName = "Case";
             CaseDialogBox caseDialogBox = new CaseDialogBox(radioButton.Content.ToString());
             caseDialogBox.ShowDialog();
             caseName = caseDialogBox.InputText;
             radioButton.Content = caseName;
 
-
-
-
-            // Handle the LostFocus event to save the changes when the TextBox loses focus
-            //    textBox.LostFocus += TextBox_LostFocus;
-
-            // Replace the RadioButton with the TextBox in the toolbar
-          //  int index = casesToolBar.Items.IndexOf(radioButton);
-         //   casesToolBar.Items.Insert(index, textBox);
-         //   casesToolBar.Items.Remove(radioButton);
-
-        }
-
-        private void TextBox_LostFocus(object sender, RoutedEventArgs e)
-        {
-            //TextBox textBox = (TextBox)sender;
-
-            //// Get the index of the TextBox in the toolbar
-            //int index = casesToolBar.Items.IndexOf(textBox);
-
-            //// Create a new RadioButton with the updated text
-            //RadioButton newRadioButton = new RadioButton();
-            //newRadioButton.Content = textBox.Text;
-            //newRadioButton.GroupName = "Cases";
-
-            //// Attach the double-click event handler to the new RadioButton
-            //newRadioButton.MouseDoubleClick += RadioButton_MouseDoubleClick;
-
-            //// Replace the TextBox with the new RadioButton
-            //casesToolBar.Items.Insert(index, newRadioButton);
-            //casesToolBar.Items.Remove(textBox);
         }
 
         private void DeleteCase_Click(object sender, RoutedEventArgs e)
