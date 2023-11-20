@@ -659,7 +659,20 @@ namespace BDC
 
         private void SelectCase_Click(object sender, RoutedEventArgs e)
         {
-
+            RadioButton selectedRadioButton = casesToolBar.Items.OfType<RadioButton>().FirstOrDefault(rb => rb.IsChecked == true);
+           
+            foreach (RadioButton btn  in casesToolBar.Items.OfType<RadioButton>())
+            {
+                btn.Foreground = Brushes.Black;
+                btn.BorderThickness = new System.Windows.Thickness(0);
+            }
+            if (selectedRadioButton != null)
+            {
+                // تغییر رنگ متن بر اساس انتخاب کاربر
+                selectedRadioButton.Foreground = Brushes.Green; // به عنوان مثال رنگ قرمز را انتخاب کردیم
+                selectedRadioButton.BorderBrush = Brushes.Black; // Border color (black in this case)
+                selectedRadioButton.BorderThickness = new System.Windows.Thickness(2);
+            }
         }
 
      

@@ -1,4 +1,5 @@
 ﻿using BDC.Classes;
+using Microsoft.Data.Sqlite;
 using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
@@ -65,6 +66,58 @@ namespace BDC.DataBase
 
             CloseConnection();
 
+
+            connection.Open();
+
+            using (SQLiteCommand command = new SQLiteCommand())
+            {
+                command.CommandText = @"CREATE TABLE IF NOT EXISTS Items (
+                                            Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                                            Name TEXT,
+                                            Ambient_Condition TEXT DEFAULT '-',
+                                            Site_Atmospheric_Pressure TEXT DEFAULT '-',
+                                            Ambient_Temperature TEXT DEFAULT '-',
+                                            Relative_Humidity TEXT DEFAULT '-',
+                                            Combustion TEXT DEFAULT '-',
+                                            GAS1 TEXT DEFAULT '-',
+                                            GAS2 TEXT DEFAULT '-',
+                                            GAS3 TEXT DEFAULT '-',
+                                            GAS4 TEXT DEFAULT '-',
+                                            GAS5 TEXT DEFAULT '-',
+                                            OIL1 TEXT DEFAULT '-',
+                                            OIL2 TEXT DEFAULT '-',
+                                            Excess_Air TEXT DEFAULT '-',
+                                            Atmozing_Steam_Flow TEXT DEFAULT '-',
+                                            Atmozing_Steam_Pressure TEXT DEFAULT '-',
+                                            Atmozing_Steam_Temperature TEXT DEFAULT '-',
+                                            FDF TEXT DEFAULT '-',
+                                            Fan_efficiency TEXT DEFAULT '-',
+                                            Heat_exchange_ducty TEXT DEFAULT '-',
+                                            Steam_Outlet TEXT DEFAULT '-',
+                                            Steam_Pressure_TP TEXT DEFAULT '-',
+                                            Main_steam_Pressue_Drop TEXT DEFAULT '-',
+                                            Desuperheater TEXT DEFAULT '-',
+                                            Location_of_DESH TEXT DEFAULT '-',
+                                            Steam_temperature_set_point_TP TEXT DEFAULT '-',
+                                            Min_SH_degree_at_desperheater_outlet TEXT DEFAULT '-',
+                                            Feed_water TEXT DEFAULT '-',
+                                            Feed_water_Pressure TEXT DEFAULT '-',
+                                            Feed_water_Temperature TEXT DEFAULT '-',
+                                            BFP_temperature_rise TEXT DEFAULT '-',
+                                            Feed_water_piping_dp TEXT DEFAULT '-',
+                                            Level_control_Valve_dp TEXT DEFAULT '-',
+                                            Losses TEXT DEFAULT '-',
+                                            Unburned_Loss TEXT DEFAULT '-',
+                                            Radiation_Loss TEXT DEFAULT '-',
+                                            Furnace_heat_absorption_Eff TEXT DEFAULT '-',
+                                            Blowdown TEXT DEFAULT '-',
+                                            Blowdown_flow TEXT DEFAULT '-'
+                                            );";
+
+                command.ExecuteNonQuery();
+            }
+
+            connection.Close();
 
 
             OpenConnection();
