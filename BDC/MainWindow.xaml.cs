@@ -424,9 +424,14 @@ namespace BDC
 
             element = elements.Where(element => element.Id == id).FirstOrDefault();
             showProperties(elements.Where(element => element.Id == id).FirstOrDefault());
-           
+          
+            for(int i = 1; i < 12; i++)
+            (FindName("boilerStage_"+i+"_grid") as Grid).Background=  Brushes.White;
+            grid.Background = Brushes.Green;
+
+
         }
-      
+
 
 
         #endregion
@@ -489,7 +494,11 @@ namespace BDC
 
         }
 
-
+        private void Cases_Click(object sender, RoutedEventArgs e)
+        {
+            FormCase formCase = new FormCase(cases, this);
+            formCase.Show();
+        }
 
 
         #endregion
@@ -675,7 +684,7 @@ namespace BDC
             }
         }
 
-     
+       
     }
     #endregion
 

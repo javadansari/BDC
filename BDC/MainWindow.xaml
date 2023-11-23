@@ -49,6 +49,7 @@
             <MenuItem Header="Information">
                 <MenuItem Header="Elements" Click="Elements_Click"/>
                 <MenuItem Header="Attributes" Click="Attributes_Click"/>
+                <MenuItem Header="Case" Click="Cases_Click"/>
             </MenuItem>
             <MenuItem Header="Tools">
                 <MenuItem Header="Cases Menu" Click="CasesMenu_Click"/>
