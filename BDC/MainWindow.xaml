@@ -59,7 +59,7 @@
             <ToolBar >
                 <StackPanel Orientation="Horizontal">
                     <Image  Tag="new" Width="{StaticResource topIconSize}" Height="{StaticResource topIconSize}" Source="Images/Other/new.png"    PreviewMouseLeftButtonDown="SaveButton_Click"/>
-                    <Image  Tag="save" Width="{StaticResource topIconSize}" Height="{StaticResource topIconSize}" Source="Images/Other/save.png"    PreviewMouseLeftButtonDown="SaveButton_Click"/>
+                    <Image  Tag="save" Width="{StaticResource topIconSize}" Height="{StaticResource topIconSize}" Source="Images/Other/save.caseAttribute.png"    PreviewMouseLeftButtonDown="SaveButton_Click"/>
                     <Image  Tag="open" Width="{StaticResource topIconSize}" Height="{StaticResource topIconSize}" Source="Images/Other/open.png"    PreviewMouseLeftButtonDown="OpenButton_Click"/>
                 </StackPanel>
             </ToolBar>
@@ -67,7 +67,7 @@
                 <StackPanel Orientation="Horizontal">
                     <Image  Width="{StaticResource topIconSize}" Height="{StaticResource topIconSize}" Source="Images/Elements/SmokeRelation.png" MouseDown="line_Click" />
                     <Image Name="selectImage" Width="{StaticResource topIconSize}" Height="{StaticResource topIconSize}" Source="Images/Other/select2.png" MouseDown="SelectButton_Click" />
-                    <Image Name="moveImage" Width="{StaticResource topIconSize}" Height="{StaticResource topIconSize}" Source="Images/Other/move.png" MouseDown="MoveButton_Click" />
+                    <Image Name="moveImage" Width="{StaticResource topIconSize}" Height="{StaticResource topIconSize}" Source="Images/Other/move.caseAttribute.png" MouseDown="MoveButton_Click" />
                 </StackPanel>
             </ToolBar>
             <ToolBar >
@@ -80,24 +80,32 @@
         <ToolBarTray Name="casesMenu" Grid.Row="2" Orientation="Vertical"  IsLocked="True">
             <ToolBar Name="optionCaseToolBar"   Loaded="ToolBar_Loaded"  >
                 <StackPanel Orientation="Horizontal">
-                    <Button Click="UpCase_Click" Background="{x:Null}" BorderBrush="{x:Null}">
+                    <Button Click="UpCase_Click" Background="{x:Null}" BorderBrush="{x:Null}" Margin="1,0,1,0">
                         <StackPanel>
                             <Image Source="Images/Other/up.png" Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}" />
                         </StackPanel>
                     </Button>
-                    <Button Click="DownCase_Click" Background="{x:Null}" BorderBrush="{x:Null}">
+                    <Button Click="DownCase_Click" Background="{x:Null}" BorderBrush="{x:Null}"  Margin="1,0,1,0">
                         <StackPanel>
                             <Image Source="Images/Other/down.png" Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}" />
                         </StackPanel>
                     </Button>
-                <Button Click="AddCase_Click" Background="{x:Null}" BorderBrush="{x:Null}" >
+                    <Button Click="AddCase_Click" Background="{x:Null}" BorderBrush="{x:Null}"  Margin="1,0,1,0">
                         <StackPanel>
                             <Image Source="Images/Other/plus.png" Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}" />
                         </StackPanel>
                     </Button>
-                    <Button Click="DeleteCase_Click" Background="{x:Null}" BorderBrush="{x:Null}" >
+                    <Button Click="DeleteCase_Click" Background="{x:Null}" BorderBrush="{x:Null}"  Margin="1,0,1,0" >
                         <StackPanel>
                             <Image Source="Images/Other/minus.png" Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}" />
+                        </StackPanel>
+                    </Button>
+
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button Click="PlayCase_Click" Background="{x:Null}" BorderBrush="{x:Null}" >
+                        <StackPanel>
+                            <Image Source="Images/Other/play.png" Width="64" Height="{StaticResource smallIconSize}" />
                         </StackPanel>
                     </Button>
                     <Button Click="SelectCase_Click" Background="{x:Null}" BorderBrush="{x:Null}" >

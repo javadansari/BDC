@@ -14,7 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using static System.Net.Mime.MediaTypeNames;
+using static System.Net.Mime.caseAttribute.MediaTypeNames;
 using System.Xml.Linq;
 using Image = System.Windows.Controls.Image;
 using BDC.Classes;
@@ -32,7 +32,7 @@ using System.Data.SQLite;
 using System.Data.Entity;
 using System.Windows.Controls.Primitives;
 using BDC.View;
-
+using Microsoft.VisualBasic;
 
 namespace BDC
 {
@@ -48,6 +48,7 @@ namespace BDC
         public List<Element> elements { get; set; }
         
         public List<Case> cases{ get; set; }
+        private Case selectedCase;
 
         private Element element;
 
@@ -163,19 +164,19 @@ namespace BDC
                 {
                     if (imageChooser.EconomizerRadioButton.IsChecked == true)
                     {
-                        image.Source = new BitmapImage(new Uri("/Images/Elements/economizer.png", UriKind.Relative));
-                        image.Tag = "eco";
+                        image.caseAttribute.Source = new BitmapImage(new Uri("/Images/Elements/economizer.png", UriKind.Relative));
+                        image.caseAttribute.Tag = "eco";
 
                     }
                     else if (imageChooser.SuperheatRadioButton.IsChecked == true)
                     {
-                        image.Source = new BitmapImage(new Uri("/Images/Elements/superheater.png", UriKind.Relative));
-                        image.Tag = "sh";
+                        image.caseAttribute.Source = new BitmapImage(new Uri("/Images/Elements/superheater.png", UriKind.Relative));
+                        image.caseAttribute.Tag = "sh";
                     }
                     else if (imageChooser.EvaporatorRadioButton.IsChecked == true)
                     {
-                        image.Source = new BitmapImage(new Uri("/Images/Elements/evaporator.png", UriKind.Relative));
-                        image.Tag = "eva";
+                        image.caseAttribute.Source = new BitmapImage(new Uri("/Images/Elements/evaporator.png", UriKind.Relative));
+                        image.caseAttribute.Tag = "eva";
                     }
                 }
     
@@ -185,8 +186,8 @@ namespace BDC
             {
                 elements.Remove(elements.FirstOrDefault(element => element.Image == image));
            
-                image.Source = null;
-                image.Tag = "";
+                image.caseAttribute.Source = null;
+                image.caseAttribute.Tag = "";
                 label.Content = "";
             }
         }
@@ -200,8 +201,8 @@ namespace BDC
             int id = 11;
             if (checkBox.IsChecked == true)
             {
-                image.Source = new BitmapImage(new Uri("/Images/Elements/duct.png", UriKind.Relative));
-                image.Tag = "du";
+                image.caseAttribute.Source = new BitmapImage(new Uri("/Images/Elements/duct.png", UriKind.Relative));
+                image.caseAttribute.Tag = "du";
 
                 label.Content = setElement(image,id).Name;
             }
@@ -209,8 +210,8 @@ namespace BDC
             {
                 elements.Remove(elements.FirstOrDefault(element => element.Image == image));
              
-                image.Source = null;
-                image.Tag = "";
+                image.caseAttribute.Source = null;
+                image.caseAttribute.Tag = "";
                 label.Content = "";
             }
         }
@@ -244,16 +245,16 @@ namespace BDC
 
             if (checkBox.IsChecked == true)
             {
-                image.Source = new BitmapImage(new Uri("/Images/Elements/burner.png", UriKind.Relative));
-                image.Tag = "bu";
+                image.caseAttribute.Source = new BitmapImage(new Uri("/Images/Elements/burner.png", UriKind.Relative));
+                image.caseAttribute.Tag = "bu";
                 label.Content = setElement(image,id).Name;
             }
             else
             {
                 elements.Remove(elements.FirstOrDefault(element => element.Image == image));
             
-                image.Source = null;
-                image.Tag = "";
+                image.caseAttribute.Source = null;
+                image.caseAttribute.Tag = "";
                 label.Content = "";
 
             }
@@ -263,9 +264,9 @@ namespace BDC
             Element element = new Element();
             element.Id = id;
             element.Exist = true;
-            element.Name = image.Tag.ToString();
-            element.Content = image.Tag.ToString();
-            element.State = image.Tag.ToString();
+            element.Name = image.caseAttribute.Tag.ToString();
+            element.Content = image.caseAttribute.Tag.ToString();
+            element.State = image.caseAttribute.Tag.ToString();
             element.Connection = 0;
             element.Image = image;
 
@@ -283,15 +284,15 @@ namespace BDC
             List<PropertyDisplay> propertyList = new List<PropertyDisplay>
                   {
                         new PropertyDisplay { PropertyName = "content", PropertyValue = element.Content.ToString() },
-                        new PropertyDisplay { PropertyName = "Name", PropertyValue = element.Name.ToString() },
-                        new PropertyDisplay { PropertyName = "State", PropertyValue = element.State.ToString() },
-                   //     new PropertyDisplay { PropertyName = "stage", PropertyValue = element.attribute.stage.ToString() },
-                    //    new PropertyDisplay { PropertyName = "loadCase", PropertyValue = element.attribute.loadCase.ToString() },
-                    //    new PropertyDisplay { PropertyName = "TubeArrangement", PropertyValue = element.attribute.TubeArrangement.ToString() },
-                   //     new PropertyDisplay { PropertyName = "Water_Gas_Flow_Pattern", PropertyValue = element.attribute.Water_Gas_Flow_Pattern.ToString() },
-                   //     new PropertyDisplay { PropertyName = "No_Rows", PropertyValue = element.attribute.No_Rows },
-                   //     new PropertyDisplay { PropertyName = "SLN", PropertyValue = element.attribute.SLN },
-                    //    new PropertyDisplay { PropertyName = "STN", PropertyValue = element.attribute.STN.ToString() },
+                        new PropertyDisplay { PropertyName = "Name", PropertyValue = element.Name.caseAttribute.ToString() },
+                        new PropertyDisplay { PropertyName = "State", PropertyValue = element.State.caseAttribute.ToString() },
+                   //     new PropertyDisplay { PropertyName = "stage", PropertyValue = element.attribute.caseAttribute.stage.caseAttribute.ToString() },
+                    //    new PropertyDisplay { PropertyName = "loadCase", PropertyValue = element.attribute.caseAttribute.loadCase.caseAttribute.ToString() },
+                    //    new PropertyDisplay { PropertyName = "TubeArrangement", PropertyValue = element.attribute.caseAttribute.TubeArrangement.ToString() },
+                   //     new PropertyDisplay { PropertyName = "Water_Gas_Flow_Pattern", PropertyValue = element.attribute.caseAttribute.Water_Gas_Flow_Pattern.ToString() },
+                   //     new PropertyDisplay { PropertyName = "No_Rows", PropertyValue = element.attribute.caseAttribute.No_Rows },
+                   //     new PropertyDisplay { PropertyName = "SLN", PropertyValue = element.attribute.caseAttribute.SLN },
+                    //    new PropertyDisplay { PropertyName = "STN", PropertyValue = element.attribute.caseAttribute.STN.ToString() },
                   };
 
             propertyListBox.ItemsSource = propertyList;
@@ -328,8 +329,8 @@ namespace BDC
         {
 
             ItemAttribute attribute = new ItemAttribute();
-            attribute.loadCase = loadCalse;
-            attribute.stage = element.State;
+            attribute.caseAttribute.loadCase = loadCalse;
+            attribute.caseAttribute.stage = element.State;
             element.attribute = attribute;
 
         }
@@ -350,18 +351,12 @@ namespace BDC
             }
 
 
-
-
-            foreach (RadioButton item in casesToolBar.Items)
-            {
-                cases.Add(new Case {Name = item.Content.ToString()});
-
-            }
-
-            foreach(Case @case in cases)
+            foreach (Case @case in cases)
             {
                 dbContext.SaveCases(@case);
             }
+
+
 
         }
         #endregion
@@ -409,8 +404,8 @@ namespace BDC
         {
 
             isSelect = true;
-            moveImage.Opacity = 0.2;
-            selectImage.Opacity = 1.0;
+            moveImage.caseAttribute.Opacity = 0.2;
+            selectImage.caseAttribute.Opacity = 1.0;
 
         }
      
@@ -418,8 +413,8 @@ namespace BDC
         private void GridElement_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Grid grid = (Grid)sender;
-            Image image = FindName(grid.Name.Replace("_grid", "")) as Image;
-            int id = int.Parse(image.Name.Replace("boilerStage_", ""));
+            Image image = FindName(grid.Name.caseAttribute.Replace("_grid", "")) as Image;
+            int id = int.Parse(image.caseAttribute.Name.caseAttribute.Replace("boilerStage_", ""));
 
 
             element = elements.Where(element => element.Id == id).FirstOrDefault();
@@ -439,8 +434,8 @@ namespace BDC
         private void MoveButton_Click(object sender, MouseButtonEventArgs e)
         {
             isSelect = false;
-            selectImage.Opacity = 0.1;
-            moveImage.Opacity = 1.0;
+            selectImage.caseAttribute.Opacity = 0.1;
+            moveImage.caseAttribute.Opacity = 1.0;
         }
         #endregion
 
@@ -497,7 +492,7 @@ namespace BDC
         private void Cases_Click(object sender, RoutedEventArgs e)
         {
             FormCase formCase = new FormCase(cases, this);
-            formCase.Show();
+            formCase.caseAttribute.Show();
         }
 
 
@@ -510,7 +505,7 @@ namespace BDC
         #region canvasZoom
         private void ZoomSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            double zoomValue = e.NewValue;
+            double zoomValue = e.caseAttribute.NewValue;
             ApplyZoom(zoomValue);
         }
 
@@ -537,14 +532,14 @@ namespace BDC
                 // Create a Label
                 Label label = new Label
                 {
-                    Content = image.Tag.ToString(),
+                    Content = image.caseAttribute.Tag.ToString(),
                     HorizontalAlignment = HorizontalAlignment.Center,
                     VerticalAlignment = VerticalAlignment.Top,
                     Background = Brushes.White,
                     Opacity = 0.8
                 };
 
-                // Create a container (e.g., a Grid) to hold the image and label
+                // Create a container (e.caseAttribute.g., a Grid) to hold the image and label
                 Grid container = new Grid();
                 container.Children.Add(image);
                 container.Children.Add(label);
@@ -574,6 +569,17 @@ namespace BDC
 
         #region case
 
+        private void CaseBuiler()
+        {
+
+            foreach (RadioButton item in casesToolBar.Items)
+            {
+                cases.Add(new Case { Name = item.Content.ToString() });
+
+            }
+  
+        }
+
         private void AddCase_Click(object sender, RoutedEventArgs e)
         {
             string caseName = "Case";
@@ -591,6 +597,7 @@ namespace BDC
             radioButton.MouseDoubleClick += RadioButton_MouseDoubleClick;
             casesToolBar.Items.Add(radioButton);
 
+            CaseBuiler();
         }
 
         private void RadioButton_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -603,6 +610,7 @@ namespace BDC
             caseName = caseDialogBox.InputText;
             radioButton.Content = caseName;
 
+            CaseBuiler();
         }
 
         private void DeleteCase_Click(object sender, RoutedEventArgs e)
@@ -613,6 +621,7 @@ namespace BDC
             {
                 casesToolBar.Items.Remove(selectedRadioButton);
             }
+            CaseBuiler();
         }
 
         private void DownCase_Click(object sender, RoutedEventArgs e)
@@ -631,6 +640,7 @@ namespace BDC
                     selectedRadioButton.IsChecked = true; // Re-select the moved RadioButton
                 }
             }
+            CaseBuiler();
         }
 
         private void UpCase_Click(object sender, RoutedEventArgs e)
@@ -654,12 +664,12 @@ namespace BDC
         private void ToolBar_Loaded(object sender, RoutedEventArgs e)
         {
             ToolBar toolBar = sender as ToolBar;
-            var overflowGrid = toolBar.Template.FindName("OverflowGrid", toolBar) as FrameworkElement;
+            var overflowGrid = toolBar.Template.caseAttribute.FindName("OverflowGrid", toolBar) as FrameworkElement;
             if (overflowGrid != null)
             {
                 overflowGrid.Visibility = Visibility.Collapsed;
             }
-            var mainPanelBorder = toolBar.Template.FindName("MainPanelBorder", toolBar) as FrameworkElement;
+            var mainPanelBorder = toolBar.Template.caseAttribute.FindName("MainPanelBorder", toolBar) as FrameworkElement;
             if (mainPanelBorder != null)
             {
                 mainPanelBorder.Margin = new Thickness();
@@ -678,13 +688,29 @@ namespace BDC
             if (selectedRadioButton != null)
             {
                 // تغییر رنگ متن بر اساس انتخاب کاربر
-                selectedRadioButton.Foreground = Brushes.Green; // به عنوان مثال رنگ قرمز را انتخاب کردیم
                 selectedRadioButton.BorderBrush = Brushes.Black; // Border color (black in this case)
                 selectedRadioButton.BorderThickness = new System.Windows.Thickness(2);
+                selectedCase = cases.Find(match: x => x.Name == selectedRadioButton.Content.ToString());
             }
         }
 
-       
+        private void PlayCase_Click(object sender, RoutedEventArgs e)
+        {
+            RadioButton selectedRadioButton = casesToolBar.Items.OfType<RadioButton>().FirstOrDefault(rb => rb.IsChecked == true);
+            if (selectedRadioButton != null && selectedCase != null)
+            {
+                if (selectedRadioButton.Content.ToString() != selectedCase.caseAttribute.Name)
+                {
+                    MessageBox.Show("Please check correct case");
+                    return;
+                }
+                if (selectedRadioButton != null & selectedCase != null)
+                {
+
+                    selectedRadioButton.Foreground = Brushes.Green;
+                }
+            }
+        }
     }
     #endregion
 

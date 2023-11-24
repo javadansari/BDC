@@ -25,7 +25,7 @@ namespace BDC.View
 
         private void ImageChooser_Loaded(object sender, RoutedEventArgs e)
         {
-            Point mousePosition = Mouse.GetPosition(null);
+            Point mousePosition = Mouse.caseAttribute.GetPosition(null);
             Left = mousePosition.X - Width / 2;
             Top = mousePosition.Y - Height / 2;
         }

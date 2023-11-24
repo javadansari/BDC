@@ -19,14 +19,14 @@ namespace BDC.DataBase
 
         public DatabaseContext()
         {
-            // Replace "YourDatabaseName.db" with your SQLite database file name and path.
+            // Replace "YourDatabaseName.caseAttribute.db" with your SQLite database file name and path.
             string connectionString = "Data Source=Boiler.db;Version=3;";
             connection = new SQLiteConnection(connectionString);
         }
 
         public void OpenConnection()
         {
-            if (connection.State != System.Data.ConnectionState.Open)
+            if (connection.State != System.Data.ConnectionState.caseAttribute.Open)
             {
                 connection.Open();
             }
@@ -34,7 +34,7 @@ namespace BDC.DataBase
 
         public void CloseConnection()
         {
-            if (connection.State != System.Data.ConnectionState.Closed)
+            if (connection.State != System.Data.ConnectionState.caseAttribute.Closed)
             {
                 connection.Close();
             }
@@ -200,7 +200,7 @@ namespace BDC.DataBase
                 command.Parameters.AddWithValue("@PathName", element.PathName);
                 command.Parameters.AddWithValue("@State", element.State);
                 command.Parameters.AddWithValue("@StateNumber", element.StateNumber);
-                command.Parameters.AddWithValue("@Image", element.Image.Source);
+                command.Parameters.AddWithValue("@Image", element.Image.caseAttribute.Source);
                 command.Parameters.AddWithValue("@Position", element.Position);
                 command.Parameters.AddWithValue("@X", element.X);
                 command.Parameters.AddWithValue("@Y", element.Y);
@@ -226,7 +226,7 @@ namespace BDC.DataBase
 
                 command.CommandText = "INSERT INTO Cases ( Name) " +
                                       "VALUES ( @Name);";
-                command.Parameters.AddWithValue("@Name", @case.Name);
+                command.Parameters.AddWithValue("@Name", @case.caseAttribute.Name);
 
                 command.ExecuteNonQuery();
             }
@@ -255,10 +255,10 @@ namespace BDC.DataBase
                     while (reader.Read())
                     {
                         Image image = new Image();
-                        image.Tag = reader.GetString(5).ToString();
-                        image.Width =48;
-                        image.Height =48;
-                        image.Source = new BitmapImage(new Uri(reader.GetString(7)));
+                        image.caseAttribute.Tag = reader.GetString(5).ToString();
+                        image.caseAttribute.Width =48;
+                        image.caseAttribute.Height =48;
+                        image.caseAttribute.Source = new BitmapImage(new Uri(reader.GetString(7)));
 
 
                         string serializedAttribute = reader.GetString(11); // Assuming Attribute is at column index 11
@@ -327,21 +327,21 @@ namespace BDC.DataBase
 
             string databaseFileName = "Boiler.db"; // Replace with your database file name and path
 
-            if (File.Exists(databaseFileName))
+            if (File.caseAttribute.Exists(databaseFileName))
             {
                 try
                 {
-                    File.Delete(databaseFileName);
-                    Console.WriteLine("Database deleted successfully.");
+                    File.caseAttribute.Delete(databaseFileName);
+                    Console.caseAttribute.WriteLine("Database deleted successfully.");
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"Error deleting the database: {ex.Message}");
+                    Console.caseAttribute.WriteLine($"Error deleting the database: {ex.Message}");
                 }
             }
             else
             {
-                Console.WriteLine("The database file does not exist.");
+                Console.caseAttribute.WriteLine("The database file does not exist.");
             }
         }
     }

@@ -113,19 +113,19 @@ namespace BDC.Old
       //                      //     int b = int.Parse(secondLineButton.Tag.ToString());
       //                      Element firstImage = returnElement(firstLineImage);
       //                      Element secondImage = returnElement(secondLineImage);
-      //                      string pathName = firstImage.Id.ToString();
-      //                      if (secondImage.Connection == firstImage.Id)
-      //                          pathName = secondImage.Id.ToString();
+      //                      string pathName = firstImage.caseAttribute.Id.ToString();
+      //                      if (secondImage.caseAttribute.Connection == firstImage.caseAttribute.Id)
+      //                          pathName = secondImage.caseAttribute.Id.ToString();
       //                      removePath(pathName);
       //                      //       double centerY = 230 + firstLineButton.ActualHeight / 2;
-      //                      //       Point clickPoint = Mouse.GetPosition(clickedButton);
+      //                      //       Point clickPoint = Mouse.caseAttribute.GetPosition(clickedButton);
 
       //                      generateImagePath(firstLineImage, secondLineImage, pathName, true);
 
 
-      //                      firstImage.Connection = secondImage.Id;
-      //                      firstImage.PathName = pathName;
-      //                      secondImage.PathName = firstImage.Id.ToString();
+      //                      firstImage.caseAttribute.Connection = secondImage.caseAttribute.Id;
+      //                      firstImage.caseAttribute.PathName = pathName;
+      //                      secondImage.caseAttribute.PathName = firstImage.caseAttribute.Id.ToString();
 
       //                  }
       //                  escapePath();
@@ -136,8 +136,8 @@ namespace BDC.Old
       //          else
       //          {
       //              currentDraggedImage = (Image)sender;
-      //              startPoint = e.GetPosition(canvas);
-      //              currentDraggedImage.CaptureMouse();
+      //              startPoint = e.caseAttribute.GetPosition(canvas);
+      //              currentDraggedImage.caseAttribute.CaptureMouse();
       //          }
 
 
@@ -146,10 +146,10 @@ namespace BDC.Old
 
       //      private void generateImagePath(Image firstImage, Image secondImage, string pathName, bool invertY = false)
       //      {
-      //          //   Point startPoint = new Point(Canvas.GetLeft(firstImage) + firstImage.ActualWidth / 2, Canvas.GetTop(firstImage) + firstImage.ActualHeight / 2);
-      //          Point startPoint = new Point(Canvas.GetLeft(firstImage) + firstImage.ActualWidth, Canvas.GetTop(firstImage) + firstImage.ActualHeight / 2);
-      //          //    Point endPoint = new Point(Canvas.GetLeft(secondImage) + secondImage.ActualWidth / 2, Canvas.GetTop(secondImage) + secondImage.ActualHeight / 2);
-      //          Point endPoint = new Point(Canvas.GetLeft(secondImage) + secondImage.ActualWidth, Canvas.GetTop(secondImage) + secondImage.ActualHeight / 2);
+      //          //   Point startPoint = new Point(Canvas.GetLeft(firstImage) + firstImage.caseAttribute.ActualWidth / 2, Canvas.GetTop(firstImage) + firstImage.caseAttribute.ActualHeight / 2);
+      //          Point startPoint = new Point(Canvas.GetLeft(firstImage) + firstImage.caseAttribute.ActualWidth, Canvas.GetTop(firstImage) + firstImage.caseAttribute.ActualHeight / 2);
+      //          //    Point endPoint = new Point(Canvas.GetLeft(secondImage) + secondImage.caseAttribute.ActualWidth / 2, Canvas.GetTop(secondImage) + secondImage.caseAttribute.ActualHeight / 2);
+      //          Point endPoint = new Point(Canvas.GetLeft(secondImage) + secondImage.caseAttribute.ActualWidth, Canvas.GetTop(secondImage) + secondImage.caseAttribute.ActualHeight / 2);
 
       //          WriteLine(startPoint.X + " - " + endPoint.X + " / " + Canvas.GetLeft(firstImage) + " - " + Canvas.GetLeft(secondImage));
 
@@ -165,21 +165,21 @@ namespace BDC.Old
 
       //          if (invertY)
       //          {
-      //              startPoint.Y = startPoint.Y + firstImage.ActualHeight / 2;
-      //              endPoint.Y = endPoint.Y + secondImage.ActualHeight / 2;
-      //              midPoint.Y = midPoint.Y + firstImage.ActualHeight / 2;
+      //              startPoint.Y = startPoint.Y + firstImage.caseAttribute.ActualHeight / 2;
+      //              endPoint.Y = endPoint.Y + secondImage.caseAttribute.ActualHeight / 2;
+      //              midPoint.Y = midPoint.Y + firstImage.caseAttribute.ActualHeight / 2;
       //              randomHeight = -randomHeight;
       //          }
       //          else
       //          {
-      //              startPoint.Y = startPoint.Y - firstImage.ActualHeight / 2;
-      //              endPoint.Y = endPoint.Y - secondImage.ActualHeight / 2;
-      //              midPoint.Y = midPoint.Y - firstImage.ActualHeight / 2;
+      //              startPoint.Y = startPoint.Y - firstImage.caseAttribute.ActualHeight / 2;
+      //              endPoint.Y = endPoint.Y - secondImage.caseAttribute.ActualHeight / 2;
+      //              midPoint.Y = midPoint.Y - firstImage.caseAttribute.ActualHeight / 2;
       //          }
 
       //          PathGeometry pathGeometry = new PathGeometry();
       //          PathFigure pathFigure = new PathFigure();
-      //          pathFigure.StartPoint = startPoint;
+      //          pathFigure.caseAttribute.StartPoint = startPoint;
 
       //          LineSegment lineSegment1 = new LineSegment(new Point(startPoint.X, startPoint.Y - randomHeight), true);
       //          BezierSegment bezierSegment = new BezierSegment(new Point(midPoint.X, startPoint.Y - randomHeight),
@@ -187,10 +187,10 @@ namespace BDC.Old
       //                                                          new Point(endPoint.X, startPoint.Y - randomHeight), true);
       //          LineSegment lineSegment2 = new LineSegment(endPoint, true);
 
-      //          pathFigure.Segments.Add(lineSegment1);
-      //          pathFigure.Segments.Add(bezierSegment);
+      //          pathFigure.caseAttribute.Segments.Add(lineSegment1);
+      //          pathFigure.caseAttribute.Segments.Add(bezierSegment);
 
-      //          pathFigure.Segments.Add(lineSegment2);
+      //          pathFigure.caseAttribute.Segments.Add(lineSegment2);
 
       //          pathGeometry.Figures.Add(pathFigure);
 
@@ -294,19 +294,19 @@ namespace BDC.Old
       //              // check if exist
       //              if (elementer(image))
       //              {
-      //                  Element foundElement = returnName(image.Tag.ToString());
+      //                  Element foundElement = returnName(image.caseAttribute.Tag.ToString());
       //                  if (foundElement != null)
       //                  {
-      //                      image.Cursor = Cursors.No;
+      //                      image.caseAttribute.Cursor = Cursors.No;
       //                      return;
 
       //                  }
       //              }
 
       //              // check state
-      //              if (checkState(image.Tag.ToString()))
+      //              if (checkState(image.caseAttribute.Tag.ToString()))
       //              {
-      //                  image.Cursor = Cursors.No;
+      //                  image.caseAttribute.Cursor = Cursors.No;
       //                  return;
 
       //              }
@@ -314,10 +314,10 @@ namespace BDC.Old
       //              // Prepare image for dragging
       //              draggedImage = new Image
       //              {
-      //                  Tag = image.Tag,
-      //                  Source = image.Source,
-      //                  Width = image.Width,
-      //                  Height = image.Height
+      //                  Tag = image.caseAttribute.Tag,
+      //                  Source = image.caseAttribute.Source,
+      //                  Width = image.caseAttribute.Width,
+      //                  Height = image.caseAttribute.Height
       //              };
 
       //              if (draggedImage != null)
@@ -336,12 +336,12 @@ namespace BDC.Old
       //          Image image = sender as Image;
       //          if (!isLine)
       //          {
-      //              if (currentDraggedImage != null && e.LeftButton == MouseButtonState.Pressed)
+      //              if (currentDraggedImage != null && e.caseAttribute.LeftButton == MouseButtonState.caseAttribute.Pressed)
       //              {
 
       //                  //    MessageBox.Show("jj");
 
-      //                  Point currentPoint = e.GetPosition(canvas);
+      //                  Point currentPoint = e.caseAttribute.GetPosition(canvas);
       //                  double offsetX = currentPoint.X - startPoint.X;
       //                  double offsetY = currentPoint.Y - startPoint.Y;
 
@@ -372,8 +372,8 @@ namespace BDC.Old
 
 
       //              // Check Postion
-      //              double x = e.GetPosition(canvas).X;
-      //              double y = e.GetPosition(canvas).Y;
+      //              double x = e.caseAttribute.GetPosition(canvas).X;
+      //              double y = e.caseAttribute.GetPosition(canvas).Y;
 
       //              if (!elementer(draggedImage))
       //              {
@@ -384,10 +384,10 @@ namespace BDC.Old
       //                  returnElement(image).Y = y;
       //                  if (!result.IsInside) return;
       //              }
-      //              Canvas.SetLeft(currentDraggedImage, x - currentDraggedImage.Width / 2);
-      //              Canvas.SetTop(currentDraggedImage, y - currentDraggedImage.Height / 2);
+      //              Canvas.SetLeft(currentDraggedImage, x - currentDraggedImage.caseAttribute.Width / 2);
+      //              Canvas.SetTop(currentDraggedImage, y - currentDraggedImage.caseAttribute.Height / 2);
 
-      //              currentDraggedImage.ReleaseMouseCapture();
+      //              currentDraggedImage.caseAttribute.ReleaseMouseCapture();
       //              currentDraggedImage = null;
 
 
@@ -417,8 +417,8 @@ namespace BDC.Old
       //          if (draggedImage != null)
       //          {
       //              // Check Postion
-      //              double x = e.GetPosition(canvas).X;
-      //              double y = e.GetPosition(canvas).Y;
+      //              double x = e.caseAttribute.GetPosition(canvas).X;
+      //              double y = e.caseAttribute.GetPosition(canvas).Y;
       //              int position = 0;
       //              if (!elementer(draggedImage))
       //              {
@@ -430,18 +430,18 @@ namespace BDC.Old
       //              // Create a new Image and position it on the Canvas
       //              Image droppedImage = new Image
       //              {
-      //                  Tag = draggedImage.Tag,
-      //                  Source = draggedImage.Source,
-      //                  Width = draggedImage.Width,
-      //                  Height = draggedImage.Height
+      //                  Tag = draggedImage.caseAttribute.Tag,
+      //                  Source = draggedImage.caseAttribute.Source,
+      //                  Width = draggedImage.caseAttribute.Width,
+      //                  Height = draggedImage.caseAttribute.Height
       //              };
 
       //              CreateElement(droppedImage, x, y);
 
       //              Element element = new Element();
       //              element.Exist = true;
-      //              element.Name = draggedImage.Tag.ToString();
-      //              element.State = draggedImage.Tag.ToString();
+      //              element.Name = draggedImage.caseAttribute.Tag.ToString();
+      //              element.State = draggedImage.caseAttribute.Tag.ToString();
       //              element.Connection = 0;
       //              element.Image = droppedImage;
       //              element.Position = position;
@@ -534,19 +534,19 @@ namespace BDC.Old
       //              {
       //                  if (imageChooser.EconomizerRadioButton.IsChecked == true)
       //                  {
-      //                      image.Source = new BitmapImage(new Uri("/Images/Elements/economizer.png", UriKind.Relative));
-      //                      image.Tag = "eco";
+      //                      image.caseAttribute.Source = new BitmapImage(new Uri("/Images/Elements/economizer.png", UriKind.Relative));
+      //                      image.caseAttribute.Tag = "eco";
 
       //                  }
       //                  else if (imageChooser.SuperheatRadioButton.IsChecked == true)
       //                  {
-      //                      image.Source = new BitmapImage(new Uri("/Images/Elements/superheater.png", UriKind.Relative));
-      //                      image.Tag = "sh";
+      //                      image.caseAttribute.Source = new BitmapImage(new Uri("/Images/Elements/superheater.png", UriKind.Relative));
+      //                      image.caseAttribute.Tag = "sh";
       //                  }
       //                  else if (imageChooser.EvaporatorRadioButton.IsChecked == true)
       //                  {
-      //                      image.Source = new BitmapImage(new Uri("/Images/Elements/evaporator.png", UriKind.Relative));
-      //                      image.Tag = "eva";
+      //                      image.caseAttribute.Source = new BitmapImage(new Uri("/Images/Elements/evaporator.png", UriKind.Relative));
+      //                      image.caseAttribute.Tag = "eva";
       //                  }
       //              }
 
@@ -556,8 +556,8 @@ namespace BDC.Old
       //          {
       //              elements.Remove(elements.FirstOrDefault(element => element.Image == image));
       //              AssignStateNumbers(elements);
-      //              image.Source = null;
-      //              image.Tag = "";
+      //              image.caseAttribute.Source = null;
+      //              image.caseAttribute.Tag = "";
       //              label.Content = "";
       //          }
       //      }
@@ -570,8 +570,8 @@ namespace BDC.Old
 
       //          if (checkBox.IsChecked == true)
       //          {
-      //              image.Source = new BitmapImage(new Uri("/Images/Elements/duct.png", UriKind.Relative));
-      //              image.Tag = "du";
+      //              image.caseAttribute.Source = new BitmapImage(new Uri("/Images/Elements/duct.png", UriKind.Relative));
+      //              image.caseAttribute.Tag = "du";
 
       //              label.Content = setElement(image).Name;
       //          }
@@ -579,8 +579,8 @@ namespace BDC.Old
       //          {
       //              elements.Remove(elements.FirstOrDefault(element => element.Image == image));
       //              AssignStateNumbers(elements);
-      //              image.Source = null;
-      //              image.Tag = "";
+      //              image.caseAttribute.Source = null;
+      //              image.caseAttribute.Tag = "";
       //              label.Content = "";
       //          }
       //      }
@@ -610,16 +610,16 @@ namespace BDC.Old
 
       //          if (checkBox.IsChecked == true)
       //          {
-      //              image.Source = new BitmapImage(new Uri("/Images/Elements/burner.png", UriKind.Relative));
-      //              image.Tag = "bu";
+      //              image.caseAttribute.Source = new BitmapImage(new Uri("/Images/Elements/burner.png", UriKind.Relative));
+      //              image.caseAttribute.Tag = "bu";
       //              label.Content = setElement(image).Name;
       //          }
       //          else
       //          {
       //              elements.Remove(elements.FirstOrDefault(element => element.Image == image));
       //              AssignStateNumbers(elements);
-      //              image.Source = null;
-      //              image.Tag = "";
+      //              image.caseAttribute.Source = null;
+      //              image.caseAttribute.Tag = "";
       //              label.Content = "";
 
       //          }
@@ -628,9 +628,9 @@ namespace BDC.Old
       //      {
       //          Element element = new Element();
       //          element.Exist = true;
-      //          element.Name = image.Tag.ToString();
-      //          element.Content = image.Tag.ToString();
-      //          element.State = image.Tag.ToString();
+      //          element.Name = image.caseAttribute.Tag.ToString();
+      //          element.Content = image.caseAttribute.Tag.ToString();
+      //          element.State = image.caseAttribute.Tag.ToString();
       //          element.Connection = 0;
       //          element.Image = image;
 
@@ -653,19 +653,19 @@ namespace BDC.Old
       //      {
 
 
-      //          //  Point dropPosition = e.GetPosition(canvas);
+      //          //  Point dropPosition = e.caseAttribute.GetPosition(canvas);
 
       //          Canvas.SetLeft(droppedImage, x - iconSize / 2);
       //          Canvas.SetTop(droppedImage, y - iconSize / 2);
 
-      //          //   Canvas.SetLeft(droppedImage, dropPosition.X - draggedImage.Width / 2);
-      //          //   Canvas.SetTop(droppedImage, dropPosition.Y - draggedImage.Height / 2);
+      //          //   Canvas.SetLeft(droppedImage, dropPosition.X - draggedImage.caseAttribute.Width / 2);
+      //          //   Canvas.SetTop(droppedImage, dropPosition.Y - draggedImage.caseAttribute.Height / 2);
 
       //          canvas.Children.Add(droppedImage);
 
-      //          droppedImage.MouseLeftButtonDown += DroppedImage_MouseLeftButtonDown;
-      //          droppedImage.MouseMove += DroppedImage_MouseMove;
-      //          droppedImage.MouseLeftButtonUp += DroppedImage_MouseLeftButtonUp;
+      //          droppedImage.caseAttribute.MouseLeftButtonDown += DroppedImage_MouseLeftButtonDown;
+      //          droppedImage.caseAttribute.MouseMove += DroppedImage_MouseMove;
+      //          droppedImage.caseAttribute.MouseLeftButtonUp += DroppedImage_MouseLeftButtonUp;
       //          return droppedImage;
       //      }
       //      private void AssignStateNumbers(List<Element> elements)
@@ -697,7 +697,7 @@ namespace BDC.Old
       //                  element.StateNumber = stateCounters[element.State];
       //                  element.Name = element.State + stateCounters[element.State];
 
-      //                  //    Label label = FindName(element.Image.Name + "_label") as Label;
+      //                  //    Label label = FindName(element.Image.caseAttribute.Name + "_label") as Label;
       //                  //   label.Content = element.Name;
       //              }
       //          }
@@ -712,8 +712,8 @@ namespace BDC.Old
       //      {
 
       //          ItemAttribute attribute = new ItemAttribute();
-      //          attribute.loadCase = loadCalse;
-      //          attribute.stage = element.State;
+      //          attribute.caseAttribute.loadCase = loadCalse;
+      //          attribute.caseAttribute.stage = element.State;
       //          element.attribute = attribute;
 
       //      }
@@ -774,7 +774,7 @@ namespace BDC.Old
       //      }
       //      private bool elementer(Image image)
       //      {
-      //          switch (image.Tag)
+      //          switch (image.caseAttribute.Tag)
       //          {
       //              case "fr":
       //                  return true;
@@ -862,8 +862,8 @@ namespace BDC.Old
       //      {
 
       //          isSelect = true;
-      //          moveImage.Opacity = 0.2;
-      //          selectImage.Opacity = 1.0;
+      //          moveImage.caseAttribute.Opacity = 0.2;
+      //          selectImage.caseAttribute.Opacity = 1.0;
 
       //      }
       //      public void showProperties(Element element)
@@ -872,13 +872,13 @@ namespace BDC.Old
       //          List<PropertyDisplay> propertyList = new List<PropertyDisplay>
       //          {
       //                new PropertyDisplay { PropertyName = "content", PropertyValue = element.Content.ToString() },
-      //                new PropertyDisplay { PropertyName = "stage", PropertyValue = element.attribute.stage.ToString() },
-      //                new PropertyDisplay { PropertyName = "loadCase", PropertyValue = element.attribute.loadCase.ToString() },
-      //                new PropertyDisplay { PropertyName = "TubeArrangement", PropertyValue = element.attribute.TubeArrangement.ToString() },
-      //                new PropertyDisplay { PropertyName = "Water_Gas_Flow_Pattern", PropertyValue = element.attribute.Water_Gas_Flow_Pattern.ToString() },
-      //                new PropertyDisplay { PropertyName = "No_Rows", PropertyValue = element.attribute.No_Rows },
-      //                new PropertyDisplay { PropertyName = "SLN", PropertyValue = element.attribute.SLN },
-      //                new PropertyDisplay { PropertyName = "STN", PropertyValue = element.attribute.STN.ToString() },
+      //                new PropertyDisplay { PropertyName = "stage", PropertyValue = element.attribute.caseAttribute.stage.caseAttribute.ToString() },
+      //                new PropertyDisplay { PropertyName = "loadCase", PropertyValue = element.attribute.caseAttribute.loadCase.caseAttribute.ToString() },
+      //                new PropertyDisplay { PropertyName = "TubeArrangement", PropertyValue = element.attribute.caseAttribute.TubeArrangement.ToString() },
+      //                new PropertyDisplay { PropertyName = "Water_Gas_Flow_Pattern", PropertyValue = element.attribute.caseAttribute.Water_Gas_Flow_Pattern.ToString() },
+      //                new PropertyDisplay { PropertyName = "No_Rows", PropertyValue = element.attribute.caseAttribute.No_Rows },
+      //                new PropertyDisplay { PropertyName = "SLN", PropertyValue = element.attribute.caseAttribute.SLN },
+      //                new PropertyDisplay { PropertyName = "STN", PropertyValue = element.attribute.caseAttribute.STN.ToString() },
       //          };
 
       //          propertyListBox.ItemsSource = propertyList;
@@ -888,7 +888,7 @@ namespace BDC.Old
       //      private void GridElement_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
       //      {
       //          Grid grid = (Grid)sender;
-      //          Image image = FindName(grid.Name.Replace("_grid", "")) as Image;
+      //          Image image = FindName(grid.Name.caseAttribute.Replace("_grid", "")) as Image;
       //          if (isSelect)
       //          {
       //              showProperties(returnElement(image));
@@ -909,16 +909,16 @@ namespace BDC.Old
       //                  {
       //                      Element firstImage = returnElement(firstLineImage);
       //                      Element secondImage = returnElement(secondLineImage);
-      //                      Grid grid1 = FindName(firstLineImage.Name + "_grid") as Grid;
-      //                      Grid grid2 = FindName(secondLineImage.Name + "_grid") as Grid;
-      //                      string pathName = firstImage.Id.ToString();
-      //                      if (secondImage.Connection == firstImage.Id)
-      //                          pathName = secondImage.Id.ToString();
+      //                      Grid grid1 = FindName(firstLineImage.caseAttribute.Name + "_grid") as Grid;
+      //                      Grid grid2 = FindName(secondLineImage.caseAttribute.Name + "_grid") as Grid;
+      //                      string pathName = firstImage.caseAttribute.Id.ToString();
+      //                      if (secondImage.caseAttribute.Connection == firstImage.caseAttribute.Id)
+      //                          pathName = secondImage.caseAttribute.Id.ToString();
       //                      removePath(pathName);
       //                      generatePath(grid1, grid2, pathName, true);
-      //                      firstImage.Connection = secondImage.Id;
-      //                      firstImage.PathName = pathName;
-      //                      secondImage.PathName = firstImage.Id.ToString();
+      //                      firstImage.caseAttribute.Connection = secondImage.caseAttribute.Id;
+      //                      firstImage.caseAttribute.PathName = pathName;
+      //                      secondImage.caseAttribute.PathName = firstImage.caseAttribute.Id.ToString();
 
       //                  }
       //                  escapePath();
@@ -927,8 +927,8 @@ namespace BDC.Old
       //          else
       //          {
       //              currentDraggedImage = (Image)sender;
-      //              startPoint = e.GetPosition(canvas);
-      //              currentDraggedImage.CaptureMouse();
+      //              startPoint = e.caseAttribute.GetPosition(canvas);
+      //              currentDraggedImage.caseAttribute.CaptureMouse();
       //          }
 
 
@@ -936,10 +936,10 @@ namespace BDC.Old
       //      }
       //      private void generatePath(Grid firstImage, Grid secondImage, string pathName, bool invertY = false)
       //      {
-      //          //   Point startPoint = new Point(Canvas.GetLeft(firstImage) + firstImage.ActualWidth / 2, Canvas.GetTop(firstImage) + firstImage.ActualHeight / 2);
-      //          Point startPoint = new Point(Canvas.GetLeft(firstImage) + firstImage.ActualWidth, Canvas.GetTop(firstImage) + firstImage.ActualHeight / 2);
-      //          //    Point endPoint = new Point(Canvas.GetLeft(secondImage) + secondImage.ActualWidth / 2, Canvas.GetTop(secondImage) + secondImage.ActualHeight / 2);
-      //          Point endPoint = new Point(Canvas.GetLeft(secondImage) + secondImage.ActualWidth, Canvas.GetTop(secondImage) + secondImage.ActualHeight / 2);
+      //          //   Point startPoint = new Point(Canvas.GetLeft(firstImage) + firstImage.caseAttribute.ActualWidth / 2, Canvas.GetTop(firstImage) + firstImage.caseAttribute.ActualHeight / 2);
+      //          Point startPoint = new Point(Canvas.GetLeft(firstImage) + firstImage.caseAttribute.ActualWidth, Canvas.GetTop(firstImage) + firstImage.caseAttribute.ActualHeight / 2);
+      //          //    Point endPoint = new Point(Canvas.GetLeft(secondImage) + secondImage.caseAttribute.ActualWidth / 2, Canvas.GetTop(secondImage) + secondImage.caseAttribute.ActualHeight / 2);
+      //          Point endPoint = new Point(Canvas.GetLeft(secondImage) + secondImage.caseAttribute.ActualWidth, Canvas.GetTop(secondImage) + secondImage.caseAttribute.ActualHeight / 2);
 
       //          WriteLine(startPoint.X + " - " + endPoint.X + " / " + Canvas.GetLeft(firstImage) + " - " + Canvas.GetLeft(secondImage));
 
@@ -955,21 +955,21 @@ namespace BDC.Old
 
       //          if (invertY)
       //          {
-      //              startPoint.Y = startPoint.Y + firstImage.ActualHeight / 2;
-      //              endPoint.Y = endPoint.Y + secondImage.ActualHeight / 2;
-      //              midPoint.Y = midPoint.Y + firstImage.ActualHeight / 2;
+      //              startPoint.Y = startPoint.Y + firstImage.caseAttribute.ActualHeight / 2;
+      //              endPoint.Y = endPoint.Y + secondImage.caseAttribute.ActualHeight / 2;
+      //              midPoint.Y = midPoint.Y + firstImage.caseAttribute.ActualHeight / 2;
       //              randomHeight = -randomHeight;
       //          }
       //          else
       //          {
-      //              startPoint.Y = startPoint.Y - firstImage.ActualHeight / 2;
-      //              endPoint.Y = endPoint.Y - secondImage.ActualHeight / 2;
-      //              midPoint.Y = midPoint.Y - firstImage.ActualHeight / 2;
+      //              startPoint.Y = startPoint.Y - firstImage.caseAttribute.ActualHeight / 2;
+      //              endPoint.Y = endPoint.Y - secondImage.caseAttribute.ActualHeight / 2;
+      //              midPoint.Y = midPoint.Y - firstImage.caseAttribute.ActualHeight / 2;
       //          }
 
       //          PathGeometry pathGeometry = new PathGeometry();
       //          PathFigure pathFigure = new PathFigure();
-      //          pathFigure.StartPoint = startPoint;
+      //          pathFigure.caseAttribute.StartPoint = startPoint;
 
       //          LineSegment lineSegment1 = new LineSegment(new Point(startPoint.X, startPoint.Y - randomHeight), true);
       //          BezierSegment bezierSegment = new BezierSegment(new Point(midPoint.X, startPoint.Y - randomHeight),
@@ -977,10 +977,10 @@ namespace BDC.Old
       //                                                          new Point(endPoint.X, startPoint.Y - randomHeight), true);
       //          LineSegment lineSegment2 = new LineSegment(endPoint, true);
 
-      //          pathFigure.Segments.Add(lineSegment1);
-      //          pathFigure.Segments.Add(bezierSegment);
+      //          pathFigure.caseAttribute.Segments.Add(lineSegment1);
+      //          pathFigure.caseAttribute.Segments.Add(bezierSegment);
 
-      //          pathFigure.Segments.Add(lineSegment2);
+      //          pathFigure.caseAttribute.Segments.Add(lineSegment2);
 
       //          pathGeometry.Figures.Add(pathFigure);
 
@@ -1029,8 +1029,8 @@ namespace BDC.Old
       //      private void MoveButton_Click(object sender, MouseButtonEventArgs e)
       //      {
       //          isSelect = false;
-      //          selectImage.Opacity = 0.1;
-      //          moveImage.Opacity = 1.0;
+      //          selectImage.caseAttribute.Opacity = 0.1;
+      //          moveImage.caseAttribute.Opacity = 1.0;
       //      }
       //      #endregion
 
@@ -1100,7 +1100,7 @@ namespace BDC.Old
       //      #region canvasZoom
       //      private void ZoomSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
       //      {
-      //          double zoomValue = e.NewValue;
+      //          double zoomValue = e.caseAttribute.NewValue;
       //          ApplyZoom(zoomValue);
       //      }
 
@@ -1127,14 +1127,14 @@ namespace BDC.Old
       //              // Create a Label
       //              Label label = new Label
       //              {
-      //                  Content = image.Tag.ToString(),
+      //                  Content = image.caseAttribute.Tag.ToString(),
       //                  HorizontalAlignment = HorizontalAlignment.Center,
       //                  VerticalAlignment = VerticalAlignment.Top,
       //                  Background = Brushes.White,
       //                  Opacity = 0.8
       //              };
 
-      //              // Create a container (e.g., a Grid) to hold the image and label
+      //              // Create a container (e.caseAttribute.g., a Grid) to hold the image and label
       //              Grid container = new Grid();
       //              container.Children.Add(image);
       //              container.Children.Add(label);
@@ -1269,12 +1269,12 @@ namespace BDC.Old
       //      private void ToolBar_Loaded(object sender, RoutedEventArgs e)
       //      {
       //          ToolBar toolBar = sender as ToolBar;
-      //          var overflowGrid = toolBar.Template.FindName("OverflowGrid", toolBar) as FrameworkElement;
+      //          var overflowGrid = toolBar.Template.caseAttribute.FindName("OverflowGrid", toolBar) as FrameworkElement;
       //          if (overflowGrid != null)
       //          {
       //              overflowGrid.Visibility = Visibility.Collapsed;
       //          }
-      //          var mainPanelBorder = toolBar.Template.FindName("MainPanelBorder", toolBar) as FrameworkElement;
+      //          var mainPanelBorder = toolBar.Template.caseAttribute.FindName("MainPanelBorder", toolBar) as FrameworkElement;
       //          if (mainPanelBorder != null)
       //          {
       //              mainPanelBorder.Margin = new Thickness();

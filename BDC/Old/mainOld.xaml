@@ -59,7 +59,7 @@
             <ToolBar >
                 <StackPanel Orientation="Horizontal">
                     <Image  Tag="new" Width="{StaticResource topIconSize}" Height="{StaticResource topIconSize}" Source="../Images/Other/new.png"    PreviewMouseLeftButtonDown="SaveButton_Click"/>
-                    <Image  Tag="save" Width="{StaticResource topIconSize}" Height="{StaticResource topIconSize}" Source="../Images/Other/save.png"    PreviewMouseLeftButtonDown="SaveButton_Click"/>
+                    <Image  Tag="save" Width="{StaticResource topIconSize}" Height="{StaticResource topIconSize}" Source="../Images/Other/save.caseAttribute.png"    PreviewMouseLeftButtonDown="SaveButton_Click"/>
                     <Image  Tag="open" Width="{StaticResource topIconSize}" Height="{StaticResource topIconSize}" Source="../Images/Other/open.png"    PreviewMouseLeftButtonDown="OpenButton_Click"/>
                 </StackPanel>
             </ToolBar>
@@ -67,7 +67,7 @@
                 <StackPanel Orientation="Horizontal">
                     <Image  Width="{StaticResource topIconSize}" Height="{StaticResource topIconSize}" Source="../Images/Elements/SmokeRelation.png" MouseDown="line_Click" />
                     <Image Name="selectImage" Width="{StaticResource topIconSize}" Height="{StaticResource topIconSize}" Source="../Images/Other/select2.png" MouseDown="SelectButton_Click" />
-                    <Image Name="moveImage" Width="{StaticResource topIconSize}" Height="{StaticResource topIconSize}" Source="../Images/Other/move.png" MouseDown="MoveButton_Click" />
+                    <Image Name="moveImage" Width="{StaticResource topIconSize}" Height="{StaticResource topIconSize}" Source="../Images/Other/move.caseAttribute.png" MouseDown="MoveButton_Click" />
                 </StackPanel>
             </ToolBar>
         </ToolBarTray>
@@ -83,7 +83,7 @@
                         <Image  Tag="du" Width="{StaticResource iconSize}" Height="{StaticResource iconSize}" Source="../Images/Elements/duct.png"    PreviewMouseLeftButtonDown="SourceoutElementButton_PreviewMouseLeftButtonDown"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <Image  Tag="fr" Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"    PreviewMouseLeftButtonDown="SourceoutElementButton_PreviewMouseLeftButtonDown" Source="../Images/Elements/furnace.png"/>
+                        <Image  Tag="fr" Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"    PreviewMouseLeftButtonDown="SourceoutElementButton_PreviewMouseLeftButtonDown" Source="../Images/Elements/furnace.caseAttribute.png"/>
                         <Image  Tag="bu" Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"    PreviewMouseLeftButtonDown="SourceoutElementButton_PreviewMouseLeftButtonDown" Source="../Images/Elements/burner.png"/>
                     </StackPanel>
                     <Image Width="{StaticResource iconSize}" Height="{StaticResource iconSize}" Source="../Images/Elements/do.png" MouseDown="label_Click" />

@@ -36,7 +36,7 @@ namespace BDC.View
             }
             else
             {
-                MessageBox.Show("Please select a number.", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Please select a number.", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.caseAttribute.Warning);
             }
         }
 

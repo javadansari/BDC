@@ -19,7 +19,7 @@ using System.Xml.Linq;
 namespace BDC.Forms
 {
     /// <summary>
-    /// Interaction logic for FormCase.xaml
+    /// Interaction logic for FormCase.caseAttribute.xaml
     /// </summary>
     public partial class FormCase : Window
     {
@@ -94,46 +94,46 @@ namespace BDC.Forms
                 buildLabel(@case.Name);
 
             
-                buildTextBox(childStackPanel, e => e.Ambient_Condition, @case, (e, value) => e.Ambient_Condition = value);
+                buildTextBox(childStackPanel, e => e.caseAttribute.Ambient_Condition, @case, (e, value) => e.caseAttribute.Ambient_Condition = value);
                 // Assuming @case and childStackPanel are defined elsewhere
 
-                buildTextBox(childStackPanel, e => e.Site_Atmospheric_Pressure, @case, (e, value) => e.Site_Atmospheric_Pressure = value);
-                buildTextBox(childStackPanel, e => e.Ambient_Temperature, @case, (e, value) => e.Ambient_Temperature = value);
-                buildTextBox(childStackPanel, e => e.Relative_Humidity, @case, (e, value) => e.Relative_Humidity = value);
-                buildTextBox(childStackPanel, e => e.Combustion, @case, (e, value) => e.Combustion = value);
-                buildTextBox(childStackPanel, e => e.GAS1, @case, (e, value) => e.GAS1 = value);
-                buildTextBox(childStackPanel, e => e.GAS2, @case, (e, value) => e.GAS2 = value);
-                buildTextBox(childStackPanel, e => e.GAS3, @case, (e, value) => e.GAS3 = value);
-                buildTextBox(childStackPanel, e => e.GAS4, @case, (e, value) => e.GAS4 = value);
-                buildTextBox(childStackPanel, e => e.GAS5, @case, (e, value) => e.GAS5 = value);
-                buildTextBox(childStackPanel, e => e.OIL1, @case, (e, value) => e.OIL1 = value);
-                buildTextBox(childStackPanel, e => e.OIL2, @case, (e, value) => e.OIL2 = value);
-                buildTextBox(childStackPanel, e => e.Excess_Air, @case, (e, value) => e.Excess_Air = value);
-                buildTextBox(childStackPanel, e => e.Atmozing_Steam_Flow, @case, (e, value) => e.Atmozing_Steam_Flow = value);
-                buildTextBox(childStackPanel, e => e.Atmozing_Steam_Pressure, @case, (e, value) => e.Atmozing_Steam_Pressure = value);
-                buildTextBox(childStackPanel, e => e.Atmozing_Steam_Temperature, @case, (e, value) => e.Atmozing_Steam_Temperature = value);
-                buildTextBox(childStackPanel, e => e.FDF, @case, (e, value) => e.FDF = value);
-                buildTextBox(childStackPanel, e => e.Fan_efficiency, @case, (e, value) => e.Fan_efficiency = value);
-                buildTextBox(childStackPanel, e => e.Heat_exchange_ducty, @case, (e, value) => e.Heat_exchange_ducty = value);
-                buildTextBox(childStackPanel, e => e.Steam_Outlet, @case, (e, value) => e.Steam_Outlet = value);
-                buildTextBox(childStackPanel, e => e.Steam_Pressure_TP, @case, (e, value) => e.Steam_Pressure_TP = value);
-                buildTextBox(childStackPanel, e => e.Main_steam_Pressue_Drop, @case, (e, value) => e.Main_steam_Pressue_Drop = value);
-                buildTextBox(childStackPanel, e => e.Desuperheater, @case, (e, value) => e.Desuperheater = value);
-                buildTextBox(childStackPanel, e => e.Location_of_DESH, @case, (e, value) => e.Location_of_DESH = value);
-                buildTextBox(childStackPanel, e => e.Steam_temperature_set_point_TP, @case, (e, value) => e.Steam_temperature_set_point_TP = value);
-                buildTextBox(childStackPanel, e => e.Min_SH_degree_at_desperheater_outlet, @case, (e, value) => e.Min_SH_degree_at_desperheater_outlet = value);
-                buildTextBox(childStackPanel, e => e.Feed_water, @case, (e, value) => e.Feed_water = value);
-                buildTextBox(childStackPanel, e => e.Feed_water_Pressure, @case, (e, value) => e.Feed_water_Pressure = value);
-                buildTextBox(childStackPanel, e => e.Feed_water_Temperature, @case, (e, value) => e.Feed_water_Temperature = value);
-                buildTextBox(childStackPanel, e => e.BFP_temperature_rise, @case, (e, value) => e.BFP_temperature_rise = value);
-                buildTextBox(childStackPanel, e => e.Feed_water_piping_dp, @case, (e, value) => e.Feed_water_piping_dp = value);
-                buildTextBox(childStackPanel, e => e.Level_control_Valve_dp, @case, (e, value) => e.Level_control_Valve_dp = value);
-                buildTextBox(childStackPanel, e => e.Losses, @case, (e, value) => e.Losses = value);
-                buildTextBox(childStackPanel, e => e.Unburned_Loss, @case, (e, value) => e.Unburned_Loss = value);
-                buildTextBox(childStackPanel, e => e.Radiation_Loss, @case, (e, value) => e.Radiation_Loss = value);
-                buildTextBox(childStackPanel, e => e.Furnace_heat_absorption_Eff, @case, (e, value) => e.Furnace_heat_absorption_Eff = value);
-                buildTextBox(childStackPanel, e => e.Blowdown, @case, (e, value) => e.Blowdown = value);
-                buildTextBox(childStackPanel, e => e.Blowdown_flow, @case, (e, value) => e.Blowdown_flow = value);
+                buildTextBox(childStackPanel, e => e.caseAttribute.Site_Atmospheric_Pressure, @case, (e, value) => e.caseAttribute.Site_Atmospheric_Pressure = value);
+                buildTextBox(childStackPanel, e => e.caseAttribute.Ambient_Temperature, @case, (e, value) => e.caseAttribute.Ambient_Temperature = value);
+                buildTextBox(childStackPanel, e => e.caseAttribute.Relative_Humidity, @case, (e, value) => e.caseAttribute.Relative_Humidity = value);
+                buildTextBox(childStackPanel, e => e.caseAttribute.Combustion, @case, (e, value) => e.caseAttribute.Combustion = value);
+                buildTextBox(childStackPanel, e => e.caseAttribute.GAS1, @case, (e, value) => e.caseAttribute.GAS1 = value);
+                buildTextBox(childStackPanel, e => e.caseAttribute.GAS2, @case, (e, value) => e.caseAttribute.GAS2 = value);
+                buildTextBox(childStackPanel, e => e.caseAttribute.GAS3, @case, (e, value) => e.caseAttribute.GAS3 = value);
+                buildTextBox(childStackPanel, e => e.caseAttribute.GAS4, @case, (e, value) => e.caseAttribute.GAS4 = value);
+                buildTextBox(childStackPanel, e => e.caseAttribute.GAS5, @case, (e, value) => e.caseAttribute.GAS5 = value);
+                buildTextBox(childStackPanel, e => e.caseAttribute.OIL1, @case, (e, value) => e.caseAttribute.OIL1 = value);
+                buildTextBox(childStackPanel, e => e.caseAttribute.OIL2, @case, (e, value) => e.caseAttribute.OIL2 = value);
+                buildTextBox(childStackPanel, e => e.caseAttribute.Excess_Air, @case, (e, value) => e.caseAttribute.Excess_Air = value);
+                buildTextBox(childStackPanel, e => e.caseAttribute.Atmozing_Steam_Flow, @case, (e, value) => e.caseAttribute.Atmozing_Steam_Flow = value);
+                buildTextBox(childStackPanel, e => e.caseAttribute.Atmozing_Steam_Pressure, @case, (e, value) => e.caseAttribute.Atmozing_Steam_Pressure = value);
+                buildTextBox(childStackPanel, e => e.caseAttribute.Atmozing_Steam_Temperature, @case, (e, value) => e.caseAttribute.Atmozing_Steam_Temperature = value);
+                buildTextBox(childStackPanel, e => e.caseAttribute.FDF, @case, (e, value) => e.caseAttribute.FDF = value);
+                buildTextBox(childStackPanel, e => e.caseAttribute.Fan_efficiency, @case, (e, value) => e.caseAttribute.Fan_efficiency = value);
+                buildTextBox(childStackPanel, e => e.caseAttribute.Heat_exchange_ducty, @case, (e, value) => e.caseAttribute.Heat_exchange_ducty = value);
+                buildTextBox(childStackPanel, e => e.caseAttribute.Steam_Outlet, @case, (e, value) => e.caseAttribute.Steam_Outlet = value);
+                buildTextBox(childStackPanel, e => e.caseAttribute.Steam_Pressure_TP, @case, (e, value) => e.caseAttribute.Steam_Pressure_TP = value);
+                buildTextBox(childStackPanel, e => e.caseAttribute.Main_steam_Pressue_Drop, @case, (e, value) => e.caseAttribute.Main_steam_Pressue_Drop = value);
+                buildTextBox(childStackPanel, e => e.caseAttribute.Desuperheater, @case, (e, value) => e.caseAttribute.Desuperheater = value);
+                buildTextBox(childStackPanel, e => e.caseAttribute.Location_of_DESH, @case, (e, value) => e.caseAttribute.Location_of_DESH = value);
+                buildTextBox(childStackPanel, e => e.caseAttribute.Steam_temperature_set_point_TP, @case, (e, value) => e.caseAttribute.Steam_temperature_set_point_TP = value);
+                buildTextBox(childStackPanel, e => e.caseAttribute.Min_SH_degree_at_desperheater_outlet, @case, (e, value) => e.caseAttribute.Min_SH_degree_at_desperheater_outlet = value);
+                buildTextBox(childStackPanel, e => e.caseAttribute.Feed_water, @case, (e, value) => e.caseAttribute.Feed_water = value);
+                buildTextBox(childStackPanel, e => e.caseAttribute.Feed_water_Pressure, @case, (e, value) => e.caseAttribute.Feed_water_Pressure = value);
+                buildTextBox(childStackPanel, e => e.caseAttribute.Feed_water_Temperature, @case, (e, value) => e.caseAttribute.Feed_water_Temperature = value);
+                buildTextBox(childStackPanel, e => e.caseAttribute.BFP_temperature_rise, @case, (e, value) => e.caseAttribute.BFP_temperature_rise = value);
+                buildTextBox(childStackPanel, e => e.caseAttribute.Feed_water_piping_dp, @case, (e, value) => e.caseAttribute.Feed_water_piping_dp = value);
+                buildTextBox(childStackPanel, e => e.caseAttribute.Level_control_Valve_dp, @case, (e, value) => e.caseAttribute.Level_control_Valve_dp = value);
+                buildTextBox(childStackPanel, e => e.caseAttribute.Losses, @case, (e, value) => e.caseAttribute.Losses = value);
+                buildTextBox(childStackPanel, e => e.caseAttribute.Unburned_Loss, @case, (e, value) => e.caseAttribute.Unburned_Loss = value);
+                buildTextBox(childStackPanel, e => e.caseAttribute.Radiation_Loss, @case, (e, value) => e.caseAttribute.Radiation_Loss = value);
+                buildTextBox(childStackPanel, e => e.caseAttribute.Furnace_heat_absorption_Eff, @case, (e, value) => e.caseAttribute.Furnace_heat_absorption_Eff = value);
+                buildTextBox(childStackPanel, e => e.caseAttribute.Blowdown, @case, (e, value) => e.caseAttribute.Blowdown = value);
+                buildTextBox(childStackPanel, e => e.caseAttribute.Blowdown_flow, @case, (e, value) => e.caseAttribute.Blowdown_flow = value);
 
 
 
