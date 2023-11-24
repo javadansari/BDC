@@ -18,7 +18,7 @@ namespace BDC.Classes
     {
         public int Id { get; private set; }
         public string Name { get; set; }
-        public int sort { get; set; }
+        public int order { get; set; }
         public int run { get; set; }
         public CaseAttribute caseAttribute { get; set; }
 

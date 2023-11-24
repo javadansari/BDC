@@ -33,6 +33,7 @@ using System.Data.Entity;
 using System.Windows.Controls.Primitives;
 using BDC.View;
 using Microsoft.VisualBasic;
+using Accessibility;
 
 namespace BDC
 {
@@ -569,8 +570,36 @@ namespace BDC
 
         #region case
 
-        private void CaseBuiler()
+        private void CaseBuiler(int id,int operation,string name = null , int order = 0)
         {
+
+
+             Case @case = cases.Find(x => x.Id == id);
+            @case.Name = name;
+            @case.order = order;
+            switch (operation)
+            {
+                //add
+                case 1:
+                    cases.Add(@case);
+                    break;
+                //remove
+                case 2:
+                    cases.Remove(@case);
+                    break;
+                //rename
+                case 3:
+                    break;
+                //order
+                case 4:
+                    break;
+
+
+                default:
+                    break;
+            }
+
+
 
             foreach (RadioButton item in casesToolBar.Items)
             {
