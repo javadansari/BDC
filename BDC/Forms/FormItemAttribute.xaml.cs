@@ -47,7 +47,7 @@ namespace BDC.Forms
             };
 
             Type elementType = typeof(ItemAttribute);
-            PropertyInfo[] properties = elementType.caseAttribute.GetProperties();
+            PropertyInfo[] properties = elementType.GetProperties();
             foreach (PropertyInfo property in properties)
             {
                 string displayName = property.GetCustomAttribute<DisplayNameAttribute>()?.DisplayName ?? property.Name;
@@ -77,40 +77,40 @@ namespace BDC.Forms
                     Orientation = Orientation.Vertical,
                    Background = new SolidColorBrush(color),
                 };
-                buildLabel(element.attribute.caseAttribute.stage);
-                buildLabel(element.attribute.caseAttribute.loadCase);
+                buildLabel(element.attribute.stage);
+                buildLabel(element.attribute.loadCase);
 
               
                 // TubeArrangement
                 List<string> itemsList = new List<string> {"Staggered","In-line", };
              
-                buildCombo(itemsList, e => e.caseAttribute.attribute.caseAttribute.TubeArrangement, element, (e, index) => e.caseAttribute.attribute.caseAttribute.TubeArrangement = index);
+                buildCombo(itemsList, e => e.attribute.TubeArrangement, element, (e, index) => e.attribute.TubeArrangement = index);
                
 
                 // WaterGass
                 itemsList = new List<string> { "Counter", };
-                buildCombo(itemsList, e => e.caseAttribute.attribute.caseAttribute.Water_Gas_Flow_Pattern, element, (e, index) => e.caseAttribute.attribute.caseAttribute.Water_Gas_Flow_Pattern = index);
+                buildCombo(itemsList, e => e.attribute.Water_Gas_Flow_Pattern, element, (e, index) => e.attribute.Water_Gas_Flow_Pattern = index);
 
 
-                buildTextBox(childStackPanel, e => e.caseAttribute.attribute.caseAttribute.SLN, element, (e, value) => e.caseAttribute.attribute.caseAttribute.SLN = value);
-                buildTextBox(childStackPanel, e => e.caseAttribute.attribute.caseAttribute.STN, element, (e, value) => e.caseAttribute.attribute.caseAttribute.STN = value);
-                buildTextBox(childStackPanel, e => e.caseAttribute.attribute.caseAttribute.Tube_Rows_Path, element, (e, value) => e.caseAttribute.attribute.caseAttribute.Tube_Rows_Path = value);
-                buildTextBox(childStackPanel, e => e.caseAttribute.attribute.caseAttribute.Path_Wide, element, (e, value) => e.caseAttribute.attribute.caseAttribute.Path_Wide = value);
-                buildTextBox(childStackPanel, e => e.caseAttribute.attribute.caseAttribute.SL, element, (e, value) => e.caseAttribute.attribute.caseAttribute.SL = value);
-                buildTextBox(childStackPanel, e => e.caseAttribute.attribute.caseAttribute.ST, element, (e, value) => e.caseAttribute.attribute.caseAttribute.ST = value);
-                buildTextBox(childStackPanel, e => e.caseAttribute.attribute.caseAttribute.Tube_Length, element, (e, value) => e.caseAttribute.attribute.caseAttribute.Tube_Length = value);
-                buildTextBox(childStackPanel, e => e.caseAttribute.attribute.caseAttribute.Tube_Outer_Diameter, element, (e, value) => e.caseAttribute.attribute.caseAttribute.Tube_Outer_Diameter = value);
-                buildTextBox(childStackPanel, e => e.caseAttribute.attribute.caseAttribute.Tube_Wall_Thickness, element, (e, value) => e.caseAttribute.attribute.caseAttribute.Tube_Wall_Thickness = value);
-                buildTextBox(childStackPanel, e => e.caseAttribute.attribute.caseAttribute.Incidence_Angle, element, (e, value) => e.caseAttribute.attribute.caseAttribute.Incidence_Angle = value);
-                buildTextBox(childStackPanel, e => e.caseAttribute.attribute.caseAttribute.Tubes_Material, element, (e, value) => e.caseAttribute.attribute.caseAttribute.Tubes_Material = value);
-                buildTextBox(childStackPanel, e => e.caseAttribute.attribute.caseAttribute.Fin_Type, element, (e, value) => e.caseAttribute.attribute.caseAttribute.Fin_Type = value);
-                buildTextBox(childStackPanel, e => e.caseAttribute.attribute.caseAttribute.Fin_Height, element, (e, value) => e.caseAttribute.attribute.caseAttribute.Fin_Height = value);
-                buildTextBox(childStackPanel, e => e.caseAttribute.attribute.caseAttribute.Fin_Density, element, (e, value) => e.caseAttribute.attribute.caseAttribute.Fin_Density = value);
-                buildTextBox(childStackPanel, e => e.caseAttribute.attribute.caseAttribute.Fin_Uncut_Height, element, (e, value) => e.caseAttribute.attribute.caseAttribute.Fin_Uncut_Height = value);
-                buildTextBox(childStackPanel, e => e.caseAttribute.attribute.caseAttribute.Fin_Segment_Width, element, (e, value) => e.caseAttribute.attribute.caseAttribute.Fin_Segment_Width = value);
-                buildTextBox(childStackPanel, e => e.caseAttribute.attribute.caseAttribute.Fin_Material, element, (e, value) => e.caseAttribute.attribute.caseAttribute.Fin_Material = value);
-                buildTextBox(childStackPanel, e => e.caseAttribute.attribute.caseAttribute.Water_Side_Founling_Factor, element, (e, value) => e.caseAttribute.attribute.caseAttribute.Water_Side_Founling_Factor = value);
-                buildTextBox(childStackPanel, e => e.caseAttribute.attribute.caseAttribute.Usage_Factor, element, (e, value) => e.caseAttribute.attribute.caseAttribute.Usage_Factor = value);
+                buildTextBox(childStackPanel, e => e.attribute.SLN, element, (e, value) => e.attribute.SLN = value);
+                buildTextBox(childStackPanel, e => e.attribute.STN, element, (e, value) => e.attribute.STN = value);
+                buildTextBox(childStackPanel, e => e.attribute.Tube_Rows_Path, element, (e, value) => e.attribute.Tube_Rows_Path = value);
+                buildTextBox(childStackPanel, e => e.attribute.Path_Wide, element, (e, value) => e.attribute.Path_Wide = value);
+                buildTextBox(childStackPanel, e => e.attribute.SL, element, (e, value) => e.attribute.SL = value);
+                buildTextBox(childStackPanel, e => e.attribute.ST, element, (e, value) => e.attribute.ST = value);
+                buildTextBox(childStackPanel, e => e.attribute.Tube_Length, element, (e, value) => e.attribute.Tube_Length = value);
+                buildTextBox(childStackPanel, e => e.attribute.Tube_Outer_Diameter, element, (e, value) => e.attribute.Tube_Outer_Diameter = value);
+                buildTextBox(childStackPanel, e => e.attribute.Tube_Wall_Thickness, element, (e, value) => e.attribute.Tube_Wall_Thickness = value);
+                buildTextBox(childStackPanel, e => e.attribute.Incidence_Angle, element, (e, value) => e.attribute.Incidence_Angle = value);
+                buildTextBox(childStackPanel, e => e.attribute.Tubes_Material, element, (e, value) => e.attribute.Tubes_Material = value);
+                buildTextBox(childStackPanel, e => e.attribute.Fin_Type, element, (e, value) => e.attribute.Fin_Type = value);
+                buildTextBox(childStackPanel, e => e.attribute.Fin_Height, element, (e, value) => e.attribute.Fin_Height = value);
+                buildTextBox(childStackPanel, e => e.attribute.Fin_Density, element, (e, value) => e.attribute.Fin_Density = value);
+                buildTextBox(childStackPanel, e => e.attribute.Fin_Uncut_Height, element, (e, value) => e.attribute.Fin_Uncut_Height = value);
+                buildTextBox(childStackPanel, e => e.attribute.Fin_Segment_Width, element, (e, value) => e.attribute.Fin_Segment_Width = value);
+                buildTextBox(childStackPanel, e => e.attribute.Fin_Material, element, (e, value) => e.attribute.Fin_Material = value);
+                buildTextBox(childStackPanel, e => e.attribute.Water_Side_Founling_Factor, element, (e, value) => e.attribute.Water_Side_Founling_Factor = value);
+                buildTextBox(childStackPanel, e => e.attribute.Usage_Factor, element, (e, value) => e.attribute.Usage_Factor = value);
 
 
         horizontalStackPanelOuter.Children.Add(childStackPanel);
@@ -171,7 +171,7 @@ namespace BDC.Forms
                 if (sender is TextBox textBox)
                 {
                     // Try to parse the text as a double
-                    if (double.caseAttribute.TryParse(textBox.Text, out double result))
+                    if (double.TryParse(textBox.Text, out double result))
                     {
                         textBox.Text = result.ToString();
                     }
@@ -183,12 +183,12 @@ namespace BDC.Forms
                     }
 
 
-                    Element associatedElement = Elements.Find(e => e.caseAttribute.Id == element.Id);
+                    Element associatedElement = Elements.Find(e => e.Id == element.Id);
 
                     if (associatedElement != null)
                     {
                         setIndexAction(associatedElement, textBox.Text);
-                        int index = Elements.FindIndex(e => e.caseAttribute.Id == element.Id);
+                        int index = Elements.FindIndex(e => e.Id == element.Id);
                         if (index != -1)
                         {
                             Elements[index] = associatedElement;
@@ -218,12 +218,12 @@ namespace BDC.Forms
             comboBox.SelectedIndex = getIndexFunc(element);
             comboBox.SelectionChanged += (sender, e) =>
             {
-                Element associatedElement = Elements.Find(e => e.caseAttribute.Id == element.Id);
+                Element associatedElement = Elements.Find(e => e.Id == element.Id);
 
                 if (associatedElement != null)
                 {
                     setIndexAction(associatedElement, comboBox.SelectedIndex);
-                    int index = Elements.FindIndex(e => e.caseAttribute.Id == element.Id);
+                    int index = Elements.FindIndex(e => e.Id == element.Id);
                     if (index != -1)
                     {
                         Elements[index] = associatedElement;
