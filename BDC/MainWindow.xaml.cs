@@ -623,7 +623,7 @@ namespace BDC
             radioButton.MouseDoubleClick += RadioButton_MouseDoubleClick;
             casesToolBar.Items.Add(radioButton);
 
-            CaseBuiler();
+          //  CaseBuiler();
         }
 
         private void RadioButton_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -636,7 +636,7 @@ namespace BDC
             caseName = caseDialogBox.InputText;
             radioButton.Content = caseName;
 
-            CaseBuiler();
+         //   CaseBuiler();
         }
 
         private void DeleteCase_Click(object sender, RoutedEventArgs e)
@@ -647,7 +647,7 @@ namespace BDC
             {
                 casesToolBar.Items.Remove(selectedRadioButton);
             }
-            CaseBuiler();
+         //   CaseBuiler();
         }
 
         private void DownCase_Click(object sender, RoutedEventArgs e)
@@ -666,7 +666,7 @@ namespace BDC
                     selectedRadioButton.IsChecked = true; // Re-select the moved RadioButton
                 }
             }
-            CaseBuiler();
+         //   CaseBuiler();
         }
 
         private void UpCase_Click(object sender, RoutedEventArgs e)
@@ -740,6 +740,13 @@ namespace BDC
                 MessageBox.Show("Please check correct case");
                 return;
             }
+        }
+
+        private void formFurnace_Click(object sender, MouseButtonEventArgs e)
+        {
+            FormFurnace formFurnace = new FormFurnace();
+            formFurnace.Show();
+
         }
     }
     #endregion

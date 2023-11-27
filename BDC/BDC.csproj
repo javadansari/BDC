@@ -17,7 +17,6 @@
     <None Remove="economizer.png" />
     <None Remove="evaporator.png" />
     <None Remove="fan.png" />
-    <None Remove="furnace.caseAttribute.png" />
     <None Remove="Image2.png" />
     <None Remove="Images\Elements\duct.png" />
     <None Remove="Images\Image1.png" />
@@ -27,13 +26,12 @@
     <None Remove="Images\Image5.png" />
     <None Remove="Images\Other\123.png" />
     <None Remove="Images\Other\down.png" />
+    <None Remove="Images\Other\formFurnace.png" />
     <None Remove="Images\Other\minus.png" />
-    <None Remove="Images\Other\move.caseAttribute.png" />
     <None Remove="Images\Other\new.png" />
     <None Remove="Images\Other\open.png" />
     <None Remove="Images\Other\play.png" />
     <None Remove="Images\Other\plus.png" />
-    <None Remove="Images\Other\save.caseAttribute.png" />
     <None Remove="Images\Other\select.png" />
     <None Remove="Images\Other\select1.png" />
     <None Remove="Images\Other\select2.png" />
@@ -60,6 +58,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Other\down.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Other\formFurnace.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Other\minus.png">
@@ -125,8 +126,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.caseAttribute.Sqlite" Version="7.0.10" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.caseAttribute.Tools" Version="7.0.10">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.10">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
