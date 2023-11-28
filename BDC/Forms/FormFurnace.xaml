@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BDC.Forms"
         mc:Ignorable="d"
-        Title="FormFurnace" Height="600" Width="1000">
+        Title="FormFurnace" Height="700" Width="800">
     
     <Grid>
         <Grid.ColumnDefinitions>
@@ -13,12 +13,114 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition  Height="2*"/>
-            <RowDefinition Height="1*"/>
+            <RowDefinition  Height="300"/>
+            <RowDefinition Height="2*"/>
             <RowDefinition  Height="1*"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Orientation="Horizontal">
-            <Image  Source="../Images/Other/formFurnace.png"/>
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Orientation="Horizontal" Visibility="Visible">
+            <Image Width="800" Height="300" Source="../Images/Other/formFurnace.png"/>
+        </StackPanel>
+        <StackPanel  Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" Orientation="Vertical" >
+            <Label Content="Parametes ▼" FontWeight="Bold" Foreground="#FF2E9809"></Label>
+            <StackPanel Orientation="Horizontal" >
+                <Label  Width="100" Content="No# Burner"></Label>
+                <TextBox  Width="100" Height="20" HorizontalAlignment="Center"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label  Width="100" Content="LL (m)"></Label>
+                <TextBox  Width="100" Height="20" HorizontalAlignment="Center"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label  Width="100" Content="HH (m)"></Label>
+                <TextBox  Width="100" Height="20" HorizontalAlignment="Center"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label  Width="100" Content="WB1 (m)"></Label>
+                <TextBox  Width="100" Height="20" HorizontalAlignment="Center"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label  Width="100" Content="ɑ (deg)"></Label>
+                <TextBox  Width="100" Height="20" HorizontalAlignment="Center"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label  Width="100" Content="WB2 (m)"></Label>
+                <TextBox  Width="100" Height="20" HorizontalAlignment="Center"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label  Width="100" Content="B (deg)"></Label>
+                <TextBox  Width="100" Height="20" HorizontalAlignment="Center"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label  Width="100" Content="LS (m)"></Label>
+                <TextBox  Width="100" Height="20" HorizontalAlignment="Center"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label  Width="100" Content="IX (m)"></Label>
+                <TextBox  Width="100" Height="20" HorizontalAlignment="Center"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label  Width="100" Content="IY (m)"></Label>
+                <TextBox  Width="100" Height="20" HorizontalAlignment="Center"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label  Width="100" Content="DF (m)"></Label>
+                <TextBox  Width="100" Height="20" HorizontalAlignment="Center"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label  Width="100" Content="Lref (m)"></Label>
+                <TextBox  Width="100" Height="20" HorizontalAlignment="Center"></TextBox>
+            </StackPanel>
+            <StackPanel  Grid.Row="1" Grid.Column="1"  Orientation="Vertical" >
+            <Label Content="Parametes ▼" FontWeight="Bold" Foreground="#FF2E9809"></Label>
+            <StackPanel Orientation="Horizontal" >
+                <Label  Width="100" Content="No# Burner"></Label>
+                <TextBox  Width="100" Height="20" HorizontalAlignment="Center"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label  Width="100" Content="LL (m)"></Label>
+                <TextBox  Width="100" Height="20" HorizontalAlignment="Center"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label  Width="100" Content="HH (m)"></Label>
+                <TextBox  Width="100" Height="20" HorizontalAlignment="Center"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label  Width="100" Content="WB1 (m)"></Label>
+                <TextBox  Width="100" Height="20" HorizontalAlignment="Center"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label  Width="100" Content="ɑ (deg)"></Label>
+                <TextBox  Width="100" Height="20" HorizontalAlignment="Center"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label  Width="100" Content="WB2 (m)"></Label>
+                <TextBox  Width="100" Height="20" HorizontalAlignment="Center"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label  Width="100" Content="B (deg)"></Label>
+                <TextBox  Width="100" Height="20" HorizontalAlignment="Center"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label  Width="100" Content="LS (m)"></Label>
+                <TextBox  Width="100" Height="20" HorizontalAlignment="Center"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label  Width="100" Content="IX (m)"></Label>
+                <TextBox  Width="100" Height="20" HorizontalAlignment="Center"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label  Width="100" Content="IY (m)"></Label>
+                <TextBox  Width="100" Height="20" HorizontalAlignment="Center"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label  Width="100" Content="DF (m)"></Label>
+                <TextBox  Width="100" Height="20" HorizontalAlignment="Center"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label  Width="100" Content="Lref (m)"></Label>
+                <TextBox  Width="100" Height="20" HorizontalAlignment="Center"></TextBox>
+            </StackPanel>
+          </StackPanel>
         </StackPanel>
     </Grid>
 </Window>
