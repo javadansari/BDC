@@ -1,0 +1,33 @@
+﻿<Window x:Class="BDC.Forms.FormDuct"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BDC.Forms"
+        mc:Ignorable="d"
+        Title="FormDuct" Height="1000" Width="1200">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="800"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0"  Orientation="Horizontal" Visibility="Visible">
+            <Image Width="800" Height="940" Source="../Images/Other/formDuct.png"/>
+        </StackPanel>
+        <StackPanel  Grid.Column="1" Orientation="Horizontal">
+        <StackPanel   Orientation="Vertical" >
+            <Label Content="Air Duct#1" HorizontalAlignment="Center" Margin="0,85,0,0" Padding="6,2,6,6" FontWeight="Bold" Foreground="#FF2E9809" FontSize="12"></Label>
+                <TextBox  Width="100" Text="12000"  Padding="4,0,4,4" TextAlignment="Center"  FontSize="12"></TextBox>
+                <TextBox  Width="100" Text="12000"  Padding="4,0,4,4" TextAlignment="Center"  FontSize="12"></TextBox>
+                <TextBox  Width="100" Text="12000"  Padding="4,0,4,4" TextAlignment="Center"  FontSize="12"></TextBox>
+                <TextBox  Width="100" Text="12000"  Padding="4,0,4,4" TextAlignment="Center"  FontSize="12"></TextBox>
+                <TextBox  Width="100" Text="12000"  Padding="4,0,4,6" TextAlignment="Center"  FontSize="12"></TextBox>
+                <TextBox  Width="100" Text="Joint" Height="148"  Padding="2,60,2,1" TextAlignment="Center"  FontSize="12"></TextBox>
+                <TextBox  Width="100" Text="1"  Padding="4,0,4,4" TextAlignment="Center"  FontSize="12"></TextBox>
+                <TextBox  Width="100" Text="1/10" Height="33"  Padding="2,10,2,1" TextAlignment="Center"  FontSize="12"></TextBox>
+                <TextBox  Width="100" Text="1"  Padding="2,0,2,2" TextAlignment="Center"  FontSize="12"></TextBox>
+
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

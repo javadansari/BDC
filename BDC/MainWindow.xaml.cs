@@ -748,6 +748,13 @@ namespace BDC
             formFurnace.Show();
 
         }
+
+        private void formDuct_Click(object sender, MouseButtonEventArgs e)
+        {
+            FormDuct formDuct = new FormDuct();
+            formDuct.Show();
+
+        }
     }
     #endregion
 

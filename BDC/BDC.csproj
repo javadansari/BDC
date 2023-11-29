@@ -26,6 +26,7 @@
     <None Remove="Images\Image5.png" />
     <None Remove="Images\Other\123.png" />
     <None Remove="Images\Other\down.png" />
+    <None Remove="Images\Other\formDuct.png" />
     <None Remove="Images\Other\formFurnace.png" />
     <None Remove="Images\Other\minus.png" />
     <None Remove="Images\Other\new.png" />
@@ -58,6 +59,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Other\down.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Other\formDuct.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Other\formFurnace.png">

@@ -69,10 +69,10 @@
                         <TextBlock VerticalAlignment="Center" Text="Furnace" HorizontalAlignment="Center" MouseDown="formFurnace_Click" />
                     </Border>
                     <Border BorderBrush="DarkGray" BorderThickness="1" Margin="1"   Width="80" Background="DarkGray">
-                        <TextBlock VerticalAlignment="Center" Text="Convention" HorizontalAlignment="Center" MouseDown="setNumber_Click" />
+                        <TextBlock VerticalAlignment="Center" Text="Convention" HorizontalAlignment="Center" MouseDown="Attributes_Click" />
                     </Border>
                     <Border BorderBrush="DarkGray" BorderThickness="1" Margin="1"   Width="80" Background="DarkGray">
-                        <TextBlock VerticalAlignment="Center" Text="Duct" HorizontalAlignment="Center" MouseDown="setNumber_Click" />
+                        <TextBlock VerticalAlignment="Center" Text="Duct" HorizontalAlignment="Center" MouseDown="formDuct_Click" />
                     </Border>
                     <Border BorderBrush="DarkGray" BorderThickness="1" Margin="1"   Width="80" Background="DarkGray">
                         <TextBlock VerticalAlignment="Center" Text="Fuel Spec" HorizontalAlignment="Center" MouseDown="setNumber_Click" />
