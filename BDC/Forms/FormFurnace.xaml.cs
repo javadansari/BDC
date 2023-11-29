@@ -22,6 +22,11 @@ namespace BDC.Forms
         public FormFurnace()
         {
             InitializeComponent();
+
+            material1.Items.Add(new ComboBoxItem { Content = "Option 1" });
+            material1.Items.Add(new ComboBoxItem { Content = "Option 2" });
+            material1.Items.Add(new ComboBoxItem { Content = "Option 3" });
+
         }
     }
 }

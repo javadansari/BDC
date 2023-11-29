@@ -14,7 +14,7 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition  Height="300"/>
-            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
             <RowDefinition  Height="1*"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Orientation="Horizontal" Visibility="Visible">
@@ -70,57 +70,73 @@
                 <Label  Width="100" Content="Lref (m)"></Label>
                 <TextBox  Width="100" Height="20" HorizontalAlignment="Center"></TextBox>
             </StackPanel>
-            <StackPanel  Grid.Row="1" Grid.Column="1"  Orientation="Vertical" >
-            <Label Content="Parametes ▼" FontWeight="Bold" Foreground="#FF2E9809"></Label>
+            </StackPanel>
+        <StackPanel  Grid.Row="1" Grid.Column="1"  Orientation="Vertical" >
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Wall ►" FontWeight="Bold" Foreground="#FF2E9809"></Label>
+                <Label Content="Front" Width="100" FontWeight="Bold" Margin="50,0,0,0" Foreground="#FF0B34B1"></Label>
+                <Label Content="Real" Width="100" FontWeight="Bold"  Foreground="#FF0B34B1"></Label>
+                <Label Content="Side Wall" Width="100" FontWeight="Bold"  Foreground="#FF0B34B1"></Label>
+                <Label Content="D Wall" FontWeight="Bold" Width="100" Foreground="#FF0B34B1"></Label>
+            </StackPanel>
             <StackPanel Orientation="Horizontal" >
-                <Label  Width="100" Content="No# Burner"></Label>
+                <Label  Width="100" Content="ODw (mm)"></Label>
+                <TextBox  Width="70" Height="25" Margin="0,0,30,0" HorizontalAlignment="Center"></TextBox>
+                <TextBox  Width="70" Height="25" Margin="0,0,30,0" HorizontalAlignment="Center"></TextBox>
+                <TextBox  Width="70" Height="25" Margin="0,0,30,0" HorizontalAlignment="Center"></TextBox>
+                <TextBox  Width="70" Height="25"  HorizontalAlignment="Center"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label  Width="100" Content="ThkTube (mm)"></Label>
+                <TextBox  Width="70" Height="25" Margin="0,0,30,0" HorizontalAlignment="Center"></TextBox>
+                <TextBox  Width="70" Height="25" Margin="0,0,30,0" HorizontalAlignment="Center"></TextBox>
+                <TextBox  Width="70" Height="25" Margin="0,0,30,0" HorizontalAlignment="Center"></TextBox>
+                <TextBox  Width="70" Height="25"  HorizontalAlignment="Center"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label  Width="100" Content="ThkMemb (mm)"></Label>
+                <TextBox  Width="70" Height="25" Margin="0,0,30,0" HorizontalAlignment="Center"></TextBox>
+                <TextBox  Width="70" Height="25" Margin="0,0,30,0" HorizontalAlignment="Center"></TextBox>
+                <TextBox  Width="70" Height="25" Margin="0,0,30,0" HorizontalAlignment="Center"></TextBox>
+                <TextBox  Width="70" Height="25"  HorizontalAlignment="Center"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label  Width="100" Content="TubeSP (mm)"></Label>
+                <TextBox  Width="70" Height="25" Margin="0,0,30,0" HorizontalAlignment="Center"></TextBox>
+                <TextBox  Width="70" Height="25" Margin="0,0,30,0" HorizontalAlignment="Center"></TextBox>
+                <TextBox  Width="70" Height="25" Margin="0,0,30,0" HorizontalAlignment="Center"></TextBox>
+                <TextBox  Width="70" Height="25"  HorizontalAlignment="Center"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label  Width="100" Content="Material"></Label>
+                <ComboBox x:Name="material1" Height="25" Width="70" Margin="0,0,30,0"  SelectedIndex="0"/>
+                <ComboBox x:Name="material2" Height="25" Width="70" Margin="0,0,30,0"  SelectedIndex="0"/>
+                <ComboBox x:Name="material3" Height="25" Width="70" Margin="0,0,30,0"  SelectedIndex="0"/>
+                <ComboBox x:Name="material4" Height="25" Width="70" Margin="0,0,30,0"  SelectedIndex="0"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel  Grid.Row="2" Grid.Column="1"  Orientation="Vertical" >
+            <StackPanel Orientation="Horizontal">
+                <CheckBox Content="Screen" Margin="10,0,0,0" IsChecked="True"/>
+                <CheckBox Content="Floor Refactory" Margin="100,0,0,0" IsChecked="True"/>
+            </StackPanel>
+            <Label Content="Characteristics ▼" FontWeight="Bold" Foreground="#FF2E9809"></Label>
+            <StackPanel Orientation="Horizontal" >
+                <Label  Width="350" Content="Emissivity of Furnace Walls"></Label>
                 <TextBox  Width="100" Height="20" HorizontalAlignment="Center"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" >
-                <Label  Width="100" Content="LL (m)"></Label>
+                <Label  Width="350" Content="Emissivity of Refactory Layer"></Label>
                 <TextBox  Width="100" Height="20" HorizontalAlignment="Center"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" >
-                <Label  Width="100" Content="HH (m)"></Label>
+                <Label  Width="350" Content="Convective Heat Transfer Coefficient inside Tubes (W/m^2K)"></Label>
                 <TextBox  Width="100" Height="20" HorizontalAlignment="Center"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" >
-                <Label  Width="100" Content="WB1 (m)"></Label>
+                <Label  Width="350" Content="Usage Factor"></Label>
                 <TextBox  Width="100" Height="20" HorizontalAlignment="Center"></TextBox>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" >
-                <Label  Width="100" Content="ɑ (deg)"></Label>
-                <TextBox  Width="100" Height="20" HorizontalAlignment="Center"></TextBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" >
-                <Label  Width="100" Content="WB2 (m)"></Label>
-                <TextBox  Width="100" Height="20" HorizontalAlignment="Center"></TextBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" >
-                <Label  Width="100" Content="B (deg)"></Label>
-                <TextBox  Width="100" Height="20" HorizontalAlignment="Center"></TextBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" >
-                <Label  Width="100" Content="LS (m)"></Label>
-                <TextBox  Width="100" Height="20" HorizontalAlignment="Center"></TextBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" >
-                <Label  Width="100" Content="IX (m)"></Label>
-                <TextBox  Width="100" Height="20" HorizontalAlignment="Center"></TextBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" >
-                <Label  Width="100" Content="IY (m)"></Label>
-                <TextBox  Width="100" Height="20" HorizontalAlignment="Center"></TextBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" >
-                <Label  Width="100" Content="DF (m)"></Label>
-                <TextBox  Width="100" Height="20" HorizontalAlignment="Center"></TextBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" >
-                <Label  Width="100" Content="Lref (m)"></Label>
-                <TextBox  Width="100" Height="20" HorizontalAlignment="Center"></TextBox>
-            </StackPanel>
-          </StackPanel>
         </StackPanel>
     </Grid>
 </Window>
