@@ -755,6 +755,12 @@ namespace BDC
             formDuct.Show();
 
         }
+
+        private void formFuel_Click(object sender, MouseButtonEventArgs e)
+        {
+            FormFuel formFuel = new FormFuel();
+            formFuel.Show();
+        }
     }
     #endregion
 

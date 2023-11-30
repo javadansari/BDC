@@ -1,0 +1,46 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <!-- Define a collection of items -->
+    <x:Array x:Key="ComboBoxItems" Type="{x:Type sys:String}">
+        <sys:String>Open</sys:String>
+        <sys:String>Close</sys:String>
+    </x:Array>
+    
+    
+    <sys:Double x:Key="sizeBox">40</sys:Double>
+    <sys:Double x:Key="margin">2</sys:Double>
+    <Style x:Key="labelTop" TargetType="Label">
+        <Setter Property="FontSize"  Value="12" />
+        <Setter Property="Foreground"  Value="#FF2E9809" />
+        <Setter Property="HorizontalAlignment"  Value="Center" />
+        <Setter Property="Margin"  Value="0,48,0,0" />
+        <Setter Property="Padding"  Value="6,2,6,6" />
+        <Setter Property="FontWeight"  Value="Bold" />
+    </Style>
+    <Style x:Key="textBoxSmallItems" TargetType="TextBox">
+        <Setter Property="Width"  Value="100" />
+        <Setter Property="Height"  Value="20" />
+        <Setter Property="Text"  Value="12000" />
+        <Setter Property="Padding"  Value="4,0,4,4" />
+        <Setter Property="TextAlignment"  Value="Center" />
+        <Setter Property="FontSize"  Value="12" />
+    </Style>
+    <Style x:Key="comboBoxItems" TargetType="ComboBox">
+        <Setter Property="Width"  Value="100" />
+        <Setter Property="Height"  Value="20" />
+        <Setter Property="Margin"  Value="0,0,0,0" />
+        <Setter Property="Padding"  Value="2,0,2,4" />
+        <Setter Property="SelectedIndex"  Value="0" />
+
+        <Setter Property="ItemsSource" Value="{StaticResource ComboBoxItems}" />
+
+    </Style>
+
+
+
+
+   
+
+</ResourceDictionary>
