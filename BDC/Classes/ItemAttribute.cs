@@ -9,7 +9,14 @@ namespace BDC.Classes
 {
     public class ItemAttribute
     {
-        public string stage { get; set; } = "-";
+        [DisplayName("Blank activation")]
+        public bool active { get; set; } = false;
+        [DisplayName("Section Name")]
+        public string sectionName { get; set; } = "-";
+        [DisplayName("Section")]
+        public string section { get; set; } = "-";
+        [DisplayName("Section Number")]
+        public string sectionNumber { get; set; } = "-";
         public string loadCase { get; set; } = "-";
         public int TubeArrangement { get; set; } = 0;
         public int Water_Gas_Flow_Pattern { get; set; } = 0;

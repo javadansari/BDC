@@ -328,7 +328,7 @@ namespace BDC
 
             ItemAttribute attribute = new ItemAttribute();
             attribute.loadCase = loadCalse;
-            attribute.stage = element.State;
+        //    attribute.stage = element.State;
             element.attribute = attribute;
 
         }

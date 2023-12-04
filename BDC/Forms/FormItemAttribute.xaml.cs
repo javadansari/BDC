@@ -20,7 +20,15 @@ namespace BDC.Forms
         {
             InitializeComponent();
             Main = main;
-            Elements = elements;
+            //  Elements = elements;
+            for (int i = 7 - 1; i >= 0; i--)
+            {
+                Element element = new Element();
+                ItemAttribute itemAttribute = new ItemAttribute();
+                if (i < 3) itemAttribute.active = true;
+                element.attribute = itemAttribute;
+                Elements.Add(element);
+            }
             PopulateVerticalLayout();
           
         }
@@ -77,10 +85,11 @@ namespace BDC.Forms
                     Orientation = Orientation.Vertical,
                    Background = new SolidColorBrush(color),
                 };
-                buildLabel(element.attribute.stage);
+              
+                buildLabel(element.attribute.section);
                 buildLabel(element.attribute.loadCase);
 
-              
+                buildCheckBox(childStackPanel, element.attribute.active,element);
                 // TubeArrangement
                 List<string> itemsList = new List<string> {"Staggered","In-line", };
              
@@ -154,6 +163,27 @@ namespace BDC.Forms
                         Content = text,
                     };
                    childStackPanel.Children.Add(label);
+        }
+
+        private void buildCheckBox(StackPanel stackPanel,bool check, Element element)
+        {
+            CheckBox checkBox = new CheckBox
+            {
+                Height = 26,
+            };
+            checkBox.IsChecked = check;
+
+            checkBox.Checked += (sender, e) =>
+                 {
+                     if (sender is CheckBox checkBox)
+                     {
+                        element.attribute.active = checkBox.IsChecked.Value;
+                         if (checkBox.IsChecked.Value) stackPanel.IsEnabled = false;
+                     }
+
+                 };
+            stackPanel.Children.Add(checkBox);
+
         }
         private void buildTextBox(StackPanel stackPanel ,  Func<Element, string> getIndexFunc , Element element, Action<Element, string> setIndexAction)
         {
