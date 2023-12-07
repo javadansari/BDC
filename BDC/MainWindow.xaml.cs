@@ -31,6 +31,7 @@ using System.Windows.Controls.Primitives;
 using BDC.View;
 using Microsoft.VisualBasic;
 using Accessibility;
+using System.Xml.Linq;
 
 namespace BDC
 {
@@ -86,6 +87,13 @@ namespace BDC
       
 
             elements = new List<Element>();
+            for (int i = 1; i <= 11; i++)
+            {
+                Element element = new Element();
+                ItemAttribute itemAttribute = new ItemAttribute();
+                element.attribute = itemAttribute;
+                elements.Add(element);
+            }
             cases = new List<Case>();
 
             canvas.LayoutTransform = new ScaleTransform(0.8, 0.8);
@@ -109,154 +117,7 @@ namespace BDC
         
         #region ImageChooser
 
-        private void CheckBox_Click(object sender, RoutedEventArgs e)
-        {
-            CheckBox checkBox = (CheckBox)sender;
-            Image image = boilerStage_1;
-            Label label = boilerStage_1_label;
-            int id = 0;
-            switch (checkBox.Name)
-            {
-                case "boilerStage_check_1":
-                    image = boilerStage_1;
-                    label = boilerStage_1_label;
-                    id = 1;
-                    break;
-                case "boilerStage_check_2":
-                    image = boilerStage_2;
-                    label = boilerStage_2_label;
-                    id = 2;
-                    break;
-                case "boilerStage_check_3":
-                    image = boilerStage_3;
-                    label = boilerStage_3_label;
-                    id = 3;
-                    break;
-                case "boilerStage_check_4":
-                    image = boilerStage_4;
-                    label = boilerStage_4_label;
-                    id = 4;
-                    break;
-                case "boilerStage_check_5":
-                    image = boilerStage_5;
-                    label = boilerStage_5_label;
-                    id = 5;
-                    break;
-                case "boilerStage_check_6":
-                    image = boilerStage_6;
-                    label = boilerStage_6_label;
-                    id = 6;
-                    break;
-                case "boilerStage_check_7":
-                    image = boilerStage_7;
-                    label = boilerStage_7_label;
-                    id = 7;
-                    break;
-                default:
-                    break;
-            }
-            ImageChooser imageChooser = new ImageChooser();
-            if (checkBox.IsChecked == true)
-            {
-                if (imageChooser.ShowDialog() == true)
-                {
-                    if (imageChooser.EconomizerRadioButton.IsChecked == true)
-                    {
-                        image.Source = new BitmapImage(new Uri("/Images/Elements/economizer.png", UriKind.Relative));
-                        image.Tag = "eco";
-
-                    }
-                    else if (imageChooser.SuperheatRadioButton.IsChecked == true)
-                    {
-                        image.Source = new BitmapImage(new Uri("/Images/Elements/superheater.png", UriKind.Relative));
-                        image.Tag = "sh";
-                    }
-                    else if (imageChooser.EvaporatorRadioButton.IsChecked == true)
-                    {
-                        image.Source = new BitmapImage(new Uri("/Images/Elements/evaporator.png", UriKind.Relative));
-                        image.Tag = "eva";
-                    }
-                }
-    
-                label.Content = setElement(image,id).Name;
-            }
-            else
-            {
-                elements.Remove(elements.FirstOrDefault(element => element.Image == image));
-           
-                image.Source = null;
-                image.Tag = "";
-                label.Content = "";
-            }
-        }
-
-        private void CheckBoxDuct_Click(object sender, RoutedEventArgs e)
-        {
-            CheckBox checkBox = (CheckBox)sender;
-   
-            Image image = boilerStage_11;
-            Label label = boilerStage_11_label;
-            int id = 11;
-            if (checkBox.IsChecked == true)
-            {
-                image.Source = new BitmapImage(new Uri("/Images/Elements/duct.png", UriKind.Relative));
-                image.Tag = "du";
-
-                label.Content = setElement(image,id).Name;
-            }
-            else
-            {
-                elements.Remove(elements.FirstOrDefault(element => element.Image == image));
-             
-                image.Source = null;
-                image.Tag = "";
-                label.Content = "";
-            }
-        }
-
-        private void CheckBoxBurner_Click(object sender, RoutedEventArgs e)
-        {
-            CheckBox checkBox = (CheckBox)sender;
-            Image image = boilerStage_8;
-            Label label = boilerStage_8_label;
-            int id = 0;
-            switch (checkBox.Name)
-            {
-                case "boilerStage_check_8":
-                    image = boilerStage_8;
-                    label = boilerStage_8_label;
-                    id = 8;
-                    break;
-                case "boilerStage_check_9":
-                    image = boilerStage_9;
-                    label = boilerStage_9_label;
-                    id = 9;
-                    break;
-                case "boilerStage_check_10":
-                    image = boilerStage_10;
-                    label = boilerStage_10_label;
-                    id = 10;
-                    break;
-                default:
-                    break;
-            }
-
-            if (checkBox.IsChecked == true)
-            {
-                image.Source = new BitmapImage(new Uri("/Images/Elements/burner.png", UriKind.Relative));
-                image.Tag = "bu";
-                label.Content = setElement(image,id).Name;
-            }
-            else
-            {
-                elements.Remove(elements.FirstOrDefault(element => element.Image == image));
-            
-                image.Source = null;
-                image.Tag = "";
-                label.Content = "";
-
-            }
-        }
+       
         private Element setElement(Image image,int id)
         {
             Element element = new Element();
@@ -309,7 +170,7 @@ namespace BDC
                 (FindName("boilerStage_" + element.Id + "_label") as Label).Content = element.Name;
                 }
             }
-
+           
 
         
         }
@@ -479,8 +340,9 @@ namespace BDC
         private void Attributes_Click(object sender, RoutedEventArgs e)
         {
             //   AssignStateNumbers(elements);
-          //    FormAttributes formAttributes = new FormAttributes();
-           //   formAttributes.Show();
+            //    FormAttributes formAttributes = new FormAttributes();
+            //   formAttributes.Show();
+         
             FormItemAttribute formAttributes = new FormItemAttribute(elements, this);
             formAttributes.Show();
 

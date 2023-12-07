@@ -1,18 +1,22 @@
 ﻿using BDC.Classes;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Net;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Xml.Linq;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace BDC.Forms
 {
     public partial class FormItemAttribute : Window
     {
 
+        List<Tuple<CheckBox, StackPanel>> checkBoxStackPanelList = new List<Tuple<CheckBox, StackPanel>>();
         StackPanel childStackPanel;
         MainWindow Main;
         List<Element> Elements = new List<Element>();
@@ -20,15 +24,7 @@ namespace BDC.Forms
         {
             InitializeComponent();
             Main = main;
-            //  Elements = elements;
-            for (int i = 7 - 1; i >= 0; i--)
-            {
-                Element element = new Element();
-                ItemAttribute itemAttribute = new ItemAttribute();
-                if (i < 3) itemAttribute.active = true;
-                element.attribute = itemAttribute;
-                Elements.Add(element);
-            }
+            Elements = elements;
             PopulateVerticalLayout();
           
         }
@@ -85,11 +81,52 @@ namespace BDC.Forms
                     Orientation = Orientation.Vertical,
                    Background = new SolidColorBrush(color),
                 };
-              
-                buildLabel(element.attribute.section);
-                buildLabel(element.attribute.loadCase);
 
-                buildCheckBox(childStackPanel, element.attribute.active,element);
+                buildCheckBox(childStackPanel, element.attribute.active, element);
+
+                Label laberSectionName = new Label
+                {
+                    Content = element.attribute.sectionName,
+                };
+                childStackPanel.Children.Add(laberSectionName);
+
+
+                //Section & Section Number
+                List<string> sectionNames = new List<string> { "SH", "EVA", "ECO" };
+                ComboBox comboBoxSectionName = new ComboBox{Height = 26,};
+                ComboBox comboBoxSectionNumber = new ComboBox { Height = 26, };
+                foreach (var sectionName in sectionNames) comboBoxSectionName.Items.Add(sectionName);
+                comboBoxSectionName.SelectedIndex = element.attribute.section;
+                comboBoxSectionName.SelectionChanged += (sender, e) =>
+                {
+                    element.attribute.section = comboBoxSectionName.SelectedIndex;
+                    comboBoxSectionNumber.Items.Clear();
+                    if (comboBoxSectionName.SelectedIndex == 2)
+                    {
+                        List<string> sectionNumbers = new List<string> { "1", "2", "3", };   
+                        foreach (var sectionNumber in sectionNumbers) comboBoxSectionNumber.Items.Add(sectionNumber);
+                    }
+                    else
+                    {
+                        List<string> sectionNumbers = new List<string> { "1", "2", "3", "4"};
+                        foreach (var sectionNumber in sectionNumbers) comboBoxSectionNumber.Items.Add(sectionNumber);
+                    }
+                    comboBoxSectionNumber.SelectionChanged += (sender, e) =>
+                    {
+                        element.attribute.sectionNumber = comboBoxSectionNumber.SelectedIndex;
+                        laberSectionName.Content = comboBoxSectionName.SelectedValue + "-" + comboBoxSectionNumber.SelectedValue;
+                        element.attribute.sectionName = laberSectionName.Content.ToString();
+                    };
+                };
+
+                childStackPanel.Children.Add(comboBoxSectionName);
+
+                //Section Number
+                List<string> sectionNumbers = new List<string> { "1", "2", "3", };
+                foreach (var sectionNumber in sectionNumbers) comboBoxSectionNumber.Items.Add(sectionNumber);
+                comboBoxSectionNumber.SelectedIndex = element.attribute.sectionNumber;
+                childStackPanel.Children.Add(comboBoxSectionNumber);
+
                 // TubeArrangement
                 List<string> itemsList = new List<string> {"Staggered","In-line", };
              
@@ -148,6 +185,19 @@ namespace BDC.Forms
             saveButton.Click += SaveButton_Click;
             verticalStackPanelOuter.Children.Add(saveButton);
 
+
+            // check enable stacks
+            foreach (var pair in checkBoxStackPanelList)
+            {
+                CheckBox checkBox = pair.Item1;
+                StackPanel stackPanel = pair.Item2;
+                if (checkBox.IsChecked.Value)
+                {
+                    checkCheckBox(checkBox, stackPanel);
+                }
+              
+            }
+
         }
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
@@ -158,32 +208,55 @@ namespace BDC.Forms
         {
                     Label label = new Label
                     {
-                //        Width = 100,
-               //         Margin = new Thickness(10),
                         Content = text,
                     };
                    childStackPanel.Children.Add(label);
         }
 
-        private void buildCheckBox(StackPanel stackPanel,bool check, Element element)
+        private void buildCheckBox(StackPanel stackPanel, bool check, Element element)
         {
             CheckBox checkBox = new CheckBox
             {
                 Height = 26,
             };
             checkBox.IsChecked = check;
-
             checkBox.Checked += (sender, e) =>
                  {
                      if (sender is CheckBox checkBox)
                      {
-                        element.attribute.active = checkBox.IsChecked.Value;
-                         if (checkBox.IsChecked.Value) stackPanel.IsEnabled = false;
-                     }
 
+                         if (checkBox.IsChecked.Value)
+                         {
+                             element.attribute.active = checkBox.IsChecked.Value;
+                             checkCheckBox(checkBox, stackPanel);
+                         }
+
+                     };
                  };
-            stackPanel.Children.Add(checkBox);
+            checkBox.Unchecked += (sender, e) =>
+            {
+                element.attribute.active = checkBox.IsChecked.Value;
+                foreach (var item in stackPanel.Children) 
+                      if (item is UIElement element)  element.IsEnabled = true;
 
+
+            };
+          stackPanel.Children.Add(checkBox);
+            checkBoxStackPanelList.Add(Tuple.Create(checkBox,stackPanel));
+        }
+        private void checkCheckBox(CheckBox checkBox , StackPanel stackPanel)
+        {
+            foreach (var item in stackPanel.Children)
+                if (item is UIElement element)
+                {
+                    if (element is CheckBox check1)
+                    {
+                        if (check1 == checkBox)
+                            checkBox.IsEnabled = true;
+                    }
+                    else element.IsEnabled = false;
+
+                }
         }
         private void buildTextBox(StackPanel stackPanel ,  Func<Element, string> getIndexFunc , Element element, Action<Element, string> setIndexAction)
         {
@@ -257,12 +330,11 @@ namespace BDC.Forms
                     if (index != -1)
                     {
                         Elements[index] = associatedElement;
+
                     }
                 }
             };
-
             childStackPanel.Children.Add(comboBox);
-         //   return comboBox;
         }
      
     }

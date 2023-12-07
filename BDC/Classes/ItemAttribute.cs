@@ -10,13 +10,18 @@ namespace BDC.Classes
     public class ItemAttribute
     {
         [DisplayName("Blank activation")]
-        public bool active { get; set; } = false;
+        public bool active { get; set; } = true;
+
         [DisplayName("Section Name")]
         public string sectionName { get; set; } = "-";
+
+
         [DisplayName("Section")]
-        public string section { get; set; } = "-";
+        public int section { get; set; } = 0;
+
         [DisplayName("Section Number")]
-        public string sectionNumber { get; set; } = "-";
+        public int sectionNumber { get; set; } = 0;
+
         public string loadCase { get; set; } = "-";
         public int TubeArrangement { get; set; } = 0;
         public int Water_Gas_Flow_Pattern { get; set; } = 0;
