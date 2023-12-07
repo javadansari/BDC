@@ -19,6 +19,7 @@ namespace BDC.Forms
         List<Tuple<CheckBox, StackPanel>> checkBoxStackPanelList = new List<Tuple<CheckBox, StackPanel>>();
         StackPanel childStackPanel;
         MainWindow Main;
+        private int height = 26;
         List<Element> Elements = new List<Element>();
         public FormItemAttribute(List<Element> elements, MainWindow main)
         {
@@ -90,42 +91,117 @@ namespace BDC.Forms
                 };
                 childStackPanel.Children.Add(laberSectionName);
 
-
                 //Section & Section Number
-                List<string> sectionNames = new List<string> { "SH", "EVA", "ECO" };
-                ComboBox comboBoxSectionName = new ComboBox{Height = 26,};
-                ComboBox comboBoxSectionNumber = new ComboBox { Height = 26, };
-                foreach (var sectionName in sectionNames) comboBoxSectionName.Items.Add(sectionName);
-                comboBoxSectionName.SelectedIndex = element.attribute.section;
-                comboBoxSectionName.SelectionChanged += (sender, e) =>
+                ComboBox comboBoxSectionName;
+                ComboBox comboBoxSectionNumber;
+               
+                if (element.Id < 8)
                 {
-                    element.attribute.section = comboBoxSectionName.SelectedIndex;
-                    comboBoxSectionNumber.Items.Clear();
-                    if (comboBoxSectionName.SelectedIndex == 2)
+                    List<string> sectionNames = new List<string> { "SH", "EVA", "ECO" };
+                    comboBoxSectionName = new ComboBox { Height = height, };
+                    comboBoxSectionNumber = new ComboBox { Height = height, };
+                    foreach (var sectionName in sectionNames) comboBoxSectionName.Items.Add(sectionName);
+                    comboBoxSectionName.SelectedIndex = element.attribute.section;
+                    comboBoxSectionName.SelectionChanged += (sender, e) =>
                     {
-                        List<string> sectionNumbers = new List<string> { "1", "2", "3", };   
-                        foreach (var sectionNumber in sectionNumbers) comboBoxSectionNumber.Items.Add(sectionNumber);
-                    }
-                    else
-                    {
-                        List<string> sectionNumbers = new List<string> { "1", "2", "3", "4"};
-                        foreach (var sectionNumber in sectionNumbers) comboBoxSectionNumber.Items.Add(sectionNumber);
-                    }
+                        element.attribute.section = comboBoxSectionName.SelectedIndex;
+                        comboBoxSectionNumber.Items.Clear();
+                        if (comboBoxSectionName.SelectedIndex == 1)
+                        {
+                            List<string> sectionNumbers = new List<string> { "1", "2", "3", "4" };
+                            foreach (var sectionNumber in sectionNumbers) comboBoxSectionNumber.Items.Add(sectionNumber);
+                        }
+                        else
+                        {
+                            List<string> sectionNumbers = new List<string> { "1", "2", "3", };
+                            foreach (var sectionNumber in sectionNumbers) comboBoxSectionNumber.Items.Add(sectionNumber);
+                        }
+                        comboBoxSectionNumber.SelectionChanged += (sender, e) =>
+                        {
+                            element.attribute.sectionNumber = comboBoxSectionNumber.SelectedIndex;
+                            laberSectionName.Content = comboBoxSectionName.SelectedValue + "-" + comboBoxSectionNumber.SelectedValue;
+                            element.attribute.sectionName = laberSectionName.Content.ToString();
+                        };
+                    };
+                    childStackPanel.Children.Add(comboBoxSectionName);
+
+                    //Section Number
+                    List<string> sectionNumbers = new List<string> { "1", "2", "3", };
+                    if (comboBoxSectionName.SelectedIndex == 1) { sectionNumbers = new List<string> { "1", "2", "3", "4" }; }
+                    foreach (var sectionNumber in sectionNumbers) comboBoxSectionNumber.Items.Add(sectionNumber);
+                    comboBoxSectionNumber.SelectedIndex = element.attribute.sectionNumber;
                     comboBoxSectionNumber.SelectionChanged += (sender, e) =>
                     {
                         element.attribute.sectionNumber = comboBoxSectionNumber.SelectedIndex;
                         laberSectionName.Content = comboBoxSectionName.SelectedValue + "-" + comboBoxSectionNumber.SelectedValue;
                         element.attribute.sectionName = laberSectionName.Content.ToString();
                     };
-                };
+                    childStackPanel.Children.Add(comboBoxSectionNumber);
+                    laberSectionName.Content = comboBoxSectionName.SelectedValue + "-" + comboBoxSectionNumber.SelectedValue;
+                    element.attribute.sectionName = laberSectionName.Content.ToString();
+                }
+                else if (element.Id == 8 || element.Id ==10){
+                    comboBoxSectionName = new ComboBox { Height = height, };
+                    comboBoxSectionNumber = new ComboBox { Height = height, };
+                    comboBoxSectionName.Items.Add("Duct");
+                    comboBoxSectionName.SelectedIndex = element.attribute.section;
+                    childStackPanel.Children.Add(comboBoxSectionName);
+                    //Section Number
+                    List<string> sectionNumbers = new List<string> { "1", "2" };
+                    foreach (var sectionNumber in sectionNumbers) comboBoxSectionNumber.Items.Add(sectionNumber);
+                    comboBoxSectionNumber.SelectedIndex = element.attribute.sectionNumber;
+                    comboBoxSectionNumber.SelectionChanged += (sender, e) =>
+                    {
+                        element.attribute.sectionNumber = comboBoxSectionNumber.SelectedIndex;
+                        laberSectionName.Content = comboBoxSectionName.SelectedValue + "-" + comboBoxSectionNumber.SelectedValue;
+                        element.attribute.sectionName = laberSectionName.Content.ToString();
+                    };
+                    childStackPanel.Children.Add(comboBoxSectionNumber);
+                    laberSectionName.Content = comboBoxSectionName.SelectedValue + "-" + comboBoxSectionNumber.SelectedValue;
+                    element.attribute.sectionName = laberSectionName.Content.ToString();
+                }
+                else if (element.Id == 9)
+                {
+                    comboBoxSectionName = new ComboBox { Height = height, };
+                    comboBoxSectionNumber = new ComboBox { Height = height, };
+                    comboBoxSectionName.Items.Add("ECO");
+                    comboBoxSectionName.SelectedIndex = element.attribute.section;
+                    childStackPanel.Children.Add(comboBoxSectionName);
+                    //Section Number
+                    List<string> sectionNumbers = new List<string> { "1", "2", "3" };
+                    foreach (var sectionNumber in sectionNumbers) comboBoxSectionNumber.Items.Add(sectionNumber);
+                    comboBoxSectionNumber.SelectedIndex = element.attribute.sectionNumber;
+                    comboBoxSectionNumber.SelectionChanged += (sender, e) =>
+                    {
+                        element.attribute.sectionNumber = comboBoxSectionNumber.SelectedIndex;
+                        laberSectionName.Content = comboBoxSectionName.SelectedValue + "-" + comboBoxSectionNumber.SelectedValue;
+                        element.attribute.sectionName = laberSectionName.Content.ToString();
+                    };
+                    childStackPanel.Children.Add(comboBoxSectionNumber);
+                    laberSectionName.Content = comboBoxSectionName.SelectedValue + "-" + comboBoxSectionNumber.SelectedValue;
+                    element.attribute.sectionName = laberSectionName.Content.ToString();
+                }
+                else
+                {
+                    comboBoxSectionName = new ComboBox { Height = height, };
+                    comboBoxSectionNumber = new ComboBox { Height = height, };
+                    comboBoxSectionName.Items.Add("AIR");
+                    comboBoxSectionName.SelectedIndex = element.attribute.section;
+                    childStackPanel.Children.Add(comboBoxSectionName);
+                    //Section Number
+                    comboBoxSectionNumber.Items.Add("1");
+                    comboBoxSectionNumber.SelectedIndex = element.attribute.sectionNumber;
+                    comboBoxSectionNumber.SelectionChanged += (sender, e) =>
+                    {
+                        element.attribute.sectionNumber = comboBoxSectionNumber.SelectedIndex;
+                        laberSectionName.Content = comboBoxSectionName.SelectedValue + "-" + comboBoxSectionNumber.SelectedValue;
+                        element.attribute.sectionName = laberSectionName.Content.ToString();
+                    };
+                    childStackPanel.Children.Add(comboBoxSectionNumber);
+                    laberSectionName.Content = comboBoxSectionName.SelectedValue + "-" + comboBoxSectionNumber.SelectedValue;
+                    element.attribute.sectionName = laberSectionName.Content.ToString();
 
-                childStackPanel.Children.Add(comboBoxSectionName);
-
-                //Section Number
-                List<string> sectionNumbers = new List<string> { "1", "2", "3", };
-                foreach (var sectionNumber in sectionNumbers) comboBoxSectionNumber.Items.Add(sectionNumber);
-                comboBoxSectionNumber.SelectedIndex = element.attribute.sectionNumber;
-                childStackPanel.Children.Add(comboBoxSectionNumber);
+                }
 
                 // TubeArrangement
                 List<string> itemsList = new List<string> {"Staggered","In-line", };
@@ -157,9 +233,14 @@ namespace BDC.Forms
                 buildTextBox(childStackPanel, e => e.attribute.Fin_Material, element, (e, value) => e.attribute.Fin_Material = value);
                 buildTextBox(childStackPanel, e => e.attribute.Water_Side_Founling_Factor, element, (e, value) => e.attribute.Water_Side_Founling_Factor = value);
                 buildTextBox(childStackPanel, e => e.attribute.Usage_Factor, element, (e, value) => e.attribute.Usage_Factor = value);
+                buildTextBox(childStackPanel, e => e.attribute.Usage_Factor, element, (e, value) => e.attribute.Usage_Factor = value);
+                buildTextBox(childStackPanel, e => e.attribute.Usage_Factor, element, (e, value) => e.attribute.Usage_Factor = value);
 
 
-        horizontalStackPanelOuter.Children.Add(childStackPanel);
+                childStackPanel.Background = Brushes.LightYellow;
+             //   if (element.Id % 2 == 0) childStackPanel.Background = Brushes.LightGray;
+
+               horizontalStackPanelOuter.Children.Add(childStackPanel);
             }
 
             verticalStackPanelOuter.Children.Add(horizontalStackPanelOuter);
@@ -202,6 +283,7 @@ namespace BDC.Forms
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
             Main.elements = Elements;
+            Main.updateElement();
             this.Close();
         }
         private void buildLabel( string text )
@@ -218,6 +300,7 @@ namespace BDC.Forms
             CheckBox checkBox = new CheckBox
             {
                 Height = 26,
+                HorizontalAlignment = HorizontalAlignment.Center,
             };
             checkBox.IsChecked = check;
             checkBox.Checked += (sender, e) =>

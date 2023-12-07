@@ -86,19 +86,7 @@
 
                 </StackPanel>
             </ToolBar>
-            <ToolBar >
-                <StackPanel Orientation="Horizontal">
-                    <Image  Width="{StaticResource topIconSize}" Height="{StaticResource topIconSize}" Source="Images/Elements/SmokeRelation.png" MouseDown="line_Click" />
-                    <Image Name="selectImage" Width="{StaticResource topIconSize}" Height="{StaticResource topIconSize}" Source="Images/Other/select2.png" MouseDown="SelectButton_Click" />
-                    <Image Name="moveImage" Width="{StaticResource topIconSize}" Height="{StaticResource topIconSize}" Source="Images/Other/move.caseAttribute.png" MouseDown="MoveButton_Click" />
-                </StackPanel>
-            </ToolBar>
-            <ToolBar >
-                <StackPanel Orientation="Horizontal">
-                    <Image  Width="{StaticResource topIconSize}" Height="{StaticResource topIconSize}" Source="Images/Other/123.png" MouseDown="setNumber_Click" />
-                </StackPanel>
-            </ToolBar>
-        
+
         </ToolBarTray>
 
         <ToolBarTray Name="casesMenu" Grid.Row="2" Orientation="Vertical"  IsLocked="True">

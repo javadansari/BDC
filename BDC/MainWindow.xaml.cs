@@ -45,18 +45,18 @@ namespace BDC
     {
 
         public List<Element> elements { get; set; }
-        
+     
+        public Furnace furnace { get; set; }
         public List<Case> cases{ get; set; }
         private Case selectedCase;
 
         private Element element;
+       
 
         private List<ItemAttribute> itemAttribute;
         private Button clickedButton;
         private Image imageLevelButton;
         private ImageSource draggedImageSource;
-        private bool isFirstLine = true;
-        private bool isSelect = true;
         private Image firstLineImage;
         private Image secondLineImage;
         private bool isLine = false;
@@ -84,6 +84,7 @@ namespace BDC
 
 
             draggedImage = new Image();
+            furnace = new Furnace();
       
 
             elements = new List<Element>();
@@ -117,6 +118,54 @@ namespace BDC
         
         #region ImageChooser
 
+        public void updateElement()
+        {
+
+            foreach (Element element in elements)
+            {
+                Image image = FindName("boilerStage_" + element.Id) as Image;
+                if (image != null )
+                {
+                    if (!element.attribute.active)
+                    {
+                        if (element.Id < 8 )
+                        {
+                            if (element.attribute.section == 0)
+                                image.Source = new BitmapImage(new Uri("/Images/Elements/superheater.png", UriKind.Relative));
+                            if (element.attribute.section == 1)
+                                image.Source = new BitmapImage(new Uri("/Images/Elements/evaporator.png", UriKind.Relative));
+                            if (element.attribute.section == 2)
+                                image.Source = new BitmapImage(new Uri("/Images/Elements/economizer.png", UriKind.Relative));
+                        } else if ( element.Id == 8 || element.Id == 10)
+                        {
+                            image.Source = new BitmapImage(new Uri("/Images/Elements/duct.png", UriKind.Relative));
+                        } else if (element.Id == 9)
+                        {
+                            image.Source = new BitmapImage(new Uri("/Images/Elements/economizer.png", UriKind.Relative));
+                        }
+                        else
+                        {
+                            image.Source = new BitmapImage(new Uri("/Images/Elements/fan.png", UriKind.Relative));
+                        }
+                       (FindName("boilerStage_" + element.Id + "_label") as Label).Content = element.attribute.sectionName;
+
+                    }
+                    else
+                    {
+                        image.Source = null;
+                        (FindName("boilerStage_" + element.Id + "_label") as Label).Content = null;
+                    }
+                }
+               
+
+
+                    if (element.attribute.section == 0)
+                {
+
+                }
+            //    (FindName("boilerStage_" + element.Id + "_label") as Label).Content = element.Name;
+            }
+        }
        
         private Element setElement(Image image,int id)
         {
@@ -259,15 +308,7 @@ namespace BDC
             public string PropertyName { get; set; }
             public string PropertyValue { get; set; }
         }
-        private void SelectButton_Click(object sender, MouseButtonEventArgs e)
-        {
 
-            isSelect = true;
-            moveImage.Opacity = 0.2;
-            selectImage.Opacity = 1.0;
-
-        }
-     
 
         private void GridElement_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -289,15 +330,7 @@ namespace BDC
 
 
         #endregion
-        #region Move
-        private void MoveButton_Click(object sender, MouseButtonEventArgs e)
-        {
-            isSelect = false;
-            selectImage.Opacity = 0.1;
-            moveImage.Opacity = 1.0;
-        }
-        #endregion
-
+     
 
         #region case
         private void CasesMenu_Click(object sender, RoutedEventArgs e)
@@ -606,7 +639,7 @@ namespace BDC
 
         private void formFurnace_Click(object sender, MouseButtonEventArgs e)
         {
-            FormFurnace formFurnace = new FormFurnace();
+            FormFurnace formFurnace = new FormFurnace(furnace,this);
             formFurnace.Show();
 
         }
