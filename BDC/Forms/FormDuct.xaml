@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:BDC.Forms"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="FormDuct" Height="850" Width="1200">
+        Title="FormDuct" Height="850" Width="920">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -15,113 +15,36 @@
         </ResourceDictionary>
     </Window.Resources>
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="800"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="0"  Orientation="Horizontal" Visibility="Visible">
-            <Image Width="800" Height="800" Source="../Images/Other/formDuct.png"/>
+        <StackPanel Orientation="Vertical">
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="90" Orientation="Horizontal" Height="25">
+            <Label Style="{StaticResource labelTop}" Content="MARK"/>
+            <Label Style="{StaticResource labelTop}" Width="200" Content="DECRIPTION"/>
+            <Label Style="{StaticResource labelTop}" Width="200"  Content="DETIAL"/>
+            <Label Style="{StaticResource labelTop}" Content="UNIT"/>
+            <Label Style="{StaticResource labelTop}" Width="100" Content="Air Duct#1"/>
+            <Label Style="{StaticResource labelTop}" Width="100" Content="Air Duct#2"/>
+            <Label Style="{StaticResource labelTop}" Width="100" Content="Gas Duct#1"/>
+            <Label Style="{StaticResource labelTop}" Width="100" Content="Gas Duct#2"/>
         </StackPanel>
-        <StackPanel  Grid.Column="1" Orientation="Horizontal">
-            <StackPanel   Orientation="Vertical" >
-                <Label Style="{StaticResource labelTop}" Content="Air Duct#1"></Label>
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}" Height="133"  Padding="2,60,2,1" />
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}" Height="63"  Padding="2,20,2,1" />
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <ComboBox   Style="{StaticResource comboBoxItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}" Height="37"  Padding="2,10,2,1" />
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}" Height="37"  Padding="2,10,2,1" />
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}" Height="114"  Padding="2,20,2,1" />
-                <ComboBox   Style="{StaticResource comboBoxItems}" Height="38"/>  
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-            </StackPanel>
-            <StackPanel   Orientation="Vertical" >
-                <Label Style="{StaticResource labelTop}" Content="Air Duct#2"></Label>
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}" Height="133"  Padding="2,60,2,1" />
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}" Height="63"  Padding="2,20,2,1" />
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <ComboBox   Style="{StaticResource comboBoxItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}" Height="37"  Padding="2,10,2,1" />
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}" Height="37"  Padding="2,10,2,1" />
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}" Height="114"  Padding="2,20,2,1" />
-                <ComboBox   Style="{StaticResource comboBoxItems}" Height="38"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-            </StackPanel>
-            <StackPanel   Orientation="Vertical" >
-                <Label Style="{StaticResource labelTop}" Content="Gas Duct#1"></Label>
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}" Height="133"  Padding="2,60,2,1" />
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}" Height="63"  Padding="2,20,2,1" />
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <ComboBox   Style="{StaticResource comboBoxItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}" Height="37"  Padding="2,10,2,1" />
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}" Height="37"  Padding="2,10,2,1" />
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}" Height="114"  Padding="2,20,2,1" />
-                <ComboBox   Style="{StaticResource comboBoxItems}" Height="38"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-            </StackPanel>
-            <StackPanel   Orientation="Vertical" >
-                <Label Style="{StaticResource labelTop}" Content="Gas Duct#2"></Label>
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}" Height="133"  Padding="2,60,2,1" />
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}" Height="63"  Padding="2,20,2,1" />
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <ComboBox   Style="{StaticResource comboBoxItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}" Height="37"  Padding="2,10,2,1" />
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}" Height="37"  Padding="2,10,2,1" />
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}" Height="114"  Padding="2,20,2,1" />
-                <ComboBox   Style="{StaticResource comboBoxItems}" Height="38"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
-                <TextBox  Style="{StaticResource textBoxSmallItems}"/>
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="90" Background="LightBlue"  Orientation="Horizontal" Height="25">
+            <Label Style="{StaticResource label}" Content=""/>
+            <Label Style="{StaticResource label}" Width="200" Content="Straight Duct"/>
+            <Label Style="{StaticResource label}" Width="200"  Content=""/>
+            <Label Style="{StaticResource label}" Content=""/>
+            <ComboBox   Style="{StaticResource comboBoxItems}" ItemsSource="{StaticResource ComboBoxItems2}"/>
+            <ComboBox   Style="{StaticResource comboBoxItems}" ItemsSource="{StaticResource ComboBoxItems2}" />
+            <ComboBox   Style="{StaticResource comboBoxItems}" ItemsSource="{StaticResource ComboBoxItems2}"/>
+            <ComboBox   Style="{StaticResource comboBoxItems}" ItemsSource="{StaticResource ComboBoxItems2}" />
+        </StackPanel>
+            <StackPanel Grid.Row="1" Grid.ColumnSpan="90"   Orientation="Horizontal" Height="25">
+                <Label Style="{StaticResource label}" Content="a" />
+                <Label Style="{StaticResource label}" Width="200" Content="Straight Duct"/>
+                <Label Style="{StaticResource label}" Width="200"  Content=""/>
+                <Label Style="{StaticResource label}" Content=""/>
+                <ComboBox   Style="{StaticResource comboBoxItems}" ItemsSource="{StaticResource ComboBoxItems2}"/>
+                <ComboBox   Style="{StaticResource comboBoxItems}" ItemsSource="{StaticResource ComboBoxItems2}" />
+                <ComboBox   Style="{StaticResource comboBoxItems}" ItemsSource="{StaticResource ComboBoxItems2}"/>
+                <ComboBox   Style="{StaticResource comboBoxItems}" ItemsSource="{StaticResource ComboBoxItems2}" />
             </StackPanel>
         </StackPanel>
     </Grid>
