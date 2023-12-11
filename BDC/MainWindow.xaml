@@ -54,6 +54,9 @@
             <MenuItem Header="Result">
                 <MenuItem Header="Result" Click="CasesMenu_Click"/>
             </MenuItem>
+            <MenuItem Header="Result">
+                <MenuItem Header="Result" Click="ExportMenu_Click"/>
+            </MenuItem>
         </Menu>
         <ToolBarTray Name="mainToolbarMenu" Grid.Row="1" Grid.ColumnSpan="3" Orientation="Horizontal">
             <ToolBar >

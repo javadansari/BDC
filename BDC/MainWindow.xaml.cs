@@ -32,6 +32,7 @@ using BDC.View;
 using Microsoft.VisualBasic;
 using Accessibility;
 using System.Xml.Linq;
+using System.Reflection;
 
 namespace BDC
 {
@@ -655,6 +656,26 @@ namespace BDC
         {
             FormFuel formFuel = new FormFuel();
             formFuel.Show();
+        }
+
+        private void ExportMenu_Click(object sender, RoutedEventArgs e)
+        {
+            ExportToFile(furnace, @"e:\1.txt");
+        }
+        public static void ExportToFile(object obj, string filePath)
+        {
+            Type objType = obj.GetType();
+            PropertyInfo[] properties = objType.GetProperties();
+
+            using (StreamWriter writer = new StreamWriter(filePath))
+            {
+                foreach (PropertyInfo prop in properties)
+                {
+                    object value = prop.GetValue(obj);
+                    string line = $"{prop.Name}: {value}";
+                    writer.WriteLine(line);
+                }
+            }
         }
     }
     #endregion
