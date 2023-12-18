@@ -660,14 +660,21 @@ namespace BDC
 
         private void ExportMenu_Click(object sender, RoutedEventArgs e)
         {
-            ExportToFile(furnace, @"e:\1.txt");
+
+            Export export = new Export(@"e:\1.txt");
+            export.ExportFurnace(furnace);
+            export.ExportElement(elements);
+
+          //  ExportToFile(furnace, @"e:\1.txt");
         }
         public static void ExportToFile(object obj, string filePath)
         {
+
+
             Type objType = obj.GetType();
             PropertyInfo[] properties = objType.GetProperties();
 
-            using (StreamWriter writer = new StreamWriter(filePath))
+            using (StreamWriter writer = new StreamWriter(filePath,true))
             {
                 foreach (PropertyInfo prop in properties)
                 {
