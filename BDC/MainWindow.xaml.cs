@@ -32,6 +32,7 @@ using BDC.View;
 using Microsoft.VisualBasic;
 using Accessibility;
 using System.Xml.Linq;
+using System.Reflection;
 
 namespace BDC
 {
@@ -47,6 +48,8 @@ namespace BDC
         public List<Element> elements { get; set; }
      
         public Furnace furnace { get; set; }
+
+        public List<Duct> ducts { get; set; }
         public List<Case> cases{ get; set; }
         private Case selectedCase;
 
@@ -85,7 +88,9 @@ namespace BDC
 
             draggedImage = new Image();
             furnace = new Furnace();
-      
+
+            ducts = new List<Duct>();
+            
 
             elements = new List<Element>();
             for (int i = 1; i <= 11; i++)
@@ -646,7 +651,7 @@ namespace BDC
 
         private void formDuct_Click(object sender, MouseButtonEventArgs e)
         {
-            FormDuct formDuct = new FormDuct();
+            FormDuct formDuct = new FormDuct(ducts,this);
             formDuct.Show();
 
         }
@@ -655,6 +660,34 @@ namespace BDC
         {
             FormFuel formFuel = new FormFuel();
             formFuel.Show();
+        }
+
+        private void ExportMenu_Click(object sender, RoutedEventArgs e)
+        {
+
+            Export export = new Export(@"e:\1.txt");
+            export.ExportFurnace(furnace);   
+            export.ExportElement(elements);
+            export.ExportDuct(ducts);
+
+          //  ExportToFile(furnace, @"e:\1.txt");
+        }
+        public static void ExportToFile(object obj, string filePath)
+        {
+
+
+            Type objType = obj.GetType();
+            PropertyInfo[] properties = objType.GetProperties();
+
+            using (StreamWriter writer = new StreamWriter(filePath,true))
+            {
+                foreach (PropertyInfo prop in properties)
+                {
+                    object value = prop.GetValue(obj);
+                    string line = $"{prop.Name}: {value}";
+                    writer.WriteLine(line);
+                }
+            }
         }
     }
     #endregion

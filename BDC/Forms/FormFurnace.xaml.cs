@@ -47,7 +47,7 @@ namespace BDC.Forms
           
             setValue();
             Main.furnace = Furnace;
-          this.Close();
+            this.Close();
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
