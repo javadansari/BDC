@@ -665,7 +665,8 @@ namespace BDC
         private void ExportMenu_Click(object sender, RoutedEventArgs e)
         {
 
-            Export export = new Export(@"e:\1.txt");
+          //  Export export = new Export(@"e:\1.txt");
+            Export export = new Export(@"c:\projects\1.txt");
             export.ExportFurnace(furnace);   
             export.ExportElement(elements);
             export.ExportDuct(ducts);
