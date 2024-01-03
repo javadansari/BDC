@@ -16,6 +16,7 @@ using System.Xml.Linq;
 
 namespace BDC.Forms
 {
+
     /// <summary>
     /// Interaction logic for FormDuct.xaml
     /// </summary>

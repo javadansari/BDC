@@ -156,7 +156,7 @@
                             <Image x:Name="boilerStage_1" Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"  VerticalAlignment="Top"/>
                         </Border>
                         <Label Name="boilerStage_1_label"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="1,0,0,1" />
-                     </Grid>
+                    </Grid>
                     <Grid Name="boilerStage_2_grid"  Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}" MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >
                         <Border BorderThickness="2" BorderBrush="Gray">
                             <Image x:Name="boilerStage_2"  Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"  VerticalAlignment="Top"  />
@@ -192,7 +192,7 @@
                             <Image x:Name="boilerStage_7"  Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"  VerticalAlignment="Top"  />
                         </Border>
                         <Label Name="boilerStage_7_label"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="1,0,0,1" />
-                   </Grid>
+                    </Grid>
                     <Grid  Name="boilerStage_8_grid" Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}" MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >
                         <Border BorderThickness="2" BorderBrush="ForestGreen">
                             <Image x:Name="boilerStage_8"  Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"  VerticalAlignment="Top"  />
