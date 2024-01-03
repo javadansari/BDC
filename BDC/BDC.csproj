@@ -18,6 +18,7 @@
     <None Remove="evaporator.png" />
     <None Remove="fan.png" />
     <None Remove="Image2.png" />
+    <None Remove="Images\Duct\image1.png" />
     <None Remove="Images\Elements\duct.png" />
     <None Remove="Images\Image1.png" />
     <None Remove="Images\Image2.png" />
@@ -49,6 +50,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Canvas\Image5.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Duct\image1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Elements\duct.png">
