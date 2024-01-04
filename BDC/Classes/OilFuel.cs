@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace BDC.Classes
 {
-    internal class OilFuel
+    public class OilFuel
     {
         public int id { get; set; }
         public string name { get; set; } = "-";
         public string C { get; set; } = "-";
         public string H { get; set; } = "-";
-        public string H2O { get; set; } = "-";
+        public string H2O_ { get; set; } = "-";
         public string S { get; set; } = "-";
         public string O { get; set; } = "-";
         public string N { get; set; } = "-";
-        public string Total { get; set; } = "-";
-        public string FuelPressure { get; set; } = "-";
-        public string FuelTemperature { get; set; } = "-";
-        public string LHV_kj_kg_Calculated { get; set; } = "-";
+        public string Total_ { get; set; } = "-";
+        public string FuelPressure_ { get; set; } = "-";
+        public string FuelTemperature_ { get; set; } = "-";
+        public string LHV_kj_kg_Calculated_ { get; set; } = "-";
     }
 }

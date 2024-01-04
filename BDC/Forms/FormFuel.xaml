@@ -50,132 +50,132 @@
             <StackPanel Orientation="Vertical">
                 <CheckBox IsChecked="True"   Style="{StaticResource checkBox}"/>
                 <Label Style="{StaticResource label}" Content="GAS#1" Width="50"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  Background="LightGray" />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  Background="LightGray" />
+                <TextBox Name="CH41" Style="{StaticResource textBox}" />
+                <TextBox Name="C2H61" Style="{StaticResource textBox}" />
+                <TextBox Name="C3H81" Style="{StaticResource textBox}" />
+                <TextBox Name="C4H101" Style="{StaticResource textBox}" />
+                <TextBox Name="C5H121" Style="{StaticResource textBox}" />
+                <TextBox Name="C2H21" Style="{StaticResource textBox}" />
+                <TextBox Name="C2H41" Style="{StaticResource textBox}" />
+                <TextBox Name="C3H61" Style="{StaticResource textBox}" />
+                <TextBox Name="C4H81" Style="{StaticResource textBox}" />
+                <TextBox Name="C6H61" Style="{StaticResource textBox}" />
+                <TextBox Name="N21" Style="{StaticResource textBox}" />
+                <TextBox Name="CO1" Style="{StaticResource textBox}" />
+                <TextBox Name="CO21" Style="{StaticResource textBox}" />
+                <TextBox Name="H2O1" Style="{StaticResource textBox}" />
+                <TextBox Name="H2S1" Style="{StaticResource textBox}" />
+                <TextBox Name="O21" Style="{StaticResource textBox}" />
+                <TextBox Name="NH31" Style="{StaticResource textBox}" />
+                <TextBox Name="Total1" Style="{StaticResource textBox}"  Background="LightGray"/>
+                <TextBox Name="FuelPressure1" Style="{StaticResource textBox}" />
+                <TextBox Name="FuelTemperature1" Style="{StaticResource textBox}" />
+                <TextBox Name="LHV_kj_kg1" Style="{StaticResource textBox}" />
+                <TextBox Name="LHV_kj_kg_Calculated1" Style="{StaticResource textBox}"  Background="LightGray"/>
             </StackPanel>
             <StackPanel Orientation="Vertical">
                 <CheckBox IsChecked="True"   Style="{StaticResource checkBox}"/>
                 <Label Style="{StaticResource label}" Content="GAS#2" Width="50"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  Background="LightGray" />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  Background="LightGray" />
+                <TextBox Name="CH42" Style="{StaticResource textBox}" />
+                <TextBox Name="C2H62" Style="{StaticResource textBox}" />
+                <TextBox Name="C3H82" Style="{StaticResource textBox}" />
+                <TextBox Name="C4H102" Style="{StaticResource textBox}" />
+                <TextBox Name="C5H122" Style="{StaticResource textBox}" />
+                <TextBox Name="C2H22" Style="{StaticResource textBox}" />
+                <TextBox Name="C2H42" Style="{StaticResource textBox}" />
+                <TextBox Name="C3H62" Style="{StaticResource textBox}" />
+                <TextBox Name="C4H82" Style="{StaticResource textBox}" />
+                <TextBox Name="C6H62" Style="{StaticResource textBox}" />
+                <TextBox Name="N22" Style="{StaticResource textBox}" />
+                <TextBox Name="CO2" Style="{StaticResource textBox}" />
+                <TextBox Name="CO22" Style="{StaticResource textBox}" />
+                <TextBox Name="H2O2" Style="{StaticResource textBox}" />
+                <TextBox Name="H2S2" Style="{StaticResource textBox}" />
+                <TextBox Name="O22" Style="{StaticResource textBox}" />
+                <TextBox Name="NH32" Style="{StaticResource textBox}" />
+                <TextBox Name="Total2" Style="{StaticResource textBox}" Background="LightGray" />
+                <TextBox Name="FuelPressure2" Style="{StaticResource textBox}" />
+                <TextBox Name="FuelTemperature2" Style="{StaticResource textBox}" />
+                <TextBox Name="LHV_kj_kg2" Style="{StaticResource textBox}" />
+                <TextBox Name="LHV_kj_kg_Calculated2" Style="{StaticResource textBox}" Background="LightGray" />
             </StackPanel>
             <StackPanel Orientation="Vertical">
                 <CheckBox IsChecked="True"   Style="{StaticResource checkBox}"/>
                 <Label Style="{StaticResource label}" Content="GAS#3" Width="50"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  Background="LightGray" />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"   Background="LightGray"/>
+                <TextBox Name="CH43" Style="{StaticResource textBox}" />
+                <TextBox Name="C2H63" Style="{StaticResource textBox}" />
+                <TextBox Name="C3H83" Style="{StaticResource textBox}" />
+                <TextBox Name="C4H103" Style="{StaticResource textBox}" />
+                <TextBox Name="C5H123" Style="{StaticResource textBox}" />
+                <TextBox Name="C2H23" Style="{StaticResource textBox}" />
+                <TextBox Name="C2H43" Style="{StaticResource textBox}" />
+                <TextBox Name="C3H63" Style="{StaticResource textBox}" />
+                <TextBox Name="C4H83" Style="{StaticResource textBox}" />
+                <TextBox Name="C6H63" Style="{StaticResource textBox}" />
+                <TextBox Name="N23" Style="{StaticResource textBox}" />
+                <TextBox Name="CO3" Style="{StaticResource textBox}" />
+                <TextBox Name="CO23" Style="{StaticResource textBox}" />
+                <TextBox Name="H2O3" Style="{StaticResource textBox}" />
+                <TextBox Name="H2S3" Style="{StaticResource textBox}" />
+                <TextBox Name="O23" Style="{StaticResource textBox}" />
+                <TextBox Name="NH33" Style="{StaticResource textBox}" />
+                <TextBox Name="Total3" Style="{StaticResource textBox}" Background="LightGray" />
+                <TextBox Name="FuelPressure3" Style="{StaticResource textBox}" />
+                <TextBox Name="FuelTemperature3" Style="{StaticResource textBox}" />
+                <TextBox Name="LHV_kj_kg3" Style="{StaticResource textBox}" />
+                <TextBox Name="LHV_kj_kg_Calculated3" Style="{StaticResource textBox}" Background="LightGray" />
             </StackPanel>
             <StackPanel Orientation="Vertical">
                 <CheckBox IsChecked="True"   Style="{StaticResource checkBox}"/>
                 <Label Style="{StaticResource label}" Content="GAS#4" Width="50"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"   Background="LightGray"/>
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"   Background="LightGray"/>
+                <TextBox Name="CH44" Style="{StaticResource textBox}" />
+                <TextBox Name="C2H64" Style="{StaticResource textBox}" />
+                <TextBox Name="C3H84" Style="{StaticResource textBox}" />
+                <TextBox Name="C4H104" Style="{StaticResource textBox}" />
+                <TextBox Name="C5H124" Style="{StaticResource textBox}" />
+                <TextBox Name="C2H24" Style="{StaticResource textBox}" />
+                <TextBox Name="C2H44" Style="{StaticResource textBox}" />
+                <TextBox Name="C3H64" Style="{StaticResource textBox}" />
+                <TextBox Name="C4H84" Style="{StaticResource textBox}" />
+                <TextBox Name="C6H64" Style="{StaticResource textBox}" />
+                <TextBox Name="N24" Style="{StaticResource textBox}" />
+                <TextBox Name="CO4" Style="{StaticResource textBox}" />
+                <TextBox Name="CO24" Style="{StaticResource textBox}" />
+                <TextBox Name="H2O4" Style="{StaticResource textBox}" />
+                <TextBox Name="H2S4" Style="{StaticResource textBox}" />
+                <TextBox Name="O24" Style="{StaticResource textBox}" />
+                <TextBox Name="NH34" Style="{StaticResource textBox}" />
+                <TextBox Name="Total4" Style="{StaticResource textBox}" Background="LightGray" />
+                <TextBox Name="FuelPressure4" Style="{StaticResource textBox}" />
+                <TextBox Name="FuelTemperature4" Style="{StaticResource textBox}" />
+                <TextBox Name="LHV_kj_kg4" Style="{StaticResource textBox}" />
+                <TextBox Name="LHV_kj_kg_Calculated4" Style="{StaticResource textBox}" Background="LightGray" />
             </StackPanel>
             <StackPanel Orientation="Vertical">
                 <CheckBox IsChecked="True"   Style="{StaticResource checkBox}"/>
                 <Label Style="{StaticResource label}" Content="GAS#5" Width="50"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"   Background="LightGray"/>
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  Background="LightGray" />
+                <TextBox Name="CH45" Style="{StaticResource textBox}" />
+                <TextBox Name="C2H65" Style="{StaticResource textBox}" />
+                <TextBox Name="C3H85" Style="{StaticResource textBox}" />
+                <TextBox Name="C4H105" Style="{StaticResource textBox}" />
+                <TextBox Name="C5H125" Style="{StaticResource textBox}" />
+                <TextBox Name="C2H25" Style="{StaticResource textBox}" />
+                <TextBox Name="C2H45" Style="{StaticResource textBox}" />
+                <TextBox Name="C3H65" Style="{StaticResource textBox}" />
+                <TextBox Name="C4H85" Style="{StaticResource textBox}" />
+                <TextBox Name="C6H65" Style="{StaticResource textBox}" />
+                <TextBox Name="N25" Style="{StaticResource textBox}" />
+                <TextBox Name="CO5" Style="{StaticResource textBox}" />
+                <TextBox Name="CO25" Style="{StaticResource textBox}" />
+                <TextBox Name="H2O5" Style="{StaticResource textBox}" />
+                <TextBox Name="H2S5" Style="{StaticResource textBox}" />
+                <TextBox Name="O25" Style="{StaticResource textBox}" />
+                <TextBox Name="NH35" Style="{StaticResource textBox}" />
+                <TextBox Name="Total5" Style="{StaticResource textBox}" Background="LightGray" />
+                <TextBox Name="FuelPressure5" Style="{StaticResource textBox}" />
+                <TextBox Name="FuelTemperature5" Style="{StaticResource textBox}" />
+                <TextBox Name="LHV_kj_kg5" Style="{StaticResource textBox}" />
+                <TextBox Name="LHV_kj_kg_Calculated5" Style="{StaticResource textBox}" Background="LightGray" />
             </StackPanel>
         </StackPanel>
         <StackPanel  Grid.Column="2" Orientation="Vertical">
@@ -196,31 +196,31 @@
             <StackPanel Orientation="Vertical">
                 <CheckBox IsChecked="True"   Style="{StaticResource checkBox}"/>
                 <Label Style="{StaticResource label}" Content="OIL#1" Width="50"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}" Background="LightGray"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  Background="LightGray" />
+                <TextBox Name="C1" Style="{StaticResource textBox}" />
+                <TextBox Name="H1" Style="{StaticResource textBox}" />
+                <TextBox Name="H2O_1" Style="{StaticResource textBox}" />
+                <TextBox Name="S1" Style="{StaticResource textBox}" />
+                <TextBox Name="O1" Style="{StaticResource textBox}" />
+                <TextBox Name="N1" Style="{StaticResource textBox}" Background="LightGray"/>
+                <TextBox Name="Total_1" Style="{StaticResource textBox}" />
+                <TextBox Name="FuelPressure_1" Style="{StaticResource textBox}" />
+                <TextBox Name="FuelTemperature_1" Style="{StaticResource textBox}" />
+                <TextBox Name="LHV_kj_kg_Calculated_1" Style="{StaticResource textBox}" Background="LightGray" />
+
             </StackPanel>
             <StackPanel Orientation="Vertical">
                 <CheckBox IsChecked="True"   Style="{StaticResource checkBox}"/>
                 <Label Style="{StaticResource label}" Content="OLI#2" Width="50"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"   />
-                <TextBox   Style="{StaticResource textBox}" Background="LightGray"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  />
-                <TextBox   Style="{StaticResource textBox}"  Background="LightGray" />
-           
+                <TextBox Name="C2" Style="{StaticResource textBox}" />
+                <TextBox Name="H2" Style="{StaticResource textBox}" />
+                <TextBox Name="H2O_2" Style="{StaticResource textBox}" />
+                <TextBox Name="S2" Style="{StaticResource textBox}" />
+                <TextBox Name="O2" Style="{StaticResource textBox}" />
+                <TextBox Name="N2" Style="{StaticResource textBox}" Background="LightGray" />
+                <TextBox Name="Total_2" Style="{StaticResource textBox}" />
+                <TextBox Name="FuelPressure_2" Style="{StaticResource textBox}" />
+                <TextBox Name="FuelTemperature_2" Style="{StaticResource textBox}" />
+                <TextBox Name="LHV_kj_kg_Calculated_2" Style="{StaticResource textBox}" Background="LightGray" />
             </StackPanel>
         </StackPanel>
     </Grid>

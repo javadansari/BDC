@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BDC.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,31 @@ namespace BDC.Forms
     /// </summary>
     public partial class FormFuel : Window
     {
-        public FormFuel()
+        List<OilFuel> OilFuels;
+        List<GasFuel> GasFuels;
+        MainWindow Main;
+        public FormFuel(List<OilFuel> oilFuels, List<GasFuel> gasFuels, MainWindow main)
         {
             InitializeComponent();
+            OilFuels = oilFuels;
+            GasFuels = gasFuels;
+            Main = main;
+            getValue();
+        }
+
+        private void getValue()
+        {
+            foreach (OilFuel oilFuel in OilFuels)
+            {
+              
+
+            }
+            foreach (GasFuel gasFuel in GasFuels)
+            {
+                (FindName("CH4" + gasFuel.id) as TextBox).Text = gasFuel.CH4.ToString();
+
+            }
+
         }
     }
 }

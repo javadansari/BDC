@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BDC.Classes
 {
-    internal class GasFuel
+    public class GasFuel
     {
         public int id { get; set; }
         public string name { get; set; } = "-";
