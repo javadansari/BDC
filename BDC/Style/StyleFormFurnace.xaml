@@ -2,7 +2,18 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
-     <Style x:Key="RoundedButtonStyleG" TargetType="Button">
+    <Style x:Key="labelTop" TargetType="Label">
+        <Setter Property="FontSize"  Value="12" />
+        <Setter Property="Foreground"  Value="#FF2E9809" />
+
+        <Setter Property="Margin"  Value="1,0,1,0" />
+        <Setter Property="Padding"  Value="4,0,4,0" />
+        <Setter Property="HorizontalAlignment"  Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="FontWeight"  Value="Bold" />
+    </Style>
+    
+    <Style x:Key="RoundedButtonStyleG" TargetType="Button">
         <Setter Property="Width" Value="100"/>
         <Setter Property="Height" Value="25"/>
         <Setter Property="Template">

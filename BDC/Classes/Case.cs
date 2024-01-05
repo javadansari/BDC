@@ -20,7 +20,7 @@ namespace BDC.Classes
         public string Name { get; set; }
         public int order { get; set; }
         public int run { get; set; }
-        public CaseAttribute caseAttribute { get; set; }
+        public Process process { get; set; }
 
 
         

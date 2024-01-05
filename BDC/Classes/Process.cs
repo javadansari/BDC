@@ -9,6 +9,7 @@ namespace BDC.Classes
 {
     public class Process
     {
+            private static int _idCounter = 1; // Static counter for generating IDs
             public int id { get; set; }
             public string name { get; set; } = "-";
             public int active { get; set; } = 0;
@@ -42,7 +43,9 @@ namespace BDC.Classes
             public string Radiation_Loss { get; set; } = "-";
             public string Furnace_heat_absorption_Eff { get; set; } = "-";
             public string Blowdown_flow { get; set; } = "-";
-
-
+        public Process()
+        {
+            id = _idCounter++; // Assign a new unique ID and increment the counter
+        }
     }
 }

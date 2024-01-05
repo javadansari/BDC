@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BDC.Forms"
         mc:Ignorable="d"
-        Title="FormFuel" Height="650" Width="830">
+        Title="FormFuel" Height="1650" Width="830">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -14,15 +14,17 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
+    
     <Grid>
         <ScrollViewer>
-            
-
-        <StackPanel  Grid.Column="0" Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
+            <StackPanel  Grid.Column="0" Orientation="Vertical">
+                <Label Style="{StaticResource label}" Content="Case Name" />
+                <Label Style="{StaticResource labelTop}" Content="Ambient Condition" />
                 <Label Style="{StaticResource label}" Content="Site Atmospheric Pressure" />
                 <Label Style="{StaticResource label}" Content="Ambien Temperature" />
-                <Label Style="{StaticResource label}" Content="Relative Humidity" />
-                <Label Style="{StaticResource label}" Content="Combustion" />
+                    <Label Style="{StaticResource label}" Content="Relative Humidity" />
+                    <Label Style="{StaticResource labelTop}" Content="Combustion" />
                 <Label Style="{StaticResource label}" Content="GAS#1" />
                 <Label Style="{StaticResource label}" Content="GAS#2" />
                 <Label Style="{StaticResource label}" Content="GAS#3" />
@@ -34,31 +36,364 @@
                 <Label Style="{StaticResource label}" Content="Atmozing Steam Flow" />
                 <Label Style="{StaticResource label}" Content="Atmozing Steam Pressure" />
                 <Label Style="{StaticResource label}" Content="Atmozing Steam Temperature" />
-                <Label Style="{StaticResource label}" Content="F.D.F" />
+                <Label Style="{StaticResource labelTop}" Content="F.D.F" />
                 <Label Style="{StaticResource label}" Content="Fan efficiency" />
                 <Label Style="{StaticResource label}" Content="Heat exchange ducty" />
-                <Label Style="{StaticResource label}" Content="Steam Outlet" />
-                <Label Style="{StaticResource label}" Content="Steam Pressure @ T.P" />
-                <Label Style="{StaticResource label}" Content="Main steam Pressue Drop" />
-                <Label Style="{StaticResource label}" Content="Desuperheater" />
-                <Label Style="{StaticResource label}" Content="Location of DESH" />
+                    <Label Style="{StaticResource labelTop}" Content="Steam Outlet" />
+                    <Label Style="{StaticResource label}" Content="Steam Pressure @ T.P" />
+                    <Label Style="{StaticResource label}" Content="Main steam Pressue Drop" />
+                    <Label Style="{StaticResource labelTop}" Content="Desuperheater" />
+                    <Label Style="{StaticResource label}" Content="Location of DESH" />
                 <Label Style="{StaticResource label}" Content="Steam temperature set point  T.P" />
-                <Label Style="{StaticResource label}" Content="Min SH degree at desperheater outlet" />
-                <Label Style="{StaticResource label}" Content="Feed water" />
-                <Label Style="{StaticResource label}" Content="Feed water Pressure" />
+                    <Label Style="{StaticResource label}" Content="Min SH degree at desperheater outlet" />
+                    <Label Style="{StaticResource labelTop}" Content="Feed water" />
+                    <Label Style="{StaticResource label}" Content="Feed water Pressure" />
                 <Label Style="{StaticResource label}" Content="Feed water Temperature" />
                 <Label Style="{StaticResource label}" Content="B.F.P temperature rise" />
                 <Label Style="{StaticResource label}" Content="Feed water piping dp" />
-                <Label Style="{StaticResource label}" Content="Level control Valve dp" />
-                <Label Style="{StaticResource label}" Content="Losses" />
+                    <Label Style="{StaticResource label}" Content="Level control Valve dp" />
+                    <Label Style="{StaticResource labelTop}" Content="Losses" />
                 <Label Style="{StaticResource label}" Content="Unburned Loss" />
                 <Label Style="{StaticResource label}" Content="Radiation Loss" />
-                <Label Style="{StaticResource label}" Content="Furnace heat absorption Eff" />
-                <Label Style="{StaticResource label}" Content="Blowdown" />
-                <Label Style="{StaticResource label}" Content="Blowdown flow" />
+                    <Label Style="{StaticResource label}" Content="Furnace heat absorption Eff" />
+                    <Label Style="{StaticResource labelTop}" Content="Blowdown" />
+                    <Label Style="{StaticResource label}" Content="Blowdown flow" />
+                    <StackPanel  HorizontalAlignment="Right" Orientation="Horizontal">
+                        <Button Style="{StaticResource RoundedButtonStyleG}" Content="Save" Width="100" Height="25" Click="Save_Click" />
+                        <Button  Margin="4,0,4,0" Style="{StaticResource RoundedButtonStyleR}" Content="Cancel" Width="100" Height="25" Click="Cancel_Click" />
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Name="stackPanel_1" Visibility="Hidden" Grid.Column="1" Orientation="Vertical" >
+                    <TextBox Name="name_1" Style="{StaticResource textBox}" Text="Case#1" IsEnabled="False"/>
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Site_Atmospheric_Pressure_1" Style="{StaticResource textBox}" />
+                    <TextBox Name="Ambien_Temperature_1" Style="{StaticResource textBox}" />
+                    <TextBox Name="Relative_Humidity_1" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="GAS1_1" Style="{StaticResource textBox}" />
+                    <TextBox Name="GAS2_1" Style="{StaticResource textBox}" />
+                    <TextBox Name="GAS3_1" Style="{StaticResource textBox}" />
+                    <TextBox Name="GAS4_1" Style="{StaticResource textBox}" />
+                    <TextBox Name="GAS5_1" Style="{StaticResource textBox}" />
+                    <TextBox Name="OIL1_1" Style="{StaticResource textBox}" />
+                    <TextBox Name="OIL2_1" Style="{StaticResource textBox}" />
+                    <TextBox Name="Excess_Air_1" Style="{StaticResource textBox}" />
+                    <TextBox Name="Atmozing_Steam_Flow_1" Style="{StaticResource textBox}" />
+                    <TextBox Name="Atmozing_Steam_Pressure_1" Style="{StaticResource textBox}" />
+                    <TextBox Name="Atmozing_Steam_Temperature_1" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Fan_efficiency_1" Style="{StaticResource textBox}" />
+                    <TextBox Name="Heat_exchange_ducty_1" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Steam_Pressure_At_T_P_1" Style="{StaticResource textBox}" />
+                    <TextBox Name="Main_steam_Pressue_Drop_1" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Location_of_DESH_1" Style="{StaticResource textBox}" />
+                    <TextBox Name="Steam_temperature_set_point_T_P_1" Style="{StaticResource textBox}" />
+                    <TextBox Name="Min_SH_degree_at_desperheater_outlet_1" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Feed_water_Pressure_1" Style="{StaticResource textBox}" />
+                    <TextBox Name="Feed_water_Temperature_1" Style="{StaticResource textBox}" />
+                    <TextBox Name="B_F_P_temperature_rise_1" Style="{StaticResource textBox}" />
+                    <TextBox Name="Feed_water_piping_dp_1" Style="{StaticResource textBox}" />
+                    <TextBox Name="Level_control_Valve_dp_1" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Unburned_Loss_1" Style="{StaticResource textBox}" />
+                    <TextBox Name="Radiation_Loss_1" Style="{StaticResource textBox}" />
+                    <TextBox Name="Furnace_heat_absorption_Eff_1" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Blowdown_flow_1" Style="{StaticResource textBox}" />
+                </StackPanel>
+                <StackPanel Name="stackPanel_2" Visibility="Hidden" Grid.Column="1" Orientation="Vertical">
+                    <TextBox Name="name_2" Style="{StaticResource textBox}" Text="Case#2" IsEnabled="False"/>
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Site_Atmospheric_Pressure_2" Style="{StaticResource textBox}" />
+                    <TextBox Name="Ambien_Temperature_2" Style="{StaticResource textBox}" />
+                    <TextBox Name="Relative_Humidity_2" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="GAS1_2" Style="{StaticResource textBox}" />
+                    <TextBox Name="GAS2_2" Style="{StaticResource textBox}" />
+                    <TextBox Name="GAS3_2" Style="{StaticResource textBox}" />
+                    <TextBox Name="GAS4_2" Style="{StaticResource textBox}" />
+                    <TextBox Name="GAS5_2" Style="{StaticResource textBox}" />
+                    <TextBox Name="OIL1_2" Style="{StaticResource textBox}" />
+                    <TextBox Name="OIL2_2" Style="{StaticResource textBox}" />
+                    <TextBox Name="Excess_Air_2" Style="{StaticResource textBox}" />
+                    <TextBox Name="Atmozing_Steam_Flow_2" Style="{StaticResource textBox}" />
+                    <TextBox Name="Atmozing_Steam_Pressure_2" Style="{StaticResource textBox}" />
+                    <TextBox Name="Atmozing_Steam_Temperature_2" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Fan_efficiency_2" Style="{StaticResource textBox}" />
+                    <TextBox Name="Heat_exchange_ducty_2" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Steam_Pressure_At_T_P_2" Style="{StaticResource textBox}" />
+                    <TextBox Name="Main_steam_Pressue_Drop_2" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Location_of_DESH_2" Style="{StaticResource textBox}" />
+                    <TextBox Name="Steam_temperature_set_point_T_P_2" Style="{StaticResource textBox}" />
+                    <TextBox Name="Min_SH_degree_at_desperheater_outlet_2" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Feed_water_Pressure_2" Style="{StaticResource textBox}" />
+                    <TextBox Name="Feed_water_Temperature_2" Style="{StaticResource textBox}" />
+                    <TextBox Name="B_F_P_temperature_rise_2" Style="{StaticResource textBox}" />
+                    <TextBox Name="Feed_water_piping_dp_2" Style="{StaticResource textBox}" />
+                    <TextBox Name="Level_control_Valve_dp_2" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Unburned_Loss_2" Style="{StaticResource textBox}" />
+                    <TextBox Name="Radiation_Loss_2" Style="{StaticResource textBox}" />
+                    <TextBox Name="Furnace_heat_absorption_Eff_2" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Blowdown_flow_2" Style="{StaticResource textBox}" />
+                </StackPanel>
+                <StackPanel Name="stackPanel_3" Visibility="Hidden" Grid.Column="1" Orientation="Vertical">
+                    <TextBox Name="name_3" Style="{StaticResource textBox}" Text="Case#3" IsEnabled="False"/>
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Site_Atmospheric_Pressure_3" Style="{StaticResource textBox}" />
+                    <TextBox Name="Ambien_Temperature_3" Style="{StaticResource textBox}" />
+                    <TextBox Name="Relative_Humidity_3" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="GAS1_3" Style="{StaticResource textBox}" />
+                    <TextBox Name="GAS2_3" Style="{StaticResource textBox}" />
+                    <TextBox Name="GAS3_3" Style="{StaticResource textBox}" />
+                    <TextBox Name="GAS4_3" Style="{StaticResource textBox}" />
+                    <TextBox Name="GAS5_3" Style="{StaticResource textBox}" />
+                    <TextBox Name="OIL1_3" Style="{StaticResource textBox}" />
+                    <TextBox Name="OIL2_3" Style="{StaticResource textBox}" />
+                    <TextBox Name="Excess_Air_3" Style="{StaticResource textBox}" />
+                    <TextBox Name="Atmozing_Steam_Flow_3" Style="{StaticResource textBox}" />
+                    <TextBox Name="Atmozing_Steam_Pressure_3" Style="{StaticResource textBox}" />
+                    <TextBox Name="Atmozing_Steam_Temperature_3" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Fan_efficiency_3" Style="{StaticResource textBox}" />
+                    <TextBox Name="Heat_exchange_ducty_3" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Steam_Pressure_At_T_P_3" Style="{StaticResource textBox}" />
+                    <TextBox Name="Main_steam_Pressue_Drop_3" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Location_of_DESH_3" Style="{StaticResource textBox}" />
+                    <TextBox Name="Steam_temperature_set_point_T_P_3" Style="{StaticResource textBox}" />
+                    <TextBox Name="Min_SH_degree_at_desperheater_outlet_3" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Feed_water_Pressure_3" Style="{StaticResource textBox}" />
+                    <TextBox Name="Feed_water_Temperature_3" Style="{StaticResource textBox}" />
+                    <TextBox Name="B_F_P_temperature_rise_3" Style="{StaticResource textBox}" />
+                    <TextBox Name="Feed_water_piping_dp_3" Style="{StaticResource textBox}" />
+                    <TextBox Name="Level_control_Valve_dp_3" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Unburned_Loss_3" Style="{StaticResource textBox}" />
+                    <TextBox Name="Radiation_Loss_3" Style="{StaticResource textBox}" />
+                    <TextBox Name="Furnace_heat_absorption_Eff_3" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Blowdown_flow_3" Style="{StaticResource textBox}" />
+                </StackPanel>
+                <StackPanel Name="stackPanel_4" Visibility="Hidden" Grid.Column="1" Orientation="Vertical">
+                    <TextBox Name="name_4" Style="{StaticResource textBox}" Text="Case#4" IsEnabled="False"/>
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Site_Atmospheric_Pressure_4" Style="{StaticResource textBox}" />
+                    <TextBox Name="Ambien_Temperature_4" Style="{StaticResource textBox}" />
+                    <TextBox Name="Relative_Humidity_4" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="GAS1_4" Style="{StaticResource textBox}" />
+                    <TextBox Name="GAS2_4" Style="{StaticResource textBox}" />
+                    <TextBox Name="GAS3_4" Style="{StaticResource textBox}" />
+                    <TextBox Name="GAS4_4" Style="{StaticResource textBox}" />
+                    <TextBox Name="GAS5_4" Style="{StaticResource textBox}" />
+                    <TextBox Name="OIL1_4" Style="{StaticResource textBox}" />
+                    <TextBox Name="OIL2_4" Style="{StaticResource textBox}" />
+                    <TextBox Name="Excess_Air_4" Style="{StaticResource textBox}" />
+                    <TextBox Name="Atmozing_Steam_Flow_4" Style="{StaticResource textBox}" />
+                    <TextBox Name="Atmozing_Steam_Pressure_4" Style="{StaticResource textBox}" />
+                    <TextBox Name="Atmozing_Steam_Temperature_4" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Fan_efficiency_4" Style="{StaticResource textBox}" />
+                    <TextBox Name="Heat_exchange_ducty_4" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Steam_Pressure_At_T_P_4" Style="{StaticResource textBox}" />
+                    <TextBox Name="Main_steam_Pressue_Drop_4" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Location_of_DESH_4" Style="{StaticResource textBox}" />
+                    <TextBox Name="Steam_temperature_set_point_T_P_4" Style="{StaticResource textBox}" />
+                    <TextBox Name="Min_SH_degree_at_desperheater_outlet_4" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Feed_water_Pressure_4" Style="{StaticResource textBox}" />
+                    <TextBox Name="Feed_water_Temperature_4" Style="{StaticResource textBox}" />
+                    <TextBox Name="B_F_P_temperature_rise_4" Style="{StaticResource textBox}" />
+                    <TextBox Name="Feed_water_piping_dp_4" Style="{StaticResource textBox}" />
+                    <TextBox Name="Level_control_Valve_dp_4" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Unburned_Loss_4" Style="{StaticResource textBox}" />
+                    <TextBox Name="Radiation_Loss_4" Style="{StaticResource textBox}" />
+                    <TextBox Name="Furnace_heat_absorption_Eff_4" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Blowdown_flow_4" Style="{StaticResource textBox}" />
+                </StackPanel>
+                <StackPanel Name="stackPanel_5" Visibility="Hidden" Grid.Column="1" Orientation="Vertical">
+                    <TextBox Name="name_5" Style="{StaticResource textBox}" Text="Case#5" IsEnabled="False"/>
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Site_Atmospheric_Pressure_5" Style="{StaticResource textBox}" />
+                    <TextBox Name="Ambien_Temperature_5" Style="{StaticResource textBox}" />
+                    <TextBox Name="Relative_Humidity_5" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="GAS1_5" Style="{StaticResource textBox}" />
+                    <TextBox Name="GAS2_5" Style="{StaticResource textBox}" />
+                    <TextBox Name="GAS3_5" Style="{StaticResource textBox}" />
+                    <TextBox Name="GAS4_5" Style="{StaticResource textBox}" />
+                    <TextBox Name="GAS5_5" Style="{StaticResource textBox}" />
+                    <TextBox Name="OIL1_5" Style="{StaticResource textBox}" />
+                    <TextBox Name="OIL2_5" Style="{StaticResource textBox}" />
+                    <TextBox Name="Excess_Air_5" Style="{StaticResource textBox}" />
+                    <TextBox Name="Atmozing_Steam_Flow_5" Style="{StaticResource textBox}" />
+                    <TextBox Name="Atmozing_Steam_Pressure_5" Style="{StaticResource textBox}" />
+                    <TextBox Name="Atmozing_Steam_Temperature_5" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Fan_efficiency_5" Style="{StaticResource textBox}" />
+                    <TextBox Name="Heat_exchange_ducty_5" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Steam_Pressure_At_T_P_5" Style="{StaticResource textBox}" />
+                    <TextBox Name="Main_steam_Pressue_Drop_5" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Location_of_DESH_5" Style="{StaticResource textBox}" />
+                    <TextBox Name="Steam_temperature_set_point_T_P_5" Style="{StaticResource textBox}" />
+                    <TextBox Name="Min_SH_degree_at_desperheater_outlet_5" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Feed_water_Pressure_5" Style="{StaticResource textBox}" />
+                    <TextBox Name="Feed_water_Temperature_5" Style="{StaticResource textBox}" />
+                    <TextBox Name="B_F_P_temperature_rise_5" Style="{StaticResource textBox}" />
+                    <TextBox Name="Feed_water_piping_dp_5" Style="{StaticResource textBox}" />
+                    <TextBox Name="Level_control_Valve_dp_5" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Unburned_Loss_5" Style="{StaticResource textBox}" />
+                    <TextBox Name="Radiation_Loss_5" Style="{StaticResource textBox}" />
+                    <TextBox Name="Furnace_heat_absorption_Eff_5" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Blowdown_flow_5" Style="{StaticResource textBox}" />
+                </StackPanel>
+                <StackPanel Name="stackPanel_6" Visibility="Hidden" Grid.Column="1" Orientation="Vertical">
+                    <TextBox Name="name_6" Style="{StaticResource textBox}" Text="Case#6" IsEnabled="False"/>
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Site_Atmospheric_Pressure_6" Style="{StaticResource textBox}" />
+                    <TextBox Name="Ambien_Temperature_6" Style="{StaticResource textBox}" />
+                    <TextBox Name="Relative_Humidity_6" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="GAS1_6" Style="{StaticResource textBox}" />
+                    <TextBox Name="GAS2_6" Style="{StaticResource textBox}" />
+                    <TextBox Name="GAS3_6" Style="{StaticResource textBox}" />
+                    <TextBox Name="GAS4_6" Style="{StaticResource textBox}" />
+                    <TextBox Name="GAS5_6" Style="{StaticResource textBox}" />
+                    <TextBox Name="OIL1_6" Style="{StaticResource textBox}" />
+                    <TextBox Name="OIL2_6" Style="{StaticResource textBox}" />
+                    <TextBox Name="Excess_Air_6" Style="{StaticResource textBox}" />
+                    <TextBox Name="Atmozing_Steam_Flow_6" Style="{StaticResource textBox}" />
+                    <TextBox Name="Atmozing_Steam_Pressure_6" Style="{StaticResource textBox}" />
+                    <TextBox Name="Atmozing_Steam_Temperature_6" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Fan_efficiency_6" Style="{StaticResource textBox}" />
+                    <TextBox Name="Heat_exchange_ducty_6" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Steam_Pressure_At_T_P_6" Style="{StaticResource textBox}" />
+                    <TextBox Name="Main_steam_Pressue_Drop_6" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Location_of_DESH_6" Style="{StaticResource textBox}" />
+                    <TextBox Name="Steam_temperature_set_point_T_P_6" Style="{StaticResource textBox}" />
+                    <TextBox Name="Min_SH_degree_at_desperheater_outlet_6" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Feed_water_Pressure_6" Style="{StaticResource textBox}" />
+                    <TextBox Name="Feed_water_Temperature_6" Style="{StaticResource textBox}" />
+                    <TextBox Name="B_F_P_temperature_rise_6" Style="{StaticResource textBox}" />
+                    <TextBox Name="Feed_water_piping_dp_6" Style="{StaticResource textBox}" />
+                    <TextBox Name="Level_control_Valve_dp_6" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Unburned_Loss_6" Style="{StaticResource textBox}" />
+                    <TextBox Name="Radiation_Loss_6" Style="{StaticResource textBox}" />
+                    <TextBox Name="Furnace_heat_absorption_Eff_6" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Blowdown_flow_6" Style="{StaticResource textBox}" />
+                </StackPanel>
+                <StackPanel Name="stackPanel_7" Visibility="Hidden" Grid.Column="1" Orientation="Vertical">
+                    <TextBox Name="name_7" Style="{StaticResource textBox}" Text="Case#7" IsEnabled="False"/>
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Site_Atmospheric_Pressure_7" Style="{StaticResource textBox}" />
+                    <TextBox Name="Ambien_Temperature_7" Style="{StaticResource textBox}" />
+                    <TextBox Name="Relative_Humidity_7" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="GAS1_7" Style="{StaticResource textBox}" />
+                    <TextBox Name="GAS2_7" Style="{StaticResource textBox}" />
+                    <TextBox Name="GAS3_7" Style="{StaticResource textBox}" />
+                    <TextBox Name="GAS4_7" Style="{StaticResource textBox}" />
+                    <TextBox Name="GAS5_7" Style="{StaticResource textBox}" />
+                    <TextBox Name="OIL1_7" Style="{StaticResource textBox}" />
+                    <TextBox Name="OIL2_7" Style="{StaticResource textBox}" />
+                    <TextBox Name="Excess_Air_7" Style="{StaticResource textBox}" />
+                    <TextBox Name="Atmozing_Steam_Flow_7" Style="{StaticResource textBox}" />
+                    <TextBox Name="Atmozing_Steam_Pressure_7" Style="{StaticResource textBox}" />
+                    <TextBox Name="Atmozing_Steam_Temperature_7" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Fan_efficiency_7" Style="{StaticResource textBox}" />
+                    <TextBox Name="Heat_exchange_ducty_7" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Steam_Pressure_At_T_P_7" Style="{StaticResource textBox}" />
+                    <TextBox Name="Main_steam_Pressue_Drop_7" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Location_of_DESH_7" Style="{StaticResource textBox}" />
+                    <TextBox Name="Steam_temperature_set_point_T_P_7" Style="{StaticResource textBox}" />
+                    <TextBox Name="Min_SH_degree_at_desperheater_outlet_7" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Feed_water_Pressure_7" Style="{StaticResource textBox}" />
+                    <TextBox Name="Feed_water_Temperature_7" Style="{StaticResource textBox}" />
+                    <TextBox Name="B_F_P_temperature_rise_7" Style="{StaticResource textBox}" />
+                    <TextBox Name="Feed_water_piping_dp_7" Style="{StaticResource textBox}" />
+                    <TextBox Name="Level_control_Valve_dp_7" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Unburned_Loss_7" Style="{StaticResource textBox}" />
+                    <TextBox Name="Radiation_Loss_7" Style="{StaticResource textBox}" />
+                    <TextBox Name="Furnace_heat_absorption_Eff_7" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Blowdown_flow_7" Style="{StaticResource textBox}" />
+                </StackPanel>
+                <StackPanel Name="stackPanel_8" Visibility="Hidden" Grid.Column="1" Orientation="Vertical">
+                    <TextBox Name="name_8" Style="{StaticResource textBox}" Text="Case#8" IsEnabled="False"/>
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Site_Atmospheric_Pressure_8" Style="{StaticResource textBox}" />
+                    <TextBox Name="Ambien_Temperature_8" Style="{StaticResource textBox}" />
+                    <TextBox Name="Relative_Humidity_8" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="GAS1_8" Style="{StaticResource textBox}" />
+                    <TextBox Name="GAS2_8" Style="{StaticResource textBox}" />
+                    <TextBox Name="GAS3_8" Style="{StaticResource textBox}" />
+                    <TextBox Name="GAS4_8" Style="{StaticResource textBox}" />
+                    <TextBox Name="GAS5_8" Style="{StaticResource textBox}" />
+                    <TextBox Name="OIL1_8" Style="{StaticResource textBox}" />
+                    <TextBox Name="OIL2_8" Style="{StaticResource textBox}" />
+                    <TextBox Name="Excess_Air_8" Style="{StaticResource textBox}" />
+                    <TextBox Name="Atmozing_Steam_Flow_8" Style="{StaticResource textBox}" />
+                    <TextBox Name="Atmozing_Steam_Pressure_8" Style="{StaticResource textBox}" />
+                    <TextBox Name="Atmozing_Steam_Temperature_8" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Fan_efficiency_8" Style="{StaticResource textBox}" />
+                    <TextBox Name="Heat_exchange_ducty_8" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Steam_Pressure_At_T_P_8" Style="{StaticResource textBox}" />
+                    <TextBox Name="Main_steam_Pressue_Drop_8" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Location_of_DESH_8" Style="{StaticResource textBox}" />
+                    <TextBox Name="Steam_temperature_set_point_T_P_8" Style="{StaticResource textBox}" />
+                    <TextBox Name="Min_SH_degree_at_desperheater_outlet_8" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Feed_water_Pressure_8" Style="{StaticResource textBox}" />
+                    <TextBox Name="Feed_water_Temperature_8" Style="{StaticResource textBox}" />
+                    <TextBox Name="B_F_P_temperature_rise_8" Style="{StaticResource textBox}" />
+                    <TextBox Name="Feed_water_piping_dp_8" Style="{StaticResource textBox}" />
+                    <TextBox Name="Level_control_Valve_dp_8" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Unburned_Loss_8" Style="{StaticResource textBox}" />
+                    <TextBox Name="Radiation_Loss_8" Style="{StaticResource textBox}" />
+                    <TextBox Name="Furnace_heat_absorption_Eff_8" Style="{StaticResource textBox}" />
+                    <Label  Content="" Width="20" Padding="0" Margin="0"/>
+                    <TextBox Name="Blowdown_flow_8" Style="{StaticResource textBox}" />
+                </StackPanel>
+
 
             </StackPanel>
-
         </ScrollViewer>
     </Grid>
 </Window>

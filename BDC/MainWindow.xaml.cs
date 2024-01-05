@@ -51,6 +51,7 @@ namespace BDC
         public Furnace furnace { get; set; }
 
         public List<Duct> ducts { get; set; }
+ 
         public List<GasFuel> gasFuels { get; set; }
         public List<OilFuel> oilFuels { get; set; }
         public List<Case> cases{ get; set; }
@@ -391,13 +392,7 @@ namespace BDC
 
         }
 
-        private void Cases_Click(object sender, RoutedEventArgs e)
-        {
-            FormCase formCase = new FormCase(cases, this);
-            formCase.Show();
-        }
-
-
+       
         #endregion
 
 
@@ -471,11 +466,11 @@ namespace BDC
 
         #region case
 
-        private void CaseBuiler(int id,int operation,string name = null , int order = 0)
+        private void CaseBuiler(int id, int operation, string name = null, int order = 0)
         {
 
 
-             Case @case = cases.Find(x => x.Id == id);
+            Case @case = cases.Find(x => x.Id == id);
             @case.Name = name;
             @case.order = order;
             switch (operation)
@@ -499,16 +494,18 @@ namespace BDC
                 default:
                     break;
             }
-
-
-
-            foreach (RadioButton item in casesToolBar.Items)
+        }
+          private void CaseBuiler()
             {
-                cases.Add(new Case { Name = item.Content.ToString() });
+               
 
+                foreach (RadioButton item in casesToolBar.Items)
+            {
+                Process process = new Process();
+                cases.Add(new Case { Name = item.Content.ToString(), process = process });
             }
   
-        }
+            }
 
         private void AddCase_Click(object sender, RoutedEventArgs e)
         {
@@ -526,7 +523,6 @@ namespace BDC
             radioButton.TabIndex = cases.Count();
             radioButton.MouseDoubleClick += RadioButton_MouseDoubleClick;
             casesToolBar.Items.Add(radioButton);
-
           //  CaseBuiler();
         }
 
@@ -700,7 +696,8 @@ namespace BDC
 
         private void formProcess_Click(object sender, MouseButtonEventArgs e)
         {
-            FormProcess formProcess = new FormProcess();
+            CaseBuiler();
+            FormProcess formProcess = new FormProcess(cases,this);
             formProcess.Show();
         }
     }
