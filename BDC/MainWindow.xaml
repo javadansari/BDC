@@ -81,7 +81,7 @@
                         <TextBlock VerticalAlignment="Center" Text="Fuel Spec" HorizontalAlignment="Center" MouseDown="formFuel_Click" />
                     </Border>
                     <Border BorderBrush="DarkGray" BorderThickness="1" Margin="1"   Width="80" Background="DarkGray">
-                        <TextBlock VerticalAlignment="Center" Text="Process Data" HorizontalAlignment="Center" MouseDown="setNumber_Click" />
+                        <TextBlock VerticalAlignment="Center" Text="Process Data" HorizontalAlignment="Center" MouseDown="formProcess_Click" />
                     </Border>
                     <Border BorderBrush="DarkGray" BorderThickness="1" Margin="1"   Width="80" Background="DarkGray">
                         <TextBlock VerticalAlignment="Center" Text="General Input" HorizontalAlignment="Center" MouseDown="setNumber_Click" />

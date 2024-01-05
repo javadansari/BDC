@@ -10,6 +10,7 @@ namespace BDC.Classes
     {
         public int id { get; set; }
         public string name { get; set; } = "-";
+        public int active_ { get; set; } = 0;
         public string C { get; set; } = "-";
         public string H { get; set; } = "-";
         public string H2O_ { get; set; } = "-";

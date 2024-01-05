@@ -11,6 +11,7 @@ namespace BDC.Classes
     {
         public int id { get; set; }
         public string name { get; set; } = "-";
+        public int active { get; set; } = 0;
         public string CH4 { get; set; } = "-";
         public string C2H6 { get; set; } = "-";
         public string C3H8 { get; set; } = "-";

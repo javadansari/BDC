@@ -100,6 +100,69 @@ namespace BDC.DataBase
             return true;
         }
 
+        public bool ExportOilFuel(List<OilFuel> oilFuels)
+        {
+            ExportSpacer("OilFuel");
+            string line = "";
+            Type objType = oilFuels[0].GetType();
+            PropertyInfo[] properties = objType.GetProperties();
+            foreach (PropertyInfo prop in properties)
+            {
+                object value = prop.Name;
+                line = line + "," + value;
+            }
+            using (StreamWriter writer = new StreamWriter(filePath, true))
+            {
+                writer.WriteLine(line);
+            }
+            foreach (OilFuel oilFuel in oilFuels)
+            {
+                using (StreamWriter writer = new StreamWriter(filePath, true))
+                {
+                    line = "";
+                    foreach (PropertyInfo prop in properties)
+                    {
+                        object value = prop.GetValue(oilFuel);
+                        line = line + "," + value;
+
+                    }
+                    writer.WriteLine(line);
+                }
+            }
+            return true;
+        }
+
+        public bool ExportGasFuel(List<GasFuel> gasFuels)
+        {
+            ExportSpacer("OilFuel");
+            string line = "";
+            Type objType = gasFuels[0].GetType();
+            PropertyInfo[] properties = objType.GetProperties();
+            foreach (PropertyInfo prop in properties)
+            {
+                object value = prop.Name;
+                line = line + "," + value;
+            }
+            using (StreamWriter writer = new StreamWriter(filePath, true))
+            {
+                writer.WriteLine(line);
+            }
+            foreach (GasFuel gasFuel in gasFuels)
+            {
+                using (StreamWriter writer = new StreamWriter(filePath, true))
+                {
+                    line = "";
+                    foreach (PropertyInfo prop in properties)
+                    {
+                        object value = prop.GetValue(gasFuel);
+                        line = line + "," + value;
+
+                    }
+                    writer.WriteLine(line);
+                }
+            }
+            return true;
+        }
         public bool ExportSpacer(string name)
         {
   

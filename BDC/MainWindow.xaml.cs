@@ -51,6 +51,8 @@ namespace BDC
         public Furnace furnace { get; set; }
 
         public List<Duct> ducts { get; set; }
+        public List<GasFuel> gasFuels { get; set; }
+        public List<OilFuel> oilFuels { get; set; }
         public List<Case> cases{ get; set; }
         private Case selectedCase;
 
@@ -91,9 +93,10 @@ namespace BDC
             furnace = new Furnace();
 
             ducts = new List<Duct>();
-            
+            gasFuels = new List<GasFuel>();
+            oilFuels = new List<OilFuel>();
 
-            elements = new List<Element>();
+        elements = new List<Element>();
             for (int i = 1; i <= 11; i++)
             {
                 Element element = new Element();
@@ -658,8 +661,9 @@ namespace BDC
         }
 
         private void formFuel_Click(object sender, MouseButtonEventArgs e)
-        {
-            FormFuel formFuel = new FormFuel();
+        { 
+
+        FormFuel formFuel = new FormFuel(oilFuels,gasFuels ,this);
             formFuel.Show();
         }
 
@@ -671,6 +675,8 @@ namespace BDC
             export.ExportFurnace(furnace);   
             export.ExportElement(elements);
             export.ExportDuct(ducts);
+            export.ExportOilFuel(oilFuels);
+            export.ExportGasFuel(gasFuels);
 
           //  ExportToFile(furnace, @"e:\1.txt");
         }
@@ -690,6 +696,12 @@ namespace BDC
                     writer.WriteLine(line);
                 }
             }
+        }
+
+        private void formProcess_Click(object sender, MouseButtonEventArgs e)
+        {
+            FormProcess formProcess = new FormProcess();
+            formProcess.Show();
         }
     }
     #endregion

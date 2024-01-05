@@ -1,0 +1,64 @@
+﻿<Window x:Class="BDC.Forms.FormProcess"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BDC.Forms"
+        mc:Ignorable="d"
+        Title="FormFuel" Height="650" Width="830">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Style/StyleFormFuel.xaml"/>
+                <ResourceDictionary Source="/Style/StyleFormFurnace.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <ScrollViewer>
+            
+
+        <StackPanel  Grid.Column="0" Orientation="Vertical">
+                <Label Style="{StaticResource label}" Content="Site Atmospheric Pressure" />
+                <Label Style="{StaticResource label}" Content="Ambien Temperature" />
+                <Label Style="{StaticResource label}" Content="Relative Humidity" />
+                <Label Style="{StaticResource label}" Content="Combustion" />
+                <Label Style="{StaticResource label}" Content="GAS#1" />
+                <Label Style="{StaticResource label}" Content="GAS#2" />
+                <Label Style="{StaticResource label}" Content="GAS#3" />
+                <Label Style="{StaticResource label}" Content="GAS#4" />
+                <Label Style="{StaticResource label}" Content="GAS#5" />
+                <Label Style="{StaticResource label}" Content="OIL#1" />
+                <Label Style="{StaticResource label}" Content="OIL#2" />
+                <Label Style="{StaticResource label}" Content="Excess Air" />
+                <Label Style="{StaticResource label}" Content="Atmozing Steam Flow" />
+                <Label Style="{StaticResource label}" Content="Atmozing Steam Pressure" />
+                <Label Style="{StaticResource label}" Content="Atmozing Steam Temperature" />
+                <Label Style="{StaticResource label}" Content="F.D.F" />
+                <Label Style="{StaticResource label}" Content="Fan efficiency" />
+                <Label Style="{StaticResource label}" Content="Heat exchange ducty" />
+                <Label Style="{StaticResource label}" Content="Steam Outlet" />
+                <Label Style="{StaticResource label}" Content="Steam Pressure @ T.P" />
+                <Label Style="{StaticResource label}" Content="Main steam Pressue Drop" />
+                <Label Style="{StaticResource label}" Content="Desuperheater" />
+                <Label Style="{StaticResource label}" Content="Location of DESH" />
+                <Label Style="{StaticResource label}" Content="Steam temperature set point  T.P" />
+                <Label Style="{StaticResource label}" Content="Min SH degree at desperheater outlet" />
+                <Label Style="{StaticResource label}" Content="Feed water" />
+                <Label Style="{StaticResource label}" Content="Feed water Pressure" />
+                <Label Style="{StaticResource label}" Content="Feed water Temperature" />
+                <Label Style="{StaticResource label}" Content="B.F.P temperature rise" />
+                <Label Style="{StaticResource label}" Content="Feed water piping dp" />
+                <Label Style="{StaticResource label}" Content="Level control Valve dp" />
+                <Label Style="{StaticResource label}" Content="Losses" />
+                <Label Style="{StaticResource label}" Content="Unburned Loss" />
+                <Label Style="{StaticResource label}" Content="Radiation Loss" />
+                <Label Style="{StaticResource label}" Content="Furnace heat absorption Eff" />
+                <Label Style="{StaticResource label}" Content="Blowdown" />
+                <Label Style="{StaticResource label}" Content="Blowdown flow" />
+
+            </StackPanel>
+
+        </ScrollViewer>
+    </Grid>
+</Window>
