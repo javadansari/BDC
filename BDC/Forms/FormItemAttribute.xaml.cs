@@ -310,7 +310,7 @@ namespace BDC.Forms
 
                          if (checkBox.IsChecked.Value)
                          {
-                             element.attribute.active = checkBox.IsChecked.Value;
+                             element.attribute.active = !checkBox.IsChecked.Value;
                              checkCheckBox(checkBox, stackPanel);
                          }
 
@@ -318,14 +318,14 @@ namespace BDC.Forms
                  };
             checkBox.Unchecked += (sender, e) =>
             {
-                element.attribute.active = checkBox.IsChecked.Value;
+                element.attribute.active = !checkBox.IsChecked.Value;
                 foreach (var item in stackPanel.Children) 
                       if (item is UIElement element)  element.IsEnabled = true;
 
 
             };
           stackPanel.Children.Add(checkBox);
-            checkBoxStackPanelList.Add(Tuple.Create(checkBox,stackPanel));
+          checkBoxStackPanelList.Add(Tuple.Create(checkBox,stackPanel));
         }
         private void checkCheckBox(CheckBox checkBox , StackPanel stackPanel)
         {

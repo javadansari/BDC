@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -16,11 +17,17 @@ namespace BDC
             [STAThread]
             public static void Main()
             {
-                App app = new App();
+
+
+               SplashWindow splashScreen = new SplashWindow();
+               splashScreen.Show();
+               Thread.Sleep(3000);
+               splashScreen.Close();
+              App app = new App();
                 MainWindow mainWindow = new MainWindow(); // or the name of your main window class
                 app.Run(mainWindow);
             }
-     
+               
     }
 
 }

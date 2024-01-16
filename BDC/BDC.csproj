@@ -36,6 +36,7 @@
     <None Remove="Images\Other\select.png" />
     <None Remove="Images\Other\select1.png" />
     <None Remove="Images\Other\select2.png" />
+    <None Remove="Images\Other\startup.jpg" />
     <None Remove="Images\Other\up.png" />
     <None Remove="pump.png" />
     <None Remove="SmokeRelation.png" />
@@ -86,6 +87,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Other\select2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Other\startup.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Other\up.png">

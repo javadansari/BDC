@@ -10,7 +10,7 @@ namespace BDC.Classes
     public class ItemAttribute
     {
         [DisplayName("Blank activation")]
-        public bool active { get; set; } = true;
+        public bool active { get; set; } = false;
 
         [DisplayName("Section Name")]
         public string sectionName { get; set; } = "-";

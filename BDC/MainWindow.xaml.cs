@@ -136,7 +136,7 @@ namespace BDC
                 Image image = FindName("boilerStage_" + element.Id) as Image;
                 if (image != null )
                 {
-                    if (!element.attribute.active)
+                    if (element.attribute.active)
                     {
                         if (element.Id < 8 )
                         {
