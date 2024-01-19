@@ -20,6 +20,7 @@ namespace BDC.Forms
         StackPanel childStackPanel;
         MainWindow Main;
         private int height = 26;
+        CheckBox activeCheckBox;
         List<Element> Elements = new List<Element>();
         public FormItemAttribute(List<Element> elements, MainWindow main)
         {
@@ -83,11 +84,12 @@ namespace BDC.Forms
                    Background = new SolidColorBrush(color),
                 };
 
-                buildCheckBox(childStackPanel, element.attribute.active, element);
+                activeCheckBox =  buildCheckBox(childStackPanel, element.attribute.active, element);
+
 
                 Label laberSectionName = new Label
                 {
-                    Content = element.attribute.sectionName,
+                     Content = element.attribute.sectionName,
                 };
                 childStackPanel.Children.Add(laberSectionName);
 
@@ -203,6 +205,8 @@ namespace BDC.Forms
 
                 }
 
+                if (!element.attribute.active) laberSectionName.Content = "";
+
                 // TubeArrangement
                 List<string> itemsList = new List<string> {"Staggered","In-line", };
              
@@ -232,19 +236,33 @@ namespace BDC.Forms
                 buildTextBox(childStackPanel, e => e.attribute.Fin_Segment_Width, element, (e, value) => e.attribute.Fin_Segment_Width = value);
                 buildTextBox(childStackPanel, e => e.attribute.Fin_Material, element, (e, value) => e.attribute.Fin_Material = value);
                 buildTextBox(childStackPanel, e => e.attribute.Water_Side_Founling_Factor, element, (e, value) => e.attribute.Water_Side_Founling_Factor = value);
-                buildTextBox(childStackPanel, e => e.attribute.Usage_Factor, element, (e, value) => e.attribute.Usage_Factor = value);
-                buildTextBox(childStackPanel, e => e.attribute.Usage_Factor, element, (e, value) => e.attribute.Usage_Factor = value);
+                buildTextBox(childStackPanel, e => e.attribute.Gas_Side_Founling_Factor, element, (e, value) => e.attribute.Gas_Side_Founling_Factor = value);
                 buildTextBox(childStackPanel, e => e.attribute.Usage_Factor, element, (e, value) => e.attribute.Usage_Factor = value);
 
 
                 childStackPanel.Background = Brushes.LightYellow;
-             //   if (element.Id % 2 == 0) childStackPanel.Background = Brushes.LightGray;
+                //   if (element.Id % 2 == 0) childStackPanel.Background = Brushes.LightGray;
 
-               horizontalStackPanelOuter.Children.Add(childStackPanel);
+
+
+
+                horizontalStackPanelOuter.Children.Add(childStackPanel);
+                if (!element.attribute.active)
+                {
+                    foreach (var item in childStackPanel.Children)
+                    {
+                        if (item is UIElement ele)
+                        {
+                            ele.IsEnabled = false;
+                        }
+                    }
+                }
+                activeCheckBox.IsEnabled = true;
             }
 
             verticalStackPanelOuter.Children.Add(horizontalStackPanelOuter);
-     
+
+          
 
             ScrollViewer scrollViewer = new ScrollViewer
             {
@@ -264,20 +282,30 @@ namespace BDC.Forms
                 Height = 50,
             };
             saveButton.Click += SaveButton_Click;
+            Button closeButton = new Button
+            {
+                Content = "Close",
+                Margin = new Thickness(10),
+                Width = 150,
+                Height = 50,
+            };
+            closeButton.Click += (sender, e) => Close();
+
             verticalStackPanelOuter.Children.Add(saveButton);
+            verticalStackPanelOuter.Children.Add(closeButton);
 
 
             // check enable stacks
-            foreach (var pair in checkBoxStackPanelList)
-            {
-                CheckBox checkBox = pair.Item1;
-                StackPanel stackPanel = pair.Item2;
-                if (checkBox.IsChecked.Value)
-                {
-                    checkCheckBox(checkBox, stackPanel);
-                }
-              
-            }
+            //foreach (var pair in checkBoxStackPanelList)
+            //{
+            //    CheckBox checkBox = pair.Item1;
+            //    StackPanel stackPanel = pair.Item2;
+            //    if (checkBox.IsChecked.Value)
+            //    {
+            //        checkCheckBox(checkBox, stackPanel);
+            //    }
+
+            //}
 
         }
         private void SaveButton_Click(object sender, RoutedEventArgs e)
@@ -295,7 +323,7 @@ namespace BDC.Forms
                    childStackPanel.Children.Add(label);
         }
 
-        private void buildCheckBox(StackPanel stackPanel, bool check, Element element)
+        private CheckBox buildCheckBox(StackPanel stackPanel, bool check, Element element)
         {
             CheckBox checkBox = new CheckBox
             {
@@ -310,22 +338,23 @@ namespace BDC.Forms
 
                          if (checkBox.IsChecked.Value)
                          {
-                             element.attribute.active = !checkBox.IsChecked.Value;
-                             checkCheckBox(checkBox, stackPanel);
+                             element.attribute.active = checkBox.IsChecked.Value;
+                             //   checkCheckBox(checkBox, stackPanel);
+                                 foreach (var item in stackPanel.Children)
+                                 if (item is UIElement element)
+                                     element.IsEnabled = true;
                          }
 
                      };
                  };
             checkBox.Unchecked += (sender, e) =>
             {
-                element.attribute.active = !checkBox.IsChecked.Value;
-                foreach (var item in stackPanel.Children) 
-                      if (item is UIElement element)  element.IsEnabled = true;
-
-
+                element.attribute.active = checkBox.IsChecked.Value;
+                checkCheckBox(checkBox, stackPanel);
             };
           stackPanel.Children.Add(checkBox);
           checkBoxStackPanelList.Add(Tuple.Create(checkBox,stackPanel));
+         return checkBox;
         }
         private void checkCheckBox(CheckBox checkBox , StackPanel stackPanel)
         {
@@ -334,11 +363,10 @@ namespace BDC.Forms
                 {
                     if (element is CheckBox check1)
                     {
-                        if (check1 == checkBox)
-                            checkBox.IsEnabled = true;
+                        if (check1 == checkBox) { }
+                      //      checkBox.IsEnabled = true;
                     }
-                    else element.IsEnabled = false;
-
+                    else element.IsEnabled = true;
                 }
         }
         private void buildTextBox(StackPanel stackPanel ,  Func<Element, string> getIndexFunc , Element element, Action<Element, string> setIndexAction)

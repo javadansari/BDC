@@ -72,10 +72,15 @@ namespace BDC.Classes
         [DisplayName("Fin Material")]
         public string Fin_Material { get; set; } = "-";
 
-        [DisplayName("Water-Side Founling Factor")]
+        [DisplayName("Water-Side Founling Factor (m2K/W)")]
         public string Water_Side_Founling_Factor { get; set; } = "-";
 
-        [DisplayName("Usage Factor")]
+
+        [DisplayName("Gas-Side Founling Factor (m2K/W)")]
+        public string Gas_Side_Founling_Factor { get; set; } = "-";
+
+
+        [DisplayName("Usage Factor (0,1)")]
         public string Usage_Factor { get; set; } = "-";
     }
 }
