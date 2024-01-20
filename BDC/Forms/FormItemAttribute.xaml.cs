@@ -207,6 +207,13 @@ namespace BDC.Forms
 
                 if (!element.attribute.active) laberSectionName.Content = "";
 
+
+                buildTextBox(childStackPanel, e => e.attribute.Channel_Height, element, (e, value) => e.attribute.Channel_Height = value);
+                buildTextBox(childStackPanel, e => e.attribute.Channel_Width, element, (e, value) => e.attribute.Channel_Width = value);
+
+
+
+
                 // TubeArrangement
                 List<string> itemsList = new List<string> {"Staggered","In-line", };
              
@@ -218,19 +225,25 @@ namespace BDC.Forms
                 buildCombo(itemsList, e => e.attribute.Water_Gas_Flow_Pattern, element, (e, index) => e.attribute.Water_Gas_Flow_Pattern = index);
 
 
-                buildTextBox(childStackPanel, e => e.attribute.SLN, element, (e, value) => e.attribute.SLN = value);
-                buildTextBox(childStackPanel, e => e.attribute.STN, element, (e, value) => e.attribute.STN = value);
-                buildTextBox(childStackPanel, e => e.attribute.Tube_Rows_Path, element, (e, value) => e.attribute.Tube_Rows_Path = value);
-                buildTextBox(childStackPanel, e => e.attribute.Path_Wide, element, (e, value) => e.attribute.Path_Wide = value);
-                buildTextBox(childStackPanel, e => e.attribute.SL, element, (e, value) => e.attribute.SL = value);
-                buildTextBox(childStackPanel, e => e.attribute.ST, element, (e, value) => e.attribute.ST = value);
+                buildTextBox(childStackPanel, e => e.attribute.No_Rows, element, (e, value) => e.attribute.No_Rows = value);
+                buildTextBox(childStackPanel, e => e.attribute.No_Tubes_Row, element, (e, value) => e.attribute.No_Tubes_Row = value);
+                buildTextBox(childStackPanel, e => e.attribute.Longitudinal_Pitch, element, (e, value) => e.attribute.Longitudinal_Pitch = value);
+                buildTextBox(childStackPanel, e => e.attribute.Transverse_Pitch, element, (e, value) => e.attribute.Transverse_Pitch = value);
+                buildTextBox(childStackPanel, e => e.attribute.NO_Water_Carrying_Tubes, element, (e, value) => e.attribute.NO_Water_Carrying_Tubes = value);
                 buildTextBox(childStackPanel, e => e.attribute.Tube_Length, element, (e, value) => e.attribute.Tube_Length = value);
                 buildTextBox(childStackPanel, e => e.attribute.Tube_Outer_Diameter, element, (e, value) => e.attribute.Tube_Outer_Diameter = value);
                 buildTextBox(childStackPanel, e => e.attribute.Tube_Wall_Thickness, element, (e, value) => e.attribute.Tube_Wall_Thickness = value);
                 buildTextBox(childStackPanel, e => e.attribute.Incidence_Angle, element, (e, value) => e.attribute.Incidence_Angle = value);
-                buildTextBox(childStackPanel, e => e.attribute.Tubes_Material, element, (e, value) => e.attribute.Tubes_Material = value);
-                buildTextBox(childStackPanel, e => e.attribute.Fin_Type, element, (e, value) => e.attribute.Fin_Type = value);
+          
+                List<string> MaterialList = new List<string> { "Staggered", "In-line", };
+                buildCombo(itemsList, e => e.attribute.Tubes_Material, element, (e, index) => e.attribute.Tubes_Material = index);
+             
+                List<string> typeList = new List<string> { "Staggered", "In-line", };
+                buildCombo(itemsList, e => e.attribute.Fin_Type, element, (e, index) => e.attribute.Fin_Type = index);
+
+
                 buildTextBox(childStackPanel, e => e.attribute.Fin_Height, element, (e, value) => e.attribute.Fin_Height = value);
+                buildTextBox(childStackPanel, e => e.attribute.Fin_Thickness, element, (e, value) => e.attribute.Fin_Thickness = value);
                 buildTextBox(childStackPanel, e => e.attribute.Fin_Density, element, (e, value) => e.attribute.Fin_Density = value);
                 buildTextBox(childStackPanel, e => e.attribute.Fin_Uncut_Height, element, (e, value) => e.attribute.Fin_Uncut_Height = value);
                 buildTextBox(childStackPanel, e => e.attribute.Fin_Segment_Width, element, (e, value) => e.attribute.Fin_Segment_Width = value);
