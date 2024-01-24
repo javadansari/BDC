@@ -95,18 +95,18 @@
                 <TextBox  Name="L3"    Style="{StaticResource textBoxSmallItems}"  />
                 <TextBox  Name="L4"     Style="{StaticResource textBoxSmallItems}"  />
             </StackPanel>
-            <StackPanel    Orientation="Horizontal" Height="225">
+            <StackPanel    Orientation="Horizontal" Height="125">
                 <StackPanel Orientation="Vertical" >
-                    <Label Style="{StaticResource label}" Content="" Height="200" />
+                    <Label Style="{StaticResource label}" Content="" Height="0" />
                     <Label Style="{StaticResource label}" Content="ri"/>
                 </StackPanel>
                 <StackPanel Width="200" Orientation="Vertical">
                     <Label Style="{StaticResource label}" Content="Bend/Joint (Note 1)" Width="200" Height="25" />
-                    <Image   Source="../Images/Duct/image2.png"  Width="200" Height="200"></Image>
+                    <Image   Source="../Images/Duct/image2.png"  Width="200" Height="100"></Image>
                 </StackPanel>
                 <StackPanel Orientation="Vertical" Width="200" Margin="2,0,2,0">
-                    <StackPanel Orientation="Vertical" Height="200">
-                        <Label Style="{StaticResource label}" Content="Joining is applied in the same way" Width="200" Height="16"/>
+                    <StackPanel Orientation="Vertical" Height="100">
+                        <!--<Label Style="{StaticResource label}" Content="Joining is applied in the same way" Width="200" Height="16"/>
                         <Label Style="{StaticResource label}" Content="as in the case of bending. However," Width="200" Height="16" />
                         <Label Style="{StaticResource label}" Content="when applying, pay attention to "  Width="200" Height="16" />
                         <Label Style="{StaticResource label}" Content="the following."  Width="200" Height="16" />
@@ -117,33 +117,33 @@
                         <Label Style="{StaticResource label}" Content="combined duct." Width="200" Height="16"/>
                         <Label Style="{StaticResource label}" Content="2) The actual flow rate before" Width="200" Height="16"/>
                         <Label Style="{StaticResource label}" Content="merging is applied to the flowing" Width="200" Height="16"/>
-                        <Label Style="{StaticResource label}" Content="flow rate." Width="200" Height="16"/>
+                        <Label Style="{StaticResource label}" Content="flow rate." Width="200" Height="16"/>-->
                     </StackPanel>
                     <Label Style="{StaticResource label}" Content="Quantity of elbow or Joint" Width="200" Height="25"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical" >
                     <Label Style="{StaticResource label}" Content="" />
                 </StackPanel>
-                <StackPanel Height="225" Orientation="Vertical">
-                    <StackPanel   Height="200" >
+                <StackPanel Height="125" Orientation="Vertical">
+                    <StackPanel   Height="100" >
                         <ComboBox Name="Bend_Joint1" Style="{StaticResource comboBoxItems}" ItemsSource="{StaticResource ComboBoxItems3}" Margin="0,75,0,0" />
                     </StackPanel>
                     <TextBox Name="ri1" Style="{StaticResource textBoxSmallItems}" Height="25" />
                 </StackPanel>
-                <StackPanel Height="225" Orientation="Vertical">
-                    <StackPanel   Height="200" >
+                <StackPanel Height="125" Orientation="Vertical">
+                    <StackPanel   Height="100" >
                         <ComboBox Name="Bend_Joint2" Style="{StaticResource comboBoxItems}" ItemsSource="{StaticResource ComboBoxItems3}" Margin="0,75,0,0" />
                     </StackPanel>
                     <TextBox Name="ri2" Style="{StaticResource textBoxSmallItems}" Height="25" />
                 </StackPanel>
-                <StackPanel Height="225" Orientation="Vertical">
-                    <StackPanel   Height="200" >
+                <StackPanel Height="125" Orientation="Vertical">
+                    <StackPanel   Height="100" >
                         <ComboBox Name="Bend_Joint3" Style="{StaticResource comboBoxItems}" ItemsSource="{StaticResource ComboBoxItems3}" Margin="0,75,0,0" />
                     </StackPanel>
                     <TextBox Name="ri3" Style="{StaticResource textBoxSmallItems}" Height="25" />
                 </StackPanel>
-                <StackPanel Height="225" Orientation="Vertical">
-                    <StackPanel   Height="200" >
+                <StackPanel Height="125" Orientation="Vertical">
+                    <StackPanel   Height="100" >
                         <ComboBox Name="Bend_Joint4" Style="{StaticResource comboBoxItems}" ItemsSource="{StaticResource ComboBoxItems3}" Margin="0,75,0,0" />
                     </StackPanel>
                     <TextBox Name="ri4" Style="{StaticResource textBoxSmallItems}" Height="25" />
