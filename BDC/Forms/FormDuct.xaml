@@ -18,8 +18,8 @@
     <ScrollViewer HorizontalScrollBarVisibility="Auto">
         <StackPanel Orientation="Vertical">
             <StackPanel  Orientation="Horizontal" Height="25">
-                <Label Style="{StaticResource labelTop}" Content="MARK"/>
-                <Label Style="{StaticResource labelTop}" Width="200" Content="DECRIPTION"/>
+                <Label Style="{StaticResource labelTop}" Width="50" Content=""/>
+                <Label Style="{StaticResource labelTop}" Width="200" Content="MARK DECRIPTION"/>
                 <Label Style="{StaticResource labelTop}" Width="200"  Content="DETIAL"/>
                 <Label Style="{StaticResource labelTop}" Content="UNIT"/>
                 <Label Style="{StaticResource labelTop}" Width="100" Content="Air Duct#1"/>
