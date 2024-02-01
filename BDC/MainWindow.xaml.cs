@@ -198,22 +198,31 @@ namespace BDC
 
         public void showProperties(Element element)
         {
+            // Assuming you have an object called element that has the attribute property
+            var propertyDisplays = new List<PropertyDisplay>();
+            propertyDisplays.Add(new PropertyDisplay { PropertyName = "Section Name", PropertyValue = element.attribute.sectionName.ToString() });
+            propertyDisplays.Add(new PropertyDisplay { PropertyName = "Channel Height (m)", PropertyValue = element.attribute.Channel_Height });
+            propertyDisplays.Add(new PropertyDisplay { PropertyName = "Channel Width (m)", PropertyValue = element.attribute.Channel_Width });
+            propertyDisplays.Add(new PropertyDisplay { PropertyName = "NO# Rows", PropertyValue = element.attribute.No_Rows });
+            propertyDisplays.Add(new PropertyDisplay { PropertyName = "NO# Tubes/Row", PropertyValue = element.attribute.No_Tubes_Row });
+            propertyDisplays.Add(new PropertyDisplay { PropertyName = "Longitudinal Pitch (mm)", PropertyValue = element.attribute.Longitudinal_Pitch });
+            propertyDisplays.Add(new PropertyDisplay { PropertyName = "Transverse Pitch (mm)", PropertyValue = element.attribute.Transverse_Pitch });
+            propertyDisplays.Add(new PropertyDisplay { PropertyName = "NO# Water Carrying Tubes", PropertyValue = element.attribute.NO_Water_Carrying_Tubes });
+            propertyDisplays.Add(new PropertyDisplay { PropertyName = "Tube Length/Water Flow (m)", PropertyValue = element.attribute.Tube_Length });
+            propertyDisplays.Add(new PropertyDisplay { PropertyName = "Tube Outer Diameter (mm)", PropertyValue = element.attribute.Tube_Outer_Diameter });
+            propertyDisplays.Add(new PropertyDisplay { PropertyName = "Tube Wall Thickness (mm)", PropertyValue = element.attribute.Tube_Wall_Thickness });
+            propertyDisplays.Add(new PropertyDisplay { PropertyName = "Incidence Angle (deg)", PropertyValue = element.attribute.Incidence_Angle });
+            propertyDisplays.Add(new PropertyDisplay { PropertyName = "Fin Height (mm)", PropertyValue = element.attribute.Fin_Height });
+            propertyDisplays.Add(new PropertyDisplay { PropertyName = "Fin Thickness (mm)", PropertyValue = element.attribute.Fin_Thickness });
+            propertyDisplays.Add(new PropertyDisplay { PropertyName = "Fin Density (fin/m)", PropertyValue = element.attribute.Fin_Density });
+            propertyDisplays.Add(new PropertyDisplay { PropertyName = "Fin Uncut Height (mm)", PropertyValue = element.attribute.Fin_Uncut_Height });
+            propertyDisplays.Add(new PropertyDisplay { PropertyName = "Fin Segment Width (mm)", PropertyValue = element.attribute.Fin_Segment_Width });
+            propertyDisplays.Add(new PropertyDisplay { PropertyName = "Fin Material", PropertyValue = element.attribute.Fin_Material });
+            propertyDisplays.Add(new PropertyDisplay { PropertyName = "Water-Side Founling Factor (m2K/W)", PropertyValue = element.attribute.Water_Side_Founling_Factor });
+            propertyDisplays.Add(new PropertyDisplay { PropertyName = "Gas-Side Founling Factor (m2K/W)", PropertyValue = element.attribute.Gas_Side_Founling_Factor });
+            propertyDisplays.Add(new PropertyDisplay { PropertyName = "Usage Factor (0,1)", PropertyValue = element.attribute.Usage_Factor });
 
-            List<PropertyDisplay> propertyList = new List<PropertyDisplay>
-                  {
-                        new PropertyDisplay { PropertyName = "content", PropertyValue = element.Content.ToString() },
-                        new PropertyDisplay { PropertyName = "Name", PropertyValue = element.Name.ToString() },
-                        new PropertyDisplay { PropertyName = "State", PropertyValue = element.State.ToString() },
-                   //     new PropertyDisplay { PropertyName = "stage", PropertyValue = element.attribute.stage.ToString() },
-                    //    new PropertyDisplay { PropertyName = "loadCase", PropertyValue = element.attribute.loadCase.ToString() },
-                    //    new PropertyDisplay { PropertyName = "TubeArrangement", PropertyValue = element.attribute.TubeArrangement.ToString() },
-                   //     new PropertyDisplay { PropertyName = "Water_Gas_Flow_Pattern", PropertyValue = element.attribute.Water_Gas_Flow_Pattern.ToString() },
-                   //     new PropertyDisplay { PropertyName = "No_Rows", PropertyValue = element.attribute.No_Rows },
-                   //     new PropertyDisplay { PropertyName = "SLN", PropertyValue = element.attribute.SLN },
-                    //    new PropertyDisplay { PropertyName = "STN", PropertyValue = element.attribute.STN.ToString() },
-                  };
-
-            propertyListBox.ItemsSource = propertyList;
+            propertyListBox.ItemsSource = propertyDisplays;
         }
 
 
@@ -700,6 +709,8 @@ namespace BDC
             FormProcess formProcess = new FormProcess(cases,this);
             formProcess.Show();
         }
+
+     
     }
     #endregion
 

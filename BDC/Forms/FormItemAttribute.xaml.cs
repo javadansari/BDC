@@ -287,25 +287,80 @@ namespace BDC.Forms
             Content = scrollViewer; // Replace the existing content with the scroll viewer.
 
 
+
+
+            // Create a stack panel with horizontal orientation
+            StackPanel stackPanel = new StackPanel
+            {
+                Orientation = Orientation.Horizontal
+            };
+
+            // Create a save button and add it to the stack panel
             Button saveButton = new Button
             {
                 Content = "Save",
                 Margin = new Thickness(10),
                 Width = 150,
-                Height = 50,
+                Height = 30,
+                Style = (Style)FindResource("RoundedButtonStyleG")
             };
             saveButton.Click += SaveButton_Click;
+            stackPanel.Children.Add(saveButton);
+
+            // Create a close button and add it to the stack panel
             Button closeButton = new Button
             {
                 Content = "Close",
                 Margin = new Thickness(10),
                 Width = 150,
-                Height = 50,
+                Height = 30,
+                Style = (Style)FindResource("RoundedButtonStyleR")             
             };
             closeButton.Click += (sender, e) => Close();
+            stackPanel.Children.Add(closeButton);
 
-            verticalStackPanelOuter.Children.Add(saveButton);
-            verticalStackPanelOuter.Children.Add(closeButton);
+            // Set the horizontal alignment of the buttons to center
+            foreach (Button button in stackPanel.Children)
+            {
+                button.HorizontalAlignment = HorizontalAlignment.Center;
+            }
+
+            // Create a dock panel and add the stack panel to the top edge
+       
+            DockPanel dockPanel = new DockPanel();  
+            dockPanel.Children.Add(stackPanel);
+            DockPanel.SetDock(stackPanel, Dock.Top);
+            verticalStackPanelOuter.Children.Add(dockPanel);
+            // Add the dock panel to the window
+            //    this.Content = dockPanel;
+
+
+
+
+
+
+
+
+
+            //Button saveButton = new Button
+            //{
+            //    Content = "Save",
+            //    Margin = new Thickness(10),
+            //    Width = 150,
+            //    Height = 50,
+            //};
+            //saveButton.Click += SaveButton_Click;
+            //Button closeButton = new Button
+            //{
+            //    Content = "Close",
+            //    Margin = new Thickness(10),
+            //    Width = 150,
+            //    Height = 50,
+            //};
+            //      closeButton.Click += (sender, e) => Close();
+
+         //   verticalStackPanelOuter.Children.Add(saveButton);
+          //  verticalStackPanelOuter.Children.Add(closeButton);
 
 
             // check enable stacks
@@ -342,7 +397,9 @@ namespace BDC.Forms
             {
                 Height = 26,
                 HorizontalAlignment = HorizontalAlignment.Center,
+
             };
+
             checkBox.IsChecked = check;
             checkBox.Checked += (sender, e) =>
                  {

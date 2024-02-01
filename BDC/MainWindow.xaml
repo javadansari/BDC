@@ -7,7 +7,7 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
          ResizeMode="CanMinimize"
-        Title="MainWindow" Height="470" Width="1040">
+        Title="MainWindow" Height="470" Width="920">
     <Window.Resources>
         <sys:Double x:Key="sizeBox">40</sys:Double>
         <sys:Double x:Key="margin">2</sys:Double>
@@ -25,8 +25,8 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="600"/>
+            <ColumnDefinition Width="220"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition  Height="20"/>
@@ -136,9 +136,9 @@
         <ListBox Name="propertyListBox" Grid.Row="2" Grid.Column="2" Background="AntiqueWhite">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
                         <TextBlock Text="{Binding PropertyName}" FontWeight="Bold"/>
-                        <TextBox Text="{Binding PropertyValue}" Width="100"/>
+                        <TextBlock Text="{Binding PropertyValue}" Margin="5,0,0,0"  Foreground="#FFABA9A9" />
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
