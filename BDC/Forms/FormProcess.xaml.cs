@@ -98,7 +98,7 @@ namespace BDC.Forms
             {
                 Process process = @case.process;
            //     if (process.active == 1) (FindName("active" + process.id) as CheckBox).IsChecked = false;
-                (FindName("stackPanel_" + process.id) as StackPanel).Visibility = Visibility.Visible;
+                (FindName("stackPanel_" + process.id) as StackPanel).IsEnabled = true;
                 (FindName("name_" + process.id) as TextBox).Text = @case.Name.ToString();
                 (FindName("Site_Atmospheric_Pressure_" + process.id) as TextBox).Text = process.Site_Atmospheric_Pressure.ToString();
                 (FindName("Ambien_Temperature_" + process.id) as TextBox).Text = process.Ambien_Temperature.ToString();

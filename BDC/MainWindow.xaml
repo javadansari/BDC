@@ -229,7 +229,7 @@
 
         </ScrollViewer>
 
-        <ToolBarPanel Grid.Row="3" Grid.ColumnSpan="2" Background="LightGray">
+        <ToolBarPanel Grid.Row="3" Grid.ColumnSpan="3" Background="LightGray">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>

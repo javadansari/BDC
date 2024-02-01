@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BDC.Forms"
         mc:Ignorable="d"
-        Title="FormFuel" Height="1650" Width="830">
+        ResizeMode="NoResize"
+        Title="FormFuel" Height="800" Width="680">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -63,8 +64,8 @@
                         <Button  Margin="4,0,4,0" Style="{StaticResource RoundedButtonStyleR}" Content="Cancel" Width="100" Height="25" Click="Cancel_Click" />
                     </StackPanel>
                 </StackPanel>
-                <StackPanel Name="stackPanel_1" Visibility="Hidden" Grid.Column="1" Orientation="Vertical" >
-                    <TextBox Name="name_1" Style="{StaticResource textBox}" Text="Case#1" IsEnabled="False"/>
+                <StackPanel Name="stackPanel_1" IsEnabled="False" Visibility="Visible" Grid.Column="1" Orientation="Vertical" >
+                    <TextBox Name="name_1" Style="{StaticResource textBox}" Text="-" IsEnabled="False"/>
                     <Label  Content="" Width="20" Padding="0" Margin="0"/>
                     <TextBox Name="Site_Atmospheric_Pressure_1" Style="{StaticResource textBox}" />
                     <TextBox Name="Ambien_Temperature_1" Style="{StaticResource textBox}" />
@@ -104,8 +105,8 @@
                     <Label  Content="" Width="20" Padding="0" Margin="0"/>
                     <TextBox Name="Blowdown_flow_1" Style="{StaticResource textBox}" />
                 </StackPanel>
-                <StackPanel Name="stackPanel_2" Visibility="Hidden" Grid.Column="1" Orientation="Vertical">
-                    <TextBox Name="name_2" Style="{StaticResource textBox}" Text="Case#2" IsEnabled="False"/>
+                <StackPanel Name="stackPanel_2" IsEnabled="False"  Visibility="Visible" Grid.Column="1" Orientation="Vertical">
+                    <TextBox Name="name_2" Style="{StaticResource textBox}" Text="-" IsEnabled="False"/>
                     <Label  Content="" Width="20" Padding="0" Margin="0"/>
                     <TextBox Name="Site_Atmospheric_Pressure_2" Style="{StaticResource textBox}" />
                     <TextBox Name="Ambien_Temperature_2" Style="{StaticResource textBox}" />
@@ -145,8 +146,8 @@
                     <Label  Content="" Width="20" Padding="0" Margin="0"/>
                     <TextBox Name="Blowdown_flow_2" Style="{StaticResource textBox}" />
                 </StackPanel>
-                <StackPanel Name="stackPanel_3" Visibility="Hidden" Grid.Column="1" Orientation="Vertical">
-                    <TextBox Name="name_3" Style="{StaticResource textBox}" Text="Case#3" IsEnabled="False"/>
+                <StackPanel Name="stackPanel_3" IsEnabled="False"  Visibility="Visible" Grid.Column="1" Orientation="Vertical">
+                    <TextBox Name="name_3" Style="{StaticResource textBox}" Text="-" IsEnabled="False"/>
                     <Label  Content="" Width="20" Padding="0" Margin="0"/>
                     <TextBox Name="Site_Atmospheric_Pressure_3" Style="{StaticResource textBox}" />
                     <TextBox Name="Ambien_Temperature_3" Style="{StaticResource textBox}" />
@@ -186,8 +187,8 @@
                     <Label  Content="" Width="20" Padding="0" Margin="0"/>
                     <TextBox Name="Blowdown_flow_3" Style="{StaticResource textBox}" />
                 </StackPanel>
-                <StackPanel Name="stackPanel_4" Visibility="Hidden" Grid.Column="1" Orientation="Vertical">
-                    <TextBox Name="name_4" Style="{StaticResource textBox}" Text="Case#4" IsEnabled="False"/>
+                <StackPanel Name="stackPanel_4" IsEnabled="False"  Visibility="Visible" Grid.Column="1" Orientation="Vertical">
+                    <TextBox Name="name_4" Style="{StaticResource textBox}" Text="-" IsEnabled="False"/>
                     <Label  Content="" Width="20" Padding="0" Margin="0"/>
                     <TextBox Name="Site_Atmospheric_Pressure_4" Style="{StaticResource textBox}" />
                     <TextBox Name="Ambien_Temperature_4" Style="{StaticResource textBox}" />
@@ -227,8 +228,8 @@
                     <Label  Content="" Width="20" Padding="0" Margin="0"/>
                     <TextBox Name="Blowdown_flow_4" Style="{StaticResource textBox}" />
                 </StackPanel>
-                <StackPanel Name="stackPanel_5" Visibility="Hidden" Grid.Column="1" Orientation="Vertical">
-                    <TextBox Name="name_5" Style="{StaticResource textBox}" Text="Case#5" IsEnabled="False"/>
+                <StackPanel  Name="stackPanel_5" IsEnabled="False"  Visibility="Visible" Grid.Column="1" Orientation="Vertical">
+                    <TextBox Name="name_5" Style="{StaticResource textBox}" Text="-" IsEnabled="False"/>
                     <Label  Content="" Width="20" Padding="0" Margin="0"/>
                     <TextBox Name="Site_Atmospheric_Pressure_5" Style="{StaticResource textBox}" />
                     <TextBox Name="Ambien_Temperature_5" Style="{StaticResource textBox}" />
@@ -268,8 +269,8 @@
                     <Label  Content="" Width="20" Padding="0" Margin="0"/>
                     <TextBox Name="Blowdown_flow_5" Style="{StaticResource textBox}" />
                 </StackPanel>
-                <StackPanel Name="stackPanel_6" Visibility="Hidden" Grid.Column="1" Orientation="Vertical">
-                    <TextBox Name="name_6" Style="{StaticResource textBox}" Text="Case#6" IsEnabled="False"/>
+                <StackPanel Name="stackPanel_6" IsEnabled="False"  Visibility="Visible" Grid.Column="1" Orientation="Vertical">
+                    <TextBox Name="name_6" Style="{StaticResource textBox}" Text="-" IsEnabled="False"/>
                     <Label  Content="" Width="20" Padding="0" Margin="0"/>
                     <TextBox Name="Site_Atmospheric_Pressure_6" Style="{StaticResource textBox}" />
                     <TextBox Name="Ambien_Temperature_6" Style="{StaticResource textBox}" />
@@ -309,8 +310,8 @@
                     <Label  Content="" Width="20" Padding="0" Margin="0"/>
                     <TextBox Name="Blowdown_flow_6" Style="{StaticResource textBox}" />
                 </StackPanel>
-                <StackPanel Name="stackPanel_7" Visibility="Hidden" Grid.Column="1" Orientation="Vertical">
-                    <TextBox Name="name_7" Style="{StaticResource textBox}" Text="Case#7" IsEnabled="False"/>
+                <StackPanel Name="stackPanel_7" IsEnabled="False"  Visibility="Visible" Grid.Column="1" Orientation="Vertical">
+                    <TextBox Name="name_7" Style="{StaticResource textBox}" Text="-" IsEnabled="False"/>
                     <Label  Content="" Width="20" Padding="0" Margin="0"/>
                     <TextBox Name="Site_Atmospheric_Pressure_7" Style="{StaticResource textBox}" />
                     <TextBox Name="Ambien_Temperature_7" Style="{StaticResource textBox}" />
@@ -350,8 +351,8 @@
                     <Label  Content="" Width="20" Padding="0" Margin="0"/>
                     <TextBox Name="Blowdown_flow_7" Style="{StaticResource textBox}" />
                 </StackPanel>
-                <StackPanel Name="stackPanel_8" Visibility="Hidden" Grid.Column="1" Orientation="Vertical">
-                    <TextBox Name="name_8" Style="{StaticResource textBox}" Text="Case#8" IsEnabled="False"/>
+                <StackPanel Name="stackPanel_8" IsEnabled="False"  Visibility="Visible" Grid.Column="1" Orientation="Vertical">
+                    <TextBox Name="name_8" Style="{StaticResource textBox}" Text="-" IsEnabled="False"/>
                     <Label  Content="" Width="20" Padding="0" Margin="0"/>
                     <TextBox Name="Site_Atmospheric_Pressure_8" Style="{StaticResource textBox}" />
                     <TextBox Name="Ambien_Temperature_8" Style="{StaticResource textBox}" />
