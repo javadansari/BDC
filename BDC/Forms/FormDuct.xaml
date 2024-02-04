@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:BDC.Forms"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="FormDuct" Height="950" Width="950">
+        ResizeMode="NoResize"
+        Title="FormDuct" Height="600" Width="950">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -85,7 +86,7 @@
                     <TextBox Name="bPrim4" Style="{StaticResource textBoxSmallItems}"  />
                 </StackPanel>
             </StackPanel>
-            <StackPanel    Orientation="Horizontal" Height="25" Background="LightGreen">
+            <StackPanel    Orientation="Horizontal" Height="25">
                 <Label Style="{StaticResource label}" Content="L" />
                 <Label Style="{StaticResource label}" Content="Duct Length" Width="200"/>
                 <Label Style="{StaticResource label}" Content="7.0" Width="200"/>

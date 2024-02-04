@@ -33,6 +33,7 @@
     <None Remove="Images\Other\open.png" />
     <None Remove="Images\Other\play.png" />
     <None Remove="Images\Other\plus.png" />
+    <None Remove="Images\Other\save.png" />
     <None Remove="Images\Other\select.png" />
     <None Remove="Images\Other\select1.png" />
     <None Remove="Images\Other\select2.png" />
@@ -81,6 +82,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Other\plus.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Other\save.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Other\select1.png">

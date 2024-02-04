@@ -226,7 +226,7 @@ namespace BDC
         }
 
 
-        private void setNumber_Click(object sender, MouseButtonEventArgs e)
+        private void setNumber_Click(object sender, RoutedEventArgs e)
         {
             if (element != null) {
      
@@ -623,21 +623,21 @@ namespace BDC
             }
         }
 
-        private void formFurnace_Click(object sender, MouseButtonEventArgs e)
+        private void formFurnace_Click(object sender, RoutedEventArgs e)
         {
             FormFurnace formFurnace = new FormFurnace(furnace,this);
             formFurnace.Show();
 
         }
 
-        private void formDuct_Click(object sender, MouseButtonEventArgs e)
+        private void formDuct_Click(object sender, RoutedEventArgs e)
         {
             FormDuct formDuct = new FormDuct(ducts,this);
             formDuct.Show();
 
         }
 
-        private void formFuel_Click(object sender, MouseButtonEventArgs e)
+        private void formFuel_Click(object sender, RoutedEventArgs e)
         { 
 
         FormFuel formFuel = new FormFuel(oilFuels,gasFuels ,this);
@@ -675,7 +675,7 @@ namespace BDC
             }
         }
 
-        private void formProcess_Click(object sender, MouseButtonEventArgs e)
+        private void formProcess_Click(object sender, RoutedEventArgs e)
         {
             CaseBuiler();
             FormProcess formProcess = new FormProcess(cases,this);

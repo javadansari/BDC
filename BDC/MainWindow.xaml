@@ -57,40 +57,18 @@
                 <MenuItem Header="Export" Click="ExportMenu_Click"/>
             </MenuItem>
         </Menu>
-        <ToolBarTray Name="mainToolbarMenu" Grid.Row="1" Grid.ColumnSpan="3" Orientation="Horizontal">
-            <ToolBar >
-                <StackPanel Orientation="Horizontal">
-                    <Image  Tag="new" Width="{StaticResource topIconSize}" Height="{StaticResource topIconSize}" Source="Images/Other/new.png"    PreviewMouseLeftButtonDown="SaveButton_Click"/>
-                    <Image  Tag="save" Width="{StaticResource topIconSize}" Height="{StaticResource topIconSize}" Source="Images/Other/save.caseAttribute.png"    PreviewMouseLeftButtonDown="SaveButton_Click"/>
-                    <Image  Tag="open" Width="{StaticResource topIconSize}" Height="{StaticResource topIconSize}" Source="Images/Other/open.png"    PreviewMouseLeftButtonDown="OpenButton_Click"/>
-                </StackPanel>
-            </ToolBar>
-            <ToolBar >
-                <StackPanel Orientation="Horizontal">
-                    <Border BorderBrush="DarkGray" BorderThickness="1" Margin="1"  Width="80" Background="DarkGray">
-                        <TextBlock VerticalAlignment="Center" Text="Furnace" HorizontalAlignment="Center" MouseDown="formFurnace_Click" />
-                    </Border>
-                    <Border BorderBrush="DarkGray" BorderThickness="1" Margin="1"   Width="80" Background="DarkGray">
-                        <TextBlock VerticalAlignment="Center" Text="Convention" HorizontalAlignment="Center" MouseDown="Attributes_Click" />
-                    </Border>
-                    <Border BorderBrush="DarkGray" BorderThickness="1" Margin="1"   Width="80" Background="DarkGray">
-                        <TextBlock VerticalAlignment="Center" Text="Duct" HorizontalAlignment="Center" MouseDown="formDuct_Click" />
-                    </Border>
-                    <Border BorderBrush="DarkGray" BorderThickness="1" Margin="1"   Width="80" Background="DarkGray">
-                        <TextBlock VerticalAlignment="Center" Text="Fuel Spec" HorizontalAlignment="Center" MouseDown="formFuel_Click" />
-                    </Border>
-                    <Border BorderBrush="DarkGray" BorderThickness="1" Margin="1"   Width="80" Background="DarkGray">
-                        <TextBlock VerticalAlignment="Center" Text="Process Data" HorizontalAlignment="Center" MouseDown="formProcess_Click" />
-                    </Border>
-                    <Border BorderBrush="DarkGray" BorderThickness="1" Margin="1"   Width="80" Background="DarkGray">
-                        <TextBlock VerticalAlignment="Center" Text="General Input" HorizontalAlignment="Center" MouseDown="setNumber_Click" />
-                    </Border>
+        <StackPanel  Grid.Row="1" Grid.ColumnSpan="3" Orientation="Horizontal" Margin="1" >
+            <Image  Tag="new" Width="{StaticResource topIconSize}" Height="{StaticResource topIconSize}" Source="Images/Other/new.png"    PreviewMouseLeftButtonDown="SaveButton_Click"/>
+            <Image  Tag="save" Width="{StaticResource topIconSize}" Height="{StaticResource topIconSize}" Source="Images/Other/save.png"    PreviewMouseLeftButtonDown="SaveButton_Click"/>
+            <Image  Tag="open" Width="{StaticResource topIconSize}" Height="{StaticResource topIconSize}" Source="Images/Other/open.png"    PreviewMouseLeftButtonDown="OpenButton_Click"/>
+            <Button Content="Furnace"  Width="80" Height="20" Background="#FF0F38E0" Foreground="White" Click="formFurnace_Click" Margin="2" ></Button>
+            <Button Content="Convention"  Width="80" Height="20" Background="#FF0F38E0" Foreground="White" Click="Attributes_Click" Margin="2"   ></Button>
+            <Button Content="Duct"  Width="80" Height="20" Background="#FF0F38E0" Foreground="White" Click="formDuct_Click"  Margin="2"  ></Button>
+            <Button Content="Fuel Spec"  Width="80" Height="20" Background="#FF0F38E0" Foreground="White" Click="formFuel_Click" Margin="2"   ></Button>
+            <Button Content="Process Data"  Width="80" Height="20" Background="#FF0F38E0" Foreground="White" Click="formProcess_Click" Margin="2"   ></Button>
+            <Button Content="General Input"  Width="80" Height="20" Background="#FF0F38E0" Foreground="White" Click="setNumber_Click"  Margin="2"  ></Button>
 
-                </StackPanel>
-            </ToolBar>
-
-        </ToolBarTray>
-
+        </StackPanel>
         <ToolBarTray Name="casesMenu" Grid.Row="2" Orientation="Vertical"  IsLocked="True">
             <ToolBar Name="optionCaseToolBar"   Loaded="ToolBar_Loaded"  >
                 <StackPanel Orientation="Horizontal">
