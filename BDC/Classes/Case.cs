@@ -19,7 +19,7 @@ namespace BDC.Classes
         public int Id { get; private set; }
         public string Name { get; set; }
         public int order { get; set; }
-        public int run { get; set; }
+        public bool run { get; set; }
         public Process process { get; set; }
 
 

@@ -490,12 +490,21 @@ namespace BDC
 
         private void AddCase_Click(object sender, RoutedEventArgs e)
         {
+
             string caseName = "Case";
             CaseDialogBox caseDialogBox = new CaseDialogBox();
             caseDialogBox.ShowDialog();
             caseName = caseDialogBox.InputText;
 
+            int thisCaseNumber = cases.Count() + 1;
 
+             (FindName("Case" + thisCaseNumber) as TextBlock).Text = caseName;
+            cases.Add(new Case { Name = caseName , run=false });
+
+
+            return;
+            Name = "Case1";
+          //  cases.Count
             // Create a new RadioButton for the case
              RadioButton radioButton = new RadioButton();
         //    radioButton.Content = "Case " + (casesToolBar.Items.Count + 1);
@@ -682,7 +691,10 @@ namespace BDC
             formProcess.Show();
         }
 
-     
+        private void RemoveCase_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
     #endregion
 

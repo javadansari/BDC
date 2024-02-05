@@ -26,6 +26,9 @@
     <None Remove="Images\Image4.png" />
     <None Remove="Images\Image5.png" />
     <None Remove="Images\Other\123.png" />
+    <None Remove="Images\Other\accept.png" />
+    <None Remove="Images\Other\delete.png" />
+    <None Remove="Images\Other\denied.png" />
     <None Remove="Images\Other\down.png" />
     <None Remove="Images\Other\formFurnace.png" />
     <None Remove="Images\Other\minus.png" />
@@ -61,6 +64,15 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Other\123.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Other\accept.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Other\delete.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Other\denied.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Other\down.png">
