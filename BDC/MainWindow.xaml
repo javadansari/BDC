@@ -86,55 +86,55 @@
                 <!--<Image Source="Images/Other/delete.png" Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}"  VerticalAlignment="Center" MouseLeftButtonDown="AddCase_Click" />-->
             </StackPanel>
             <Border BorderBrush="#FF707070" BorderThickness="0,0,0,1" VerticalAlignment="Center" Margin="5"/>
-            <StackPanel Name="caseStack1" Orientation="Horizontal" Margin="0,5,0,0">
-                <CheckBox VerticalAlignment="Center" Margin="4,0,0,0" />
-                <Image Source="Images/Other/denied.png" Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}"  VerticalAlignment="Center" />
-                <TextBlock Name="Case1" Text="Case#1" VerticalAlignment="Center"/>
+            <StackPanel Name="caseStack1" Orientation="Horizontal" Margin="0,5,0,0" Visibility="Hidden">
+                <CheckBox Name="CaseCheck1" VerticalAlignment="Center" Margin="4,0,0,0" />
+                <Image Source="Images/Other/denied.png"  Margin="4,0,0,0"  Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}"  VerticalAlignment="Center" />
+                <TextBlock Name="Case1" Text="Case#1"  Margin="4,0,0,0"  VerticalAlignment="Center"/>
             </StackPanel>
             <StackPanel Name="caseStack2" Orientation="Horizontal" Margin="0,5,0,0" Visibility="Hidden">
-                <CheckBox VerticalAlignment="Center" Margin="4,0,0,0" />
-                <Image Source="Images/Other/denied.png" Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}"  VerticalAlignment="Center" />
-                <TextBlock Name="Case2" Text="Case#1" VerticalAlignment="Center"/>
+                <CheckBox Name="CaseCheck2" VerticalAlignment="Center" Margin="4,0,0,0" />
+                <Image Source="Images/Other/denied.png"  Margin="4,0,0,0"  Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}"  VerticalAlignment="Center" />
+                <TextBlock Name="Case2" Text="Case#1"  Margin="4,0,0,0"  VerticalAlignment="Center"/>
             </StackPanel>
             <StackPanel Name="caseStack3" Orientation="Horizontal" Margin="0,5,0,0" Visibility="Hidden">
-                <CheckBox VerticalAlignment="Center" Margin="4,0,0,0" />
-                <Image Source="Images/Other/denied.png" Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}"  VerticalAlignment="Center" />
-                <TextBlock Name="Case3" Text="Case#1" VerticalAlignment="Center"/>
+                <CheckBox Name="CaseCheck3" VerticalAlignment="Center" Margin="4,0,0,0" />
+                <Image Source="Images/Other/denied.png"  Margin="4,0,0,0"  Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}"  VerticalAlignment="Center" />
+                <TextBlock Name="Case3" Text="Case#1"  Margin="4,0,0,0"  VerticalAlignment="Center"/>
             </StackPanel>
             <StackPanel Name="caseStack4" Orientation="Horizontal" Margin="0,5,0,0" Visibility="Hidden">
-                <CheckBox VerticalAlignment="Center" Margin="4,0,0,0" />
-                <Image Source="Images/Other/denied.png" Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}"  VerticalAlignment="Center" />
-                <TextBlock Name="Case4" Text="Case#1" VerticalAlignment="Center"/>
+                <CheckBox Name="CaseCheck4" VerticalAlignment="Center" Margin="4,0,0,0" />
+                <Image Source="Images/Other/denied.png"  Margin="4,0,0,0"  Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}"  VerticalAlignment="Center" />
+                <TextBlock Name="Case4" Text="Case#1"  Margin="4,0,0,0"  VerticalAlignment="Center"/>
             </StackPanel>
             <StackPanel Name="caseStack5" Orientation="Horizontal" Margin="0,5,0,0" Visibility="Hidden">
-                <CheckBox VerticalAlignment="Center" Margin="4,0,0,0" />
-                <Image Source="Images/Other/denied.png" Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}"  VerticalAlignment="Center" />
-                <TextBlock Name="Case5" Text="Case#1" VerticalAlignment="Center"/>
+                <CheckBox Name="CaseCheck5" VerticalAlignment="Center" Margin="4,0,0,0" />
+                <Image Source="Images/Other/denied.png"  Margin="4,0,0,0"  Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}"  VerticalAlignment="Center" />
+                <TextBlock Name="Case5" Text="Case#1"  Margin="4,0,0,0"  VerticalAlignment="Center"/>
             </StackPanel>
             <StackPanel Name="caseStack6" Orientation="Horizontal" Margin="0,5,0,0" Visibility="Hidden">
-                <CheckBox VerticalAlignment="Center" Margin="4,0,0,0" />
-                <Image Source="Images/Other/denied.png" Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}"  VerticalAlignment="Center" />
-                <TextBlock Name="Case6" Text="Case#1" VerticalAlignment="Center"/>
+                <CheckBox Name="CaseCheck6" VerticalAlignment="Center" Margin="4,0,0,0" />
+                <Image Source="Images/Other/denied.png"  Margin="4,0,0,0"  Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}"  VerticalAlignment="Center" />
+                <TextBlock Name="Case6" Text="Case#1"  Margin="4,0,0,0"  VerticalAlignment="Center"/>
             </StackPanel>
             <StackPanel Name="caseStack7" Orientation="Horizontal" Margin="0,5,0,0" Visibility="Hidden">
-                <CheckBox VerticalAlignment="Center" Margin="4,0,0,0" />
-                <Image Source="Images/Other/denied.png" Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}"  VerticalAlignment="Center" />
-                <TextBlock Name="Case7" Text="Case#1" VerticalAlignment="Center"/>
+                <CheckBox Name="CaseCheck7" VerticalAlignment="Center" Margin="4,0,0,0" />
+                <Image Source="Images/Other/denied.png"  Margin="4,0,0,0"  Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}"  VerticalAlignment="Center" />
+                <TextBlock Name="Case7" Text="Case#1"  Margin="4,0,0,0"  VerticalAlignment="Center"/>
             </StackPanel>
             <StackPanel Name="caseStack8" Orientation="Horizontal" Margin="0,5,0,0" Visibility="Hidden">
-                <CheckBox VerticalAlignment="Center" Margin="4,0,0,0" />
-                <Image Source="Images/Other/denied.png" Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}"  VerticalAlignment="Center" />
-                <TextBlock Name="Case8" Text="Case#1" VerticalAlignment="Center"/>
+                <CheckBox Name="CaseCheck8" VerticalAlignment="Center" Margin="4,0,0,0" />
+                <Image Source="Images/Other/denied.png"  Margin="4,0,0,0"  Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}"  VerticalAlignment="Center" />
+                <TextBlock Name="Case8" Text="Case#1"  Margin="4,0,0,0"  VerticalAlignment="Center"/>
             </StackPanel>
             <StackPanel Name="caseStack9" Orientation="Horizontal" Margin="0,5,0,0" Visibility="Hidden">
-                <CheckBox VerticalAlignment="Center" Margin="4,0,0,0" />
-                <Image Source="Images/Other/denied.png" Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}"  VerticalAlignment="Center" />
-                <TextBlock Name="Case9" Text="Case#1" VerticalAlignment="Center"/>
+                <CheckBox Name="CaseCheck9" VerticalAlignment="Center" Margin="4,0,0,0" />
+                <Image Source="Images/Other/denied.png"  Margin="4,0,0,0"  Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}"  VerticalAlignment="Center" />
+                <TextBlock Name="Case9" Text="Case#1"  Margin="4,0,0,0"  VerticalAlignment="Center"/>
             </StackPanel>
             <StackPanel Name="caseStack10" Orientation="Horizontal" Margin="0,5,0,0" Visibility="Hidden">
-                <CheckBox VerticalAlignment="Center" Margin="4,0,0,0" />
-                <Image Source="Images/Other/denied.png" Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}"  VerticalAlignment="Center" />
-                <TextBlock Name="Case10" Text="Case#1" VerticalAlignment="Center"/>
+                <CheckBox Name="CaseCheck10" VerticalAlignment="Center" Margin="4,0,0,0" />
+                <Image Source="Images/Other/denied.png"  Margin="4,0,0,0"  Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}"  VerticalAlignment="Center" />
+                <TextBlock Name="Case10" Text="Case#1"  Margin="4,0,0,0"  VerticalAlignment="Center"/>
             </StackPanel>
         </StackPanel>
         <ToolBarTray Name="casesMenu" Grid.Row="2" Orientation="Vertical"  IsLocked="True" Visibility="Hidden">

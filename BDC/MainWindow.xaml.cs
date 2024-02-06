@@ -33,6 +33,7 @@ using Microsoft.VisualBasic;
 using Accessibility;
 using System.Xml.Linq;
 using System.Reflection;
+using System.Windows.Media.Animation;
 
 namespace BDC
 {
@@ -498,10 +499,20 @@ namespace BDC
 
             int thisCaseNumber = cases.Count() + 1;
 
-             (FindName("Case" + thisCaseNumber) as TextBlock).Text = caseName;
-            cases.Add(new Case { Name = caseName , run=false });
-
-
+            (FindName("caseStack" + thisCaseNumber) as StackPanel).Visibility = Visibility.Visible;
+            (FindName("Case" + thisCaseNumber) as TextBlock).Text = caseName;
+            CheckBox checkBox = (FindName("CaseCheck" + thisCaseNumber) as CheckBox);
+            checkBox.Checked += (sender, e) =>
+            {
+                for (int i = 1; i <= cases.Count; i++) {
+                    CheckBox check = (FindName("CaseCheck" + i) as CheckBox);
+                    if (check == checkBox) checkBox.IsChecked = true;
+                    else check.IsChecked = false;
+               }
+                
+            };
+          
+            cases.Add(new Case { Name = caseName , run=false }); 
             return;
             Name = "Case1";
           //  cases.Count
