@@ -56,6 +56,7 @@ namespace BDC
         public List<GasFuel> gasFuels { get; set; }
         public List<OilFuel> oilFuels { get; set; }
         public List<Case> cases{ get; set; }
+      
         private Case selectedCase;
 
         private Element element;
@@ -506,13 +507,18 @@ namespace BDC
             {
                 for (int i = 1; i <= cases.Count; i++) {
                     CheckBox check = (FindName("CaseCheck" + i) as CheckBox);
-                    if (check == checkBox) checkBox.IsChecked = true;
+                    if (check == checkBox)
+                    {
+                        checkBox.IsChecked = true;
+                        selectedCase = cases[i-1];
+                    }
                     else check.IsChecked = false;
+
                }
                 
             };
           
-            cases.Add(new Case { Name = caseName , run=false }); 
+            cases.Add(new Case {, Name = caseName , run=false }); 
             return;
             Name = "Case1";
           //  cases.Count
@@ -526,7 +532,12 @@ namespace BDC
             casesToolBar.Items.Add(radioButton);
           //  CaseBuiler();
         }
+        private void RemoveCase_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(selectedCase.Id.ToString());
 
+
+        }
         private void RadioButton_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
 
@@ -702,10 +713,7 @@ namespace BDC
             formProcess.Show();
         }
 
-        private void RemoveCase_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+     
     }
     #endregion
 
