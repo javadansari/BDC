@@ -29,6 +29,7 @@ namespace BDC.View
         }
         private void BtnOk_Click(object sender, RoutedEventArgs e)
         {
+            DialogResult = true;
             InputText = txtInput.Text;
             Close();
         }

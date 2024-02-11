@@ -34,6 +34,8 @@ using Accessibility;
 using System.Xml.Linq;
 using System.Reflection;
 using System.Windows.Media.Animation;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 
 namespace BDC
 {
@@ -46,6 +48,8 @@ namespace BDC
 
     public partial class MainWindow : Window
     {
+        public ObservableCollection<CustomCase> Objects { get; set; }
+
 
         public List<Element> elements { get; set; }
      
@@ -109,6 +113,10 @@ namespace BDC
             cases = new List<Case>();
 
             canvas.LayoutTransform = new ScaleTransform(0.8, 0.8);
+
+
+            Objects = new ObservableCollection<CustomCase>();
+            ObjectListBox.ItemsSource = Objects;
 
 
         }
@@ -356,7 +364,6 @@ namespace BDC
         private void CasesMenu_Click(object sender, RoutedEventArgs e)
         {
 
-            casesMenu.Visibility = Visibility.Visible;
         }
        
         #endregion
@@ -477,17 +484,87 @@ namespace BDC
         #region case
 
     
-          private void CaseBuiler()
-            {
-               
+        
 
-                foreach (RadioButton item in casesToolBar.Items)
+        public class CustomCase : INotifyPropertyChanged
+        {
+            public event PropertyChangedEventHandler PropertyChanged;
+
+            private bool _isSelected;
+            public bool IsSelected
             {
-                Process process = new Process();
-                cases.Add(new Case { Name = item.Content.ToString(), process = process });
+                get { return _isSelected; }
+                set
+                {
+                    if (_isSelected != value)
+                    {
+                        _isSelected = value;
+                        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsSelected)));
+
+                        if (_isSelected)
+                        {
+                            foreach (var otherCase in ((MainWindow)Application.Current.MainWindow).Objects.Where(c => c != this && c.IsSelected))
+                            {
+                                otherCase.IsSelected = false;
+                            }
+                        }
+                    }
+                }
             }
-  
+
+            private BitmapImage _imageSource;
+            public BitmapImage ImageSource
+            {
+                get { return _imageSource; }
+                set
+                {
+                    if (_imageSource != value)
+                    {
+                        _imageSource = value;
+                        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ImageSource)));
+                    }
+                }
             }
+
+            private string _label;
+            public string Label
+            {
+                get { return _label; }
+                set
+                {
+                    if (_label != value)
+                    {
+                        _label = value;
+                        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Label)));
+                    }
+                }
+            }
+        }
+
+        private void RemoveSelectedItems()
+        {
+            // Create a list to hold the items to remove
+            var itemsToRemove = new List<CustomCase>();
+
+            // Iterate through the Objects collection and add selected items to the list
+            foreach (var item in Objects)
+            {
+                if (item.IsSelected)
+                {
+                    itemsToRemove.Add(item);
+                  
+                }
+            }
+
+            // Remove selected items from the Objects collection
+            foreach (var item in itemsToRemove)
+            {
+                Objects.Remove(item);
+                cases.RemoveAll(c => c.Name == item.Label);
+            }
+
+        }
+
 
         private void AddCase_Click(object sender, RoutedEventArgs e)
         {
@@ -495,99 +572,40 @@ namespace BDC
             string caseName = "Case";
             CaseDialogBox caseDialogBox = new CaseDialogBox();
             caseDialogBox.ShowDialog();
+            if (!caseDialogBox.DialogResult.Value) return;
             caseName = caseDialogBox.InputText;
-
-            int thisCaseNumber = cases.Count() + 1;
-
-            (FindName("caseStack" + thisCaseNumber) as StackPanel).Visibility = Visibility.Visible;
-            (FindName("Case" + thisCaseNumber) as TextBlock).Text = caseName;
-            CheckBox checkBox = (FindName("CaseCheck" + thisCaseNumber) as CheckBox);
-            checkBox.Checked += (sender, e) =>
+            if (cases.Any(c => c.Name == caseName))
             {
-                for (int i = 1; i <= cases.Count; i++) {
-                    CheckBox check = (FindName("CaseCheck" + i) as CheckBox);
-                    if (check == checkBox) checkBox.IsChecked = true;
-                    else check.IsChecked = false;
-               }
-                
-            };
-          
-            cases.Add(new Case { Name = caseName , run=false }); 
-            return;
-            Name = "Case1";
-          //  cases.Count
-            // Create a new RadioButton for the case
-             RadioButton radioButton = new RadioButton();
-        //    radioButton.Content = "Case " + (casesToolBar.Items.Count + 1);
-            radioButton.Content = caseName;
-            radioButton.GroupName = "Cases"; // Ensure they are mutually exclusive
-            radioButton.TabIndex = cases.Count();
-            radioButton.MouseDoubleClick += RadioButton_MouseDoubleClick;
-            casesToolBar.Items.Add(radioButton);
-          //  CaseBuiler();
-        }
-
-        private void RadioButton_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-
-            RadioButton radioButton = (RadioButton)sender;
-            string caseName = "Case";
-            CaseDialogBox caseDialogBox = new CaseDialogBox(radioButton.Content.ToString());
-            caseDialogBox.ShowDialog();
-            caseName = caseDialogBox.InputText;
-            radioButton.Content = caseName;
-
-         //   CaseBuiler();
-        }
-
-        private void DeleteCase_Click(object sender, RoutedEventArgs e)
-        {
-            // Find the selected RadioButton and remove it
-            RadioButton selectedRadioButton = casesToolBar.Items.OfType<RadioButton>().FirstOrDefault(rb => rb.IsChecked == true);
-            if (selectedRadioButton != null)
-            {
-                casesToolBar.Items.Remove(selectedRadioButton);
+                MessageBox.Show("Case name must be unique. Please enter a different name.");
+                return; 
             }
-         //   CaseBuiler();
-        }
 
-        private void DownCase_Click(object sender, RoutedEventArgs e)
-        {
-            RadioButton selectedRadioButton = casesToolBar.Items.OfType<RadioButton>().FirstOrDefault(rb => rb.IsChecked == true);
-
-            if (selectedRadioButton != null)
+            Objects.Add(new CustomCase
             {
-                int currentIndex = casesToolBar.Items.IndexOf(selectedRadioButton);
-
-                if (currentIndex < casesToolBar.Items.Count - 1)
-                {
-                    // Swap the positions of the selected RadioButton and the one below it
-                    casesToolBar.Items.RemoveAt(currentIndex);
-                    casesToolBar.Items.Insert(currentIndex + 1, selectedRadioButton);
-                    selectedRadioButton.IsChecked = true; // Re-select the moved RadioButton
-                }
-            }
-         //   CaseBuiler();
+                IsSelected = false,
+                ImageSource = new BitmapImage(new Uri("Images/Other/denied.png", System.UriKind.Relative)),
+                Label = caseName
+            });
+            cases.Add(new Case { Name = caseName, run = false , process = new Process()  });
+            //AddCase(new Case { Id = cases.Count() + 1, Name = caseName, run = false });
+            //return;
         }
-
-        private void UpCase_Click(object sender, RoutedEventArgs e)
+   
+        private void RemoveCase_Click(object sender, RoutedEventArgs e)
         {
-            RadioButton selectedRadioButton = casesToolBar.Items.OfType<RadioButton>().FirstOrDefault(rb => rb.IsChecked == true);
 
-            if (selectedRadioButton != null)
-            {
-                int currentIndex = casesToolBar.Items.IndexOf(selectedRadioButton);
+            RemoveSelectedItems();
 
-                if (currentIndex > 0)
-                {
-                    // Swap the positions of the selected RadioButton and the one above it
-                    casesToolBar.Items.RemoveAt(currentIndex);
-                    casesToolBar.Items.Insert(currentIndex - 1, selectedRadioButton);
-                    selectedRadioButton.IsChecked = true; // Re-select the moved RadioButton
-                }
-            }
         }
 
+        private void PlayCase_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
+        #endregion
+        #region menuMiddle
         private void ToolBar_Loaded(object sender, RoutedEventArgs e)
         {
             ToolBar toolBar = sender as ToolBar;
@@ -603,46 +621,8 @@ namespace BDC
             }
         }
 
-        private void SelectCase_Click(object sender, RoutedEventArgs e)
-        {
-            RadioButton selectedRadioButton = casesToolBar.Items.OfType<RadioButton>().FirstOrDefault(rb => rb.IsChecked == true);
-           
-            foreach (RadioButton btn  in casesToolBar.Items.OfType<RadioButton>())
-            {
-            //    btn.Foreground = Brushes.Black;
-                btn.BorderThickness = new System.Windows.Thickness(0);
-            }
-            if (selectedRadioButton != null)
-            {
-                // تغییر رنگ متن بر اساس انتخاب کاربر
-                selectedRadioButton.BorderBrush = Brushes.Black; // Border color (black in this case)
-                selectedRadioButton.BorderThickness = new System.Windows.Thickness(2);
-                selectedCase = cases.Find(match: x => x.Name == selectedRadioButton.Content.ToString());
-            }
-        }
 
-        private void PlayCase_Click(object sender, RoutedEventArgs e)
-        {
-            RadioButton selectedRadioButton = casesToolBar.Items.OfType<RadioButton>().FirstOrDefault(rb => rb.IsChecked == true);
-            if (selectedRadioButton != null && selectedCase != null)
-            {
-                if (selectedRadioButton.Content.ToString() != selectedCase.Name)
-                {
-                    MessageBox.Show("Please check correct case");
-                    return;
-                }
-                else
-                {
-                    selectedRadioButton.Foreground = Brushes.Green;
-                }
-            }
-            else
-            {
-                MessageBox.Show("Please check correct case");
-                return;
-            }
-        }
-
+    
         private void formFurnace_Click(object sender, RoutedEventArgs e)
         {
             FormFurnace formFurnace = new FormFurnace(furnace,this);
@@ -697,15 +677,12 @@ namespace BDC
 
         private void formProcess_Click(object sender, RoutedEventArgs e)
         {
-            CaseBuiler();
+         //   CaseBuiler();
             FormProcess formProcess = new FormProcess(cases,this);
             formProcess.Show();
         }
 
-        private void RemoveCase_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+       
     }
     #endregion
 
