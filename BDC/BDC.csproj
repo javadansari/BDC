@@ -5,6 +5,7 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>disable</Nullable>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>burner.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -117,7 +118,7 @@
     <Resource Include="App.xaml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Content Include="Images\Elements\burner.png">
+    <Content Include="burner.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Elements\economizer.png">

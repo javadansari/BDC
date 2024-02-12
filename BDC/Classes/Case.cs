@@ -16,17 +16,11 @@ namespace BDC.Classes
 {
     public class Case
     {
-        public int Id { get; private set; }
+        public int Id { get;  set; }
         public string Name { get; set; }
         public int order { get; set; }
         public bool run { get; set; }
         public Process process { get; set; }
-
-
-        
-
-
-
 
     }
 }

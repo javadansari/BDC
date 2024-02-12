@@ -68,7 +68,6 @@
             <Button Content="Fuel Spec"  Width="80" Height="20" Background="#FF0F38E0" Foreground="White" Click="formFuel_Click" Margin="2"   ></Button>
             <Button Content="Process Data"  Width="80" Height="20" Background="#FF0F38E0" Foreground="White" Click="formProcess_Click" Margin="2"   ></Button>
             <Button Content="General Input"  Width="80" Height="20" Background="#FF0F38E0" Foreground="White" Click="setNumber_Click"  Margin="2"  ></Button>
-
         </StackPanel>
         <StackPanel  Grid.Row="2" Orientation="Vertical" >
             <StackPanel Orientation="Horizontal">
@@ -85,114 +84,33 @@
                 <!--<Image Source="Images/Other/plus.png" Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}"  VerticalAlignment="Center"  MouseLeftButtonDown="AddCase_Click"/>-->
                 <!--<Image Source="Images/Other/delete.png" Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}"  VerticalAlignment="Center" MouseLeftButtonDown="AddCase_Click" />-->
             </StackPanel>
-            <Border BorderBrush="#FF707070" BorderThickness="0,0,0,1" VerticalAlignment="Center" Margin="5"/>
-            <StackPanel Name="caseStack1" Orientation="Horizontal" Margin="0,5,0,0" Visibility="Hidden">
-                <CheckBox Name="CaseCheck1" VerticalAlignment="Center" Margin="4,0,0,0" />
-                <Image Source="Images/Other/denied.png"  Margin="4,0,0,0"  Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}"  VerticalAlignment="Center" />
-                <TextBlock Name="Case1" Text="Case#1"  Margin="4,0,0,0"  VerticalAlignment="Center"/>
-            </StackPanel>
-            <StackPanel Name="caseStack2" Orientation="Horizontal" Margin="0,5,0,0" Visibility="Hidden">
-                <CheckBox Name="CaseCheck2" VerticalAlignment="Center" Margin="4,0,0,0" />
-                <Image Source="Images/Other/denied.png"  Margin="4,0,0,0"  Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}"  VerticalAlignment="Center" />
-                <TextBlock Name="Case2" Text="Case#1"  Margin="4,0,0,0"  VerticalAlignment="Center"/>
-            </StackPanel>
-            <StackPanel Name="caseStack3" Orientation="Horizontal" Margin="0,5,0,0" Visibility="Hidden">
-                <CheckBox Name="CaseCheck3" VerticalAlignment="Center" Margin="4,0,0,0" />
-                <Image Source="Images/Other/denied.png"  Margin="4,0,0,0"  Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}"  VerticalAlignment="Center" />
-                <TextBlock Name="Case3" Text="Case#1"  Margin="4,0,0,0"  VerticalAlignment="Center"/>
-            </StackPanel>
-            <StackPanel Name="caseStack4" Orientation="Horizontal" Margin="0,5,0,0" Visibility="Hidden">
-                <CheckBox Name="CaseCheck4" VerticalAlignment="Center" Margin="4,0,0,0" />
-                <Image Source="Images/Other/denied.png"  Margin="4,0,0,0"  Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}"  VerticalAlignment="Center" />
-                <TextBlock Name="Case4" Text="Case#1"  Margin="4,0,0,0"  VerticalAlignment="Center"/>
-            </StackPanel>
-            <StackPanel Name="caseStack5" Orientation="Horizontal" Margin="0,5,0,0" Visibility="Hidden">
-                <CheckBox Name="CaseCheck5" VerticalAlignment="Center" Margin="4,0,0,0" />
-                <Image Source="Images/Other/denied.png"  Margin="4,0,0,0"  Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}"  VerticalAlignment="Center" />
-                <TextBlock Name="Case5" Text="Case#1"  Margin="4,0,0,0"  VerticalAlignment="Center"/>
-            </StackPanel>
-            <StackPanel Name="caseStack6" Orientation="Horizontal" Margin="0,5,0,0" Visibility="Hidden">
-                <CheckBox Name="CaseCheck6" VerticalAlignment="Center" Margin="4,0,0,0" />
-                <Image Source="Images/Other/denied.png"  Margin="4,0,0,0"  Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}"  VerticalAlignment="Center" />
-                <TextBlock Name="Case6" Text="Case#1"  Margin="4,0,0,0"  VerticalAlignment="Center"/>
-            </StackPanel>
-            <StackPanel Name="caseStack7" Orientation="Horizontal" Margin="0,5,0,0" Visibility="Hidden">
-                <CheckBox Name="CaseCheck7" VerticalAlignment="Center" Margin="4,0,0,0" />
-                <Image Source="Images/Other/denied.png"  Margin="4,0,0,0"  Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}"  VerticalAlignment="Center" />
-                <TextBlock Name="Case7" Text="Case#1"  Margin="4,0,0,0"  VerticalAlignment="Center"/>
-            </StackPanel>
-            <StackPanel Name="caseStack8" Orientation="Horizontal" Margin="0,5,0,0" Visibility="Hidden">
-                <CheckBox Name="CaseCheck8" VerticalAlignment="Center" Margin="4,0,0,0" />
-                <Image Source="Images/Other/denied.png"  Margin="4,0,0,0"  Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}"  VerticalAlignment="Center" />
-                <TextBlock Name="Case8" Text="Case#1"  Margin="4,0,0,0"  VerticalAlignment="Center"/>
-            </StackPanel>
-            <StackPanel Name="caseStack9" Orientation="Horizontal" Margin="0,5,0,0" Visibility="Hidden">
-                <CheckBox Name="CaseCheck9" VerticalAlignment="Center" Margin="4,0,0,0" />
-                <Image Source="Images/Other/denied.png"  Margin="4,0,0,0"  Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}"  VerticalAlignment="Center" />
-                <TextBlock Name="Case9" Text="Case#1"  Margin="4,0,0,0"  VerticalAlignment="Center"/>
-            </StackPanel>
-            <StackPanel Name="caseStack10" Orientation="Horizontal" Margin="0,5,0,0" Visibility="Hidden">
-                <CheckBox Name="CaseCheck10" VerticalAlignment="Center" Margin="4,0,0,0" />
-                <Image Source="Images/Other/denied.png"  Margin="4,0,0,0"  Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}"  VerticalAlignment="Center" />
-                <TextBlock Name="Case10" Text="Case#1"  Margin="4,0,0,0"  VerticalAlignment="Center"/>
+            <StackPanel Orientation="Horizontal">
+                <ListBox x:Name="ObjectListBox" Background="Transparent" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <CheckBox VerticalAlignment="Center" Margin="4,0,0,0" IsChecked="{Binding IsSelected}" />
+                                <Image Source="{Binding ImageSource}" Margin="4,0,0,0" Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}" VerticalAlignment="Center" />
+                                <TextBlock Text="{Binding Label}" Margin="4,0,0,0" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
             </StackPanel>
         </StackPanel>
-        <ToolBarTray Name="casesMenu" Grid.Row="2" Orientation="Vertical"  IsLocked="True" Visibility="Hidden">
-            <ToolBar Name="optionCaseToolBar"   Loaded="ToolBar_Loaded"  >
-                <StackPanel Orientation="Horizontal">
-                    <Button Click="UpCase_Click" Background="{x:Null}" BorderBrush="{x:Null}" Margin="1,0,1,0">
-                        <StackPanel>
-                            <Image Source="Images/Other/up.png" Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}" />
-                        </StackPanel>
-                    </Button>
-                    <Button Click="DownCase_Click" Background="{x:Null}" BorderBrush="{x:Null}"  Margin="1,0,1,0">
-                        <StackPanel>
-                            <Image Source="Images/Other/down.png" Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}" />
-                        </StackPanel>
-                    </Button>
-                    <Button Click="AddCase_Click" Background="{x:Null}" BorderBrush="{x:Null}"  Margin="1,0,1,0">
-                        <StackPanel>
-                            <Image Source="Images/Other/plus.png" Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}" />
-                        </StackPanel>
-                    </Button>
-                    <Button Click="DeleteCase_Click" Background="{x:Null}" BorderBrush="{x:Null}"  Margin="1,0,1,0" >
-                        <StackPanel>
-                            <Image Source="Images/Other/minus.png" Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}" />
-                        </StackPanel>
-                    </Button>
-
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <Button Click="PlayCase_Click" Background="{x:Null}" BorderBrush="{x:Null}" >
-                        <StackPanel>
-                            <Image Source="Images/Other/play.png" Width="64" Height="{StaticResource smallIconSize}" />
-                        </StackPanel>
-                    </Button>
-                    <Button Click="SelectCase_Click" Background="{x:Null}" BorderBrush="{x:Null}" >
-                        <StackPanel>
-                            <Image Source="Images/Other/select1.png" Width="{StaticResource smallIconSize}" Height="{StaticResource smallIconSize}" />
-                        </StackPanel>
-                    </Button>
-                </StackPanel>
-            </ToolBar>
-            <ToolBar Name="casesToolBar"  Loaded="ToolBar_Loaded" >
-            </ToolBar>
-        </ToolBarTray>
-
         <ListBox Name="propertyListBox" Grid.Row="2" Grid.Column="2" Background="AntiqueWhite">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding PropertyName}" FontWeight="Bold"/>
-                        <TextBlock Text="{Binding PropertyValue}" Margin="5,0,0,0"  Foreground="#FFABA9A9" />
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding PropertyName}" FontWeight="Bold"/>
+                            <TextBlock Text="{Binding PropertyValue}" Margin="5,0,0,0"  Foreground="#FFABA9A9" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
 
-        <ScrollViewer Grid.Row="2" Grid.Column="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-
-            <Canvas  Background="White"  Name="canvas" >
+            <ScrollViewer Grid.Row="2" Grid.Column="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                <Canvas  Background="White"  Name="canvas" >
                 <Image Height="201" Source="Images/Canvas/Image1.png" Stretch="Fill" Width="39" Canvas.Left="686" Canvas.Top="23" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <Image Height="69" Source="Images/Canvas/Image6.png" Stretch="Fill" Width="54" Canvas.Left="561" Canvas.Top="272" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                 <StackPanel Orientation="Horizontal"  Canvas.Left="40" Canvas.Top="130">

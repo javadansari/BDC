@@ -47,9 +47,9 @@ namespace BDC.Forms
             List<Case> newCases =  new List<Case>();
             foreach (Case @case in Cases)
             {
-   
+                
                 @case.process = setProcess(@case.process);
-                @case.Name = @case.process.name;
+                @case.Name = @case.Name;
                 newCases.Add(@case);
 
             }
