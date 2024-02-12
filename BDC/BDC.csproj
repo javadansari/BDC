@@ -21,6 +21,9 @@
     <None Remove="Image2.png" />
     <None Remove="Images\Duct\image1.png" />
     <None Remove="Images\Elements\duct.png" />
+    <None Remove="Images\Elements\duct1.png" />
+    <None Remove="Images\Elements\duct2.png" />
+    <None Remove="Images\Elements\duct3.png" />
     <None Remove="Images\Image1.png" />
     <None Remove="Images\Image2.png" />
     <None Remove="Images\Image3.png" />
@@ -62,6 +65,15 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Elements\duct.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Elements\duct1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Elements\duct2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Elements\duct3.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Other\123.png">

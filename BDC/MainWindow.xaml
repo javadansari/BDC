@@ -7,7 +7,7 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
          ResizeMode="CanMinimize"
-        Title="MainWindow" Height="470" Width="920">
+        Title="MainWindow" Height="470" Width="1000">
     <Window.Resources>
         <sys:Double x:Key="sizeBox">40</sys:Double>
         <sys:Double x:Key="margin">2</sys:Double>
@@ -18,16 +18,16 @@
         <sys:Double x:Key="topIconSize">32</sys:Double>
         <sys:Double x:Key="smallestIconSize">8</sys:Double>
         <sys:Double x:Key="smallestIconSize12">12</sys:Double>
-        <sys:Double x:Key="imageHolderHeight">100</sys:Double>
-        <sys:Double x:Key="imageHolderWidth">65</sys:Double>
+        <sys:Double x:Key="imageHolderHeight">90</sys:Double>
+        <sys:Double x:Key="imageHolderWidth">60</sys:Double>
         <sys:Double x:Key="imageMargin">10</sys:Double>
     </Window.Resources>
 
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="130"/>
-            <ColumnDefinition Width="600"/>
-            <ColumnDefinition Width="220"/>
+            <ColumnDefinition Width="700"/>
+            <ColumnDefinition Width="170"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition  Height="20"/>
@@ -99,21 +99,19 @@
             </StackPanel>
         </StackPanel>
         <ListBox Name="propertyListBox" Grid.Row="2" Grid.Column="2" Background="AntiqueWhite">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding PropertyName}" FontWeight="Bold"/>
-                            <TextBlock Text="{Binding PropertyValue}" Margin="5,0,0,0"  Foreground="#FFABA9A9" />
-                        </StackPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-
-            <ScrollViewer Grid.Row="2" Grid.Column="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-                <Canvas  Background="White"  Name="canvas" >
-                <Image Height="201" Source="Images/Canvas/Image1.png" Stretch="Fill" Width="39" Canvas.Left="686" Canvas.Top="23" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <Image Height="69" Source="Images/Canvas/Image6.png" Stretch="Fill" Width="54" Canvas.Left="561" Canvas.Top="272" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <StackPanel Orientation="Horizontal"  Canvas.Left="40" Canvas.Top="130">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding PropertyName}" FontWeight="Bold"/>
+                        <TextBlock Text="{Binding PropertyValue}" Margin="5,0,0,0"  Foreground="#FFABA9A9" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel  Grid.Row="2" Grid.Column="1"  Orientation="Vertical" >
+           
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal" Margin="0,120,0,0"  >
                     <Grid Name="boilerStage_1_grid" Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}"  MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >
                         <Border BorderThickness="2" BorderBrush="Gray" >
                             <Image x:Name="boilerStage_1" Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"  VerticalAlignment="Top"/>
@@ -156,43 +154,25 @@
                         </Border>
                         <Label Name="boilerStage_7_label"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="1,0,0,1" />
                     </Grid>
-                    <Grid  Name="boilerStage_8_grid" Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}" MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >
-                        <Border BorderThickness="2" BorderBrush="ForestGreen">
-                            <Image x:Name="boilerStage_8"  Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"  VerticalAlignment="Top"  />
-                        </Border>
-                        <Label Name="boilerStage_8_label"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="1,0,0,1" />
-                    </Grid>
+                    <Image Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}"  Source="Images\Elements\duct1.png"/>
                     <Grid  Name="boilerStage_9_grid" Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}" MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >
                         <Border BorderThickness="2" BorderBrush="ForestGreen">
                             <Image x:Name="boilerStage_9"  Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"  VerticalAlignment="Top"  />
                         </Border>
                         <Label Name="boilerStage_9_label"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="1,0,0,1" />
                     </Grid>
-                    <Grid Name="boilerStage_10_grid"  Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}" MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >
-                        <Border BorderThickness="2" BorderBrush="ForestGreen">
-                            <Image x:Name="boilerStage_10"  Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"  VerticalAlignment="Top"  />
-                        </Border>
-                        <Label Name="boilerStage_10_label"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="1,0,0,1" />
-                    </Grid>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal"  Canvas.Left="496" Canvas.Top="260">
-                    <Grid Name="boilerStage_11_grid"  Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}" MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >
-                        <Border BorderThickness="2" BorderBrush="IndianRed" >
-                            <Image x:Name="boilerStage_11" Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"  VerticalAlignment="Top"/>
-                        </Border>
-                        <Label Name="boilerStage_11_label"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="1,0,0,1" />
-                    </Grid>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal"  Canvas.Left="40" Canvas.Top="230">
-                    <Grid  Width="458" Height="150">
-                        <Border BorderThickness="2" BorderBrush="Gray" >
-                        </Border>
-                    </Grid>
-                </StackPanel>
-            </Canvas>
-
-        </ScrollViewer>
-
+                <Image Width="120" Height="250"  Source="Images\Elements\duct3.png"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="420,0,0,0"  >
+                <Grid Name="boilerStage_11_grid"  Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}" MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >
+                    <Border BorderThickness="2" BorderBrush="IndianRed" >
+                        <Image x:Name="boilerStage_11" Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"  VerticalAlignment="Top"/>
+                    </Border>
+                    <Label Name="boilerStage_11_label"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="1,0,0,1" />
+                </Grid>
+            </StackPanel>
+        </StackPanel>
         <ToolBarPanel Grid.Row="3" Grid.ColumnSpan="3" Background="LightGray">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -202,9 +182,7 @@
 
                 <TextBlock  Name="reportText" Padding="50 5 0 0" VerticalAlignment="Center" Text="Application"/>
 
-                <Slider x:Name="zoomSlider" Visibility="Hidden" Minimum="0.6" Maximum="1" Value="1" TickFrequency="0.1" 
-                TickPlacement="BottomRight" Width="200" Margin="10 0" 
-                HorizontalAlignment="Right" Grid.Column="1" ValueChanged="ZoomSlider_ValueChanged" />
+             
             </Grid>
         </ToolBarPanel>
     </Grid>

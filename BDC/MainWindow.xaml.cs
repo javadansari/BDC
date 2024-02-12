@@ -112,9 +112,7 @@ namespace BDC
             }
             cases = new List<Case>();
 
-            canvas.LayoutTransform = new ScaleTransform(0.8, 0.8);
-
-
+ 
             Objects = new ObservableCollection<CustomCase>();
             ObjectListBox.ItemsSource = Objects;
 
@@ -417,16 +415,7 @@ namespace BDC
 
 
         #region canvasZoom
-        private void ZoomSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-            double zoomValue = e.NewValue;
-            ApplyZoom(zoomValue);
-        }
-
-        private void ApplyZoom(double zoomValue)
-        {
-            canvas.LayoutTransform = new ScaleTransform(zoomValue, zoomValue);
-        }
+     
         #endregion
 
         #region canvasAddImageLabel
@@ -457,13 +446,7 @@ namespace BDC
                 Grid container = new Grid();
                 container.Children.Add(image);
                 container.Children.Add(label);
-
-                // Set the position of the container using Canvas.Left and Canvas.Top
-                Canvas.SetLeft(container, Canvas.GetLeft(image)); // Match image's X position
-                Canvas.SetTop(container, Canvas.GetTop(image) - 30); // Position label above the image
-
-                // Add the container to the canvas
-                canvas.Children.Add(container);
+           
             }
         }
 
