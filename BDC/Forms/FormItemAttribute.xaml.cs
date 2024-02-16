@@ -142,27 +142,27 @@ namespace BDC.Forms
                     laberSectionName.Content = comboBoxSectionName.SelectedValue + "-" + comboBoxSectionNumber.SelectedValue;
                     element.attribute.sectionName = laberSectionName.Content.ToString();
                 }
-                else if (element.Id == 8 || element.Id ==10){
-                    comboBoxSectionName = new ComboBox { Height = height, };
-                    comboBoxSectionNumber = new ComboBox { Height = height, };
-                    comboBoxSectionName.Items.Add("Duct");
-                    comboBoxSectionName.SelectedIndex = element.attribute.section;
-                    childStackPanel.Children.Add(comboBoxSectionName);
-                    //Section Number
-                    List<string> sectionNumbers = new List<string> { "1", "2" };
-                    foreach (var sectionNumber in sectionNumbers) comboBoxSectionNumber.Items.Add(sectionNumber);
-                    comboBoxSectionNumber.SelectedIndex = element.attribute.sectionNumber;
-                    comboBoxSectionNumber.SelectionChanged += (sender, e) =>
-                    {
-                        element.attribute.sectionNumber = comboBoxSectionNumber.SelectedIndex;
-                        laberSectionName.Content = comboBoxSectionName.SelectedValue + "-" + comboBoxSectionNumber.SelectedValue;
-                        element.attribute.sectionName = laberSectionName.Content.ToString();
-                    };
-                    childStackPanel.Children.Add(comboBoxSectionNumber);
-                    laberSectionName.Content = comboBoxSectionName.SelectedValue + "-" + comboBoxSectionNumber.SelectedValue;
-                    element.attribute.sectionName = laberSectionName.Content.ToString();
-                }
-                else if (element.Id == 9)
+                //else if (element.Id == 8 || element.Id ==10){
+                //    comboBoxSectionName = new ComboBox { Height = height, };
+                //    comboBoxSectionNumber = new ComboBox { Height = height, };
+                //    comboBoxSectionName.Items.Add("Duct");
+                //    comboBoxSectionName.SelectedIndex = element.attribute.section;
+                //    childStackPanel.Children.Add(comboBoxSectionName);
+                //    //Section Number
+                //    List<string> sectionNumbers = new List<string> { "1", "2" };
+                //    foreach (var sectionNumber in sectionNumbers) comboBoxSectionNumber.Items.Add(sectionNumber);
+                //    comboBoxSectionNumber.SelectedIndex = element.attribute.sectionNumber;
+                //    comboBoxSectionNumber.SelectionChanged += (sender, e) =>
+                //    {
+                //        element.attribute.sectionNumber = comboBoxSectionNumber.SelectedIndex;
+                //        laberSectionName.Content = comboBoxSectionName.SelectedValue + "-" + comboBoxSectionNumber.SelectedValue;
+                //        element.attribute.sectionName = laberSectionName.Content.ToString();
+                //    };
+                //    childStackPanel.Children.Add(comboBoxSectionNumber);
+                //    laberSectionName.Content = comboBoxSectionName.SelectedValue + "-" + comboBoxSectionNumber.SelectedValue;
+                //    element.attribute.sectionName = laberSectionName.Content.ToString();
+                //}
+                else if (element.Id == 8)
                 {
                     comboBoxSectionName = new ComboBox { Height = height, };
                     comboBoxSectionNumber = new ComboBox { Height = height, };
@@ -183,27 +183,27 @@ namespace BDC.Forms
                     laberSectionName.Content = comboBoxSectionName.SelectedValue + "-" + comboBoxSectionNumber.SelectedValue;
                     element.attribute.sectionName = laberSectionName.Content.ToString();
                 }
-                else
-                {
-                    comboBoxSectionName = new ComboBox { Height = height, };
-                    comboBoxSectionNumber = new ComboBox { Height = height, };
-                    comboBoxSectionName.Items.Add("AIR");
-                    comboBoxSectionName.SelectedIndex = element.attribute.section;
-                    childStackPanel.Children.Add(comboBoxSectionName);
-                    //Section Number
-                    comboBoxSectionNumber.Items.Add("1");
-                    comboBoxSectionNumber.SelectedIndex = element.attribute.sectionNumber;
-                    comboBoxSectionNumber.SelectionChanged += (sender, e) =>
-                    {
-                        element.attribute.sectionNumber = comboBoxSectionNumber.SelectedIndex;
-                        laberSectionName.Content = comboBoxSectionName.SelectedValue + "-" + comboBoxSectionNumber.SelectedValue;
-                        element.attribute.sectionName = laberSectionName.Content.ToString();
-                    };
-                    childStackPanel.Children.Add(comboBoxSectionNumber);
-                    laberSectionName.Content = comboBoxSectionName.SelectedValue + "-" + comboBoxSectionNumber.SelectedValue;
-                    element.attribute.sectionName = laberSectionName.Content.ToString();
+                //else
+                //{
+                //    comboBoxSectionName = new ComboBox { Height = height, };
+                //    comboBoxSectionNumber = new ComboBox { Height = height, };
+                //    comboBoxSectionName.Items.Add("AIR");
+                //    comboBoxSectionName.SelectedIndex = element.attribute.section;
+                //    childStackPanel.Children.Add(comboBoxSectionName);
+                //    //Section Number
+                //    comboBoxSectionNumber.Items.Add("1");
+                //    comboBoxSectionNumber.SelectedIndex = element.attribute.sectionNumber;
+                //    comboBoxSectionNumber.SelectionChanged += (sender, e) =>
+                //    {
+                //        element.attribute.sectionNumber = comboBoxSectionNumber.SelectedIndex;
+                //        laberSectionName.Content = comboBoxSectionName.SelectedValue + "-" + comboBoxSectionNumber.SelectedValue;
+                //        element.attribute.sectionName = laberSectionName.Content.ToString();
+                //    };
+                //    childStackPanel.Children.Add(comboBoxSectionNumber);
+                //    laberSectionName.Content = comboBoxSectionName.SelectedValue + "-" + comboBoxSectionNumber.SelectedValue;
+                //    element.attribute.sectionName = laberSectionName.Content.ToString();
 
-                }
+                //}
 
                 if (!element.attribute.active) laberSectionName.Content = "";
 

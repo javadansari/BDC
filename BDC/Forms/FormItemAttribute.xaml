@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BDC.Forms"
         mc:Ignorable="d"
-        Title="FormItemAttribute" Height="800" Width="1200">
+        Title="FormItemAttribute" Height="850" Width="900">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

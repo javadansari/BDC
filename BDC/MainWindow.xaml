@@ -155,22 +155,17 @@
                         <Label Name="boilerStage_7_label"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="1,0,0,1" />
                     </Grid>
                     <Image Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}"  Source="Images\Elements\duct1.png"/>
-                    <Grid  Name="boilerStage_9_grid" Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}" MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >
+                    <Grid  Name="boilerStage_8_grid" Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}" MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >
                         <Border BorderThickness="2" BorderBrush="ForestGreen">
-                            <Image x:Name="boilerStage_9"  Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"  VerticalAlignment="Top"  />
+                            <Image x:Name="boilerStage_8"  Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"  VerticalAlignment="Top"  />
                         </Border>
-                        <Label Name="boilerStage_9_label"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="1,0,0,1" />
+                        <Label Name="boilerStage_8_label"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="1,0,0,1" />
                     </Grid>
                 </StackPanel>
                 <Image Width="120" Height="250"  Source="Images\Elements\duct3.png"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="420,0,0,0"  >
-                <Grid Name="boilerStage_11_grid"  Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}" MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >
-                    <Border BorderThickness="2" BorderBrush="IndianRed" >
-                        <Image x:Name="boilerStage_11" Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"  VerticalAlignment="Top"/>
-                    </Border>
-                    <Label Name="boilerStage_11_label"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="1,0,0,1" />
-                </Grid>
+                <Image Width="240" Height="120"   Source="Images\Elements\duct2.png"/>
             </StackPanel>
         </StackPanel>
         <ToolBarPanel Grid.Row="3" Grid.ColumnSpan="3" Background="LightGray">

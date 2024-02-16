@@ -103,7 +103,7 @@ namespace BDC
             oilFuels = new List<OilFuel>();
 
         elements = new List<Element>();
-            for (int i = 1; i <= 11; i++)
+            for (int i = 1; i <= 8; i++)
             {
                 Element element = new Element();
                 ItemAttribute itemAttribute = new ItemAttribute();
@@ -153,17 +153,19 @@ namespace BDC
                                 image.Source = new BitmapImage(new Uri("/Images/Elements/evaporator.png", UriKind.Relative));
                             if (element.attribute.section == 2)
                                 image.Source = new BitmapImage(new Uri("/Images/Elements/economizer.png", UriKind.Relative));
-                        } else if ( element.Id == 8 || element.Id == 10)
-                        {
-                            image.Source = new BitmapImage(new Uri("/Images/Elements/duct.png", UriKind.Relative));
-                        } else if (element.Id == 9)
+                        } 
+                        //else if ( element.Id == 8 || element.Id == 10)
+                        //{
+                        //    image.Source = new BitmapImage(new Uri("/Images/Elements/duct.png", UriKind.Relative));
+                        //} 
+                        else if (element.Id == 8)
                         {
                             image.Source = new BitmapImage(new Uri("/Images/Elements/economizer.png", UriKind.Relative));
                         }
-                        else
-                        {
-                            image.Source = new BitmapImage(new Uri("/Images/Elements/fan.png", UriKind.Relative));
-                        }
+                        //else
+                        //{
+                        //    image.Source = new BitmapImage(new Uri("/Images/Elements/fan.png", UriKind.Relative));
+                        //}
                        (FindName("boilerStage_" + element.Id + "_label") as Label).Content = element.attribute.sectionName;
 
                     }
