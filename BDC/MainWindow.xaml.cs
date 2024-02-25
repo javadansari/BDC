@@ -348,7 +348,7 @@ namespace BDC
             element = elements.Where(element => element.Id == id).FirstOrDefault();
             showProperties(elements.Where(element => element.Id == id).FirstOrDefault());
           
-            for(int i = 1; i < 12; i++)
+            for(int i = 1; i < 9; i++)
             (FindName("boilerStage_"+i+"_grid") as Grid).Background=  Brushes.White;
             grid.Background = Brushes.Green;
 

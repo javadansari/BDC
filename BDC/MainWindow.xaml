@@ -7,7 +7,7 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
          ResizeMode="CanMinimize"
-        Title="MainWindow" Height="470" Width="1000">
+        Title="MainWindow" Height="500" Width="1030">
     <Window.Resources>
         <sys:Double x:Key="sizeBox">40</sys:Double>
         <sys:Double x:Key="margin">2</sys:Double>
@@ -26,8 +26,8 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="130"/>
-            <ColumnDefinition Width="700"/>
-            <ColumnDefinition Width="170"/>
+            <ColumnDefinition Width="680"/>
+            <ColumnDefinition Width="220"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition  Height="20"/>
@@ -103,7 +103,7 @@
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="{Binding PropertyName}" FontWeight="Bold"/>
-                        <TextBlock Text="{Binding PropertyValue}" Margin="5,0,0,0"  Foreground="#FFABA9A9" />
+                        <TextBox Text="{Binding PropertyValue}" Margin="5,0,0,0"  Foreground="#FFABA9A9" IsEnabled="False" />
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
@@ -164,7 +164,10 @@
                 </StackPanel>
                 <Image Width="120" Height="250"  Source="Images\Elements\duct3.png"/>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="420,0,0,0"  >
+           
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,0"  >
+                <Border BorderThickness="2" BorderBrush="Gray" Width="420">
+                 </Border>
                 <Image Width="240" Height="120"   Source="Images\Elements\duct2.png"/>
             </StackPanel>
         </StackPanel>
