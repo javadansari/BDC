@@ -44,6 +44,52 @@ namespace BDC.Forms
                     Orientation = Orientation.Horizontal,
                 };
 
+            // Create a stack panel with horizontal orientation
+            StackPanel stackPanel = new StackPanel
+            {
+                Orientation = Orientation.Horizontal
+            };
+
+            // Create a save button and add it to the stack panel
+            Button saveButton = new Button
+            {
+                Content = "Save",
+                Margin = new Thickness(10),
+                Width = 100,
+                Height = 20,
+                FontSize = 15,
+                HorizontalAlignment = HorizontalAlignment.Right,
+                Style = (Style)FindResource("RoundedButtonStyleG")
+            };
+            saveButton.Click += SaveButton_Click;
+            stackPanel.Children.Add(saveButton);
+
+            // Create a close button and add it to the stack panel
+            Button closeButton = new Button
+            {
+                Content = "Close",
+                Margin = new Thickness(10),
+                Width = 100,
+                Height = 25,
+                FontSize = 15,
+                HorizontalAlignment = HorizontalAlignment.Right,
+                Style = (Style)FindResource("RoundedButtonStyleR"),
+
+            };
+            closeButton.Click += (sender, e) => Close();
+            stackPanel.Children.Add(closeButton);
+
+          
+            // Create a dock panel and add the stack panel to the top edge
+
+            DockPanel dockPanel = new DockPanel();
+            dockPanel.Children.Add(stackPanel);
+         //   DockPanel.SetDock(stackPanel, Dock.Top);
+            verticalStackPanelOuter.Children.Add(dockPanel);
+
+
+
+
 
 
             StackPanel verticalStackPanelVertical = new StackPanel
@@ -289,91 +335,7 @@ namespace BDC.Forms
 
 
 
-            // Create a stack panel with horizontal orientation
-            StackPanel stackPanel = new StackPanel
-            {
-                Orientation = Orientation.Horizontal
-            };
-
-            // Create a save button and add it to the stack panel
-            Button saveButton = new Button
-            {
-                Content = "Save",
-                Margin = new Thickness(10),
-                Width = 150,
-                Height = 30,
-                Style = (Style)FindResource("RoundedButtonStyleG")
-            };
-            saveButton.Click += SaveButton_Click;
-            stackPanel.Children.Add(saveButton);
-
-            // Create a close button and add it to the stack panel
-            Button closeButton = new Button
-            {
-                Content = "Close",
-                Margin = new Thickness(10),
-                Width = 150,
-                Height = 30,
-                Style = (Style)FindResource("RoundedButtonStyleR")             
-            };
-            closeButton.Click += (sender, e) => Close();
-            stackPanel.Children.Add(closeButton);
-
-            // Set the horizontal alignment of the buttons to center
-            foreach (Button button in stackPanel.Children)
-            {
-                button.HorizontalAlignment = HorizontalAlignment.Center;
-            }
-
-            // Create a dock panel and add the stack panel to the top edge
-       
-            DockPanel dockPanel = new DockPanel();  
-            dockPanel.Children.Add(stackPanel);
-            DockPanel.SetDock(stackPanel, Dock.Top);
-            verticalStackPanelOuter.Children.Add(dockPanel);
-            // Add the dock panel to the window
-            //    this.Content = dockPanel;
-
-
-
-
-
-
-
-
-
-            //Button saveButton = new Button
-            //{
-            //    Content = "Save",
-            //    Margin = new Thickness(10),
-            //    Width = 150,
-            //    Height = 50,
-            //};
-            //saveButton.Click += SaveButton_Click;
-            //Button closeButton = new Button
-            //{
-            //    Content = "Close",
-            //    Margin = new Thickness(10),
-            //    Width = 150,
-            //    Height = 50,
-            //};
-            //      closeButton.Click += (sender, e) => Close();
-
-         //   verticalStackPanelOuter.Children.Add(saveButton);
-          //  verticalStackPanelOuter.Children.Add(closeButton);
-
-
-            // check enable stacks
-            //foreach (var pair in checkBoxStackPanelList)
-            //{
-            //    CheckBox checkBox = pair.Item1;
-            //    StackPanel stackPanel = pair.Item2;
-            //    if (checkBox.IsChecked.Value)
-            //    {
-            //        checkCheckBox(checkBox, stackPanel);
-            //    }
-
-            //}
+         
 
         }
         private void SaveButton_Click(object sender, RoutedEventArgs e)

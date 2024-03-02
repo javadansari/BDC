@@ -14,12 +14,13 @@
     </Style>
     
     <Style x:Key="RoundedButtonStyleG" TargetType="Button">
-        <Setter Property="Width" Value="100"/>
-        <Setter Property="Height" Value="25"/>
+        <Setter Property="Width" Value="60"/>
+        <Setter Property="Height" Value="15"/>
+        <Setter Property="FontSize" Value="8"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border CornerRadius="10" Background="LightGreen" Padding="5"  >
+                    <Border CornerRadius="3" Background="Gray"   >
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Border>
                 </ControlTemplate>
@@ -33,7 +34,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border CornerRadius="10" Background="LightPink" Padding="5" >
+                    <Border CornerRadius="10" Background="Gray" Padding="5" >
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Border>
                 </ControlTemplate>

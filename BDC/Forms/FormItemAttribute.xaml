@@ -13,9 +13,19 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
-    <ScrollViewer>
-        <StackPanel Name="verticalStackPanelOuter">
-            <!-- Pattern will be added dynamically here -->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel  Grid.Row="0" Orientation="Horizontal" Background="AntiqueWhite" HorizontalAlignment="Right">
+            <Button Name="save" Content="Apply"  Style="{StaticResource RoundedButtonStyleG}" />
+            <Button Name="close" Content="Close" Style="{StaticResource RoundedButtonStyleG}"/>
         </StackPanel>
-    </ScrollViewer>
+        <ScrollViewer Grid.Row="1">
+            <StackPanel Name="verticalStackPanelOuter">
+                <!-- Pattern will be added dynamically here -->
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
 </Window>
