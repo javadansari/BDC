@@ -390,12 +390,7 @@ namespace BDC
 
 
 
-        private void Elements_Click(object sender, RoutedEventArgs e)
-        {
-            //   AssignStateNumbers(items);
-            FormElements formElements = new FormElements(elements);
-            formElements.Show();
-        }
+       
 
         private void Attributes_Click(object sender, RoutedEventArgs e)
         {
@@ -633,7 +628,8 @@ namespace BDC
         {
 
           //  Export export = new Export(@"e:\1.txt");
-            Export export = new Export(@"c:\projects\1.txt");
+        //    Export export = new Export(@"c:\projects\1.txt");
+            Export export = new Export(System.AppDomain.CurrentDomain.BaseDirectory + @"Export.txt");
             export.ExportFurnace(furnace);   
             export.ExportElement(elements);
             export.ExportDuct(ducts);

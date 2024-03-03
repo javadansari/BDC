@@ -53,11 +53,8 @@ namespace BDC.Forms
             // Create a save button and add it to the stack panel
             Button saveButton = new Button
             {
-                Content = "Save",
+                Content = "Apply",
                 Margin = new Thickness(10),
-                Width = 100,
-                Height = 20,
-                FontSize = 15,
                 HorizontalAlignment = HorizontalAlignment.Right,
                 Style = (Style)FindResource("RoundedButtonStyleG")
             };
@@ -69,11 +66,9 @@ namespace BDC.Forms
             {
                 Content = "Close",
                 Margin = new Thickness(10),
-                Width = 100,
-                Height = 25,
-                FontSize = 15,
+
                 HorizontalAlignment = HorizontalAlignment.Right,
-                Style = (Style)FindResource("RoundedButtonStyleR"),
+                Style = (Style)FindResource("RoundedButtonStyleG"),
 
             };
             closeButton.Click += (sender, e) => Close();

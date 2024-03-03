@@ -144,9 +144,9 @@
                 <Label  Width="350" Content="Usage Factor"></Label>
                 <TextBox Name="Usage_Factor"  Width="100" Height="20" HorizontalAlignment="Center"></TextBox>
             </StackPanel>
-            <StackPanel  HorizontalAlignment="Right" Orientation="Horizontal">
-                <Button Style="{StaticResource RoundedButtonStyleG}" Content="Save" Width="100" Height="25" Click="Save_Click" />
-                <Button  Margin="4,0,4,0" Style="{StaticResource RoundedButtonStyleR}" Content="Cancel" Width="100" Height="25" Click="Cancel_Click" />
+            <StackPanel  HorizontalAlignment="Right" Orientation="Horizontal" Margin="10">
+                <Button Style="{StaticResource RoundedButtonStyleG}" Content="Apply" Click="Save_Click" />
+                <Button  Margin="4,0,4,0" Style="{StaticResource RoundedButtonStyleG}" Content="Cancel" Click="Cancel_Click" />
             </StackPanel>
         </StackPanel>
     </Grid>

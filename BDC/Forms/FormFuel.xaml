@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BDC.Forms"
         mc:Ignorable="d"
-        Title="FormFuel" Height="650" Width="830">
+        Title="FormFuel" Height="650" Width="780">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -16,14 +16,14 @@
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="150"/>
             <ColumnDefinition Width="300"/>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="130"/>
         </Grid.ColumnDefinitions>
         <StackPanel  Grid.Column="0" Orientation="Vertical">
                 <Label Style="{StaticResource label}"  />
-                <Label Style="{StaticResource label}"   Content="Gas Chemical Composition (%Vol)" />
+                <Label Style="{StaticResource label}"   Content="Gas Composition (%Vol)" />
                 <Label Style="{StaticResource label}"  Content="CH4" />
                 <Label Style="{StaticResource label}"  Content="C2H6" />
                 <Label Style="{StaticResource label}"  Content="C3H8" />
@@ -225,8 +225,8 @@
                     </StackPanel>
                 </StackPanel>
         <StackPanel Grid.Column="2" Grid.ColumnSpan="2"  HorizontalAlignment="Center" Orientation="Horizontal">
-            <Button Style="{StaticResource RoundedButtonStyleG}" Content="Save" Width="100" Height="25" Click="Save_Click" />
-            <Button  Margin="4,0,4,0" Style="{StaticResource RoundedButtonStyleR}" Content="Cancel" Width="100" Height="25" Click="Cancel_Click" />
+            <Button Style="{StaticResource RoundedButtonStyleG}" Content="Apply" Click="Save_Click" />
+            <Button  Margin="4,0,4,0" Style="{StaticResource RoundedButtonStyleG}" Content="Cancel" Click="Cancel_Click" />
         </StackPanel>
 
     </Grid>

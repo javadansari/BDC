@@ -48,7 +48,6 @@
                 <MenuItem Header="Paste"/>
             </MenuItem>
             <MenuItem Header="Information">
-                <MenuItem Header="Elements" Click="Elements_Click"/>
                 <MenuItem Header="Attributes" Click="Attributes_Click"/>
             </MenuItem>
             <MenuItem Header="Result">
