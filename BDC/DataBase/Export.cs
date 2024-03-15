@@ -19,21 +19,52 @@ namespace BDC.DataBase
             this.filePath = filePath;
         }
 
-        public bool ExportFurnace(object obj)
+        public bool ExportFurnace(Furnace furnace)
         {
-            Type objType = obj.GetType();
-            PropertyInfo[] properties = objType.GetProperties();
+            ExportSpacer("Furnace");
 
-            using (StreamWriter writer = new StreamWriter(filePath))
+            string line = "";
+            Type objType = furnace.GetType();
+            PropertyInfo[] properties = objType.GetProperties();
+            foreach (PropertyInfo prop in properties)
             {
-                foreach (PropertyInfo prop in properties)
+                object value = prop.Name;
+                line = line + "," + value;
+            }
+            using (StreamWriter writer = new StreamWriter(filePath, true))
+            {
+                writer.WriteLine(line);
+            }
+
+                using (StreamWriter writer = new StreamWriter(filePath, true))
                 {
-                    object value = prop.GetValue(obj);
-                    string line = $"{prop.Name}: {value}";
+                    line = "";
+                    foreach (PropertyInfo prop in properties)
+                    {
+                        object value = prop.GetValue(furnace);
+                        line = line + "," + value;
+
+                    }
                     writer.WriteLine(line);
-                }
             }
             return true;
+
+
+
+
+            //Type objType = obj.GetType();
+            //PropertyInfo[] properties = objType.GetProperties();
+
+            //using (StreamWriter writer = new StreamWriter(filePath))
+            //{
+            //    foreach (PropertyInfo prop in properties)
+            //    {
+            //        object value = prop.GetValue(obj);
+            //        string line = $"{prop.Name}: {value}";
+            //        writer.WriteLine(line);
+            //    }
+            //}
+            //return true;
         }
 
 

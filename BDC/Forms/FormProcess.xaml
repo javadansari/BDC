@@ -15,14 +15,14 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
-    
+
     <Grid>
-        <StackPanel>
-        <StackPanel  HorizontalAlignment="Right" Orientation="Horizontal" Margin="0,2,20,2" >
-            <Button Style="{StaticResource RoundedButtonStyleG}" Content="Apply" Click="Save_Click" />
-                <Button  Margin="4,0,4,0" Style="{StaticResource RoundedButtonStyleG}" Content="Cancel" Click="Cancel_Click" />
-        </StackPanel>
         <ScrollViewer>
+            <StackPanel>
+            <StackPanel  HorizontalAlignment="Right" Orientation="Horizontal" Margin="0,2,20,2" >
+                <Button Style="{StaticResource RoundedButtonStyleG}" Content="Apply" Click="Save_Click" />
+                <Button  Margin="4,0,4,0" Style="{StaticResource RoundedButtonStyleG}" Content="Cancel" Click="Cancel_Click" />
+            </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <StackPanel  Grid.Column="0" Orientation="Vertical">
                         <Label Style="{StaticResource label}" Content="Case Name" />
@@ -394,7 +394,7 @@
                         <TextBox Name="Blowdown_flow_8" Style="{StaticResource textBox}" />
                     </StackPanel>
                 </StackPanel>
-            </ScrollViewer>
         </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Window>
