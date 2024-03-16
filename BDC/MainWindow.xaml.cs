@@ -635,7 +635,7 @@ namespace BDC
             export.ExportGasFuel(gasFuels);
             List<Process> processes = new List<Process>();
             foreach (Case @case in cases)
-                processes.Add(@case.process);
+            processes.Add(@case.process);
             export.ExportProcess(processes);
             export.ExportCases(cases);
 
