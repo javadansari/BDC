@@ -627,14 +627,17 @@ namespace BDC
         private void ExportMenu_Click(object sender, RoutedEventArgs e)
         {
 
-          //  Export export = new Export(@"e:\1.txt");
-        //    Export export = new Export(@"c:\projects\1.txt");
             Export export = new Export(System.AppDomain.CurrentDomain.BaseDirectory + @"Export.txt");
             export.ExportFurnace(furnace);   
             export.ExportElement(elements);
             export.ExportDuct(ducts);
             export.ExportOilFuel(oilFuels);
             export.ExportGasFuel(gasFuels);
+            List<Process> processes = new List<Process>();
+            foreach (Case @case in cases)
+                processes.Add(@case.process);
+            export.ExportProcess(processes);
+            export.ExportCases(cases);
 
           //  ExportToFile(furnace, @"e:\1.txt");
         }

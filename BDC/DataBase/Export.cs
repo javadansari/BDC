@@ -194,6 +194,72 @@ namespace BDC.DataBase
             }
             return true;
         }
+
+
+        public bool ExportProcess(List<Process> processes)
+        {
+            ExportSpacer("Cases");
+            string line = "";
+            Type objType = processes[0].GetType();
+            PropertyInfo[] properties = objType.GetProperties();
+            foreach (PropertyInfo prop in properties)
+            {
+                object value = prop.Name;
+                line = line + "," + value;
+            }
+            using (StreamWriter writer = new StreamWriter(filePath, true))
+            {
+                writer.WriteLine(line);
+            }
+            foreach (Process process in processes)
+            {
+                using (StreamWriter writer = new StreamWriter(filePath, true))
+                {
+                    line = "";
+                    foreach (PropertyInfo prop in properties)
+                    {
+                        object value = prop.GetValue(process);
+                        line = line + "," + value;
+
+                    }
+                    writer.WriteLine(line);
+                }
+            }
+            return true;
+        }
+
+        public bool ExportCases(List<Case> cases)
+        {
+            ExportSpacer("Cases");
+            string line = "";
+            Type objType = cases[0].GetType();
+            PropertyInfo[] properties = objType.GetProperties();
+            foreach (PropertyInfo prop in properties)
+            {
+                object value = prop.Name;
+                line = line + "," + value;
+            }
+            using (StreamWriter writer = new StreamWriter(filePath, true))
+            {
+                writer.WriteLine(line);
+            }
+            foreach (Case @case in cases)
+            {
+                using (StreamWriter writer = new StreamWriter(filePath, true))
+                {
+                    line = "";
+                    foreach (PropertyInfo prop in properties)
+                    {
+                        object value = prop.GetValue(@case);
+                        line = line + "," + value;
+
+                    }
+                    writer.WriteLine(line);
+                }
+            }
+            return true;
+        }
+
         public bool ExportSpacer(string name)
         {
   
