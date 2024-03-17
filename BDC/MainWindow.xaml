@@ -108,7 +108,9 @@
             </ListBox.ItemTemplate>
         </ListBox>
         <StackPanel  Grid.Row="2" Grid.Column="1"  Orientation="Vertical" >
-            <Image Width="400" Height="200"   Source="Images\Elements\burner.jpg"/>
+            <Image Width="400" Height="200"   Source="Images\Elements\allduct.jpg">
+                
+            </Image>
             <StackPanel Orientation="Horizontal">
                 <StackPanel Orientation="Horizontal" Margin="0,120,0,0"  >
                     <Grid Name="boilerStage_1_grid" Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}"  MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >
@@ -161,7 +163,8 @@
                     </Grid>
                 </StackPanel>
             </StackPanel>
-           
+
+
 
         </StackPanel>
         <ToolBarPanel Grid.Row="3" Grid.ColumnSpan="3" Background="LightGray">
