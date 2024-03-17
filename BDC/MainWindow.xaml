@@ -31,7 +31,7 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition  Height="20"/>
-            <RowDefinition  Height="40"/>
+            <RowDefinition  Height="30"/>
             <RowDefinition Height="*"/>
             <RowDefinition  Height="20"/>
         </Grid.RowDefinitions>
@@ -57,18 +57,18 @@
                 <MenuItem Header="Export" Click="ExportMenu_Click"/>
             </MenuItem>
         </Menu>
-        <StackPanel  Grid.Row="1" Grid.ColumnSpan="3" Orientation="Horizontal" Margin="1" >
-            <Image  Tag="new" Width="{StaticResource topIconSize}" Height="{StaticResource topIconSize}" Source="Images/Other/new.png"    PreviewMouseLeftButtonDown="SaveButton_Click"/>
-            <Image  Tag="save" Width="{StaticResource topIconSize}" Height="{StaticResource topIconSize}" Source="Images/Other/save.png"    PreviewMouseLeftButtonDown="SaveButton_Click"/>
-            <Image  Tag="open" Width="{StaticResource topIconSize}" Height="{StaticResource topIconSize}" Source="Images/Other/open.png"    PreviewMouseLeftButtonDown="OpenButton_Click"/>
-            <Button Content="Furnace"  Width="80" Height="20" Background="#FF0F38E0" Foreground="White" Click="formFurnace_Click" Margin="2" ></Button>
-            <Button Content="Convention"  Width="80" Height="20" Background="#FF0F38E0" Foreground="White" Click="Attributes_Click" Margin="2"   ></Button>
-            <Button Content="Duct"  Width="80" Height="20" Background="#FF0F38E0" Foreground="White" Click="formDuct_Click"  Margin="2"  ></Button>
-            <Button Content="Fuel Spec"  Width="80" Height="20" Background="#FF0F38E0" Foreground="White" Click="formFuel_Click" Margin="2"   ></Button>
-            <Button Content="Process Data"  Width="80" Height="20" Background="#FF0F38E0" Foreground="White" Click="formProcess_Click" Margin="2"   ></Button>
-            <Button Content="General Input"  Width="80" Height="20" Background="#FF0F38E0" Foreground="White" Click="setNumber_Click"  Margin="2"  ></Button>
+        <StackPanel  Grid.Row="1" Grid.ColumnSpan="3" Orientation="Horizontal" Margin="1" Background="Gray" >
+            <Button Content="New"  Width="80" Height="20" Background="BlueViolet" Foreground="White" Click="SaveButton_Click" Margin="2"   ></Button>
+            <Button Content="Save"  Width="80" Height="20" Background="BlueViolet" Foreground="White" Click="SaveButton_Click" Margin="2"   ></Button>
+            <Button Content="Open"  Width="80" Height="20" Background="BlueViolet" Foreground="White" Click="OpenButton_Click" Margin="2"   ></Button>
+            <Button Content="Furnace"  Width="80" Height="20" Background="Blue" Foreground="White" Click="formFurnace_Click" Margin="2" ></Button>
+            <Button Content="Convention"  Width="80" Height="20" Background="Blue" Foreground="White" Click="Attributes_Click" Margin="2"   ></Button>
+            <Button Content="Duct"  Width="80" Height="20" Background="Blue" Foreground="White" Click="formDuct_Click"  Margin="2"  ></Button>
+            <Button Content="Fuel Spec"  Width="80" Height="20" Background="Blue" Foreground="White" Click="formFuel_Click" Margin="2"   ></Button>
+            <Button Content="Process Data"  Width="80" Height="20" Background="Blue" Foreground="White" Click="formProcess_Click" Margin="2"   ></Button>
+            <Button Content="General Input"  Width="80" Height="20" Background="Blue" Foreground="White" Click="setNumber_Click"  Margin="2"  ></Button>
         </StackPanel>
-        <StackPanel  Grid.Row="2" Orientation="Vertical" >
+        <StackPanel  Grid.Row="2" Orientation="Vertical" Background="AliceBlue">
             <StackPanel Orientation="Horizontal">
                 <Button Width="60" Height="20" Margin="2" Background="AliceBlue" Click="PlayCase_Click">
                     <Image Source="Images/Other/play.png" Width="{StaticResource smallestIconSize12}" Height="{StaticResource smallestIconSize12}"/>
@@ -97,7 +97,7 @@
                 </ListBox>
             </StackPanel>
         </StackPanel>
-        <ListBox Name="propertyListBox" Grid.Row="2" Grid.Column="2" Background="AntiqueWhite">
+        <ListBox Name="propertyListBox" Grid.Row="2" Grid.Column="2" Grid.RowSpan="3" Background="AliceBlue">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -108,7 +108,7 @@
             </ListBox.ItemTemplate>
         </ListBox>
         <StackPanel  Grid.Row="2" Grid.Column="1"  Orientation="Vertical" >
-           
+            <Image Width="400" Height="200"   Source="Images\Elements\burner.jpg"/>
             <StackPanel Orientation="Horizontal">
                 <StackPanel Orientation="Horizontal" Margin="0,120,0,0"  >
                     <Grid Name="boilerStage_1_grid" Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}"  MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >
@@ -153,7 +153,6 @@
                         </Border>
                         <Label Name="boilerStage_7_label"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="1,0,0,1" />
                     </Grid>
-                    <Image Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}"  Source="Images\Elements\duct1.png"/>
                     <Grid  Name="boilerStage_8_grid" Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}" MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >
                         <Border BorderThickness="2" BorderBrush="ForestGreen">
                             <Image x:Name="boilerStage_8"  Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"  VerticalAlignment="Top"  />
@@ -161,14 +160,9 @@
                         <Label Name="boilerStage_8_label"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="1,0,0,1" />
                     </Grid>
                 </StackPanel>
-                <Image Width="120" Height="250"  Source="Images\Elements\duct3.png"/>
             </StackPanel>
            
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,0"  >
-                <Border BorderThickness="2" BorderBrush="Gray" Width="420">
-                 </Border>
-                <Image Width="240" Height="120"   Source="Images\Elements\duct2.png"/>
-            </StackPanel>
+
         </StackPanel>
         <ToolBarPanel Grid.Row="3" Grid.ColumnSpan="3" Background="LightGray">
             <Grid>

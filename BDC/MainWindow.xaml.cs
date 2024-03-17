@@ -637,7 +637,7 @@ namespace BDC
             foreach (Case @case in cases)
             processes.Add(@case.process);
             export.ExportProcess(processes);
-            export.ExportCases(cases);
+          //  export.ExportCases(cases);
 
           //  ExportToFile(furnace, @"e:\1.txt");
         }
@@ -666,7 +666,15 @@ namespace BDC
             formProcess.Show();
         }
 
-       
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void OpenButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
     #endregion
 
