@@ -605,8 +605,7 @@ namespace BDC
             RemoveSelectedItems();
 
         }
-
-        private void PlayCase_Click(object sender, RoutedEventArgs e)
+                private void PlayCase_Click(object sender, RoutedEventArgs e)
         {
 
         }
