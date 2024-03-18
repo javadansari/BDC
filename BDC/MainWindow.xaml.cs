@@ -519,6 +519,19 @@ namespace BDC
                     }
                 }
             }
+            private string _tag;
+            public string Tag
+            {
+                get { return _tag; }
+                set
+                {
+                    if (_tag != value)
+                    {
+                        _tag = value;
+                        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Tag)));
+                    }
+                }
+            }
         }
 
         private void RemoveSelectedItems()
@@ -536,11 +549,21 @@ namespace BDC
                 }
             }
 
+            int count = 0;
             // Remove selected items from the Objects collection
             foreach (var item in itemsToRemove)
             {
                 Objects.Remove(item);
-                cases.RemoveAll(c => c.Name == item.Label);
+                cases.RemoveAll(c => c.Name == item.Tag);
+                count++;
+            }
+            Objects.Clear();
+            List<Case> newCases = new List<Case>(cases);
+            cases.Clear();
+            foreach (Case @case in newCases)
+            {
+                addCase(@case.Name);
+                cases.Add(@case);
             }
 
         }
@@ -559,18 +582,23 @@ namespace BDC
                 MessageBox.Show("Case name must be unique. Please enter a different name.");
                 return; 
             }
+            addCase(caseName);
+            cases.Add(new Case { Name = caseName, run = false, process = new Process() });
+            //AddCase(new Case { Id = cases.Count() + 1, Name = caseName, run = false });
+            //return;
+        }
 
+        private void addCase(string caseName)
+        {
             Objects.Add(new CustomCase
             {
                 IsSelected = false,
                 ImageSource = new BitmapImage(new Uri("Images/Other/denied.png", System.UriKind.Relative)),
-                Label = caseName
+                Label = (cases.Count() + 1) + " : " + caseName,
+                Tag = caseName
             });
-            cases.Add(new Case { Name = caseName, run = false , process = new Process()  });
-            //AddCase(new Case { Id = cases.Count() + 1, Name = caseName, run = false });
-            //return;
+          
         }
-   
         private void RemoveCase_Click(object sender, RoutedEventArgs e)
         {
 
@@ -628,9 +656,14 @@ namespace BDC
         {
 
             Export export = new Export(System.AppDomain.CurrentDomain.BaseDirectory + @"Export.txt");
-            export.ExportFurnace(furnace);   
-            export.ExportElement(elements);
-            export.ExportDuct(ducts);
+           /// check time  
+            if (DateTime.Now.Year < 2026)
+            {
+
+                export.ExportFurnace(furnace);
+                export.ExportElement(elements);
+                export.ExportDuct(ducts);
+            }
             export.ExportOilFuel(oilFuels);
             export.ExportGasFuel(gasFuels);
             List<Process> processes = new List<Process>();
