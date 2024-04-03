@@ -165,7 +165,7 @@ namespace BDC.DataBase
 
         public bool ExportGasFuel(List<GasFuel> gasFuels)
         {
-            ExportSpacer("OilFuel");
+            ExportSpacer("GasFuel");
             string line = "";
             Type objType = gasFuels[0].GetType();
             PropertyInfo[] properties = objType.GetProperties();

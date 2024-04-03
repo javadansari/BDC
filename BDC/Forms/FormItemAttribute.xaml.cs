@@ -276,8 +276,8 @@ namespace BDC.Forms
                 buildTextBox(childStackPanel, e => e.attribute.Tube_Wall_Thickness, element, (e, value) => e.attribute.Tube_Wall_Thickness = value);
                 buildTextBox(childStackPanel, e => e.attribute.Incidence_Angle, element, (e, value) => e.attribute.Incidence_Angle = value);
           
-                List<string> MaterialList = new List<string> { "Staggered", "In-line", };
-                buildCombo(itemsList, e => e.attribute.Tubes_Material, element, (e, index) => e.attribute.Tubes_Material = index);
+                List<string> materialList = new List<string> { "SA178-A", "SA178-C", "SA210-A1", "SA192", "SA213-T11", "SA213-T22", "SA213-T91", "SA213-T304" };
+                buildCombo(materialList, e => e.attribute.Tubes_Material, element, (e, index) => e.attribute.Tubes_Material = index);
              
                 List<string> typeList = new List<string> { "Staggered", "In-line", };
                 buildCombo(itemsList, e => e.attribute.Fin_Type, element, (e, index) => e.attribute.Fin_Type = index);
