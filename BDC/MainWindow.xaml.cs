@@ -226,7 +226,7 @@ namespace BDC
             propertyDisplays.Add(new PropertyDisplay { PropertyName = "Fin Density (fin/m)", PropertyValue = element.attribute.Fin_Density });
             propertyDisplays.Add(new PropertyDisplay { PropertyName = "Fin Uncut Height (mm)", PropertyValue = element.attribute.Fin_Uncut_Height });
             propertyDisplays.Add(new PropertyDisplay { PropertyName = "Fin Segment Width (mm)", PropertyValue = element.attribute.Fin_Segment_Width });
-            propertyDisplays.Add(new PropertyDisplay { PropertyName = "Fin Material", PropertyValue = element.attribute.Fin_Material });
+         //   propertyDisplays.Add(new PropertyDisplay { PropertyName = "Fin Material", PropertyValue = element.attribute.Fin_Material });
             propertyDisplays.Add(new PropertyDisplay { PropertyName = "Water-Side Founling Factor (m2K/W)", PropertyValue = element.attribute.Water_Side_Founling_Factor });
             propertyDisplays.Add(new PropertyDisplay { PropertyName = "Gas-Side Founling Factor (m2K/W)", PropertyValue = element.attribute.Gas_Side_Founling_Factor });
             propertyDisplays.Add(new PropertyDisplay { PropertyName = "Usage Factor (0,1)", PropertyValue = element.attribute.Usage_Factor });
