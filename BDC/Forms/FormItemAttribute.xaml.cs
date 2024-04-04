@@ -289,7 +289,10 @@ namespace BDC.Forms
                 buildTextBox(childStackPanel, e => e.attribute.Fin_Density, element, (e, value) => e.attribute.Fin_Density = value);
                 buildTextBox(childStackPanel, e => e.attribute.Fin_Uncut_Height, element, (e, value) => e.attribute.Fin_Uncut_Height = value);
                 buildTextBox(childStackPanel, e => e.attribute.Fin_Segment_Width, element, (e, value) => e.attribute.Fin_Segment_Width = value);
-                buildTextBox(childStackPanel, e => e.attribute.Fin_Material, element, (e, value) => e.attribute.Fin_Material = value);
+            
+                List<string> finMaterialList = new List<string> { "C.S", "A240-TP304", "A240-TP409" };    
+                buildCombo(finMaterialList, e => e.attribute.Fin_Material, element, (e, index) => e.attribute.Fin_Material = index);
+             
                 buildTextBox(childStackPanel, e => e.attribute.Water_Side_Founling_Factor, element, (e, value) => e.attribute.Water_Side_Founling_Factor = value);
                 buildTextBox(childStackPanel, e => e.attribute.Gas_Side_Founling_Factor, element, (e, value) => e.attribute.Gas_Side_Founling_Factor = value);
                 buildTextBox(childStackPanel, e => e.attribute.Usage_Factor, element, (e, value) => e.attribute.Usage_Factor = value);

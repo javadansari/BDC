@@ -85,7 +85,7 @@ namespace BDC.Classes
 
 
         [DisplayName("Fin Material")]
-        public string Fin_Material { get; set; } = "-";
+        public int Fin_Material { get; set; } = 0;
 
         [DisplayName("Water-Side Founling Factor (m2K/W)")]
         public string Water_Side_Founling_Factor { get; set; } = "-";
