@@ -171,7 +171,7 @@ namespace BDC.Forms
                 (FindName("C3H8" + gasFuel.id) as TextBox).Text = gasFuel.C3H8.ToString();
                 (FindName("C3H6" + gasFuel.id) as TextBox).Text = gasFuel.C3H6.ToString();
                 (FindName("N_C4H10" + gasFuel.id) as TextBox).Text = gasFuel.N_C4H10.ToString();
-                (FindName("ISO-C4H10" + gasFuel.id) as TextBox).Text = gasFuel.ISO_C4H10.ToString();
+                (FindName("ISO_C4H10" + gasFuel.id) as TextBox).Text = gasFuel.ISO_C4H10.ToString();
                 (FindName("C4H8" + gasFuel.id) as TextBox).Text = gasFuel.C4H8.ToString();
                 (FindName("ISO_C5H12" + gasFuel.id) as TextBox).Text = gasFuel.ISO_C5H12.ToString();
                 (FindName("N_C5H12" + gasFuel.id) as TextBox).Text = gasFuel.N_C5H12.ToString();

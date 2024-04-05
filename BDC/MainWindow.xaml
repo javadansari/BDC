@@ -67,6 +67,7 @@
             <Button Content="Fuel Spec"  Width="80" Height="20" Background="Blue" Foreground="White" Click="formFuel_Click" Margin="2"   ></Button>
             <Button Content="Process Data"  Width="80" Height="20" Background="Blue" Foreground="White" Click="formProcess_Click" Margin="2"   ></Button>
             <Button Content="General Input"  Width="80" Height="20" Background="Blue" Foreground="White" Click="setNumber_Click"  Margin="2"  ></Button>
+            <Button Content="Apply"  Width="80" Height="20" Background="Green" Foreground="White" Click="apply_Click"  Margin="2"  ></Button>
         </StackPanel>
         <StackPanel  Grid.Row="2" Orientation="Vertical" Background="AliceBlue">
             <StackPanel Orientation="Horizontal">
@@ -101,8 +102,8 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding PropertyName}" FontWeight="Bold"/>
-                        <TextBox Text="{Binding PropertyValue}" Margin="5,0,0,0"  Foreground="#FFABA9A9" IsEnabled="False" />
+                        <TextBlock Text="{Binding PropertyName}" FontSize="10" Width="100"/>
+                        <TextBox Text="{Binding PropertyValue}" Margin="5,0,0,0"  Foreground="Black"  FontSize="10" Width="70" />
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>

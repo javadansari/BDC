@@ -36,6 +36,8 @@ using System.Reflection;
 using System.Windows.Media.Animation;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Runtime.ConstrainedExecution;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace BDC
 {
@@ -52,6 +54,7 @@ namespace BDC
 
 
         public List<Element> elements { get; set; }
+        public Element activeElement;
      
         public Furnace furnace { get; set; }
 
@@ -115,7 +118,7 @@ namespace BDC
  
             Objects = new ObservableCollection<CustomCase>();
             ObjectListBox.ItemsSource = Objects;
-
+            activeElement = new Element();
 
         }
         #endregion
@@ -209,27 +212,27 @@ namespace BDC
         {
             // Assuming you have an object called element that has the attribute property
             var propertyDisplays = new List<PropertyDisplay>();
-            propertyDisplays.Add(new PropertyDisplay { PropertyName = "Section Name", PropertyValue = element.attribute.sectionName.ToString() });
-            propertyDisplays.Add(new PropertyDisplay { PropertyName = "Channel Height (m)", PropertyValue = element.attribute.Channel_Height });
-            propertyDisplays.Add(new PropertyDisplay { PropertyName = "Channel Width (m)", PropertyValue = element.attribute.Channel_Width });
-            propertyDisplays.Add(new PropertyDisplay { PropertyName = "NO# Rows", PropertyValue = element.attribute.No_Rows });
-            propertyDisplays.Add(new PropertyDisplay { PropertyName = "NO# Tubes/Row", PropertyValue = element.attribute.No_Tubes_Row });
-            propertyDisplays.Add(new PropertyDisplay { PropertyName = "Longitudinal Pitch (mm)", PropertyValue = element.attribute.Longitudinal_Pitch });
-            propertyDisplays.Add(new PropertyDisplay { PropertyName = "Transverse Pitch (mm)", PropertyValue = element.attribute.Transverse_Pitch });
-            propertyDisplays.Add(new PropertyDisplay { PropertyName = "NO# Water Carrying Tubes", PropertyValue = element.attribute.NO_Water_Carrying_Tubes });
-            propertyDisplays.Add(new PropertyDisplay { PropertyName = "Tube Length/Water Flow (m)", PropertyValue = element.attribute.Tube_Length });
-            propertyDisplays.Add(new PropertyDisplay { PropertyName = "Tube Outer Diameter (mm)", PropertyValue = element.attribute.Tube_Outer_Diameter });
-            propertyDisplays.Add(new PropertyDisplay { PropertyName = "Tube Wall Thickness (mm)", PropertyValue = element.attribute.Tube_Wall_Thickness });
-            propertyDisplays.Add(new PropertyDisplay { PropertyName = "Incidence Angle (deg)", PropertyValue = element.attribute.Incidence_Angle });
-            propertyDisplays.Add(new PropertyDisplay { PropertyName = "Fin Height (mm)", PropertyValue = element.attribute.Fin_Height });
-            propertyDisplays.Add(new PropertyDisplay { PropertyName = "Fin Thickness (mm)", PropertyValue = element.attribute.Fin_Thickness });
-            propertyDisplays.Add(new PropertyDisplay { PropertyName = "Fin Density (fin/m)", PropertyValue = element.attribute.Fin_Density });
-            propertyDisplays.Add(new PropertyDisplay { PropertyName = "Fin Uncut Height (mm)", PropertyValue = element.attribute.Fin_Uncut_Height });
-            propertyDisplays.Add(new PropertyDisplay { PropertyName = "Fin Segment Width (mm)", PropertyValue = element.attribute.Fin_Segment_Width });
-         //   propertyDisplays.Add(new PropertyDisplay { PropertyName = "Fin Material", PropertyValue = element.attribute.Fin_Material });
-            propertyDisplays.Add(new PropertyDisplay { PropertyName = "Water-Side Founling Factor (m2K/W)", PropertyValue = element.attribute.Water_Side_Founling_Factor });
-            propertyDisplays.Add(new PropertyDisplay { PropertyName = "Gas-Side Founling Factor (m2K/W)", PropertyValue = element.attribute.Gas_Side_Founling_Factor });
-            propertyDisplays.Add(new PropertyDisplay { PropertyName = "Usage Factor (0,1)", PropertyValue = element.attribute.Usage_Factor });
+       //   propertyDisplays.Add(new PropertyDisplay { PropertyName = "Section Name", PropertyValue = element.attribute.sectionName.ToString() });
+            propertyDisplays.Add(new PropertyDisplay {PropertyRealName = "Channel_Height" , PropertyName = "Channel Height (m)", PropertyValue = element.attribute.Channel_Height });
+            propertyDisplays.Add(new PropertyDisplay {PropertyRealName = "attribute", PropertyName = "Channel Width (m)", PropertyValue = element.attribute.Channel_Width });
+            propertyDisplays.Add(new PropertyDisplay {PropertyRealName = "No_Rows", PropertyName = "NO# Rows", PropertyValue = element.attribute.No_Rows });
+            propertyDisplays.Add(new PropertyDisplay {PropertyRealName = "No_Tubes_Row", PropertyName = "NO# Tubes/Row", PropertyValue = element.attribute.No_Tubes_Row });
+            propertyDisplays.Add(new PropertyDisplay {PropertyRealName = "Longitudinal_Pitch", PropertyName = "Longitudinal Pitch (mm)", PropertyValue = element.attribute.Longitudinal_Pitch });
+            propertyDisplays.Add(new PropertyDisplay {PropertyRealName = "Transverse_Pitch", PropertyName = "Transverse Pitch (mm)", PropertyValue = element.attribute.Transverse_Pitch });
+            propertyDisplays.Add(new PropertyDisplay {PropertyRealName = "NO_Water_Carrying_Tubes", PropertyName = "NO# Water Carrying Tubes", PropertyValue = element.attribute.NO_Water_Carrying_Tubes });
+            propertyDisplays.Add(new PropertyDisplay {PropertyRealName = "Tube_Length", PropertyName = "Tube Length/Water Flow (m)", PropertyValue = element.attribute.Tube_Length });
+            propertyDisplays.Add(new PropertyDisplay {PropertyRealName = "Tube_Outer_Diameter", PropertyName = "Tube Outer Diameter (mm)", PropertyValue = element.attribute.Tube_Outer_Diameter });
+            propertyDisplays.Add(new PropertyDisplay {PropertyRealName = "Tube_Wall_Thickness", PropertyName = "Tube Wall Thickness (mm)", PropertyValue = element.attribute.Tube_Wall_Thickness });
+            propertyDisplays.Add(new PropertyDisplay {PropertyRealName = "Incidence_Angle", PropertyName = "Incidence Angle (deg)", PropertyValue = element.attribute.Incidence_Angle });
+            propertyDisplays.Add(new PropertyDisplay {PropertyRealName = "Fin_Height", PropertyName = "Fin Height (mm)", PropertyValue = element.attribute.Fin_Height });
+            propertyDisplays.Add(new PropertyDisplay {PropertyRealName = "Fin_Thickness", PropertyName = "Fin Thickness (mm)", PropertyValue = element.attribute.Fin_Thickness });
+            propertyDisplays.Add(new PropertyDisplay {PropertyRealName = "Fin_Density", PropertyName = "Fin Density (fin/m)", PropertyValue = element.attribute.Fin_Density });
+            propertyDisplays.Add(new PropertyDisplay {PropertyRealName = "Fin_Uncut_Height", PropertyName = "Fin Uncut Height (mm)", PropertyValue = element.attribute.Fin_Uncut_Height });
+            propertyDisplays.Add(new PropertyDisplay {PropertyRealName = "Fin_Segment_Width", PropertyName = "Fin Segment Width (mm)", PropertyValue = element.attribute.Fin_Segment_Width });
+         //   propertyDisplays.Add(new PropertyDisplayPropertyRealName ="Channel_Height" ,{ PropertyName = "Fin Material", PropertyValue = element.attribute.Fin_Material });
+            propertyDisplays.Add(new PropertyDisplay {PropertyRealName = "Water_Side_Founling_Factor", PropertyName = "Water-Side Founling Factor (m2K/W)", PropertyValue = element.attribute.Water_Side_Founling_Factor });
+            propertyDisplays.Add(new PropertyDisplay {PropertyRealName = "Gas_Side_Founling_Factor", PropertyName = "Gas-Side Founling Factor (m2K/W)", PropertyValue = element.attribute.Gas_Side_Founling_Factor });
+            propertyDisplays.Add(new PropertyDisplay {PropertyRealName = "Usage_Factor", PropertyName = "Usage Factor (0,1)", PropertyValue = element.attribute.Usage_Factor });
 
             propertyListBox.ItemsSource = propertyDisplays;
         }
@@ -334,6 +337,7 @@ namespace BDC
         public class PropertyDisplay
         {
             public string PropertyName { get; set; }
+            public string PropertyRealName { get; set; }
             public string PropertyValue { get; set; }
         }
 
@@ -346,19 +350,43 @@ namespace BDC
 
 
             element = elements.Where(element => element.Id == id).FirstOrDefault();
+            if (!element.attribute.active) return ;
             showProperties(elements.Where(element => element.Id == id).FirstOrDefault());
-          
+            
             for(int i = 1; i < 9; i++)
             (FindName("boilerStage_"+i+"_grid") as Grid).Background=  Brushes.White;
             grid.Background = Brushes.Green;
+            activeElement = element;
+
+        }
+
+        private void apply_Click(object sender, RoutedEventArgs e)
+        {
+            if (activeElement == null) return;
+            foreach (PropertyDisplay item in propertyListBox.Items)
+            {
+
+                Type elementType = activeElement.attribute.GetType();
+                // Find the property with the desired name
+                PropertyInfo propertyInfo = elementType.GetProperty(item.PropertyRealName);
+
+                if (propertyInfo != null)
+                {
+                    // Set the value for the property
+                   
+                    propertyInfo.SetValue(elements.Where(element => element.Id == activeElement.Id).FirstOrDefault().attribute, item.PropertyValue);
+                }
+
+              
+
+            }
+
 
 
         }
 
-
-
         #endregion
-     
+
 
         #region case
         private void CasesMenu_Click(object sender, RoutedEventArgs e)
@@ -707,6 +735,8 @@ namespace BDC
         {
 
         }
+
+
     }
     #endregion
 
