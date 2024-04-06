@@ -216,7 +216,7 @@
             <Label Style="{StaticResource label}"  Content="Total" />
             <Label Style="{StaticResource label}"  Content="Fuel Pressure" />
             <Label Style="{StaticResource label}"  Content="Fuel Temperature" />
-            <Label Style="{StaticResource label}"  Content="LHV (kj/kg)_ Calculated" />
+            <Label Style="{StaticResource label}"  Content="LHV (kj/kg)" />
         </StackPanel>
                <StackPanel  Grid.Column="3" Orientation="Horizontal">
                     <StackPanel Orientation="Vertical">
