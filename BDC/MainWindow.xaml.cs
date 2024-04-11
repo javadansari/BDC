@@ -409,14 +409,22 @@ namespace BDC
         #region Menu
         private void New_Click(object sender, RoutedEventArgs e)
         {
-
+            NewButton_Click(sender, e);
         }
 
         private void Open_Click(object sender, RoutedEventArgs e)
         {
-
+            OpenButton_Click(sender, e);
+        }
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+            SaveButton_Click(sender, e);
         }
 
+        private void SaveAs_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -708,18 +716,18 @@ namespace BDC
 
         private void ExportMenu_Click(object sender, RoutedEventArgs e)
         {
-
-            Export();
+            string exportPath = System.AppDomain.CurrentDomain.BaseDirectory + @"Export.txt";
+            Export(exportPath);
         }
 
-        private void Export()
+        private void Export(string exportPath)
         {
             if (cases.Count == 0)
             {
                 MessageBox.Show("First define Case");
                 return ;
             }
-            string exportPath = System.AppDomain.CurrentDomain.BaseDirectory + @"Export.txt";
+          
             Export export = new Export(exportPath);
             if (File.Exists(exportPath)) File.Delete(exportPath);
             /// check time  
@@ -766,7 +774,8 @@ namespace BDC
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            Export();
+            string exportPath = System.AppDomain.CurrentDomain.BaseDirectory + @"Export.txt";
+            Export(exportPath);
         }
 
         private void OpenButton_Click(object sender, RoutedEventArgs e)
@@ -814,6 +823,8 @@ namespace BDC
             mainWindow.Show();
       
         }
+
+    
     }
        
 

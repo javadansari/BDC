@@ -38,6 +38,8 @@
         <Menu VerticalAlignment="Top" Grid.ColumnSpan="3" Grid.Row="0">
             <MenuItem Header="File">
                 <MenuItem Header="New" Click="New_Click"/>
+                <MenuItem Header="Save" Click="Save_Click"/>
+                <MenuItem Header="Save As" Click="SaveAs_Click"/>
                 <MenuItem Header="Open" Click="Open_Click"/>
                 <Separator/>
                 <MenuItem Header="Exit" Click="Exit_Click"/>
