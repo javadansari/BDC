@@ -7,7 +7,7 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
          ResizeMode="CanMinimize"
-        Title="MainWindow" Height="500" Width="1030">
+        Title="BDC Project" Height="500" Width="1030">
     <Window.Resources>
         <sys:Double x:Key="sizeBox">40</sys:Double>
         <sys:Double x:Key="margin">2</sys:Double>
@@ -58,7 +58,7 @@
             </MenuItem>
         </Menu>
         <StackPanel  Grid.Row="1" Grid.ColumnSpan="3" Orientation="Horizontal" Margin="1" Background="Gray" >
-            <Button Content="New"  Width="80" Height="20" Background="BlueViolet" Foreground="White" Click="SaveButton_Click" Margin="2"   ></Button>
+            <Button Content="New"  Width="80" Height="20" Background="BlueViolet" Foreground="White" Click="NewButton_Click" Margin="2"   ></Button>
             <Button Content="Save"  Width="80" Height="20" Background="BlueViolet" Foreground="White" Click="SaveButton_Click" Margin="2"   ></Button>
             <Button Content="Open"  Width="80" Height="20" Background="BlueViolet" Foreground="White" Click="OpenButton_Click" Margin="2"   ></Button>
             <Button Content="Furnace"  Width="80" Height="20" Background="Blue" Foreground="White" Click="formFurnace_Click" Margin="2" ></Button>
@@ -67,7 +67,7 @@
             <Button Content="Fuel Spec"  Width="80" Height="20" Background="Blue" Foreground="White" Click="formFuel_Click" Margin="2"   ></Button>
             <Button Content="Process Data"  Width="80" Height="20" Background="Blue" Foreground="White" Click="formProcess_Click" Margin="2"   ></Button>
             <Button Content="General Input"  Width="80" Height="20" Background="Blue" Foreground="White" Click="setNumber_Click"  Margin="2"  ></Button>
-            <Button Content="Apply"  Width="80" Height="20" Background="Green" Foreground="White" Click="apply_Click"  Margin="2"  ></Button>
+            <Button Content="Apply"  Width="80" Height="20" Background="Green" Foreground="White" Click="apply_Click"  Margin="150,2,2,2" ></Button>
         </StackPanel>
         <StackPanel  Grid.Row="2" Orientation="Vertical" Background="AliceBlue">
             <StackPanel Orientation="Horizontal">

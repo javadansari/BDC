@@ -120,11 +120,6 @@ namespace BDC
                 elements.Add(element);
             }
             cases = new List<Case>();
-            Case @case = new Case();
-            Process process = new Process();
-            @case.process = process;
-            cases.Add(@case);
-
             Objects = new ObservableCollection<CustomCase>();
             ObjectListBox.ItemsSource = Objects;
             activeElement = new Element();
@@ -424,7 +419,7 @@ namespace BDC
 
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
         }
 
 
@@ -719,6 +714,11 @@ namespace BDC
 
         private void Export()
         {
+            if (cases.Count == 0)
+            {
+                MessageBox.Show("First define Case");
+                return ;
+            }
             string exportPath = System.AppDomain.CurrentDomain.BaseDirectory + @"Export.txt";
             Export export = new Export(exportPath);
             if (File.Exists(exportPath)) File.Delete(exportPath);
@@ -736,6 +736,7 @@ namespace BDC
             foreach (Case @case in cases)
                 processes.Add(@case.process);
             export.ExportProcess(processes);
+            MessageBox.Show("Project saved in : " + exportPath);
 
         }
         public static void ExportToFile(object obj, string filePath)
@@ -802,6 +803,16 @@ namespace BDC
                 addCase(@case.Name);
             }
             this.updateElement();
+        }
+
+        private void NewButton_Click(object sender, RoutedEventArgs e)
+        {
+          
+            
+            MainWindow mainWindow = new MainWindow(); 
+            this.Close();
+            mainWindow.Show();
+      
         }
     }
        
