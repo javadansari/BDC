@@ -121,6 +121,8 @@ namespace BDC
             activeElement = new Element();
 
         }
+
+
         #endregion
 
 
@@ -562,7 +564,16 @@ namespace BDC
                 }
             }
         }
+        private void ClasesCases()
+        {
+            var itemsToRemove = new List<CustomCase>();
+            foreach (var item in Objects)
+            {
+                itemsToRemove.Add(item);
 
+            }
+            Objects.Clear();
+        }
         private void RemoveSelectedItems()
         {
             // Create a list to hold the items to remove
@@ -766,12 +777,22 @@ namespace BDC
 
             }
 
-            Import import  =  new Import(filename);
+            Import import = new Import(filename);
             furnace = import.ImportFurnace();
             elements = import.ImportElements();
+            ducts = import.ImportDucts();
+            gasFuels = import.ImportGasFuels();
+            oilFuels = import.ImportOilFuels();
+            ClasesCases();
+            cases = import.ImportCases();  
+            foreach (Case @case in cases)
+            {
+                addCase(@case.Name);
+            }
             this.updateElement();
         }
     }
+       
 
     #endregion
 
