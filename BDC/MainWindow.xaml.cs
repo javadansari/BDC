@@ -102,8 +102,14 @@ namespace BDC
             furnace = new Furnace();
 
             ducts = new List<Duct>();
+            Duct duct = new Duct();
+            ducts.Add(duct);
             gasFuels = new List<GasFuel>();
+            GasFuel gasFuel = new GasFuel();
+            gasFuels.Add(gasFuel);
             oilFuels = new List<OilFuel>();
+            OilFuel oilFuel = new OilFuel();
+            oilFuels.Add(oilFuel);
 
             elements = new List<Element>();
             for (int i = 1; i <= 8; i++)
@@ -114,7 +120,10 @@ namespace BDC
                 elements.Add(element);
             }
             cases = new List<Case>();
-
+            Case @case = new Case();
+            Process process = new Process();
+            @case.process = process;
+            cases.Add(@case);
 
             Objects = new ObservableCollection<CustomCase>();
             ObjectListBox.ItemsSource = Objects;
@@ -512,13 +521,13 @@ namespace BDC
                         _isSelected = value;
                         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsSelected)));
 
-                        if (_isSelected)
-                        {
-                            foreach (var otherCase in ((MainWindow)Application.Current.MainWindow).Objects.Where(c => c != this && c.IsSelected))
-                            {
-                                otherCase.IsSelected = false;
-                            }
-                        }
+                        //if (_isSelected)
+                        //{
+                        //    foreach (var otherCase in ((MainWindow)Application.Current.MainWindow).Objects.Where(c => c != this && c.IsSelected))
+                        //    {
+                        //        otherCase.IsSelected = false;
+                        //    }
+                        //}
                     }
                 }
             }
@@ -603,6 +612,7 @@ namespace BDC
             foreach (Case @case in newCases)
             {
                 addCase(@case.Name);
+                @case.process.id = cases.Count() + 1;
                 cases.Add(@case);
             }
 
@@ -623,7 +633,7 @@ namespace BDC
                 return;
             }
             addCase(caseName);
-            cases.Add(new Case { Name = caseName, run = false, process = new Process() });
+            cases.Add(new Case { Name = caseName, run = false, process = new Process { name = caseName } });
             //AddCase(new Case { Id = cases.Count() + 1, Name = caseName, run = false });
             //return;
         }
@@ -709,7 +719,9 @@ namespace BDC
 
         private void Export()
         {
-            Export export = new Export(System.AppDomain.CurrentDomain.BaseDirectory + @"Export.txt");
+            string exportPath = System.AppDomain.CurrentDomain.BaseDirectory + @"Export.txt";
+            Export export = new Export(exportPath);
+            if (File.Exists(exportPath)) File.Delete(exportPath);
             /// check time  
             if (DateTime.Now.Year < 2026)
             {
