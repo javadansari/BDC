@@ -55,18 +55,18 @@ namespace BDC
 
         public List<Element> elements { get; set; }
         public Element activeElement;
-     
+
         public Furnace furnace { get; set; }
 
         public List<Duct> ducts { get; set; }
- 
+
         public List<GasFuel> gasFuels { get; set; }
         public List<OilFuel> oilFuels { get; set; }
-        public List<Case> cases{ get; set; }
+        public List<Case> cases { get; set; }
         private Case selectedCase;
 
         private Element element;
-       
+
 
         private List<ItemAttribute> itemAttribute;
         private Button clickedButton;
@@ -105,7 +105,7 @@ namespace BDC
             gasFuels = new List<GasFuel>();
             oilFuels = new List<OilFuel>();
 
-        elements = new List<Element>();
+            elements = new List<Element>();
             for (int i = 1; i <= 8; i++)
             {
                 Element element = new Element();
@@ -115,7 +115,7 @@ namespace BDC
             }
             cases = new List<Case>();
 
- 
+
             Objects = new ObservableCollection<CustomCase>();
             ObjectListBox.ItemsSource = Objects;
             activeElement = new Element();
@@ -128,14 +128,14 @@ namespace BDC
         #region Path
         private void line_Click(object sender, MouseButtonEventArgs e)
         {
-         
+
             reportText.Text = "Choose the first level";
             isLine = true;
         }
 
-     
+
         #endregion
-        
+
         #region ImageChooser
 
         public void updateElement()
@@ -144,11 +144,11 @@ namespace BDC
             foreach (Element element in elements)
             {
                 Image image = FindName("boilerStage_" + element.Id) as Image;
-                if (image != null )
+                if (image != null)
                 {
                     if (element.attribute.active)
                     {
-                        if (element.Id < 8 )
+                        if (element.Id < 8)
                         {
                             if (element.attribute.section == 0)
                                 image.Source = new BitmapImage(new Uri("/Images/Elements/superheater.png", UriKind.Relative));
@@ -156,7 +156,7 @@ namespace BDC
                                 image.Source = new BitmapImage(new Uri("/Images/Elements/evaporator.png", UriKind.Relative));
                             if (element.attribute.section == 2)
                                 image.Source = new BitmapImage(new Uri("/Images/Elements/economizer.png", UriKind.Relative));
-                        } 
+                        }
                         //else if ( element.Id == 8 || element.Id == 10)
                         //{
                         //    image.Source = new BitmapImage(new Uri("/Images/Elements/duct.png", UriKind.Relative));
@@ -178,18 +178,18 @@ namespace BDC
                         (FindName("boilerStage_" + element.Id + "_label") as Label).Content = null;
                     }
                 }
-               
 
 
-                    if (element.attribute.section == 0)
+
+                if (element.attribute.section == 0)
                 {
 
                 }
-            //    (FindName("boilerStage_" + element.Id + "_label") as Label).Content = element.Name;
+                //    (FindName("boilerStage_" + element.Id + "_label") as Label).Content = element.Name;
             }
         }
-       
-        private Element setElement(Image image,int id)
+
+        private Element setElement(Image image, int id)
         {
             Element element = new Element();
             element.Id = id;
@@ -203,7 +203,7 @@ namespace BDC
             element.attribute = new ItemAttribute();
 
             elements.Add(element);
-        
+
             return element;
         }
 
@@ -212,27 +212,27 @@ namespace BDC
         {
             // Assuming you have an object called element that has the attribute property
             var propertyDisplays = new List<PropertyDisplay>();
-       //   propertyDisplays.Add(new PropertyDisplay { PropertyName = "Section Name", PropertyValue = element.attribute.sectionName.ToString() });
-            propertyDisplays.Add(new PropertyDisplay {PropertyRealName = "Channel_Height" , PropertyName = "Channel Height (m)", PropertyValue = element.attribute.Channel_Height });
-            propertyDisplays.Add(new PropertyDisplay {PropertyRealName = "attribute", PropertyName = "Channel Width (m)", PropertyValue = element.attribute.Channel_Width });
-            propertyDisplays.Add(new PropertyDisplay {PropertyRealName = "No_Rows", PropertyName = "NO# Rows", PropertyValue = element.attribute.No_Rows });
-            propertyDisplays.Add(new PropertyDisplay {PropertyRealName = "No_Tubes_Row", PropertyName = "NO# Tubes/Row", PropertyValue = element.attribute.No_Tubes_Row });
-            propertyDisplays.Add(new PropertyDisplay {PropertyRealName = "Longitudinal_Pitch", PropertyName = "Longitudinal Pitch (mm)", PropertyValue = element.attribute.Longitudinal_Pitch });
-            propertyDisplays.Add(new PropertyDisplay {PropertyRealName = "Transverse_Pitch", PropertyName = "Transverse Pitch (mm)", PropertyValue = element.attribute.Transverse_Pitch });
-            propertyDisplays.Add(new PropertyDisplay {PropertyRealName = "NO_Water_Carrying_Tubes", PropertyName = "NO# Water Carrying Tubes", PropertyValue = element.attribute.NO_Water_Carrying_Tubes });
-            propertyDisplays.Add(new PropertyDisplay {PropertyRealName = "Tube_Length", PropertyName = "Tube Length/Water Flow (m)", PropertyValue = element.attribute.Tube_Length });
-            propertyDisplays.Add(new PropertyDisplay {PropertyRealName = "Tube_Outer_Diameter", PropertyName = "Tube Outer Diameter (mm)", PropertyValue = element.attribute.Tube_Outer_Diameter });
-            propertyDisplays.Add(new PropertyDisplay {PropertyRealName = "Tube_Wall_Thickness", PropertyName = "Tube Wall Thickness (mm)", PropertyValue = element.attribute.Tube_Wall_Thickness });
-            propertyDisplays.Add(new PropertyDisplay {PropertyRealName = "Incidence_Angle", PropertyName = "Incidence Angle (deg)", PropertyValue = element.attribute.Incidence_Angle });
-            propertyDisplays.Add(new PropertyDisplay {PropertyRealName = "Fin_Height", PropertyName = "Fin Height (mm)", PropertyValue = element.attribute.Fin_Height });
-            propertyDisplays.Add(new PropertyDisplay {PropertyRealName = "Fin_Thickness", PropertyName = "Fin Thickness (mm)", PropertyValue = element.attribute.Fin_Thickness });
-            propertyDisplays.Add(new PropertyDisplay {PropertyRealName = "Fin_Density", PropertyName = "Fin Density (fin/m)", PropertyValue = element.attribute.Fin_Density });
-            propertyDisplays.Add(new PropertyDisplay {PropertyRealName = "Fin_Uncut_Height", PropertyName = "Fin Uncut Height (mm)", PropertyValue = element.attribute.Fin_Uncut_Height });
-            propertyDisplays.Add(new PropertyDisplay {PropertyRealName = "Fin_Segment_Width", PropertyName = "Fin Segment Width (mm)", PropertyValue = element.attribute.Fin_Segment_Width });
-         //   propertyDisplays.Add(new PropertyDisplayPropertyRealName ="Channel_Height" ,{ PropertyName = "Fin Material", PropertyValue = element.attribute.Fin_Material });
-            propertyDisplays.Add(new PropertyDisplay {PropertyRealName = "Water_Side_Founling_Factor", PropertyName = "Water-Side Founling Factor (m2K/W)", PropertyValue = element.attribute.Water_Side_Founling_Factor });
-            propertyDisplays.Add(new PropertyDisplay {PropertyRealName = "Gas_Side_Founling_Factor", PropertyName = "Gas-Side Founling Factor (m2K/W)", PropertyValue = element.attribute.Gas_Side_Founling_Factor });
-            propertyDisplays.Add(new PropertyDisplay {PropertyRealName = "Usage_Factor", PropertyName = "Usage Factor (0,1)", PropertyValue = element.attribute.Usage_Factor });
+            //   propertyDisplays.Add(new PropertyDisplay { PropertyName = "Section Name", PropertyValue = element.attribute.sectionName.ToString() });
+            propertyDisplays.Add(new PropertyDisplay { PropertyRealName = "Channel_Height", PropertyName = "Channel Height (m)", PropertyValue = element.attribute.Channel_Height });
+            propertyDisplays.Add(new PropertyDisplay { PropertyRealName = "attribute", PropertyName = "Channel Width (m)", PropertyValue = element.attribute.Channel_Width });
+            propertyDisplays.Add(new PropertyDisplay { PropertyRealName = "No_Rows", PropertyName = "NO# Rows", PropertyValue = element.attribute.No_Rows });
+            propertyDisplays.Add(new PropertyDisplay { PropertyRealName = "No_Tubes_Row", PropertyName = "NO# Tubes/Row", PropertyValue = element.attribute.No_Tubes_Row });
+            propertyDisplays.Add(new PropertyDisplay { PropertyRealName = "Longitudinal_Pitch", PropertyName = "Longitudinal Pitch (mm)", PropertyValue = element.attribute.Longitudinal_Pitch });
+            propertyDisplays.Add(new PropertyDisplay { PropertyRealName = "Transverse_Pitch", PropertyName = "Transverse Pitch (mm)", PropertyValue = element.attribute.Transverse_Pitch });
+            propertyDisplays.Add(new PropertyDisplay { PropertyRealName = "NO_Water_Carrying_Tubes", PropertyName = "NO# Water Carrying Tubes", PropertyValue = element.attribute.NO_Water_Carrying_Tubes });
+            propertyDisplays.Add(new PropertyDisplay { PropertyRealName = "Tube_Length", PropertyName = "Tube Length/Water Flow (m)", PropertyValue = element.attribute.Tube_Length });
+            propertyDisplays.Add(new PropertyDisplay { PropertyRealName = "Tube_Outer_Diameter", PropertyName = "Tube Outer Diameter (mm)", PropertyValue = element.attribute.Tube_Outer_Diameter });
+            propertyDisplays.Add(new PropertyDisplay { PropertyRealName = "Tube_Wall_Thickness", PropertyName = "Tube Wall Thickness (mm)", PropertyValue = element.attribute.Tube_Wall_Thickness });
+            propertyDisplays.Add(new PropertyDisplay { PropertyRealName = "Incidence_Angle", PropertyName = "Incidence Angle (deg)", PropertyValue = element.attribute.Incidence_Angle });
+            propertyDisplays.Add(new PropertyDisplay { PropertyRealName = "Fin_Height", PropertyName = "Fin Height (mm)", PropertyValue = element.attribute.Fin_Height });
+            propertyDisplays.Add(new PropertyDisplay { PropertyRealName = "Fin_Thickness", PropertyName = "Fin Thickness (mm)", PropertyValue = element.attribute.Fin_Thickness });
+            propertyDisplays.Add(new PropertyDisplay { PropertyRealName = "Fin_Density", PropertyName = "Fin Density (fin/m)", PropertyValue = element.attribute.Fin_Density });
+            propertyDisplays.Add(new PropertyDisplay { PropertyRealName = "Fin_Uncut_Height", PropertyName = "Fin Uncut Height (mm)", PropertyValue = element.attribute.Fin_Uncut_Height });
+            propertyDisplays.Add(new PropertyDisplay { PropertyRealName = "Fin_Segment_Width", PropertyName = "Fin Segment Width (mm)", PropertyValue = element.attribute.Fin_Segment_Width });
+            //   propertyDisplays.Add(new PropertyDisplayPropertyRealName ="Channel_Height" ,{ PropertyName = "Fin Material", PropertyValue = element.attribute.Fin_Material });
+            propertyDisplays.Add(new PropertyDisplay { PropertyRealName = "Water_Side_Founling_Factor", PropertyName = "Water-Side Founling Factor (m2K/W)", PropertyValue = element.attribute.Water_Side_Founling_Factor });
+            propertyDisplays.Add(new PropertyDisplay { PropertyRealName = "Gas_Side_Founling_Factor", PropertyName = "Gas-Side Founling Factor (m2K/W)", PropertyValue = element.attribute.Gas_Side_Founling_Factor });
+            propertyDisplays.Add(new PropertyDisplay { PropertyRealName = "Usage_Factor", PropertyName = "Usage Factor (0,1)", PropertyValue = element.attribute.Usage_Factor });
 
             propertyListBox.ItemsSource = propertyDisplays;
         }
@@ -240,19 +240,20 @@ namespace BDC
 
         private void setNumber_Click(object sender, RoutedEventArgs e)
         {
-            if (element != null) {
-     
-            NumberInputDialog dialog = new NumberInputDialog();
-            if (dialog.ShowDialog() == true)
+            if (element != null)
             {
-                int selectedNumber = dialog.SelectedNumber;
-                element.Name = element.State + selectedNumber;     
-                (FindName("boilerStage_" + element.Id + "_label") as Label).Content = element.Name;
+
+                NumberInputDialog dialog = new NumberInputDialog();
+                if (dialog.ShowDialog() == true)
+                {
+                    int selectedNumber = dialog.SelectedNumber;
+                    element.Name = element.State + selectedNumber;
+                    (FindName("boilerStage_" + element.Id + "_label") as Label).Content = element.Name;
                 }
             }
-           
 
-        
+
+
         }
 
 
@@ -268,15 +269,15 @@ namespace BDC
         {
 
             ItemAttribute attribute = new ItemAttribute();
-       //     attribute.loadCase = loadCalse;
-        //    attribute.stage = element.State;
+            //     attribute.loadCase = loadCalse;
+            //    attribute.stage = element.State;
             element.attribute = attribute;
 
         }
         #endregion
 
         #region Tools
-     
+
         #region Save
         private void SaveButton_Click(object sender, MouseButtonEventArgs e)
         {
@@ -319,7 +320,7 @@ namespace BDC
             foreach (Element element in elements)
             {
                 Image image = element.Image;
-             
+
             }
         }
 
@@ -327,7 +328,7 @@ namespace BDC
         {
             foreach (Case @case in cases)
             {
-              
+
             }
         }
 
@@ -350,11 +351,11 @@ namespace BDC
 
 
             element = elements.Where(element => element.Id == id).FirstOrDefault();
-            if (!element.attribute.active) return ;
+            if (!element.attribute.active) return;
             showProperties(elements.Where(element => element.Id == id).FirstOrDefault());
-            
-            for(int i = 1; i < 9; i++)
-            (FindName("boilerStage_"+i+"_grid") as Grid).Background=  Brushes.White;
+
+            for (int i = 1; i < 9; i++)
+                (FindName("boilerStage_" + i + "_grid") as Grid).Background = Brushes.White;
             grid.Background = Brushes.Green;
             activeElement = element;
 
@@ -373,11 +374,11 @@ namespace BDC
                 if (propertyInfo != null)
                 {
                     // Set the value for the property
-                   
+
                     propertyInfo.SetValue(elements.Where(element => element.Id == activeElement.Id).FirstOrDefault().attribute, item.PropertyValue);
                 }
 
-              
+
 
             }
 
@@ -393,7 +394,7 @@ namespace BDC
         {
 
         }
-       
+
         #endregion
 
 
@@ -418,21 +419,21 @@ namespace BDC
 
 
 
-       
+
 
         private void Attributes_Click(object sender, RoutedEventArgs e)
         {
             //   AssignStateNumbers(elements);
             //    FormAttributes formAttributes = new FormAttributes();
             //   formAttributes.Show();
-         
+
             FormItemAttribute formAttributes = new FormItemAttribute(elements, this);
             formAttributes.Show();
 
 
         }
 
-       
+
         #endregion
 
 
@@ -440,7 +441,7 @@ namespace BDC
 
 
         #region canvasZoom
-     
+
         #endregion
 
         #region canvasAddImageLabel
@@ -471,7 +472,7 @@ namespace BDC
                 Grid container = new Grid();
                 container.Children.Add(image);
                 container.Children.Add(label);
-           
+
             }
         }
 
@@ -491,8 +492,8 @@ namespace BDC
 
         #region case
 
-    
-        
+
+
 
         public class CustomCase : INotifyPropertyChanged
         {
@@ -573,7 +574,7 @@ namespace BDC
                 if (item.IsSelected)
                 {
                     itemsToRemove.Add(item);
-                  
+
                 }
             }
 
@@ -608,7 +609,7 @@ namespace BDC
             if (cases.Any(c => c.Name == caseName))
             {
                 MessageBox.Show("Case name must be unique. Please enter a different name.");
-                return; 
+                return;
             }
             addCase(caseName);
             cases.Add(new Case { Name = caseName, run = false, process = new Process() });
@@ -625,7 +626,7 @@ namespace BDC
                 Label = (cases.Count() + 1) + " : " + caseName,
                 Tag = caseName
             });
-          
+
         }
         private void RemoveCase_Click(object sender, RoutedEventArgs e)
         {
@@ -633,9 +634,19 @@ namespace BDC
             RemoveSelectedItems();
 
         }
-                private void PlayCase_Click(object sender, RoutedEventArgs e)
+        private void PlayCase_Click(object sender, RoutedEventArgs e)
         {
+            foreach (var item in Objects)
+            {
+                if (item.IsSelected)
+                {
+                    /// RUN
+                    //  Export();
+                    Export export = new Export(System.AppDomain.CurrentDomain.BaseDirectory + @"Export.txt");
 
+                    export.run();
+                }
+            }
         }
 
 
@@ -657,33 +668,38 @@ namespace BDC
         }
 
 
-    
+
         private void formFurnace_Click(object sender, RoutedEventArgs e)
         {
-            FormFurnace formFurnace = new FormFurnace(furnace,this);
+            FormFurnace formFurnace = new FormFurnace(furnace, this);
             formFurnace.Show();
 
         }
 
         private void formDuct_Click(object sender, RoutedEventArgs e)
         {
-            FormDuct formDuct = new FormDuct(ducts,this);
+            FormDuct formDuct = new FormDuct(ducts, this);
             formDuct.Show();
 
         }
 
         private void formFuel_Click(object sender, RoutedEventArgs e)
-        { 
+        {
 
-        FormFuel formFuel = new FormFuel(oilFuels,gasFuels ,this);
+            FormFuel formFuel = new FormFuel(oilFuels, gasFuels, this);
             formFuel.Show();
         }
 
         private void ExportMenu_Click(object sender, RoutedEventArgs e)
         {
 
+            Export();
+        }
+
+        private void Export()
+        {
             Export export = new Export(System.AppDomain.CurrentDomain.BaseDirectory + @"Export.txt");
-           /// check time  
+            /// check time  
             if (DateTime.Now.Year < 2026)
             {
 
@@ -695,11 +711,9 @@ namespace BDC
             export.ExportGasFuel(gasFuels);
             List<Process> processes = new List<Process>();
             foreach (Case @case in cases)
-            processes.Add(@case.process);
+                processes.Add(@case.process);
             export.ExportProcess(processes);
-          //  export.ExportCases(cases);
 
-          //  ExportToFile(furnace, @"e:\1.txt");
         }
         public static void ExportToFile(object obj, string filePath)
         {
@@ -708,7 +722,7 @@ namespace BDC
             Type objType = obj.GetType();
             PropertyInfo[] properties = objType.GetProperties();
 
-            using (StreamWriter writer = new StreamWriter(filePath,true))
+            using (StreamWriter writer = new StreamWriter(filePath, true))
             {
                 foreach (PropertyInfo prop in properties)
                 {
@@ -721,26 +735,45 @@ namespace BDC
 
         private void formProcess_Click(object sender, RoutedEventArgs e)
         {
-         //   CaseBuiler();
-            FormProcess formProcess = new FormProcess(cases,this);
+            //   CaseBuiler();
+            FormProcess formProcess = new FormProcess(cases, this);
             formProcess.Show();
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-
+            Export();
         }
 
         private void OpenButton_Click(object sender, RoutedEventArgs e)
         {
+            // Create OpenFileDialog 
+            OpenFileDialog dlg = new OpenFileDialog();
 
+            // Set filter for file extension and default file extension 
+            dlg.DefaultExt = ".txt";
+            dlg.Filter = "BDC File (*.txt)|*.txt";
+
+            // Display OpenFileDialog by calling ShowDialog method 
+            Nullable<bool> result = dlg.ShowDialog();
+
+            // Get the selected file name and display in a TextBox 
+            string filename = "";
+            if (result == true)
+            {
+                // Open document 
+                filename = dlg.FileName;
+
+            }
+
+            Import import  =  new Import(filename);
+            furnace = import.ImportFurnace();
+            elements = import.ImportElements();
+            this.updateElement();
         }
-
-
     }
+
     #endregion
-
-
 
 
 }

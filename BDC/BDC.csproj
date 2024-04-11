@@ -20,6 +20,7 @@
     <None Remove="fan.png" />
     <None Remove="Image2.png" />
     <None Remove="Images\Duct\image1.png" />
+    <None Remove="Images\Elements\all.jpg" />
     <None Remove="Images\Elements\allduct.jpg" />
     <None Remove="Images\Elements\duct.png" />
     <None Remove="Images\Elements\duct1.png" />
@@ -63,6 +64,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Duct\image1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Elements\all.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Elements\allduct.jpg">

@@ -13,13 +13,13 @@
         <sys:Double x:Key="margin">2</sys:Double>
         <sys:Double x:Key="marginTop">200</sys:Double>
         <sys:Double x:Key="marginRecTop">150</sys:Double>
-        <sys:Double x:Key="iconSize">48</sys:Double>
+        <sys:Double x:Key="iconSize">64</sys:Double>
         <sys:Double x:Key="smallIconSize">16</sys:Double>
         <sys:Double x:Key="topIconSize">32</sys:Double>
         <sys:Double x:Key="smallestIconSize">8</sys:Double>
         <sys:Double x:Key="smallestIconSize12">12</sys:Double>
-        <sys:Double x:Key="imageHolderHeight">90</sys:Double>
-        <sys:Double x:Key="imageHolderWidth">60</sys:Double>
+        <sys:Double x:Key="imageHolderHeight">110</sys:Double>
+        <sys:Double x:Key="imageHolderWidth">55</sys:Double>
         <sys:Double x:Key="imageMargin">10</sys:Double>
     </Window.Resources>
 
@@ -53,7 +53,7 @@
             <MenuItem Header="Result">
                 <MenuItem Header="Result" Click="CasesMenu_Click"/>
             </MenuItem>
-            <MenuItem Header="Export">
+            <MenuItem Header="Export" Visibility="Hidden">
                 <MenuItem Header="Export" Click="ExportMenu_Click"/>
             </MenuItem>
         </Menu>
@@ -109,55 +109,55 @@
             </ListBox.ItemTemplate>
         </ListBox>
         <Grid Grid.Row="2" Grid.Column="1">
-         <Image Stretch="Fill"  Source="Images\Elements\allduct.jpg"/>
+         <Image Stretch="Fill"  Source="Images\Elements\all.jpg"/>
             <StackPanel Margin="25,50,0,0"   Orientation="Vertical" >
                 <StackPanel Orientation="Horizontal">
-                    <StackPanel Orientation="Horizontal" Margin="0,120,0,0"  >
+                    <StackPanel Orientation="Horizontal" Margin="0,90,0,0"  >
                         <Grid Name="boilerStage_1_grid" Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}"  MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >
-                            <Border BorderThickness="2" BorderBrush="Gray" >
-                                <Image x:Name="boilerStage_1" Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"  VerticalAlignment="Top"/>
+                            <Border BorderThickness="2" BorderBrush="Transparent" >
+                                <Image x:Name="boilerStage_1" Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"  VerticalAlignment="Stretch"/>
                             </Border>
                             <Label Name="boilerStage_1_label"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="1,0,0,1" />
                         </Grid>
-                        <Grid Name="boilerStage_2_grid"  Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}" MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >
-                            <Border BorderThickness="2" BorderBrush="Gray">
-                                <Image x:Name="boilerStage_2"  Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"  VerticalAlignment="Top"  />
+                        <Grid Name="boilerStage_2_grid" Margin="7,0,0,0"  Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}" MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >
+                            <Border BorderThickness="2" BorderBrush="Transparent">
+                                <Image x:Name="boilerStage_2"  Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"  VerticalAlignment="Stretch"  />
                             </Border>
                             <Label Name="boilerStage_2_label"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="1,0,0,1" />
                         </Grid>
-                        <Grid Name="boilerStage_3_grid"  Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}" MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >
-                            <Border BorderThickness="2" BorderBrush="Gray">
-                                <Image x:Name="boilerStage_3"  Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"  VerticalAlignment="Top" />
+                        <Grid Name="boilerStage_3_grid"  Margin="9,0,0,0"  Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}" MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >
+                            <Border BorderThickness="2" BorderBrush="Transparent">
+                                <Image x:Name="boilerStage_3"  Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"  VerticalAlignment="Stretch" />
                             </Border>
                             <Label Name="boilerStage_3_label"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="1,0,0,1" />
                         </Grid>
-                        <Grid Name="boilerStage_4_grid" Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}" MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >
-                            <Border BorderThickness="2" BorderBrush="Gray">
-                                <Image x:Name="boilerStage_4"  Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"  VerticalAlignment="Top" />
+                        <Grid Name="boilerStage_4_grid"  Margin="8,0,0,0"  Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}" MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >
+                            <Border BorderThickness="2" BorderBrush="Transparent">
+                                <Image x:Name="boilerStage_4"  Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"  VerticalAlignment="Stretch" />
                             </Border>
                             <Label Name="boilerStage_4_label" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="1,0,0,1" />
                         </Grid>
-                        <Grid Name="boilerStage_5_grid" Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}" MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >
-                            <Border BorderThickness="2" BorderBrush="Gray">
-                                <Image x:Name="boilerStage_5"  Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"  VerticalAlignment="Top" />
+                        <Grid Name="boilerStage_5_grid"  Margin="9,0,0,0" Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}" MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >
+                            <Border BorderThickness="2" BorderBrush="Transparent">
+                                <Image x:Name="boilerStage_5"  Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"  VerticalAlignment="Stretch" />
                             </Border>
                             <Label Name="boilerStage_5_label"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="1,0,0,1" />
                         </Grid>
-                        <Grid Name="boilerStage_6_grid" Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}" MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >
-                            <Border BorderThickness="2" BorderBrush="Gray">
-                                <Image x:Name="boilerStage_6"  Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"  VerticalAlignment="Top" />
+                        <Grid Name="boilerStage_6_grid"  Margin="8,0,0,0"  Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}" MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >
+                            <Border BorderThickness="2" BorderBrush="Transparent">
+                                <Image x:Name="boilerStage_6"  Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"  VerticalAlignment="Stretch" />
                             </Border>
                             <Label Name="boilerStage_6_label"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="1,0,0,1" />
                         </Grid>
-                        <Grid Name="boilerStage_7_grid"  Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}" MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >
-                            <Border BorderThickness="2" BorderBrush="Gray">
-                                <Image x:Name="boilerStage_7"  Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"  VerticalAlignment="Top"  />
+                        <Grid Name="boilerStage_7_grid" Margin="8,0,0,0" Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}" MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >
+                            <Border BorderThickness="2" BorderBrush="Transparent">
+                                <Image x:Name="boilerStage_7"  Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"  VerticalAlignment="Stretch"  />
                             </Border>
                             <Label Name="boilerStage_7_label"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="1,0,0,1" />
                         </Grid>
-                        <Grid Margin="52,0,0,0"  Name="boilerStage_8_grid" Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}" MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >
-                            <Border BorderThickness="2" BorderBrush="ForestGreen">
-                                <Image x:Name="boilerStage_8"  Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"  VerticalAlignment="Top"  />
+                        <Grid Margin="48,0,0,0"  Name="boilerStage_8_grid" Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}" MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >
+                            <Border BorderThickness="2" BorderBrush="Transparent">
+                                <Image x:Name="boilerStage_8"  Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"  VerticalAlignment="Stretch"  />
                             </Border>
                             <Label Name="boilerStage_8_label"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="1,0,0,1" />
                         </Grid>

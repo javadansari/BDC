@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace BDC.DataBase
@@ -19,7 +20,20 @@ namespace BDC.DataBase
             this.filePath = filePath;
         }
 
-        public bool ExportFurnace(Furnace furnace)
+        public bool run()
+        {
+            string runPath = System.AppDomain.CurrentDomain.BaseDirectory + @"\Run.exe";
+         //   Thread newThread = new Thread(new ThreadStart(Work));
+        //    newThread.Start();
+            var process = System.Diagnostics.Process.Start(runPath, "Export.txt Run.txt");
+            process.WaitForExit();
+            string resultPath = System.AppDomain.CurrentDomain.BaseDirectory + @"\Run.txt";
+       //     newThread.Join();
+            System.Diagnostics.Process.Start("notepad.exe", resultPath);
+            return true;
+        }
+
+    public bool ExportFurnace(Furnace furnace)
         {
             ExportSpacer("Furnace");
 
@@ -48,28 +62,12 @@ namespace BDC.DataBase
                     writer.WriteLine(line);
             }
             return true;
-
-
-
-
-            //Type objType = obj.GetType();
-            //PropertyInfo[] properties = objType.GetProperties();
-
-            //using (StreamWriter writer = new StreamWriter(filePath))
-            //{
-            //    foreach (PropertyInfo prop in properties)
-            //    {
-            //        object value = prop.GetValue(obj);
-            //        string line = $"{prop.Name}: {value}";
-            //        writer.WriteLine(line);
-            //    }
-            //}
-            //return true;
         }
 
 
         public bool ExportElement(List<Element> elements)
         {
+           
             ExportSpacer("Element");
             string line = "";
             Type objType = elements[0].attribute.GetType();
