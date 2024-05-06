@@ -103,6 +103,7 @@ namespace BDC
 
             ducts = new List<Duct>();
             Duct duct = new Duct();
+            duct.id = 1;
             ducts.Add(duct);
             gasFuels = new List<GasFuel>();
             GasFuel gasFuel = new GasFuel();
