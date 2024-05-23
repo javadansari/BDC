@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BDC.Forms"
         mc:Ignorable="d"
-        Title="FormFuel" Height="660" Width="780">
+        Title="FormFuel" Height="680" Width="780">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -51,6 +51,8 @@
                 <Label Style="{StaticResource label}"  Content="Fuel Temperature" />
                 <Label Style="{StaticResource label}"  Content="LHV (kj/kg)" />
                 <Label Style="{StaticResource label}"  Content="LHV (kj/kg)_ Calculated" />
+                <Label Style="{StaticResource label}"  Content="Molcular weight" />
+                <Label Style="{StaticResource label}"  Content="Density(Nm3/h)" />
             </StackPanel>
               <StackPanel  Grid.Column="1" Orientation="Horizontal">
             <StackPanel Orientation="Vertical">
@@ -82,6 +84,8 @@
                 <TextBox Name="FuelTemperature1" Style="{StaticResource textBox}" />
                 <TextBox Name="LHV_kj_kg1" Style="{StaticResource textBox}" />
                 <TextBox Name="LHV_kj_kg_Calculated1" Style="{StaticResource textBox}"  Background="LightGray"/>
+                <TextBox Name="Molcular1" Style="{StaticResource textBox}"  Background="LightGray"/>
+                <TextBox Name="Density1" Style="{StaticResource textBox}"  Background="LightGray"/>
             </StackPanel>
             <StackPanel Orientation="Vertical">
                 <CheckBox Name="active2" IsChecked="True"   Style="{StaticResource checkBox}"/>
@@ -112,6 +116,8 @@
                 <TextBox Name="FuelTemperature2" Style="{StaticResource textBox}" />
                 <TextBox Name="LHV_kj_kg2" Style="{StaticResource textBox}" />
                 <TextBox Name="LHV_kj_kg_Calculated2" Style="{StaticResource textBox}" Background="LightGray" />
+                <TextBox Name="Molcular2" Style="{StaticResource textBox}"  Background="LightGray"/>
+                <TextBox Name="Density" Style="{StaticResource textBox}"  Background="LightGray"/>
             </StackPanel>
             <StackPanel Orientation="Vertical">
                 <CheckBox  Name="active3" IsChecked="True"   Style="{StaticResource checkBox}"/>
@@ -142,6 +148,8 @@
                 <TextBox Name="FuelTemperature3" Style="{StaticResource textBox}" />
                 <TextBox Name="LHV_kj_kg3" Style="{StaticResource textBox}" />
                 <TextBox Name="LHV_kj_kg_Calculated3" Style="{StaticResource textBox}" Background="LightGray" />
+                <TextBox Name="Molcular3" Style="{StaticResource textBox}"  Background="LightGray"/>
+                <TextBox Name="Density3" Style="{StaticResource textBox}"  Background="LightGray"/>
             </StackPanel>
             <StackPanel Orientation="Vertical">
                 <CheckBox Name="active4" IsChecked="True"   Style="{StaticResource checkBox}"/>
@@ -172,6 +180,8 @@
                 <TextBox Name="FuelTemperature4" Style="{StaticResource textBox}" />
                 <TextBox Name="LHV_kj_kg4" Style="{StaticResource textBox}" />
                 <TextBox Name="LHV_kj_kg_Calculated4" Style="{StaticResource textBox}" Background="LightGray" />
+                <TextBox Name="Molcular4" Style="{StaticResource textBox}"  Background="LightGray"/>
+                <TextBox Name="Density4" Style="{StaticResource textBox}"  Background="LightGray"/>
             </StackPanel>
             <StackPanel Orientation="Vertical">
                 <CheckBox Name="active5" IsChecked="True"   Style="{StaticResource checkBox}"/>
@@ -202,6 +212,8 @@
                 <TextBox Name="FuelTemperature5" Style="{StaticResource textBox}" />
                 <TextBox Name="LHV_kj_kg5" Style="{StaticResource textBox}" />
                 <TextBox Name="LHV_kj_kg_Calculated5" Style="{StaticResource textBox}" Background="LightGray" />
+                <TextBox Name="Molcular5" Style="{StaticResource textBox}"  Background="LightGray"/>
+                <TextBox Name="Density5" Style="{StaticResource textBox}"  Background="LightGray"/>
             </StackPanel>
         </StackPanel>
                <StackPanel  Grid.Column="2" Orientation="Vertical">
@@ -250,7 +262,8 @@
                     </StackPanel>
                 </StackPanel>
         <StackPanel Grid.Column="2" Grid.ColumnSpan="2"  HorizontalAlignment="Center" Orientation="Horizontal">
-            <Button Style="{StaticResource RoundedButtonStyleG}" Content="Apply" Click="Save_Click" />
+            <Button Style="{StaticResource RoundedButtonStyleG}" Content="Check" Click="Check_Click" />
+            <Button Margin="4,0,4,0" Style="{StaticResource RoundedButtonStyleG}" Content="Apply" Click="Save_Click" />
             <Button  Margin="4,0,4,0" Style="{StaticResource RoundedButtonStyleG}" Content="Cancel" Click="Cancel_Click" />
         </StackPanel>
 

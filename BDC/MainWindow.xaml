@@ -25,7 +25,8 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="130"/>
-            <ColumnDefinition Width="680"/>
+            <ColumnDefinition Width="533.737"/>
+            <ColumnDefinition Width="146.263"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="220"/>
         </Grid.ColumnDefinitions>
@@ -36,7 +37,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition  Height="20"/>
         </Grid.RowDefinitions>
-        <Menu VerticalAlignment="Top" Grid.ColumnSpan="4" Grid.Row="0">
+        <Menu VerticalAlignment="Center" Grid.ColumnSpan="5">
             <MenuItem Header="File">
                 <MenuItem Header="New" Click="New_Click"/>
                 <MenuItem Header="Save" Click="Save_Click"/>
@@ -60,22 +61,22 @@
                 <MenuItem Header="Export" Click="ExportMenu_Click"/>
             </MenuItem>
         </Menu>
-        <StackPanel  Grid.Row="1" Grid.ColumnSpan="4" Orientation="Horizontal" Margin="1" Background="LightSlateGray" >
-            <Button Content="New"  Width="80" Height="20" Background="Gray" Foreground="White" Click="NewButton_Click" Margin="2"   ></Button>
-            <Button Content="Save"  Width="80" Height="20" Background="Gray" Foreground="White" Click="SaveButton_Click" Margin="2"   ></Button>
-            <Button Content="Open"  Width="80" Height="20" Background="Gray" Foreground="White" Click="OpenButton_Click" Margin="2"   ></Button>
-            <Button Content="Furnace"  Width="80" Height="20" Background="Gray" Foreground="White" Click="formFurnace_Click" Margin="2" ></Button>
-            <Button Content="Convention"  Width="80" Height="20" Background="Gray" Foreground="White" Click="Attributes_Click" Margin="2"   ></Button>
-            <Button Content="Duct"  Width="80" Height="20" Background="Gray" Foreground="White" Click="formDuct_Click"  Margin="2"  ></Button>
-            <Button Content="Fuel Spec"  Width="80" Height="20" Background="Gray" Foreground="White" Click="formFuel_Click" Margin="2"   ></Button>
-            <Button Content="Process Data"  Width="80" Height="20" Background="Gray" Foreground="White" Click="formProcess_Click" Margin="2"   ></Button>
-            <Button Content="General Input"  Width="80" Height="20" Background="Gray" Foreground="White" Click="setNumber_Click"  Margin="2"  ></Button>
-          
+        <StackPanel  Grid.Row="1" Grid.ColumnSpan="5" Orientation="Horizontal" Margin="1,1,1,1" Background="LightGray" >
+            <Button Content="New"  Width="80" Height="20" Background="SlateGray" Foreground="Black" Click="NewButton_Click" Margin="2"   ></Button>
+            <Button Content="Save"  Width="80" Height="20" Background="SlateGray" Foreground="Black" Click="SaveButton_Click" Margin="2"   ></Button>
+            <Button Content="Open"  Width="80" Height="20" Background="SlateGray" Foreground="Black" Click="OpenButton_Click" Margin="2"   ></Button>
+            <Button Content="Furnace"  Width="80" Height="20" Background="SlateGray" Foreground="Black" Click="formFurnace_Click" Margin="2" ></Button>
+            <Button Content="Convention"  Width="80" Height="20" Background="SlateGray" Foreground="Black" Click="Attributes_Click" Margin="2"   ></Button>
+            <Button Content="Duct"  Width="80" Height="20" Background="SlateGray" Foreground="Black" Click="formDuct_Click"  Margin="2"  ></Button>
+            <Button Content="Fuel Spec"  Width="80" Height="20" Background="SlateGray" Foreground="Black" Click="formFuel_Click" Margin="2"   ></Button>
+            <Button Content="Process Data"  Width="80" Height="20" Background="SlateGray" Foreground="Black" Click="formProcess_Click" Margin="2"   ></Button>
+            <Button Content="General Input"  Width="80" Height="20" Background="SlateGray" Foreground="Black" Click="setNumber_Click"  Margin="2"  ></Button>
+
         </StackPanel>
-        <StackPanel  Grid.Row="1" Grid.Column="3" Orientation="Horizontal" Margin="1" Background="Gray" HorizontalAlignment="Center" >
-            <Button Content="Apply"  Width="80" Height="20" Background="Gray" Foreground="White" Click="apply_Click"  Margin="2" ></Button>
+        <StackPanel  Grid.Row="1" Grid.Column="4" Orientation="Horizontal" Margin="0,1,0,1" Background="LightGray" HorizontalAlignment="Center" >
+            <Button Content="Apply"  Width="80" Height="20" Background="SlateGray" Foreground="Black" Click="apply_Click"  Margin="2" ></Button>
         </StackPanel>
-        <StackPanel  Grid.Row="2" Grid.RowSpan="2" Orientation="Vertical" Background="LightSlateGray">
+        <StackPanel  Grid.Row="2" Grid.RowSpan="3" Orientation="Vertical" Background="LightGray">
             <StackPanel Orientation="Horizontal">
                 <Button Width="60" Height="20" Margin="2" Background="AliceBlue" Click="PlayCase_Click">
                     <Image Source="Images/Other/play.png" Width="{StaticResource smallestIconSize12}" Height="{StaticResource smallestIconSize12}"/>
@@ -104,7 +105,7 @@
                 </ListBox>
             </StackPanel>
         </StackPanel>
-        <ListBox Name="propertyListBox" Grid.Row="2" Grid.Column="3" Grid.RowSpan="4" Background="LightSlateGray"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <ListBox Name="propertyListBox" Grid.Row="2" Grid.Column="4" Background="LightSlateGray" Grid.RowSpan="3">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -114,13 +115,13 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Grid Grid.Row="2" Grid.Column="1">
-         <Image Source="Images\Elements\all.jpg"/>
+        <Grid Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
+            <Image Source="Images\Elements\all.jpg"/>
             <StackPanel Margin="50,50,0,0"   Orientation="Vertical" >
                 <StackPanel Orientation="Horizontal">
-                    <StackPanel Orientation="Horizontal" Margin="0,90,0,0"  >
+                    <StackPanel Orientation="Horizontal" Margin="0,105,0,0"  >
                         <Grid Name="boilerStage_1_grid" Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}"  MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >
-                            <Border BorderThickness="2" BorderBrush="Transparent" >
+                            <Border BorderThickness="2" BorderBrush="Transparent"  >
                                 <Image x:Name="boilerStage_1" Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"  VerticalAlignment="Stretch"/>
                             </Border>
                             <Label Name="boilerStage_1_label"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,-10" />
@@ -171,7 +172,7 @@
                 </StackPanel>
             </StackPanel>
         </Grid>
-        <ToolBarPanel Grid.Row="4" Grid.ColumnSpan="4" Background="LightGray">
+        <ToolBarPanel Grid.Row="4" Grid.ColumnSpan="5" Background="LightGray" Margin="0,4,0,0" Visibility="Hidden" >
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -180,7 +181,7 @@
 
                 <TextBlock  Name="reportText" Padding="50 5 0 0" VerticalAlignment="Center" Text="Application"/>
 
-             
+
             </Grid>
         </ToolBarPanel>
     </Grid>

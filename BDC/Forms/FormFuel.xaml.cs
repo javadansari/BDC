@@ -195,5 +195,19 @@ namespace BDC.Forms
             }
 
         }
+
+        private void Check_Click(object sender, RoutedEventArgs e)
+        {
+
+            getValue();
+            foreach (GasFuel gasFuel in GasFuels)
+            {
+
+                double all1 = 0;
+                double all2 = 0;
+              //  all1 = gasFuel.CH4 
+
+              }
+        }
     }
 }
