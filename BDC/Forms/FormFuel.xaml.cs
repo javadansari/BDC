@@ -199,9 +199,35 @@ namespace BDC.Forms
         private void Check_Click(object sender, RoutedEventArgs e)
         {
 
-            getValue();
+            setValue();
             foreach (GasFuel gasFuel in GasFuels)
             {
+                if (FindName("CH4" + gasFuel.id) as TextBox).Text == "-" ;
+                gasFuel.C2H6 = (FindName("C2H6" + gasFuel.id) as TextBox).Text;
+                gasFuel.C2H4 = (FindName("C2H4" + gasFuel.id) as TextBox).Text;
+                gasFuel.C3H8 = (FindName("C3H8" + gasFuel.id) as TextBox).Text;
+                gasFuel.C3H6 = (FindName("C3H6" + gasFuel.id) as TextBox).Text;
+                gasFuel.N_C4H10 = (FindName("N_C4H10" + gasFuel.id) as TextBox).Text;
+                gasFuel.ISO_C4H10 = (FindName("ISO_C4H10" + gasFuel.id) as TextBox).Text;
+                gasFuel.C4H8 = (FindName("C4H8" + gasFuel.id) as TextBox).Text;
+                gasFuel.ISO_C5H12 = (FindName("ISO_C5H12" + gasFuel.id) as TextBox).Text;
+                gasFuel.N_C5H12 = (FindName("N_C5H12" + gasFuel.id) as TextBox).Text;
+                gasFuel.C5H10 = (FindName("C5H10" + gasFuel.id) as TextBox).Text;
+                gasFuel.C6H14 = (FindName("C6H14" + gasFuel.id) as TextBox).Text;
+                gasFuel.N2 = (FindName("N2" + gasFuel.id) as TextBox).Text;
+                gasFuel.CO = (FindName("CO" + gasFuel.id) as TextBox).Text;
+                gasFuel.CO2 = (FindName("CO2" + gasFuel.id) as TextBox).Text;
+                gasFuel.H2O = (FindName("H2O" + gasFuel.id) as TextBox).Text;
+                gasFuel.H2S = (FindName("H2S" + gasFuel.id) as TextBox).Text;
+                gasFuel.H2 = (FindName("H2" + gasFuel.id) as TextBox).Text;
+                gasFuel.He = (FindName("He" + gasFuel.id) as TextBox).Text;
+                gasFuel.O2 = (FindName("O2" + gasFuel.id) as TextBox).Text;
+                gasFuel.Ar = (FindName("Ar" + gasFuel.id) as TextBox).Text;
+                gasFuel.Total = (FindName("Total" + gasFuel.id) as TextBox).Text;
+                gasFuel.FuelPressure = (FindName("FuelPressure" + gasFuel.id) as TextBox).Text;
+                gasFuel.FuelTemperature = (FindName("FuelTemperature" + gasFuel.id) as TextBox).Text;
+                gasFuel.LHV_kj_kg = (FindName("LHV_kj_kg" + gasFuel.id) as TextBox).Text;
+                gasFuel.LHV_kj_kg_Calculated = (FindName("LHV_kj_kg_Calculated" + gasFuel.id) as TextBox).Text;
 
                 double all1 = 0;
                 double all2 = 0;
