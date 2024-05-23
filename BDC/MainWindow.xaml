@@ -6,7 +6,6 @@
         xmlns:local="clr-namespace:BDC" 
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-         ResizeMode="CanMinimize"
         Title="BDC Project" Height="500" Width="1030">
     <Window.Resources>
         <sys:Double x:Key="sizeBox">40</sys:Double>
@@ -27,15 +26,17 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="130"/>
             <ColumnDefinition Width="680"/>
+            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="220"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition  Height="20"/>
             <RowDefinition  Height="30"/>
+            <RowDefinition Height="410"/>
             <RowDefinition Height="*"/>
             <RowDefinition  Height="20"/>
         </Grid.RowDefinitions>
-        <Menu VerticalAlignment="Top" Grid.ColumnSpan="3" Grid.Row="0">
+        <Menu VerticalAlignment="Top" Grid.ColumnSpan="4" Grid.Row="0">
             <MenuItem Header="File">
                 <MenuItem Header="New" Click="New_Click"/>
                 <MenuItem Header="Save" Click="Save_Click"/>
@@ -59,19 +60,22 @@
                 <MenuItem Header="Export" Click="ExportMenu_Click"/>
             </MenuItem>
         </Menu>
-        <StackPanel  Grid.Row="1" Grid.ColumnSpan="3" Orientation="Horizontal" Margin="1" Background="Gray" >
-            <Button Content="New"  Width="80" Height="20" Background="BlueViolet" Foreground="White" Click="NewButton_Click" Margin="2"   ></Button>
-            <Button Content="Save"  Width="80" Height="20" Background="BlueViolet" Foreground="White" Click="SaveButton_Click" Margin="2"   ></Button>
-            <Button Content="Open"  Width="80" Height="20" Background="BlueViolet" Foreground="White" Click="OpenButton_Click" Margin="2"   ></Button>
-            <Button Content="Furnace"  Width="80" Height="20" Background="Blue" Foreground="White" Click="formFurnace_Click" Margin="2" ></Button>
-            <Button Content="Convention"  Width="80" Height="20" Background="Blue" Foreground="White" Click="Attributes_Click" Margin="2"   ></Button>
-            <Button Content="Duct"  Width="80" Height="20" Background="Blue" Foreground="White" Click="formDuct_Click"  Margin="2"  ></Button>
-            <Button Content="Fuel Spec"  Width="80" Height="20" Background="Blue" Foreground="White" Click="formFuel_Click" Margin="2"   ></Button>
-            <Button Content="Process Data"  Width="80" Height="20" Background="Blue" Foreground="White" Click="formProcess_Click" Margin="2"   ></Button>
-            <Button Content="General Input"  Width="80" Height="20" Background="Blue" Foreground="White" Click="setNumber_Click"  Margin="2"  ></Button>
-            <Button Content="Apply"  Width="80" Height="20" Background="Green" Foreground="White" Click="apply_Click"  Margin="150,2,2,2" ></Button>
+        <StackPanel  Grid.Row="1" Grid.ColumnSpan="4" Orientation="Horizontal" Margin="1" Background="LightSlateGray" >
+            <Button Content="New"  Width="80" Height="20" Background="Gray" Foreground="White" Click="NewButton_Click" Margin="2"   ></Button>
+            <Button Content="Save"  Width="80" Height="20" Background="Gray" Foreground="White" Click="SaveButton_Click" Margin="2"   ></Button>
+            <Button Content="Open"  Width="80" Height="20" Background="Gray" Foreground="White" Click="OpenButton_Click" Margin="2"   ></Button>
+            <Button Content="Furnace"  Width="80" Height="20" Background="Gray" Foreground="White" Click="formFurnace_Click" Margin="2" ></Button>
+            <Button Content="Convention"  Width="80" Height="20" Background="Gray" Foreground="White" Click="Attributes_Click" Margin="2"   ></Button>
+            <Button Content="Duct"  Width="80" Height="20" Background="Gray" Foreground="White" Click="formDuct_Click"  Margin="2"  ></Button>
+            <Button Content="Fuel Spec"  Width="80" Height="20" Background="Gray" Foreground="White" Click="formFuel_Click" Margin="2"   ></Button>
+            <Button Content="Process Data"  Width="80" Height="20" Background="Gray" Foreground="White" Click="formProcess_Click" Margin="2"   ></Button>
+            <Button Content="General Input"  Width="80" Height="20" Background="Gray" Foreground="White" Click="setNumber_Click"  Margin="2"  ></Button>
+          
         </StackPanel>
-        <StackPanel  Grid.Row="2" Orientation="Vertical" Background="AliceBlue">
+        <StackPanel  Grid.Row="1" Grid.Column="3" Orientation="Horizontal" Margin="1" Background="Gray" HorizontalAlignment="Center" >
+            <Button Content="Apply"  Width="80" Height="20" Background="Gray" Foreground="White" Click="apply_Click"  Margin="2" ></Button>
+        </StackPanel>
+        <StackPanel  Grid.Row="2" Grid.RowSpan="2" Orientation="Vertical" Background="LightSlateGray">
             <StackPanel Orientation="Horizontal">
                 <Button Width="60" Height="20" Margin="2" Background="AliceBlue" Click="PlayCase_Click">
                     <Image Source="Images/Other/play.png" Width="{StaticResource smallestIconSize12}" Height="{StaticResource smallestIconSize12}"/>
@@ -100,7 +104,7 @@
                 </ListBox>
             </StackPanel>
         </StackPanel>
-        <ListBox Name="propertyListBox" Grid.Row="2" Grid.Column="2" Grid.RowSpan="3" Background="AliceBlue">
+        <ListBox Name="propertyListBox" Grid.Row="2" Grid.Column="3" Grid.RowSpan="4" Background="LightSlateGray"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -111,63 +115,63 @@
             </ListBox.ItemTemplate>
         </ListBox>
         <Grid Grid.Row="2" Grid.Column="1">
-         <Image Stretch="Fill"  Source="Images\Elements\all.jpg"/>
-            <StackPanel Margin="25,50,0,0"   Orientation="Vertical" >
+         <Image Source="Images\Elements\all.jpg"/>
+            <StackPanel Margin="50,50,0,0"   Orientation="Vertical" >
                 <StackPanel Orientation="Horizontal">
                     <StackPanel Orientation="Horizontal" Margin="0,90,0,0"  >
                         <Grid Name="boilerStage_1_grid" Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}"  MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >
                             <Border BorderThickness="2" BorderBrush="Transparent" >
                                 <Image x:Name="boilerStage_1" Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"  VerticalAlignment="Stretch"/>
                             </Border>
-                            <Label Name="boilerStage_1_label"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="1,0,0,1" />
+                            <Label Name="boilerStage_1_label"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,-10" />
                         </Grid>
-                        <Grid Name="boilerStage_2_grid" Margin="7,0,0,0"  Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}" MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >
+                        <Grid Name="boilerStage_2_grid" Margin="5,0,0,0"  Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}" MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >
                             <Border BorderThickness="2" BorderBrush="Transparent">
                                 <Image x:Name="boilerStage_2"  Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"  VerticalAlignment="Stretch"  />
                             </Border>
-                            <Label Name="boilerStage_2_label"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="1,0,0,1" />
+                            <Label Name="boilerStage_2_label"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,-10" />
                         </Grid>
-                        <Grid Name="boilerStage_3_grid"  Margin="9,0,0,0"  Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}" MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >
+                        <Grid Name="boilerStage_3_grid"  Margin="5,0,0,0"  Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}" MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >
                             <Border BorderThickness="2" BorderBrush="Transparent">
                                 <Image x:Name="boilerStage_3"  Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"  VerticalAlignment="Stretch" />
                             </Border>
-                            <Label Name="boilerStage_3_label"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="1,0,0,1" />
+                            <Label Name="boilerStage_3_label"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,-10" />
                         </Grid>
-                        <Grid Name="boilerStage_4_grid"  Margin="8,0,0,0"  Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}" MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >
+                        <Grid Name="boilerStage_4_grid"  Margin="0,0,0,0"  Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}" MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >
                             <Border BorderThickness="2" BorderBrush="Transparent">
                                 <Image x:Name="boilerStage_4"  Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"  VerticalAlignment="Stretch" />
                             </Border>
-                            <Label Name="boilerStage_4_label" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="1,0,0,1" />
+                            <Label Name="boilerStage_4_label" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,-10" />
                         </Grid>
-                        <Grid Name="boilerStage_5_grid"  Margin="9,0,0,0" Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}" MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >
+                        <Grid Name="boilerStage_5_grid"  Margin="0,0,0,0" Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}" MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >
                             <Border BorderThickness="2" BorderBrush="Transparent">
                                 <Image x:Name="boilerStage_5"  Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"  VerticalAlignment="Stretch" />
                             </Border>
-                            <Label Name="boilerStage_5_label"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="1,0,0,1" />
+                            <Label Name="boilerStage_5_label"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,-10" />
                         </Grid>
-                        <Grid Name="boilerStage_6_grid"  Margin="8,0,0,0"  Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}" MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >
+                        <Grid Name="boilerStage_6_grid"  Margin="0,0,0,0"  Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}" MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >
                             <Border BorderThickness="2" BorderBrush="Transparent">
                                 <Image x:Name="boilerStage_6"  Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"  VerticalAlignment="Stretch" />
                             </Border>
-                            <Label Name="boilerStage_6_label"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="1,0,0,1" />
+                            <Label Name="boilerStage_6_label"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,-10" />
                         </Grid>
-                        <Grid Name="boilerStage_7_grid" Margin="8,0,0,0" Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}" MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >
+                        <Grid Name="boilerStage_7_grid" Margin="0,0,0,0" Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}" MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >
                             <Border BorderThickness="2" BorderBrush="Transparent">
                                 <Image x:Name="boilerStage_7"  Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"  VerticalAlignment="Stretch"  />
                             </Border>
-                            <Label Name="boilerStage_7_label"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="1,0,0,1" />
+                            <Label Name="boilerStage_7_label"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,-10" />
                         </Grid>
-                        <Grid Margin="48,0,0,0"  Name="boilerStage_8_grid" Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}" MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >
+                        <Grid Margin="40,0,0,0"  Name="boilerStage_8_grid" Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}" MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >
                             <Border BorderThickness="2" BorderBrush="Transparent">
                                 <Image x:Name="boilerStage_8"  Width="{StaticResource iconSize}" Height="{StaticResource iconSize}"  VerticalAlignment="Stretch"  />
                             </Border>
-                            <Label Name="boilerStage_8_label"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="1,0,0,1" />
+                            <Label Name="boilerStage_8_label"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,-10" />
                         </Grid>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
         </Grid>
-        <ToolBarPanel Grid.Row="3" Grid.ColumnSpan="3" Background="LightGray">
+        <ToolBarPanel Grid.Row="4" Grid.ColumnSpan="4" Background="LightGray">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>

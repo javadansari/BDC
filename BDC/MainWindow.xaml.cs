@@ -38,6 +38,8 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.ConstrainedExecution;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.Globalization;
+
 
 namespace BDC
 {
@@ -100,22 +102,25 @@ namespace BDC
 
             draggedImage = new Image();
             furnace = new Furnace();
-
+            element = new Element();
             ducts = new List<Duct>();
             Duct duct = new Duct();
             duct.id = 1;
             ducts.Add(duct);
             gasFuels = new List<GasFuel>();
             GasFuel gasFuel = new GasFuel();
+            gasFuel.id = 1;
             gasFuels.Add(gasFuel);
             oilFuels = new List<OilFuel>();
             OilFuel oilFuel = new OilFuel();
+            oilFuel.id = 1;
             oilFuels.Add(oilFuel);
 
             elements = new List<Element>();
             for (int i = 1; i <= 8; i++)
             {
                 Element element = new Element();
+                element.Id = i;
                 ItemAttribute itemAttribute = new ItemAttribute();
                 element.attribute = itemAttribute;
                 elements.Add(element);
@@ -129,6 +134,9 @@ namespace BDC
 
 
         #endregion
+
+
+      
 
 
 
@@ -817,19 +825,21 @@ namespace BDC
 
         private void NewButton_Click(object sender, RoutedEventArgs e)
         {
-          
-            
-            MainWindow mainWindow = new MainWindow(); 
+
+
+            MainWindow mainWindow = new MainWindow();
             this.Close();
             mainWindow.Show();
-      
+
+
         }
 
-    
+
     }
-       
+
 
     #endregion
 
 
+   
 }

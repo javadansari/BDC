@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BDC.Forms"
         mc:Ignorable="d"
-        Title="FormFuel" Height="650" Width="780">
+        Title="FormFuel" Height="660" Width="780">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
