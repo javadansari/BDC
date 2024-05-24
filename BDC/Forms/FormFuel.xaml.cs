@@ -293,6 +293,7 @@ namespace BDC.Forms
                     (FindName("LHV_kj_kg_Calculated" + gasFuel.id) as TextBox).Text = calc2.ToString();
 
                     double density = calc1 / 22.414;
+                    density  = Math.Round(density, 2);
                     (FindName("Density" + gasFuel.id) as TextBox).Text = density.ToString();
 
                 }
