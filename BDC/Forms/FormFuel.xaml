@@ -117,7 +117,7 @@
                 <TextBox Name="LHV_kj_kg2" Style="{StaticResource textBox}" />
                 <TextBox Name="LHV_kj_kg_Calculated2" Style="{StaticResource textBox}" Background="LightGray" />
                 <TextBox Name="Molcular2" Style="{StaticResource textBox}"  Background="LightGray"/>
-                <TextBox Name="Density" Style="{StaticResource textBox}"  Background="LightGray"/>
+                <TextBox Name="Density2" Style="{StaticResource textBox}"  Background="LightGray"/>
             </StackPanel>
             <StackPanel Orientation="Vertical">
                 <CheckBox  Name="active3" IsChecked="True"   Style="{StaticResource checkBox}"/>
