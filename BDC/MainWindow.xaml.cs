@@ -675,8 +675,10 @@ namespace BDC
                 {
                     /// RUN
                     //  Export();
-                    Export export = new Export(System.AppDomain.CurrentDomain.BaseDirectory + @"Export.txt");
-
+                    string path = System.AppDomain.CurrentDomain.BaseDirectory + @"Export-" + item.Tag + ".txt";
+                    Case thisCase = cases.FirstOrDefault(c => c.Name == item.Tag);
+                    Export export = new Export(path);
+                    Export(path,new List<Process> { thisCase.process });
                     export.run();
                 }
             }
@@ -725,11 +727,14 @@ namespace BDC
 
         private void ExportMenu_Click(object sender, RoutedEventArgs e)
         {
+            List<Process> processes = new List<Process>();
+            foreach (Case @case in cases)
+                processes.Add(@case.process);
             string exportPath = System.AppDomain.CurrentDomain.BaseDirectory + @"Export.txt";
-            Export(exportPath);
+            Export(exportPath,processes);
         }
 
-        private void Export(string exportPath)
+        private void Export(string exportPath,List<Process> processes)
         {
             if (cases.Count == 0)
             {
@@ -749,9 +754,6 @@ namespace BDC
             }
             export.ExportOilFuel(oilFuels);
             export.ExportGasFuel(gasFuels);
-            List<Process> processes = new List<Process>();
-            foreach (Case @case in cases)
-                processes.Add(@case.process);
             export.ExportProcess(processes);
             MessageBox.Show("Project saved in : " + exportPath);
 
@@ -783,8 +785,11 @@ namespace BDC
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
+            List<Process> processes = new List<Process>();
+            foreach (Case @case in cases)
+                processes.Add(@case.process);
             string exportPath = System.AppDomain.CurrentDomain.BaseDirectory + @"Export.txt";
-            Export(exportPath);
+            Export(exportPath,processes);
         }
 
         private void OpenButton_Click(object sender, RoutedEventArgs e)
