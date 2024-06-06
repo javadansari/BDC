@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:BDC.Forms"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="FormFurnace" Height="700" Width="800">
+        Title="FormFurnace" Height="650" Width="800">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -62,14 +62,14 @@
                 <TextBox  Name="LS_m" Width="100" Height="20" HorizontalAlignment="Center"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" >
-                <Label  Width="100" Content="IX (m)"></Label>
+                <Label  Width="100" Content="ẟ (deg)"></Label>
                 <TextBox Name="IX_m"  Width="100" Height="20" HorizontalAlignment="Center"></TextBox>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" >
+            <StackPanel Orientation="Horizontal" Visibility="Collapsed" >
                 <Label  Width="100" Content="IY (m)"></Label>
                 <TextBox Name="IY_m"  Width="100" Height="20" HorizontalAlignment="Center"></TextBox>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" >
+            <StackPanel Orientation="Horizontal"  Visibility="Collapsed">
                 <Label  Width="100" Content="DF (m)"></Label>
                 <TextBox Name="DF_m"  Width="100" Height="20" HorizontalAlignment="Center"></TextBox>
             </StackPanel>
@@ -77,7 +77,7 @@
                 <Label  Width="100" Content="Lref (m)"></Label>
                 <TextBox Name="Lref_m"  Width="100" Height="20" HorizontalAlignment="Center"></TextBox>
             </StackPanel>
-            </StackPanel>
+        </StackPanel>
         <StackPanel  Grid.Row="1" Grid.Column="1"  Orientation="Vertical" >
             <StackPanel Orientation="Horizontal">
                 <Label Content="Wall ►" FontWeight="Bold" Foreground="#FF2E9809"></Label>
@@ -114,33 +114,34 @@
                 <TextBox Name="TubeSP_mm_S" Width="100" Height="25" Margin="0,0,10,0" HorizontalAlignment="Center"></TextBox>
                 <TextBox Name="TubeSP_mm_D" Width="100" Height="25"  HorizontalAlignment="Center"></TextBox>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" >
-                <Label  Width="100" Content="Material"></Label>
-                <ComboBox Name="Material_F" Height="25" Width="100" Margin="0,0,10,0"  SelectedIndex="0"/>
-                <ComboBox Name="Material_R" Height="25" Width="100" Margin="0,0,10,0"  SelectedIndex="0"/>
-                <ComboBox Name="Material_S" Height="25" Width="100" Margin="0,0,10,0"  SelectedIndex="0"/>
-                <ComboBox Name="Material_D" Height="25" Width="100" Margin="0,0,10,0"  SelectedIndex="0"/>
+            <StackPanel Orientation="Horizontal"  >
+                <Label  Width="100" Content="Material" ></Label>
+                <ComboBox Name="Material_F" Height="25" Width="100" Margin="0,0,10,10"  SelectedIndex="0"/>
+                <ComboBox Name="Material_R" Height="25" Width="100" Margin="0,0,10,10"  SelectedIndex="0"/>
+                <ComboBox Name="Material_S" Height="25" Width="100" Margin="0,0,10,10"  SelectedIndex="0"/>
+                <ComboBox Name="Material_D" Height="25" Width="100" Margin="0,0,10,10"  SelectedIndex="0"/>
             </StackPanel>
         </StackPanel>
-        <StackPanel  Grid.Row="2" Grid.Column="1"  Orientation="Vertical" >
-            <StackPanel Orientation="Horizontal">
+
+        <StackPanel  Grid.Row="2" Grid.Column="1"  Orientation="Vertical" Margin="0,22,0,0" >
+            <StackPanel Orientation="Horizontal" Visibility="Collapsed">
                 <CheckBox Name="Screen" Content="Screen" Margin="10,0,0,0" IsChecked="True"/>
                 <CheckBox Name="Floor_Refactory" Content="Floor Refactory" Margin="100,0,0,0" IsChecked="True"/>
             </StackPanel>
-            <Label Content="Characteristics ▼" FontWeight="Bold" Foreground="#FF2E9809"></Label>
-            <StackPanel Orientation="Horizontal" >
-                <Label  Width="350" Content="Emissivity of Furnace Walls"></Label>
-                <TextBox Name="Emissivity_of_Furnace_Walls"  Width="100" Height="20" HorizontalAlignment="Center"></TextBox>
+            <Label Content="Characteristics ▼" FontWeight="Bold" Foreground="#FF2E9809" Visibility="Collapsed"></Label>
+            <StackPanel Orientation="Horizontal" Visibility="Collapsed">
+                <Label  Width="350" Content="Emissivity of Furnace Walls" ></Label>
+                <TextBox Name="Emissivity_of_Furnace_Walls"  Width="100" Height="20" HorizontalAlignment="Center" ></TextBox>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" >
+            <StackPanel Orientation="Horizontal" Visibility="Collapsed">
                 <Label  Width="350" Content="Emissivity of Refactory Layer"></Label>
                 <TextBox Name="Emissivity_of_Refactory_Layer"  Width="100" Height="20" HorizontalAlignment="Center"></TextBox>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" >
+            <StackPanel Orientation="Horizontal" Visibility="Collapsed">
                 <Label  Width="350" Content="Convective Heat Transfer Coefficient inside Tubes (W/m^2K)"></Label>
                 <TextBox Name="Convective_Heat_Transfer" Width="100" Height="20" HorizontalAlignment="Center"></TextBox>
-            </StackPanel> 
-            <StackPanel Orientation="Horizontal" >
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Visibility="Collapsed">
                 <Label  Width="350" Content="Usage Factor"></Label>
                 <TextBox Name="Usage_Factor"  Width="100" Height="20" HorizontalAlignment="Center"></TextBox>
             </StackPanel>

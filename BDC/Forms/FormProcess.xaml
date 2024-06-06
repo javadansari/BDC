@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:BDC.Forms"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="FormFuel" Height="800" Width="680">
+        Title="FormFuel" Height="820" Width="700">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -27,43 +27,43 @@
                     <StackPanel  Grid.Column="0" Orientation="Vertical">
                         <Label Style="{StaticResource label}" Content="Case Name" />
                         <Label Style="{StaticResource labelTop}" Content="Ambient Condition" />
-                        <Label Style="{StaticResource label}" Content="Site Atmospheric Pressure" />
-                        <Label Style="{StaticResource label}" Content="Ambien Temperature" />
-                        <Label Style="{StaticResource label}" Content="Relative Humidity" />
+                        <Label Style="{StaticResource label}" Content="Site Atmospheric Pressure (Bara)" />
+                        <Label Style="{StaticResource label}" Content="Ambien Temperature (C)" />
+                        <Label Style="{StaticResource label}" Content="Relative Humidity(%)" />
                         <Label Style="{StaticResource labelTop}" Content="Combustion" />
-                        <Label Style="{StaticResource label}" Content="GAS#1" />
-                        <Label Style="{StaticResource label}" Content="GAS#2" />
-                        <Label Style="{StaticResource label}" Content="GAS#3" />
-                        <Label Style="{StaticResource label}" Content="GAS#4" />
-                        <Label Style="{StaticResource label}" Content="GAS#5" />
-                        <Label Style="{StaticResource label}" Content="OIL#1" />
-                        <Label Style="{StaticResource label}" Content="OIL#2" />
-                        <Label Style="{StaticResource label}" Content="Excess Air" />
-                        <Label Style="{StaticResource label}" Content="Atmozing Steam Flow" />
-                        <Label Style="{StaticResource label}" Content="Atmozing Steam Pressure" />
-                        <Label Style="{StaticResource label}" Content="Atmozing Steam Temperature" />
+                        <Label Style="{StaticResource label}" Content="GAS#1 (Kg/h)" />
+                        <Label Style="{StaticResource label}" Content="GAS#2 (Kg/h)" />
+                        <Label Style="{StaticResource label}" Content="GAS#3 (Kg/h)" />
+                        <Label Style="{StaticResource label}" Content="GAS#4 (Kg/h)" />
+                        <Label Style="{StaticResource label}" Content="GAS#5 (Kg/h)" />
+                        <Label Style="{StaticResource label}" Content="OIL#1 (Kg/h)" />
+                        <Label Style="{StaticResource label}" Content="OIL#2 (Kg/h)" />
+                        <Label Style="{StaticResource label}" Content="Excess Air (%)" />
+                        <Label Style="{StaticResource label}" Content="Atmozing Steam Flow (Kg/h)" />
+                        <Label Style="{StaticResource label}" Content="Atmozing Steam Pressure (Bara)" />
+                        <Label Style="{StaticResource label}" Content="Atmozing Steam Temperature (C)" />
                         <Label Style="{StaticResource labelTop}" Content="F.D.F" />
-                        <Label Style="{StaticResource label}" Content="Fan efficiency" />
-                        <Label Style="{StaticResource label}" Content="Heat exchange ducty" />
+                        <Label Style="{StaticResource label}" Content="Fan efficiency (%)" />
+                        <Label Style="{StaticResource label}" Content="Heat exchange ducty (Kw)" />
                         <Label Style="{StaticResource labelTop}" Content="Steam Outlet" />
-                        <Label Style="{StaticResource label}" Content="Steam Pressure @ T.P" />
-                        <Label Style="{StaticResource label}" Content="Main steam Pressue Drop" />
+                        <Label Style="{StaticResource label}" Content="Steam Pressure @ T.P (Bara)" />
+                        <Label Style="{StaticResource label}" Content="Main steam Pressue Drop (Bar)" />
                         <Label Style="{StaticResource labelTop}" Content="Desuperheater" />
-                        <Label Style="{StaticResource label}" Content="Location of DESH" />
-                        <Label Style="{StaticResource label}" Content="Steam temperature set point  T.P" />
-                        <Label Style="{StaticResource label}" Content="Min SH degree at desperheater outlet" />
+                        <Label Style="{StaticResource label}" Content="Location of Desuperheater" />
+                        <Label Style="{StaticResource label}" Content="Steam temperature set point T.P (C)" />
+                        <Label Style="{StaticResource label}" Content="Min SH at desperheater outlet (C)" />
                         <Label Style="{StaticResource labelTop}" Content="Feed water" />
-                        <Label Style="{StaticResource label}" Content="Feed water Pressure" />
-                        <Label Style="{StaticResource label}" Content="Feed water Temperature" />
-                        <Label Style="{StaticResource label}" Content="B.F.P temperature rise" />
-                        <Label Style="{StaticResource label}" Content="Feed water piping dp" />
-                        <Label Style="{StaticResource label}" Content="Level control Valve dp" />
+                        <Label Style="{StaticResource label}" Content="Feed water Pressure (Bara)" />
+                        <Label Style="{StaticResource label}" Content="Feed water Temperature (C)" />
+                        <Label Style="{StaticResource label}" Content="B.F.P temperature rise (C)" />
+                        <Label Style="{StaticResource label}" Content="Feed water piping dp (Bar)" />
+                        <Label Style="{StaticResource label}" Content="Level control Valve dp (Bar)" />
                         <Label Style="{StaticResource labelTop}" Content="Losses" />
-                        <Label Style="{StaticResource label}" Content="Unburned Loss" />
-                        <Label Style="{StaticResource label}" Content="Radiation Loss" />
-                        <Label Style="{StaticResource label}" Content="Furnace heat absorption Eff" />
+                        <Label Style="{StaticResource label}" Content="Unburned Loss (%)" />
+                        <Label Style="{StaticResource label}" Content="Radiation Loss (%)" /> 
+                        <Label Style="{StaticResource label}" Content="Furnace heat absorption Eff" Visibility="Collapsed" />
                         <Label Style="{StaticResource labelTop}" Content="Blowdown" />
-                        <Label Style="{StaticResource label}" Content="Blowdown flow" />
+                        <Label Style="{StaticResource label}" Content="Blowdown flow (%)" />
                     </StackPanel>
                     <StackPanel Name="stackPanel_1" IsEnabled="False" Visibility="Visible" Grid.Column="1" Orientation="Vertical" >
                         <TextBox Name="name_1" Style="{StaticResource textBox}" Text="-" IsEnabled="False"/>
@@ -102,7 +102,7 @@
                         <Label  Content="" Width="20" Padding="0" Margin="0"/>
                         <TextBox Name="Unburned_Loss_1" Style="{StaticResource textBox}" />
                         <TextBox Name="Radiation_Loss_1" Style="{StaticResource textBox}" />
-                        <TextBox Name="Furnace_heat_absorption_Eff_1" Style="{StaticResource textBox}" />
+                        <TextBox Name="Furnace_heat_absorption_Eff_1" Style="{StaticResource textBox}" Visibility="Collapsed" />
                         <Label  Content="" Width="20" Padding="0" Margin="0"/>
                         <TextBox Name="Blowdown_flow_1" Style="{StaticResource textBox}" />
                     </StackPanel>
@@ -143,7 +143,7 @@
                         <Label  Content="" Width="20" Padding="0" Margin="0"/>
                         <TextBox Name="Unburned_Loss_2" Style="{StaticResource textBox}" />
                         <TextBox Name="Radiation_Loss_2" Style="{StaticResource textBox}" />
-                        <TextBox Name="Furnace_heat_absorption_Eff_2" Style="{StaticResource textBox}" />
+                        <TextBox Name="Furnace_heat_absorption_Eff_2" Style="{StaticResource textBox}" Visibility="Collapsed"/>
                         <Label  Content="" Width="20" Padding="0" Margin="0"/>
                         <TextBox Name="Blowdown_flow_2" Style="{StaticResource textBox}" />
                     </StackPanel>
@@ -184,7 +184,7 @@
                         <Label  Content="" Width="20" Padding="0" Margin="0"/>
                         <TextBox Name="Unburned_Loss_3" Style="{StaticResource textBox}" />
                         <TextBox Name="Radiation_Loss_3" Style="{StaticResource textBox}" />
-                        <TextBox Name="Furnace_heat_absorption_Eff_3" Style="{StaticResource textBox}" />
+                        <TextBox Name="Furnace_heat_absorption_Eff_3" Style="{StaticResource textBox}" Visibility="Collapsed" />
                         <Label  Content="" Width="20" Padding="0" Margin="0"/>
                         <TextBox Name="Blowdown_flow_3" Style="{StaticResource textBox}" />
                     </StackPanel>
@@ -225,7 +225,7 @@
                         <Label  Content="" Width="20" Padding="0" Margin="0"/>
                         <TextBox Name="Unburned_Loss_4" Style="{StaticResource textBox}" />
                         <TextBox Name="Radiation_Loss_4" Style="{StaticResource textBox}" />
-                        <TextBox Name="Furnace_heat_absorption_Eff_4" Style="{StaticResource textBox}" />
+                        <TextBox Name="Furnace_heat_absorption_Eff_4" Style="{StaticResource textBox}" Visibility="Collapsed" />
                         <Label  Content="" Width="20" Padding="0" Margin="0"/>
                         <TextBox Name="Blowdown_flow_4" Style="{StaticResource textBox}" />
                     </StackPanel>
@@ -266,7 +266,7 @@
                         <Label  Content="" Width="20" Padding="0" Margin="0"/>
                         <TextBox Name="Unburned_Loss_5" Style="{StaticResource textBox}" />
                         <TextBox Name="Radiation_Loss_5" Style="{StaticResource textBox}" />
-                        <TextBox Name="Furnace_heat_absorption_Eff_5" Style="{StaticResource textBox}" />
+                        <TextBox Name="Furnace_heat_absorption_Eff_5" Style="{StaticResource textBox}" Visibility="Collapsed"  />
                         <Label  Content="" Width="20" Padding="0" Margin="0"/>
                         <TextBox Name="Blowdown_flow_5" Style="{StaticResource textBox}" />
                     </StackPanel>
@@ -307,7 +307,7 @@
                         <Label  Content="" Width="20" Padding="0" Margin="0"/>
                         <TextBox Name="Unburned_Loss_6" Style="{StaticResource textBox}" />
                         <TextBox Name="Radiation_Loss_6" Style="{StaticResource textBox}" />
-                        <TextBox Name="Furnace_heat_absorption_Eff_6" Style="{StaticResource textBox}" />
+                        <TextBox Name="Furnace_heat_absorption_Eff_6" Style="{StaticResource textBox}" Visibility="Collapsed" />
                         <Label  Content="" Width="20" Padding="0" Margin="0"/>
                         <TextBox Name="Blowdown_flow_6" Style="{StaticResource textBox}" />
                     </StackPanel>
@@ -348,7 +348,7 @@
                         <Label  Content="" Width="20" Padding="0" Margin="0"/>
                         <TextBox Name="Unburned_Loss_7" Style="{StaticResource textBox}" />
                         <TextBox Name="Radiation_Loss_7" Style="{StaticResource textBox}" />
-                        <TextBox Name="Furnace_heat_absorption_Eff_7" Style="{StaticResource textBox}" />
+                        <TextBox Name="Furnace_heat_absorption_Eff_7" Style="{StaticResource textBox}" Visibility="Collapsed" />
                         <Label  Content="" Width="20" Padding="0" Margin="0"/>
                         <TextBox Name="Blowdown_flow_7" Style="{StaticResource textBox}" />
                     </StackPanel>
@@ -389,7 +389,7 @@
                         <Label  Content="" Width="20" Padding="0" Margin="0"/>
                         <TextBox Name="Unburned_Loss_8" Style="{StaticResource textBox}" />
                         <TextBox Name="Radiation_Loss_8" Style="{StaticResource textBox}" />
-                        <TextBox Name="Furnace_heat_absorption_Eff_8" Style="{StaticResource textBox}" />
+                        <TextBox Name="Furnace_heat_absorption_Eff_8" Style="{StaticResource textBox}" Visibility="Collapsed" />
                         <Label  Content="" Width="20" Padding="0" Margin="0"/>
                         <TextBox Name="Blowdown_flow_8" Style="{StaticResource textBox}" />
                     </StackPanel>

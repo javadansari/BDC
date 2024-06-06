@@ -21,8 +21,8 @@ namespace BDC
 
                SplashWindow splashScreen = new SplashWindow();
                splashScreen.Show();
-            //   Thread.Sleep(2000);
-               Thread.Sleep(000);
+               Thread.Sleep(2000);
+            //   Thread.Sleep(000);
                 
                splashScreen.Close();
               App app = new App();

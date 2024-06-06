@@ -28,7 +28,8 @@ namespace BDC.Forms
             InitializeComponent();
 
 
-            List<string> materials = new List<string> { "SA210-A1", "SA210-A2",  };
+        //    List<string> materials = new List<string> { "SA210-A1", "SA210-A2",  };
+            List<string> materials = new List<string> { "SA178-A", "SA178-C", "SA210-A1", "SA192", "SA213-T11", "SA213-T22", "SA213-T91", "SA213-T304" };
 
             foreach (var material in materials) Material_F.Items.Add(material);
             foreach (var material in materials) Material_R.Items.Add(material);

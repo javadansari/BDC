@@ -148,8 +148,10 @@ namespace BDC.Forms
                     comboBoxSectionName.SelectedIndex = element.attribute.section;
                     comboBoxSectionName.SelectionChanged += (sender, e) =>
                     {
+                      
                         element.attribute.section = comboBoxSectionName.SelectedIndex;
                         comboBoxSectionNumber.Items.Clear();
+                        comboBoxSectionNumber.SelectedIndex = 0;
                         if (comboBoxSectionName.SelectedIndex == 1)
                         {
                             List<string> sectionNumbers = new List<string> { "1", "2", "3", "4" };
@@ -166,6 +168,7 @@ namespace BDC.Forms
                             laberSectionName.Content = comboBoxSectionName.SelectedValue + "-" + comboBoxSectionNumber.SelectedValue;
                             element.attribute.sectionName = laberSectionName.Content.ToString();
                         };
+                     //   comboBoxSectionNumber.SelectedIndex = 1;
                     };
                     childStackPanel.Children.Add(comboBoxSectionName);
 
@@ -298,7 +301,7 @@ namespace BDC.Forms
                 buildTextBox(childStackPanel, e => e.attribute.Usage_Factor, element, (e, value) => e.attribute.Usage_Factor = value);
 
 
-                childStackPanel.Background = Brushes.LightYellow;
+                childStackPanel.Background = Brushes.White;
                 //   if (element.Id % 2 == 0) childStackPanel.Background = Brushes.LightGray;
 
 

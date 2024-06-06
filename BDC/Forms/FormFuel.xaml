@@ -240,10 +240,10 @@
                         <TextBox Name="S1" Style="{StaticResource textBox}" />
                         <TextBox Name="O1" Style="{StaticResource textBox}" />
                         <TextBox Name="N1" Style="{StaticResource textBox}" />
-                        <TextBox Name="Total_1" Style="{StaticResource textBox}" Background="LightGray"/>
+                        <TextBox Name="Total_1" Style="{StaticResource textBox}" />
                         <TextBox Name="FuelPressure_1" Style="{StaticResource textBox}" />
                         <TextBox Name="FuelTemperature_1" Style="{StaticResource textBox}" />
-                        <TextBox Name="LHV_kj_kg_Calculated_1" Style="{StaticResource textBox}" Background="LightGray" />
+                        <TextBox Name="LHV_kj_kg_Calculated_1" Style="{StaticResource textBox}"  />
 
                     </StackPanel>
                     <StackPanel Orientation="Vertical">
@@ -255,10 +255,10 @@
                         <TextBox Name="S2" Style="{StaticResource textBox}" />
                         <TextBox Name="O2" Style="{StaticResource textBox}" />
                         <TextBox Name="N2" Style="{StaticResource textBox}" />
-                <TextBox Name="Total_2" Style="{StaticResource textBox}" Background="LightGray" />
+                <TextBox Name="Total_2" Style="{StaticResource textBox}"  />
                         <TextBox Name="FuelPressure_2" Style="{StaticResource textBox}" />
                         <TextBox Name="FuelTemperature_2" Style="{StaticResource textBox}" />
-                        <TextBox Name="LHV_kj_kg_Calculated_2" Style="{StaticResource textBox}" Background="LightGray" />
+                        <TextBox Name="LHV_kj_kg_Calculated_2" Style="{StaticResource textBox}"  />
                     </StackPanel>
                 </StackPanel>
         <StackPanel Grid.Column="2" Grid.ColumnSpan="2"  HorizontalAlignment="Center" Orientation="Horizontal">

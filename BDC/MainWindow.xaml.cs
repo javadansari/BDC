@@ -811,8 +811,7 @@ namespace BDC
                 // Open document 
                 filename = dlg.FileName;
 
-            }
-
+            
             Import import = new Import(filename);
             furnace = import.ImportFurnace();
             elements = import.ImportElements();
@@ -826,6 +825,8 @@ namespace BDC
                 addCase(@case.Name);
             }
             this.updateElement();
+            }
+
         }
 
         private void NewButton_Click(object sender, RoutedEventArgs e)
