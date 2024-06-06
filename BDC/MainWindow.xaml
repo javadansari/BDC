@@ -70,7 +70,7 @@
             <Button Content="Duct"  Width="80" Height="20" Background="SlateGray" Foreground="Black" Click="formDuct_Click"  Margin="2"  ></Button>
             <Button Content="Fuel Spec"  Width="80" Height="20" Background="SlateGray" Foreground="Black" Click="formFuel_Click" Margin="2"   ></Button>
             <Button Content="Process Data"  Width="80" Height="20" Background="SlateGray" Foreground="Black" Click="formProcess_Click" Margin="2"   ></Button>
-            <Button Content="General Input"  Width="80" Height="20" Background="SlateGray" Foreground="Black" Click="setNumber_Click"  Margin="2"  ></Button>
+            <Button Content="General Input"  Width="80" Height="20" Background="SlateGray" Foreground="Black" Click="generalInput_Click"  Margin="2"  ></Button>
 
         </StackPanel>
         <StackPanel  Grid.Row="1" Grid.Column="4" Orientation="Horizontal" Margin="0,1,0,1" Background="LightGray" HorizontalAlignment="Center" >

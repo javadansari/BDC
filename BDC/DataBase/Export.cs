@@ -193,7 +193,36 @@ namespace BDC.DataBase
             return true;
         }
 
+        public bool ExportInput(Inputs inputs)
+        {
+            ExportSpacer("Inputs");
 
+            string line = "";
+            Type objType = inputs.GetType();
+            PropertyInfo[] properties = objType.GetProperties();
+            foreach (PropertyInfo prop in properties)
+            {
+                object value = prop.Name;
+                line = line + "," + value;
+            }
+            using (StreamWriter writer = new StreamWriter(filePath, true))
+            {
+                writer.WriteLine(line);
+            }
+
+            using (StreamWriter writer = new StreamWriter(filePath, true))
+            {
+                line = "";
+                foreach (PropertyInfo prop in properties)
+                {
+                    object value = prop.GetValue(inputs);
+                    line = line + "," + value;
+
+                }
+                writer.WriteLine(line);
+            }
+            return true;
+        }
         public bool ExportProcess(List<Process> processes)
         {
             ExportSpacer("Case");
@@ -225,6 +254,8 @@ namespace BDC.DataBase
             }
             return true;
         }
+
+
 
         //public bool ExportCases(List<Case> cases)
         //{

@@ -57,6 +57,7 @@ namespace BDC
 
         public List<Element> elements { get; set; }
         public Element activeElement;
+        public Inputs inputs;
 
         public Furnace furnace { get; set; }
 
@@ -99,7 +100,7 @@ namespace BDC
         {
 
 
-
+            inputs = new Inputs();
             draggedImage = new Image();
             furnace = new Furnace();
             element = new Element();
@@ -129,6 +130,8 @@ namespace BDC
             Objects = new ObservableCollection<CustomCase>();
             ObjectListBox.ItemsSource = Objects;
             activeElement = new Element();
+
+
 
         }
 
@@ -253,22 +256,11 @@ namespace BDC
         }
 
 
-        private void setNumber_Click(object sender, RoutedEventArgs e)
+        private void generalInput_Click(object sender, RoutedEventArgs e)
         {
-            if (element != null)
-            {
 
-                NumberInputDialog dialog = new NumberInputDialog();
-                if (dialog.ShowDialog() == true)
-                {
-                    int selectedNumber = dialog.SelectedNumber;
-                    element.Name = element.State + selectedNumber;
-                    (FindName("boilerStage_" + element.Id + "_label") as Label).Content = element.Name;
-                }
-            }
-
-
-
+            GeneralInput generalInput = new GeneralInput(inputs,this);
+            generalInput.Show();
         }
 
 
@@ -748,6 +740,7 @@ namespace BDC
             if (DateTime.Now.Year < 2026)
             {
 
+                export.ExportInput(inputs);
                 export.ExportFurnace(furnace);
                 export.ExportElement(elements);
                 export.ExportDuct(ducts);
