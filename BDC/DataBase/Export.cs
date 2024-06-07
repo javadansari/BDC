@@ -20,12 +20,12 @@ namespace BDC.DataBase
             this.filePath = filePath;
         }
 
-        public bool run()
+        public bool run(string path,string caseName)
         {
             string runPath = System.AppDomain.CurrentDomain.BaseDirectory + @"\Run.exe";
          //   Thread newThread = new Thread(new ThreadStart(Work));
         //    newThread.Start();
-            var process = System.Diagnostics.Process.Start(runPath, "Export.txt Run.txt");
+            var process = System.Diagnostics.Process.Start(runPath, path +" Run-" + caseName + ".txt");
             process.WaitForExit();
             string resultPath = System.AppDomain.CurrentDomain.BaseDirectory + @"\Run.txt";
        //     newThread.Join();

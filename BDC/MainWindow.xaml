@@ -12,7 +12,7 @@
         <sys:Double x:Key="margin">2</sys:Double>
         <sys:Double x:Key="marginTop">200</sys:Double>
         <sys:Double x:Key="marginRecTop">150</sys:Double>
-        <sys:Double x:Key="iconSize">64</sys:Double>
+        <sys:Double x:Key="iconSize">80</sys:Double>
         <sys:Double x:Key="smallIconSize">16</sys:Double>
         <sys:Double x:Key="topIconSize">32</sys:Double>
         <sys:Double x:Key="smallestIconSize">8</sys:Double>

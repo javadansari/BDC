@@ -22,10 +22,22 @@ namespace BDC.DataBase
         {
             this.filePath = filePath;
         }
-
-        public Furnace ImportFurnace()
+        public Inputs ImportInputs()
         {
             string line = File.ReadLines(filePath).Skip(4).Take(1).First();
+            string[] items = line.Split(',');
+            Inputs inputs = new Inputs();
+            inputs.SH =int.Parse(items[1]);
+            inputs.Eva =int.Parse(items[2]);
+            inputs.Eco =int.Parse(items[3]);
+            inputs.Bare =int.Parse(items[4]);
+            inputs.Finned =int.Parse(items[5]);
+
+            return inputs;
+        }
+        public Furnace ImportFurnace()
+        {
+            string line = File.ReadLines(filePath).Skip(9).Take(1).First();
             string[] items = line.Split(',');
             Furnace furnace = new Furnace();
              furnace.No_Burner = items[1];
@@ -74,12 +86,12 @@ namespace BDC.DataBase
            
            
             List<Element> elements = new List<Element>();
-            for (int i = 9; i <= 16; i++)
+            for (int i = 14; i <= 21; i++)
             {
               string line = File.ReadLines(filePath).Skip(i).Take(1).First();
                string[] items = line.Split(',');
                Element element = new Element();
-                element.Id = i - 8;
+                element.Id = i -13;
                ItemAttribute itemAttribute = new ItemAttribute();
                 itemAttribute.active = bool.TryParse(items[1], out boolValue) ? boolValue : false;
                 itemAttribute.sectionName = items[2];
@@ -110,7 +122,7 @@ namespace BDC.DataBase
                 itemAttribute.Gas_Side_Founling_Factor = items[27];
                 itemAttribute.Usage_Factor = items[28];
                 element.attribute = itemAttribute;
-               elements.Add(element);
+                elements.Add(element);
             }
 
 
@@ -121,12 +133,12 @@ namespace BDC.DataBase
        public List<Duct> ImportDucts()
         {
             List<Duct> ducts = new List<Duct>();
-            for (int i = 21; i <= 24; i++)
+            for (int i = 26; i <= 29; i++)
             {
                string line = File.ReadLines(filePath).Skip(i).Take(1).First();
                string[] items = line.Split(',');
                Duct duct = new Duct();
-               duct.id = i - 20;
+               duct.id = i - 25;
                 duct.name = items[2];
                duct.active = int.TryParse(items[3], out intValue) ? intValue : 0;
                 duct.a = double.TryParse(items[4], out doubleValue) ? doubleValue : 0;
@@ -159,12 +171,12 @@ namespace BDC.DataBase
         public List<OilFuel> ImportOilFuels()
         {
             List<OilFuel> oilFuels = new List<OilFuel>();
-            for (int i = 29; i <= 30; i++)
+            for (int i = 34; i <= 35; i++)
             {
                 string line = File.ReadLines(filePath).Skip(i).Take(1).First();
                 string[] items = line.Split(',');
                 OilFuel oilFuel = new OilFuel();
-                oilFuel.id = i - 28;
+                oilFuel.id = i - 33;
                 oilFuel.name = items[2];
                 oilFuel.active_ = int.Parse(items[3]);
                 oilFuel.C = items[4];
@@ -186,12 +198,12 @@ namespace BDC.DataBase
         public List<GasFuel> ImportGasFuels()
          {
             List<GasFuel> gasFuels = new List<GasFuel>();
-            for (int i = 35; i <= 39; i++)
+            for (int i = 40; i <= 44; i++)
             {
                 string line = File.ReadLines(filePath).Skip(i).Take(1).First();
                 string[] items = line.Split(',');
                 GasFuel gasFuel = new GasFuel();
-                gasFuel.id = i - 34;
+                gasFuel.id = i - 39;
                 gasFuel.name = items[2];
                 gasFuel.active = int.TryParse(items[3], out intValue) ? intValue : 0;
                 gasFuel.CH4 = items[4];
@@ -229,15 +241,15 @@ namespace BDC.DataBase
         public List<Case> ImportCases()
         {
             List<Case> cases = new List<Case>();
-            for (int i = 44; i <= 44; i++)
+            for (int i = 49; i <= 49; i++)
             {
                string line = File.ReadLines(filePath).Skip(i).Take(1).First();
                string[] items = line.Split(',');
                Case @case = new Case();
-                @case.Id = i - 43;
+                @case.Id = i - 48;
                 @case.Name = items[2];
                Process process =  new Process();
-               process.id = i - 43;
+               process.id = i - 48;
                process.name = items[2];
                process.active = int.TryParse(items[3], out intValue) ? intValue : 0;
                 process.Site_Atmospheric_Pressure = items[4];

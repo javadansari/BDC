@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BDC.Forms"
         mc:Ignorable="d"
-        Title="FormFuel" Height="680" Width="780">
+        Title="FormFuel" Height="700" Width="780">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -56,7 +56,7 @@
             </StackPanel>
               <StackPanel  Grid.Column="1" Orientation="Horizontal">
             <StackPanel Orientation="Vertical">
-                <CheckBox Name="active1" IsChecked="True"   Style="{StaticResource checkBox}"/>
+                <CheckBox Name="active1" IsChecked="True"   Style="{StaticResource checkBox}" Visibility="Hidden"/>
                 <Label Style="{StaticResource label}" Content="GAS#1" Width="50"  />
                 <TextBox Name="CH41" Style="{StaticResource textBox}" />
                 <TextBox Name="C2H61" Style="{StaticResource textBox}" />
@@ -88,7 +88,7 @@
                 <TextBox Name="Density1" Style="{StaticResource textBox}"  Background="LightGray"/>
             </StackPanel>
             <StackPanel Orientation="Vertical">
-                <CheckBox Name="active2" IsChecked="True"   Style="{StaticResource checkBox}"/>
+                <CheckBox Name="active2" IsChecked="True"   Style="{StaticResource checkBox}"  Visibility="Hidden"/>
                 <Label Style="{StaticResource label}" Content="GAS#2" Width="50"  />
                 <TextBox Name="CH42" Style="{StaticResource textBox}" />
                 <TextBox Name="C2H62" Style="{StaticResource textBox}" />
@@ -120,7 +120,7 @@
                 <TextBox Name="Density2" Style="{StaticResource textBox}"  Background="LightGray"/>
             </StackPanel>
             <StackPanel Orientation="Vertical">
-                <CheckBox  Name="active3" IsChecked="True"   Style="{StaticResource checkBox}"/>
+                <CheckBox  Name="active3" IsChecked="True"   Style="{StaticResource checkBox}"  Visibility="Hidden"/>
                 <Label Style="{StaticResource label}" Content="GAS#3" Width="50"  />
                 <TextBox Name="CH43" Style="{StaticResource textBox}" />
                 <TextBox Name="C2H63" Style="{StaticResource textBox}" />
@@ -152,7 +152,7 @@
                 <TextBox Name="Density3" Style="{StaticResource textBox}"  Background="LightGray"/>
             </StackPanel>
             <StackPanel Orientation="Vertical">
-                <CheckBox Name="active4" IsChecked="True"   Style="{StaticResource checkBox}"/>
+                <CheckBox Name="active4" IsChecked="True"   Style="{StaticResource checkBox}"  Visibility="Hidden"/>
                 <Label Style="{StaticResource label}" Content="GAS#4" Width="50"  />
                 <TextBox Name="CH44" Style="{StaticResource textBox}" />
                 <TextBox Name="C2H64" Style="{StaticResource textBox}" />
@@ -184,7 +184,7 @@
                 <TextBox Name="Density4" Style="{StaticResource textBox}"  Background="LightGray"/>
             </StackPanel>
             <StackPanel Orientation="Vertical">
-                <CheckBox Name="active5" IsChecked="True"   Style="{StaticResource checkBox}"/>
+                <CheckBox Name="active5" IsChecked="True"   Style="{StaticResource checkBox}"  Visibility="Hidden"/>
                 <Label Style="{StaticResource label}" Content="GAS#5" Width="50"  />
                 <TextBox Name="CH45" Style="{StaticResource textBox}" />
                 <TextBox Name="C2H65" Style="{StaticResource textBox}" />
@@ -232,7 +232,7 @@
         </StackPanel>
                <StackPanel  Grid.Column="3" Orientation="Horizontal">
                     <StackPanel Orientation="Vertical">
-                        <CheckBox Name="active_1" IsChecked="True"   Style="{StaticResource checkBox}"/>
+                <CheckBox Name="active_1" IsChecked="True"   Style="{StaticResource checkBox}"  Visibility="Hidden"/>
                         <Label Style="{StaticResource label}" Content="OIL#1" Width="50"  />
                         <TextBox Name="C1" Style="{StaticResource textBox}" />
                         <TextBox Name="H1" Style="{StaticResource textBox}" />
@@ -247,7 +247,7 @@
 
                     </StackPanel>
                     <StackPanel Orientation="Vertical">
-                        <CheckBox Name="active_2" IsChecked="True"   Style="{StaticResource checkBox}"/>
+                <CheckBox Name="active_2" IsChecked="True"   Style="{StaticResource checkBox}"  Visibility="Hidden"/>
                         <Label Style="{StaticResource label}" Content="OLI#2" Width="50"  />
                         <TextBox Name="C2" Style="{StaticResource textBox}" />
                         <TextBox Name="H2" Style="{StaticResource textBox}" />

@@ -661,17 +661,23 @@ namespace BDC
         }
         private void PlayCase_Click(object sender, RoutedEventArgs e)
         {
-            foreach (var item in Objects)
+            var saweItems = saveWork();
+            if (saweItems.Item1)
             {
-                if (item.IsSelected)
+
+                foreach (var item in Objects)
                 {
-                    /// RUN
-                    //  Export();
-                    string path = System.AppDomain.CurrentDomain.BaseDirectory + @"Export-" + item.Tag + ".txt";
-                    Case thisCase = cases.FirstOrDefault(c => c.Name == item.Tag);
-                    Export export = new Export(path);
-                    Export(path,new List<Process> { thisCase.process });
-                    export.run();
+                    if (item.IsSelected)
+                    {
+                        /// RUN
+                        //  Export();
+                        string path = saweItems.Item2 + @"Run-" + item.Tag + ".txt";
+                  //      string path = System.AppDomain.CurrentDomain.BaseDirectory + @"Export-" + item.Tag + ".txt";
+                        Case thisCase = cases.FirstOrDefault(c => c.Name == item.Tag);
+                        Export export = new Export(path);
+                        Export(path, new List<Process> { thisCase.process });
+                        export.run(path, item.Tag);
+                    }
                 }
             }
         }
@@ -778,12 +784,38 @@ namespace BDC
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
+
+            saveWork();
+
+        }
+
+        private (bool,string) saveWork()
+        {
             List<Process> processes = new List<Process>();
             foreach (Case @case in cases)
                 processes.Add(@case.process);
-            string exportPath = System.AppDomain.CurrentDomain.BaseDirectory + @"Export.txt";
-            Export(exportPath,processes);
+
+            SaveFileDialog dlg = new SaveFileDialog();
+            dlg.FileName = "Export"; // Default file name
+            dlg.DefaultExt = ".txt"; // Default file extension
+            dlg.Filter = "Text documents (.txt)|*.txt"; // Filter files by extension
+            string exportPath = "";
+            // Show save file dialog box
+            Nullable<bool> result = dlg.ShowDialog();
+
+            // Process save file dialog box results
+            if (result == true)
+            {
+                // Save document
+                exportPath = dlg.FileName;
+                //    string exportPath = System.AppDomain.CurrentDomain.BaseDirectory + @"Export.txt";
+                Export(exportPath, processes);
+            }
+
+            return (result.Value, exportPath);
+
         }
+
 
         private void OpenButton_Click(object sender, RoutedEventArgs e)
         {
@@ -806,6 +838,7 @@ namespace BDC
 
             
             Import import = new Import(filename);
+            inputs = import.ImportInputs();
             furnace = import.ImportFurnace();
             elements = import.ImportElements();
             ducts = import.ImportDucts();
