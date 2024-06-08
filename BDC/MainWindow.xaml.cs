@@ -711,7 +711,7 @@ namespace BDC
 
         private void formDuct_Click(object sender, RoutedEventArgs e)
         {
-            FormDuct formDuct = new FormDuct(ducts, this);
+            FormDuct formDuct = new FormDuct();
             formDuct.Show();
 
         }

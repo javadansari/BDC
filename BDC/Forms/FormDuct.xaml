@@ -4,320 +4,47 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BDC.Forms"
-        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        ResizeMode="NoResize"
-        Title="FormDuct" Height="600" Width="950">
-    <Window.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Style/StyleFormDuct.xaml"/>
-                <ResourceDictionary Source="/Style/StyleFormFurnace.xaml"/>
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </Window.Resources>
-    <ScrollViewer HorizontalScrollBarVisibility="Auto">
-        <StackPanel Orientation="Vertical">
-            <StackPanel  HorizontalAlignment="Right" Orientation="Horizontal" Margin="10"  >
-                <Button Style="{StaticResource RoundedButtonStyleG}" Content="Apply" Click="Save_Click" />
-                <Button  Margin="4,0,4,0" Style="{StaticResource RoundedButtonStyleG}" Content="Cancel"  Click="Cancel_Click" />
-            </StackPanel>
-            <StackPanel  Orientation="Horizontal" Height="25">
-                <Label Style="{StaticResource labelTop}" Width="50" Content=""/>
-                <Label Style="{StaticResource labelTop}" Width="200" Content="MARK DECRIPTION"/>
-                <Label Style="{StaticResource labelTop}" Width="200"  Content="DETIAL"/>
-                <Label Style="{StaticResource labelTop}" Content="UNIT"/>
-                <Label Style="{StaticResource labelTop}" Width="100" Content="Air Duct#1"/>
-                <Label Style="{StaticResource labelTop}" Width="100" Content="Air Duct#2"/>
-                <Label Style="{StaticResource labelTop}" Width="100" Content="Gas Duct#1"/>
-                <Label Style="{StaticResource labelTop}" Width="100" Content="Gas Duct#2"/>
-            </StackPanel>
-            <StackPanel  Background="Gray"  Orientation="Horizontal" Height="25">
-                <Label Style="{StaticResource label}" Content=""/>
-                <Label Style="{StaticResource label}" Width="200" Content="Straight Duct"/>
-                <Label Style="{StaticResource label}" Width="200"  Content=""/>
-                <Label Style="{StaticResource label}" Content=""/>
-                <ComboBox  Name="active1"  Style="{StaticResource comboBoxItems}" ItemsSource="{StaticResource ComboBoxItems2}"/>
-                <ComboBox  Name="active2" Style="{StaticResource comboBoxItems}" ItemsSource="{StaticResource ComboBoxItems2}" />
-                <ComboBox  Name="active3" Style="{StaticResource comboBoxItems}" ItemsSource="{StaticResource ComboBoxItems2}"/>
-                <ComboBox  Name="active4" Style="{StaticResource comboBoxItems}" ItemsSource="{StaticResource ComboBoxItems2}" />
-            </StackPanel>
-            <StackPanel    Orientation="Horizontal" Height="100"  Background="WhiteSmoke" >
-                <StackPanel Orientation="Vertical" >
-                    <Label Style="{StaticResource label}" Content="a" />
-                    <Label Style="{StaticResource label}" Content="b"/>
-                    <Label Style="{StaticResource label}" Content="a'"/>
-                    <Label Style="{StaticResource label}" Content="b'"/>
-                </StackPanel>
-                <StackPanel Width="200" Orientation="Horizontal">
-                    <Label Style="{StaticResource label}" Width="100" Content="Section Shape"/>
-                    <Image  Width="100" Height="100" Source="../Images/Duct/image1.png"></Image>
-                </StackPanel>
-                <StackPanel Orientation="Vertical" Width="200" Margin="2,0,2,0">
-                    <Label Style="{StaticResource label}" Content="Width of Duct Inlet" Width="200" />
-                    <Label Style="{StaticResource label}" Content="Depth of Duct Inlet" Width="200" />
-                    <Label Style="{StaticResource label}" Content="Width of Duct Outlet" Width="200" />
-                    <Label Style="{StaticResource label}" Content="Depth of Duct Outlet" Width="200" />
-                </StackPanel>
-                <StackPanel Orientation="Vertical" >
-                    <Label Style="{StaticResource label}" Content="m" />
-                    <Label Style="{StaticResource label}" Content="m"/>
-                    <Label Style="{StaticResource label}" Content="m"/>
-                    <Label Style="{StaticResource label}" Content="m"/>
-                </StackPanel>
-                <StackPanel Orientation="Vertical" >
-                    <TextBox Name="a1" Style="{StaticResource textBoxSmallItems}"  />
-                    <TextBox Name="b1" Style="{StaticResource textBoxSmallItems}"  />
-                    <TextBox Name="aPrim1" Style="{StaticResource textBoxSmallItems}"  />
-                    <TextBox Name="bPrim1" Style="{StaticResource textBoxSmallItems}"  />
-                </StackPanel>
-                <StackPanel Orientation="Vertical" >
-                    <TextBox  Name="a2"  Style="{StaticResource textBoxSmallItems}"  />
-                    <TextBox  Name="b2" Style="{StaticResource textBoxSmallItems}"  />
-                    <TextBox  Name="aPrim2" Style="{StaticResource textBoxSmallItems}"  />
-                    <TextBox  Name="bPrim2" Style="{StaticResource textBoxSmallItems}"  />
-                </StackPanel>
-                <StackPanel Orientation="Vertical" >
-                    <TextBox Name="a3" Style="{StaticResource textBoxSmallItems}"  />
-                    <TextBox Name="b3" Style="{StaticResource textBoxSmallItems}"  />
-                    <TextBox Name="aPrim3" Style="{StaticResource textBoxSmallItems}"  />
-                    <TextBox Name="bPrim3" Style="{StaticResource textBoxSmallItems}"  />
-                </StackPanel>
-                <StackPanel Orientation="Vertical" >
-                    <TextBox Name="a4"  Style="{StaticResource textBoxSmallItems}"  />
-                    <TextBox Name="b4"  Style="{StaticResource textBoxSmallItems}"  />
-                    <TextBox Name="aPrim4" Style="{StaticResource textBoxSmallItems}"  />
-                    <TextBox Name="bPrim4" Style="{StaticResource textBoxSmallItems}"  />
-                </StackPanel>
-            </StackPanel>
-            <StackPanel    Orientation="Horizontal" Height="25"  Background="Gray" >
-                <Label Style="{StaticResource label}" Content="L" />
-                <Label Style="{StaticResource label}" Content="Duct Length" Width="200"/>
-                <Label Style="{StaticResource label}" Content="7.0" Width="200"/>
-                <Label Style="{StaticResource label}" Content="m" />
-                <TextBox  Name="L1"    Style="{StaticResource textBoxSmallItems}"  />
-                <TextBox  Name="L2"    Style="{StaticResource textBoxSmallItems}"  />
-                <TextBox  Name="L3"    Style="{StaticResource textBoxSmallItems}"  />
-                <TextBox  Name="L4"     Style="{StaticResource textBoxSmallItems}"  />
-            </StackPanel>
-            <StackPanel    Orientation="Horizontal" Height="125"  Background="WhiteSmoke" >
-                <StackPanel Orientation="Vertical" >
-                    <Label Style="{StaticResource label}" Content="" Height="0" />
-                    <Label Style="{StaticResource label}" Content="ri"/>
-                </StackPanel>
-                <StackPanel Width="200" Orientation="Vertical">
-                    <Label Style="{StaticResource label}" Content="Bend/Joint (Note 1)" Width="200" Height="25" />
-                    <Image   Source="../Images/Duct/image2.png"  Width="200" Height="100"></Image>
-                </StackPanel>
-                <StackPanel Orientation="Vertical" Width="200" Margin="2,0,2,0">
-                    <StackPanel Orientation="Vertical" Height="100">
-                        <!--<Label Style="{StaticResource label}" Content="Joining is applied in the same way" Width="200" Height="16"/>
-                        <Label Style="{StaticResource label}" Content="as in the case of bending. However," Width="200" Height="16" />
-                        <Label Style="{StaticResource label}" Content="when applying, pay attention to "  Width="200" Height="16" />
-                        <Label Style="{StaticResource label}" Content="the following."  Width="200" Height="16" />
-                        <Label Style="{StaticResource label}" Content="1) The d value of the merged area" Width="200" Height="16" />
-                        <Label Style="{StaticResource label}" Content="should be applied in half. That is," Width="200" Height="16" />
-                        <Label Style="{StaticResource label}" Content="the a' or b' value is taken as only" Width="200" Height="16" />
-                        <Label Style="{StaticResource label}" Content="half of the actual length of the" Width="200"  Height="16"/>
-                        <Label Style="{StaticResource label}" Content="combined duct." Width="200" Height="16"/>
-                        <Label Style="{StaticResource label}" Content="2) The actual flow rate before" Width="200" Height="16"/>
-                        <Label Style="{StaticResource label}" Content="merging is applied to the flowing" Width="200" Height="16"/>
-                        <Label Style="{StaticResource label}" Content="flow rate." Width="200" Height="16"/>-->
-                    </StackPanel>
-                    <Label Style="{StaticResource label}" Content="Quantity of elbow or Joint" Width="200" Height="25"/>
-                </StackPanel>
-                <StackPanel Orientation="Vertical" >
-                    <Label Style="{StaticResource label}" Content="" />
-                </StackPanel>
-                <StackPanel Height="125" Orientation="Vertical">
-                    <StackPanel   Height="100" >
-                        <ComboBox Name="Bend_Joint1" Style="{StaticResource comboBoxItems}" ItemsSource="{StaticResource ComboBoxItems3}" Margin="0,75,0,0" />
-                    </StackPanel>
-                    <TextBox Name="ri1" Style="{StaticResource textBoxSmallItems}" Height="25" />
-                </StackPanel>
-                <StackPanel Height="125" Orientation="Vertical">
-                    <StackPanel   Height="100" >
-                        <ComboBox Name="Bend_Joint2" Style="{StaticResource comboBoxItems}" ItemsSource="{StaticResource ComboBoxItems3}" Margin="0,75,0,0" />
-                    </StackPanel>
-                    <TextBox Name="ri2" Style="{StaticResource textBoxSmallItems}" Height="25" />
-                </StackPanel>
-                <StackPanel Height="125" Orientation="Vertical">
-                    <StackPanel   Height="100" >
-                        <ComboBox Name="Bend_Joint3" Style="{StaticResource comboBoxItems}" ItemsSource="{StaticResource ComboBoxItems3}" Margin="0,75,0,0" />
-                    </StackPanel>
-                    <TextBox Name="ri3" Style="{StaticResource textBoxSmallItems}" Height="25" />
-                </StackPanel>
-                <StackPanel Height="125" Orientation="Vertical">
-                    <StackPanel   Height="100" >
-                        <ComboBox Name="Bend_Joint4" Style="{StaticResource comboBoxItems}" ItemsSource="{StaticResource ComboBoxItems3}" Margin="0,75,0,0" />
-                    </StackPanel>
-                    <TextBox Name="ri4" Style="{StaticResource textBoxSmallItems}" Height="25" />
-                </StackPanel>
-            </StackPanel>
-            <StackPanel    Orientation="Horizontal" Height="50"  Background="Gray" >
-                <Label Style="{StaticResource label}" Content="C"  />
-                <Image  Width="200" Height="50" Source="../Images/Duct/image3.png"></Image>
-                <StackPanel Width="200" Orientation="Vertical" Margin="2,0,2,0">
-                    <Label Style="{StaticResource label}" Content="Shape, depending on presence" Height="20" Width="200"/>
-                    <Label Style="{StaticResource label}" Content="or absence of vane" Height="20" Width="200"/>
-                </StackPanel>
-                <Label Style="{StaticResource label}" Content="" />
-                <TextBox Name="C1" Style="{StaticResource textBoxSmallItems}"  />
-                <TextBox Name="C2" Style="{StaticResource textBoxSmallItems}"  />
-                <TextBox Name="C3" Style="{StaticResource textBoxSmallItems}"  />
-                <TextBox Name="C4" Style="{StaticResource textBoxSmallItems}"  />
-            </StackPanel>
-            <StackPanel    Orientation="Horizontal" Height="25"  Background="WhiteSmoke" >
-                <Label Style="{StaticResource label}" Content="Ө" />
-                <Label Style="{StaticResource label}" Content="Degree of bend" Width="200"/>
-                <Label Style="{StaticResource label}" Content="if there is no Bend : 0" Width="200"/>
-                <Label Style="{StaticResource label}" Content="ᵒ" />
-                <TextBox Name="C_degree1" Style="{StaticResource textBoxSmallItems}" Text="90" />
-                <TextBox Name="C_degree2" Style="{StaticResource textBoxSmallItems}" Text="90"  />
-                <TextBox Name="C_degree3" Style="{StaticResource textBoxSmallItems}" Text="90"  />
-                <TextBox Name="C_degree4" Style="{StaticResource textBoxSmallItems}" Text="90"  />
-            </StackPanel>
-            <StackPanel    Orientation="Horizontal" Height="25"  Background="Gray" >
-                <Label Style="{StaticResource label}" Content="" />
-                <Label Style="{StaticResource label}" Content="Bend Hopper ? (Yes / No)" Width="200"/>
-                <Label Style="{StaticResource label}" Content="" Width="200"/>
-                <Label Style="{StaticResource label}" Content="" />
-                <ComboBox  Name="Bend_Hopper1" Style="{StaticResource comboBoxItems}" ItemsSource="{StaticResource ComboBoxItems4}"/>
-                <ComboBox  Name="Bend_Hopper2" Style="{StaticResource comboBoxItems}" ItemsSource="{StaticResource ComboBoxItems4}"/>
-                <ComboBox  Name="Bend_Hopper3" Style="{StaticResource comboBoxItems}" ItemsSource="{StaticResource ComboBoxItems4}"/>
-                <ComboBox  Name="Bend_Hopper4" Style="{StaticResource comboBoxItems}" ItemsSource="{StaticResource ComboBoxItems4}"/>
-            </StackPanel>
-            <StackPanel    Orientation="Horizontal" Height="25"  Background="WhiteSmoke" >
-                <Label Style="{StaticResource label}" Content="" />
-                <Label Style="{StaticResource label}" Content="Enlargement" Width="200"/>
-                <Label Style="{StaticResource label}" Content="Quantity of elnlargement" Width="200"/>
-                <Label Style="{StaticResource label}" Content="" />
-                <TextBox Name="Enlargement1" Style="{StaticResource textBoxSmallItems}" Text="0" />
-                <TextBox Name="Enlargement2" Style="{StaticResource textBoxSmallItems}" Text="0" />
-                <TextBox Name="Enlargement3" Style="{StaticResource textBoxSmallItems}" Text="0" />
-                <TextBox Name="Enlargement4" Style="{StaticResource textBoxSmallItems}" Text="0" />
-            </StackPanel>
-            <StackPanel    Orientation="Horizontal" Height="25"  Background="Gray" >
-                <Label Style="{StaticResource label}" Content="Type" />
-                <Label Style="{StaticResource label}" Content="" Width="200"/>
-                <Label Style="{StaticResource label}" Content="" Width="200"/>
-                <Label Style="{StaticResource label}" Content="" />
-                <ComboBox  Name="typeEnlargement1" Style="{StaticResource comboBoxItems}" ItemsSource="{StaticResource ComboBoxItems5}"/>
-                <ComboBox  Name="typeEnlargement2" Style="{StaticResource comboBoxItems}" ItemsSource="{StaticResource ComboBoxItems5}"/>
-                <ComboBox  Name="typeEnlargement3" Style="{StaticResource comboBoxItems}" ItemsSource="{StaticResource ComboBoxItems5}"/>
-                <ComboBox  Name="typeEnlargement4" Style="{StaticResource comboBoxItems}" ItemsSource="{StaticResource ComboBoxItems5}"/>
-            </StackPanel>
-            <StackPanel    Orientation="Horizontal" Height="25"  Background="WhiteSmoke" >
-                <Label Style="{StaticResource label}" Content="Ө" />
-                <Label Style="{StaticResource label}" Content="Degree of enlarged part" Width="200"/>
-                <Label Style="{StaticResource label}" Content="" Width="200"/>
-                <Label Style="{StaticResource label}" Content="ᵒ" />
-                <TextBox Name="Enlargement_Degree1" Style="{StaticResource textBoxSmallItems}" Text="90" />
-                <TextBox Name="Enlargement_Degree2" Style="{StaticResource textBoxSmallItems}" Text="90"  />
-                <TextBox Name="Enlargement_Degree3" Style="{StaticResource textBoxSmallItems}" Text="90"  />
-                <TextBox Name="Enlargement_Degree4" Style="{StaticResource textBoxSmallItems}" Text="90"  />
-            </StackPanel>
-            <StackPanel    Orientation="Horizontal" Height="25"  Background="Gray" >
-                <Label Style="{StaticResource label}" Content="" />
-                <Label Style="{StaticResource label}" Content="Contraction" Width="200"/>
-                <Label Style="{StaticResource label}" Content="" Width="200"/>
-                <Label Style="{StaticResource label}" Content="" />
-                <TextBox Name="Contraction1" Style="{StaticResource textBoxSmallItems}" Text="1" />
-                <TextBox Name="Contraction2" Style="{StaticResource textBoxSmallItems}" Text="1" />
-                <TextBox Name="Contraction3" Style="{StaticResource textBoxSmallItems}" Text="1" />
-                <TextBox Name="Contraction4" Style="{StaticResource textBoxSmallItems}" Text="1" />
-            </StackPanel>
-            <StackPanel    Orientation="Horizontal" Height="25"  Background="WhiteSmoke" >
-                <Label Style="{StaticResource label}" Content="Type" />
-                <Label Style="{StaticResource label}" Content="" Width="200"/>
-                <Label Style="{StaticResource label}" Content="" Width="200"/>
-                <Label Style="{StaticResource label}" Content="" />
-                <ComboBox  Name="typeContraction1" Style="{StaticResource comboBoxItems}" ItemsSource="{StaticResource ComboBoxItems5}"/>
-                <ComboBox  Name="typeContraction2" Style="{StaticResource comboBoxItems}" ItemsSource="{StaticResource ComboBoxItems5}"/>
-                <ComboBox  Name="typeContraction3" Style="{StaticResource comboBoxItems}" ItemsSource="{StaticResource ComboBoxItems5}"/>
-                <ComboBox  Name="typeContraction4" Style="{StaticResource comboBoxItems}" ItemsSource="{StaticResource ComboBoxItems5}"/>
-            </StackPanel>
-            <StackPanel    Orientation="Horizontal" Height="25"  Background="Gray" >
-                <Label Style="{StaticResource label}" Content="Ө" />
-                <Label Style="{StaticResource label}" Content="Degree of reduced part" Width="200"/>
-                <Label Style="{StaticResource label}" Content="" Width="200"/>
-                <Label Style="{StaticResource label}" Content="ᵒ" />
-                <TextBox Name="Contraction_Degree1" Style="{StaticResource textBoxSmallItems}" Text="90" />
-                <TextBox Name="Contraction_Degree2" Style="{StaticResource textBoxSmallItems}" Text="90"  />
-                <TextBox Name="Contraction_Degree3" Style="{StaticResource textBoxSmallItems}" Text="90"  />
-                <TextBox Name="Contraction_Degree4" Style="{StaticResource textBoxSmallItems}" Text="90"  />
-            </StackPanel>
-            <StackPanel    Orientation="Horizontal" Height="25"  Background="WhiteSmoke" >
-                <Label Style="{StaticResource label}" Content="" />
-                <Label Style="{StaticResource label}" Content="Splitter" Width="200"/>
-                <Label Style="{StaticResource label}" Content="Quantity of Splitter" Width="200"/>
-                <Label Style="{StaticResource label}" Content="" />
-                <TextBox Name="Splitter1" Style="{StaticResource textBoxSmallItems}" Text="1" />
-                <TextBox Name="Splitter2" Style="{StaticResource textBoxSmallItems}" Text="1" />
-                <TextBox Name="Splitter3" Style="{StaticResource textBoxSmallItems}" Text="1" />
-                <TextBox Name="Splitter4" Style="{StaticResource textBoxSmallItems}" Text="1" />
-            </StackPanel>
-            <StackPanel    Orientation="Horizontal" Height="75" Background="WhiteSmoke"  >
-                <StackPanel Orientation="Vertical" Height="75">
-                    <Label Style="{StaticResource label}" Content="A2/A1"  Height="25"/>
-                    <Label Style="{StaticResource label}" Content="or"  Height="25"/>
-                    <Label Style="{StaticResource label}" Content="A3/A1"  Height="25"/>
-                </StackPanel>
-                <Label Style="{StaticResource label}" Content="" Width="200"/>
-                <Label Style="{StaticResource label}" Content="DUCT selectional area 1->2 or 1->3" Width="200"/>
-                <Label Style="{StaticResource label}" Content="" />
-                <TextBox Name="DUCT_sectional_area1" Style="{StaticResource textBoxSmallItems}" Text="1" />
-                <TextBox Name="DUCT_sectional_area2" Style="{StaticResource textBoxSmallItems}" Text="1" />
-                <TextBox Name="DUCT_sectional_area3" Style="{StaticResource textBoxSmallItems}" Text="1" />
-                <TextBox Name="DUCT_sectional_area4" Style="{StaticResource textBoxSmallItems}" Text="1" />
-            </StackPanel>
-            <StackPanel    Orientation="Horizontal" Height="40"  Background="Gray" >
-                <Label Style="{StaticResource label}" Content="" />
-                <StackPanel Height="40" Orientation="Vertical">
-                    <Label Style="{StaticResource label}" Content="Open: both A2 and A3 opend" Width="200" Height="20"/>
-                    <Label Style="{StaticResource label}" Content="Close: one of A2 and A3 closed" Width="200" Height="20"/>
-                </StackPanel>
-                <Label Style="{StaticResource label}" Content="" Width="200"/>
-                <Label Style="{StaticResource label}" Content="" />
-                <ComboBox  Name="DUCT_open_close1" Style="{StaticResource comboBoxItems}" ItemsSource="{StaticResource ComboBoxItems}"/>
-                <ComboBox  Name="DUCT_open_close2" Style="{StaticResource comboBoxItems}" ItemsSource="{StaticResource ComboBoxItems}"/>
-                <ComboBox  Name="DUCT_open_close3" Style="{StaticResource comboBoxItems}" ItemsSource="{StaticResource ComboBoxItems}"/>
-                <ComboBox  Name="DUCT_open_close4" Style="{StaticResource comboBoxItems}" ItemsSource="{StaticResource ComboBoxItems}"/>
-            </StackPanel>
-            <StackPanel    Orientation="Horizontal" Height="25"  Background="WhiteSmoke" >
-                <Label Style="{StaticResource label}" Content="Ө" />
-                <Label Style="{StaticResource label}" Content="Degree" Width="200"/>
-                <Label Style="{StaticResource label}" Content="" Width="200"/>
-                <Label Style="{StaticResource label}" Content="ᵒ" />
-                <TextBox Name="Splitter_Degree1" Style="{StaticResource textBoxSmallItems}" Text="0" />
-                <TextBox Name="Splitter_Degree2" Style="{StaticResource textBoxSmallItems}" Text="0"  />
-                <TextBox Name="Splitter_Degree3" Style="{StaticResource textBoxSmallItems}" Text="0"  />
-                <TextBox Name="Splitter_Degree4" Style="{StaticResource textBoxSmallItems}" Text="0"  />
-            </StackPanel>
-            <StackPanel    Orientation="Horizontal" Height="25"  Background="Gray" >
-                <Label Style="{StaticResource label}" Content="Nd" />
-                <Label Style="{StaticResource label}" Content="DAMPER quantity" Width="200"/>
-                <Label Style="{StaticResource label}" Content="" Width="200"/>
-                <Label Style="{StaticResource label}" Content="pcs" />
-                <TextBox Name="DAMPER_quantity1" Style="{StaticResource textBoxSmallItems}" Text="1" />
-                <TextBox Name="DAMPER_quantity2" Style="{StaticResource textBoxSmallItems}" Text="1" />
-                <TextBox Name="DAMPER_quantity3" Style="{StaticResource textBoxSmallItems}" Text="1" />
-                <TextBox Name="DAMPER_quantity4" Style="{StaticResource textBoxSmallItems}" Text="1" />
-            </StackPanel>
-            <StackPanel    Orientation="Horizontal" Height="40"  Background="WhiteSmoke" >
-                <Label Style="{StaticResource label}" Content="wt" />
-                <Label Style="{StaticResource label}" Content="Width of truss" Width="200"/>
-                <StackPanel Height="40" Width="200" Orientation="Vertical">
-                    <Label Style="{StaticResource label}" Content="Fluid flow direction Truss projection" Width="200" Height="20"/>
-                    <Label Style="{StaticResource label}" Content="area" Width="200" Height="20"/>
-                </StackPanel>
-                <Label Style="{StaticResource label}" Content="mm" />
-                <TextBox Name="Width_of_truss1" Style="{StaticResource textBoxSmallItems}" Text="75" />
-                <TextBox Name="Width_of_truss2" Style="{StaticResource textBoxSmallItems}" Text="75" />
-                <TextBox Name="Width_of_truss3" Style="{StaticResource textBoxSmallItems}" Text="75" />
-                <TextBox Name="Width_of_truss4" Style="{StaticResource textBoxSmallItems}" Text="75" />
-            </StackPanel>
+        Title="DUCT PRESSURE DROP CALCULATION" Height="470" Width="550">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="80"/>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="50"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition  Height="20"/>
+            <RowDefinition  Height="30"/>
+            <RowDefinition  Height="30"/>
+            <RowDefinition  Height="30"/>
+            <RowDefinition  Height="20"/>
+            <RowDefinition  Height="30"/>
+            <RowDefinition  Height="30"/>
+            <RowDefinition  Height="30"/>
+            <RowDefinition  Height="30"/>
+            <RowDefinition  Height="30"/>
+            <RowDefinition  Height="20"/>
+            <RowDefinition  Height="30"/>
+            <RowDefinition  Height="30"/>
+            <RowDefinition  Height="30"/>
+            <RowDefinition  Height="30"/>
+        </Grid.RowDefinitions>
+
+        <Image Grid.Column="1"  Grid.Row="0" Grid.RowSpan="4" Source="../Images/Duct/Image1.png"  HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform" StretchDirection="Both"/>
+        <Image Grid.Column="1"  Grid.Row="4" Grid.RowSpan="6" Source="../Images/Duct/Image2.png" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform" StretchDirection="Both"/>
+        <Image Grid.Column="1"  Grid.Row="10" Grid.RowSpan="5" Source="../Images/Duct/Image3.png" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform" StretchDirection="Both"/>
+
+        <Label Grid.Column="0"  Grid.Row="2" Content="1" ></Label>
+        <Label Grid.Column="0"  Grid.Row="6" Content="2" ></Label>
+        <Label Grid.Column="0"  Grid.Row="12" Content="3" ></Label>
         
-        </StackPanel>
-    </ScrollViewer>
+        <Label Grid.Column="2"  Grid.Row="0" Grid.ColumnSpan="2" Content="Input Data" FontSize="8" Background="Yellow" ></Label>
+        <Label Grid.Column="2"  Grid.Row="4" Grid.ColumnSpan="2" Content="Input Data" FontSize="8" Background="Yellow" ></Label>
+        <Label Grid.Column="2"  Grid.Row="10" Grid.ColumnSpan="2" Content="Input Data" FontSize="8" Background="Yellow" ></Label>
+    </Grid>
 </Window>
