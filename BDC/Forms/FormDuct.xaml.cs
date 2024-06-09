@@ -24,5 +24,15 @@ namespace BDC.Forms
             InitializeComponent();
 
         }
+
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

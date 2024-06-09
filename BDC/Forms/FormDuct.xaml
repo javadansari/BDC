@@ -7,16 +7,18 @@
         xmlns:style="clr-namespace:BDC.View"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="DUCT PRESSURE DROP CALCULATION" Height="500" Width="550">
+        Title="DUCT PRESSURE DROP CALCULATION" Height="550" Width="640">
+
     <Window.Resources>
-        <sys:Double x:Key="LabelFontSize">8</sys:Double>
+        <sys:Double x:Key="LabelFontSize">10</sys:Double>
+        <sys:Double x:Key="Height">30</sys:Double>
         <style:BooleanToEnabledConverter x:Key="BoolToEnabledConverter"/>
     </Window.Resources>
 
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="40"/>
-            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="300"/>
             <ColumnDefinition Width="50"/>
             <ColumnDefinition Width="30"/>
             <ColumnDefinition Width="50"/>
@@ -25,66 +27,151 @@
             <ColumnDefinition Width="50"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="20"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
 
-        <Image Grid.Column="1" Grid.Row="0" Grid.RowSpan="4" Source="../Images/Duct/Image1.png" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform" StretchDirection="Both"/>
-        <Image Grid.Column="1" Grid.Row="4" Grid.RowSpan="6" Source="../Images/Duct/Image2.png" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform" StretchDirection="Both"/>
-        <Image Grid.Column="1" Grid.Row="10" Grid.RowSpan="5" Source="../Images/Duct/Image3.png" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform" StretchDirection="Both"/>
+        <StackPanel Grid.Column="1" Grid.Row="0"  HorizontalAlignment="Right" Orientation="Horizontal">
+            <Button Content="Apply" Click="Save_Click" />
+            <Button  Margin="4,0,4,0"  Content="Cancel" Click="Cancel_Click" />
+        </StackPanel>
 
-        <Label Grid.Column="0" Grid.Row="2" Grid.RowSpan="2" Content="1"></Label>
-        <Label Grid.Column="0" Grid.Row="6" Grid.RowSpan="2" Content="2"></Label>
-        <Label Grid.Column="0" Grid.Row="12" Grid.RowSpan="2" Content="3"></Label>
+        <Image Grid.Column="1" Grid.Row="1" Grid.RowSpan="4" Source="../Images/Duct/Image1.png" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform" StretchDirection="Both"/>
+        <Image Grid.Column="1" Grid.Row="5" Grid.RowSpan="6" Source="../Images/Duct/Image2.png" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform" StretchDirection="Both"/>
+        <Image Grid.Column="1" Grid.Row="11" Grid.RowSpan="5" Source="../Images/Duct/Image3.png" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform" StretchDirection="Both"/>
 
-        <Label Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="2" Content="Input Data" FontSize="{StaticResource LabelFontSize}" Background="Yellow"></Label>
-        <Label Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="2" Content="Input Data" FontSize="{StaticResource LabelFontSize}" Background="Yellow"></Label>
-        <Label Grid.Column="2" Grid.Row="10" Grid.ColumnSpan="2" Content="Input Data" FontSize="{StaticResource LabelFontSize}" Background="Yellow"></Label>
+        <Label Grid.Column="0" Grid.Row="3" Grid.RowSpan="2" Content="1"></Label>
+        <Label Grid.Column="0" Grid.Row="7" Grid.RowSpan="2" Content="2"></Label>
+        <Label Grid.Column="0" Grid.Row="13" Grid.RowSpan="2" Content="3"></Label>
 
-        <Label Grid.Column="2" Grid.Row="1" Content="a" FontSize="{StaticResource LabelFontSize}"/>
-        <Label Grid.Column="2" Grid.Row="2" Content="b" FontSize="{StaticResource LabelFontSize}"/>
-        <Label Grid.Column="2" Grid.Row="3" Content="L" FontSize="{StaticResource LabelFontSize}"/>
-        <Label Grid.Column="2" Grid.Row="5" Content="a i" FontSize="{StaticResource LabelFontSize}"/>
-        <Label Grid.Column="2" Grid.Row="6" Content="b i" FontSize="{StaticResource LabelFontSize}"/>
-        <Label Grid.Column="2" Grid.Row="7" Content="a o" FontSize="{StaticResource LabelFontSize}"/>
-        <Label Grid.Column="2" Grid.Row="8" Content="b o" FontSize="{StaticResource LabelFontSize}"/>
-        <Label Grid.Column="2" Grid.Row="9" Content="L" FontSize="{StaticResource LabelFontSize}"/>
-        <Label Grid.Column="2" Grid.Row="11" Content="w" FontSize="{StaticResource LabelFontSize}"/>
-        <Label Grid.Column="2" Grid.Row="12" Content="a" FontSize="{StaticResource LabelFontSize}"/>
-        <Label Grid.Column="2" Grid.Row="13" Content="ri" FontSize="{StaticResource LabelFontSize}"/>
-        <Label Grid.Column="2" Grid.Row="14" Content="Guide Vane" FontSize="{StaticResource LabelFontSize}"></Label>
+        <Label Grid.Column="4" Grid.Row="0" Grid.ColumnSpan="2" Content="Air Duct#1" FontSize="{StaticResource LabelFontSize}" Background="Yellow"></Label>
+        <Label Grid.Column="5" Grid.Row="0" Grid.ColumnSpan="2" Content="Air Duct#2" FontSize="{StaticResource LabelFontSize}" Background="Yellow"></Label>
+        <Label Grid.Column="6" Grid.Row="0" Grid.ColumnSpan="2" Content="Gas Duct#1" FontSize="{StaticResource LabelFontSize}" Background="Yellow"></Label>
+        <Label Grid.Column="7" Grid.Row="0" Grid.ColumnSpan="2" Content="Gas Duct#2" FontSize="{StaticResource LabelFontSize}" Background="Yellow"></Label>
 
-        <Label Grid.Column="3" Grid.Row="1" Content="m" FontSize="{StaticResource LabelFontSize}"/>
+
+        <Label Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" Content="Input Data" FontSize="{StaticResource LabelFontSize}" Background="Yellow"></Label>
+        <Label Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="2" Content="Input Data" FontSize="{StaticResource LabelFontSize}" Background="Yellow"></Label>
+        <Label Grid.Column="2" Grid.Row="11" Grid.ColumnSpan="2" Content="Input Data" FontSize="{StaticResource LabelFontSize}" Background="Yellow"></Label>
+
+        <Label Grid.Column="2" Grid.Row="2" Content="a" FontSize="{StaticResource LabelFontSize}"/>
+        <Label Grid.Column="2" Grid.Row="3" Content="b" FontSize="{StaticResource LabelFontSize}"/>
+        <Label Grid.Column="2" Grid.Row="4" Content="L" FontSize="{StaticResource LabelFontSize}"/>
+        <Label Grid.Column="2" Grid.Row="6" Content="a i" FontSize="{StaticResource LabelFontSize}"/>
+        <Label Grid.Column="2" Grid.Row="7" Content="b i" FontSize="{StaticResource LabelFontSize}"/>
+        <Label Grid.Column="2" Grid.Row="8" Content="a o" FontSize="{StaticResource LabelFontSize}"/>
+        <Label Grid.Column="2" Grid.Row="9" Content="b o" FontSize="{StaticResource LabelFontSize}"/>
+        <Label Grid.Column="2" Grid.Row="10" Content="L" FontSize="{StaticResource LabelFontSize}"/>
+        <Label Grid.Column="2" Grid.Row="12" Content="w" FontSize="{StaticResource LabelFontSize}"/>
+        <Label Grid.Column="2" Grid.Row="13" Content="a" FontSize="{StaticResource LabelFontSize}"/>
+        <Label Grid.Column="2" Grid.Row="14" Content="ri" FontSize="{StaticResource LabelFontSize}"/>
+        <Label Grid.Column="2" Grid.Row="15" Content="Guide Vane" FontSize="{StaticResource LabelFontSize}"></Label>
+
         <Label Grid.Column="3" Grid.Row="2" Content="m" FontSize="{StaticResource LabelFontSize}"/>
         <Label Grid.Column="3" Grid.Row="3" Content="m" FontSize="{StaticResource LabelFontSize}"/>
-        <Label Grid.Column="3" Grid.Row="5" Content="m" FontSize="{StaticResource LabelFontSize}"/>
+        <Label Grid.Column="3" Grid.Row="4" Content="m" FontSize="{StaticResource LabelFontSize}"/>
         <Label Grid.Column="3" Grid.Row="6" Content="m" FontSize="{StaticResource LabelFontSize}"/>
         <Label Grid.Column="3" Grid.Row="7" Content="m" FontSize="{StaticResource LabelFontSize}"/>
         <Label Grid.Column="3" Grid.Row="8" Content="m" FontSize="{StaticResource LabelFontSize}"/>
         <Label Grid.Column="3" Grid.Row="9" Content="m" FontSize="{StaticResource LabelFontSize}"/>
-        <Label Grid.Column="3" Grid.Row="11" Content="m" FontSize="{StaticResource LabelFontSize}"/>
+        <Label Grid.Column="3" Grid.Row="10" Content="m" FontSize="{StaticResource LabelFontSize}"/>
         <Label Grid.Column="3" Grid.Row="12" Content="m" FontSize="{StaticResource LabelFontSize}"/>
         <Label Grid.Column="3" Grid.Row="13" Content="m" FontSize="{StaticResource LabelFontSize}"/>
-        <Label Grid.Column="3" Grid.Row="14" Content="Yes/No" FontSize="{StaticResource LabelFontSize}"></Label>
+        <Label Grid.Column="3" Grid.Row="14" Content="m" FontSize="{StaticResource LabelFontSize}"/>
+        <Label Grid.Column="3" Grid.Row="15" Content="Y/N" FontSize="{StaticResource LabelFontSize}"></Label>
 
-        <StackPanel Grid.Column="4" Grid.Row="0" Grid.RowSpan="4">
-            <CheckBox x:Name="MyCheckBox" Height="20" HorizontalAlignment="Center"/>
-            <TextBox Text="salam" Height="20" IsEnabled="{Binding IsChecked, ElementName=MyCheckBox, Converter={StaticResource BoolToEnabledConverter}}"/>
-            <TextBox Text="salam" Height="20" IsEnabled="{Binding IsChecked, ElementName=MyCheckBox, Converter={StaticResource BoolToEnabledConverter}}"/>
-            <TextBox Text="salam" Height="20" IsEnabled="{Binding IsChecked, ElementName=MyCheckBox, Converter={StaticResource BoolToEnabledConverter}}"/>
+        <StackPanel Grid.Column="4" Grid.Row="1" Grid.RowSpan="4">
+            <CheckBox Name="A1"  Height="{StaticResource Height}" HorizontalAlignment="Center"/>
+            <TextBox  Name="A2"  Height="{StaticResource Height}" IsEnabled="{Binding IsChecked, ElementName=A1, Converter={StaticResource BoolToEnabledConverter}}"/>
+            <TextBox  Name="A3"  Height="{StaticResource Height}" IsEnabled="{Binding IsChecked, ElementName=A1, Converter={StaticResource BoolToEnabledConverter}}"/>
+            <TextBox  Name="A4"  Height="{StaticResource Height}"  IsEnabled="{Binding IsChecked, ElementName=A1, Converter={StaticResource BoolToEnabledConverter}}"/>
+        </StackPanel>
+        
+        <StackPanel Grid.Column="5" Grid.Row="1" Grid.RowSpan="4">
+            <CheckBox Name="B1"  Height="{StaticResource Height}" HorizontalAlignment="Center"/>
+            <TextBox  Name="B2"  Height="{StaticResource Height}" IsEnabled="{Binding IsChecked, ElementName=B1, Converter={StaticResource BoolToEnabledConverter}}"/>
+            <TextBox  Name="B3"  Height="{StaticResource Height}" IsEnabled="{Binding IsChecked, ElementName=B1, Converter={StaticResource BoolToEnabledConverter}}"/>
+            <TextBox  Name="B4"  Height="{StaticResource Height}"  IsEnabled="{Binding IsChecked, ElementName=B1, Converter={StaticResource BoolToEnabledConverter}}"/>
+        </StackPanel>
+        <StackPanel Grid.Column="6" Grid.Row="1" Grid.RowSpan="4">
+            <CheckBox Name="C1"  Height="{StaticResource Height}" HorizontalAlignment="Center"/>
+            <TextBox  Name="C2"  Height="{StaticResource Height}" IsEnabled="{Binding IsChecked, ElementName=C1, Converter={StaticResource BoolToEnabledConverter}}"/>
+            <TextBox  Name="C3"  Height="{StaticResource Height}" IsEnabled="{Binding IsChecked, ElementName=C1, Converter={StaticResource BoolToEnabledConverter}}"/>
+            <TextBox  Name="C4"  Height="{StaticResource Height}"  IsEnabled="{Binding IsChecked, ElementName=C1, Converter={StaticResource BoolToEnabledConverter}}"/>
+        </StackPanel>
+        <StackPanel Grid.Column="7" Grid.Row="1" Grid.RowSpan="4">
+            <CheckBox Name="D1"  Height="{StaticResource Height}" HorizontalAlignment="Center"/>
+            <TextBox  Name="D2"  Height="{StaticResource Height}" IsEnabled="{Binding IsChecked, ElementName=D1, Converter={StaticResource BoolToEnabledConverter}}"/>
+            <TextBox  Name="D3"  Height="{StaticResource Height}" IsEnabled="{Binding IsChecked, ElementName=D1, Converter={StaticResource BoolToEnabledConverter}}"/>
+            <TextBox  Name="D4"  Height="{StaticResource Height}"  IsEnabled="{Binding IsChecked, ElementName=D1, Converter={StaticResource BoolToEnabledConverter}}"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="4" Grid.Row="6" Grid.RowSpan="5">
+            <CheckBox Name="A5"  Height="{StaticResource Height}" HorizontalAlignment="Center"/>
+            <TextBox  Name="A6"  Height="{StaticResource Height}" IsEnabled="{Binding IsChecked, ElementName=A5, Converter={StaticResource BoolToEnabledConverter}}"/>
+            <TextBox  Name="A7"  Height="{StaticResource Height}" IsEnabled="{Binding IsChecked, ElementName=A5, Converter={StaticResource BoolToEnabledConverter}}"/>
+            <TextBox  Name="A8"  Height="{StaticResource Height}"  IsEnabled="{Binding IsChecked, ElementName=A5, Converter={StaticResource BoolToEnabledConverter}}"/>
+            <TextBox  Name="A9"  Height="{StaticResource Height}"  IsEnabled="{Binding IsChecked, ElementName=A5, Converter={StaticResource BoolToEnabledConverter}}"/>
+        </StackPanel>
+        <StackPanel Grid.Column="5" Grid.Row="6" Grid.RowSpan="5">
+            <CheckBox Name="B5"  Height="{StaticResource Height}" HorizontalAlignment="Center"/>
+            <TextBox  Name="B6"  Height="{StaticResource Height}" IsEnabled="{Binding IsChecked, ElementName=B5, Converter={StaticResource BoolToEnabledConverter}}"/>
+            <TextBox  Name="B7"  Height="{StaticResource Height}" IsEnabled="{Binding IsChecked, ElementName=B5, Converter={StaticResource BoolToEnabledConverter}}"/>
+            <TextBox  Name="B8"  Height="{StaticResource Height}"  IsEnabled="{Binding IsChecked, ElementName=B5, Converter={StaticResource BoolToEnabledConverter}}"/>
+            <TextBox  Name="B9"  Height="{StaticResource Height}"  IsEnabled="{Binding IsChecked, ElementName=B5, Converter={StaticResource BoolToEnabledConverter}}"/>
+        </StackPanel>
+        <StackPanel Grid.Column="6" Grid.Row="6" Grid.RowSpan="5">
+            <CheckBox Name="C5"  Height="{StaticResource Height}" HorizontalAlignment="Center"/>
+            <TextBox  Name="C6"  Height="{StaticResource Height}" IsEnabled="{Binding IsChecked, ElementName=C5, Converter={StaticResource BoolToEnabledConverter}}"/>
+            <TextBox  Name="C7"  Height="{StaticResource Height}" IsEnabled="{Binding IsChecked, ElementName=C5, Converter={StaticResource BoolToEnabledConverter}}"/>
+            <TextBox  Name="C8"  Height="{StaticResource Height}"  IsEnabled="{Binding IsChecked, ElementName=C5, Converter={StaticResource BoolToEnabledConverter}}"/>
+            <TextBox  Name="C9"  Height="{StaticResource Height}"  IsEnabled="{Binding IsChecked, ElementName=C5, Converter={StaticResource BoolToEnabledConverter}}"/>
+        </StackPanel>
+        <StackPanel Grid.Column="7" Grid.Row="6" Grid.RowSpan="5">
+            <CheckBox Name="D5"  Height="{StaticResource Height}" HorizontalAlignment="Center"/>
+            <TextBox  Name="D6"  Height="{StaticResource Height}" IsEnabled="{Binding IsChecked, ElementName=D5, Converter={StaticResource BoolToEnabledConverter}}"/>
+            <TextBox  Name="D7"  Height="{StaticResource Height}" IsEnabled="{Binding IsChecked, ElementName=D5, Converter={StaticResource BoolToEnabledConverter}}"/>
+            <TextBox  Name="D8"  Height="{StaticResource Height}"  IsEnabled="{Binding IsChecked, ElementName=D5, Converter={StaticResource BoolToEnabledConverter}}"/>
+            <TextBox  Name="D9"  Height="{StaticResource Height}"  IsEnabled="{Binding IsChecked, ElementName=D5, Converter={StaticResource BoolToEnabledConverter}}"/>
+        </StackPanel>
+    
+        <StackPanel Grid.Column="4" Grid.Row="12" Grid.RowSpan="4">
+            <CheckBox Name="A10"  Height="{StaticResource Height}" HorizontalAlignment="Center"/>
+            <TextBox  Name="A11"  Height="{StaticResource Height}" IsEnabled="{Binding IsChecked, ElementName=A10, Converter={StaticResource BoolToEnabledConverter}}"/>
+            <TextBox  Name="A12"  Height="{StaticResource Height}" IsEnabled="{Binding IsChecked, ElementName=A10, Converter={StaticResource BoolToEnabledConverter}}"/>
+            <TextBox  Name="A13"  Height="{StaticResource Height}"  IsEnabled="{Binding IsChecked, ElementName=A10, Converter={StaticResource BoolToEnabledConverter}}"/>
+        </StackPanel>
+        <StackPanel Grid.Column="5" Grid.Row="12" Grid.RowSpan="4">
+            <CheckBox Name="B10"  Height="{StaticResource Height}" HorizontalAlignment="Center"/>
+            <TextBox  Name="B11"  Height="{StaticResource Height}" IsEnabled="{Binding IsChecked, ElementName=B10, Converter={StaticResource BoolToEnabledConverter}}"/>
+            <TextBox  Name="B12"  Height="{StaticResource Height}" IsEnabled="{Binding IsChecked, ElementName=B10, Converter={StaticResource BoolToEnabledConverter}}"/>
+            <TextBox  Name="B13"  Height="{StaticResource Height}"  IsEnabled="{Binding IsChecked, ElementName=B10, Converter={StaticResource BoolToEnabledConverter}}"/>
+        </StackPanel>
+        <StackPanel Grid.Column="6" Grid.Row="12" Grid.RowSpan="4">
+            <CheckBox Name="C10"  Height="{StaticResource Height}" HorizontalAlignment="Center"/>
+            <TextBox  Name="C11"  Height="{StaticResource Height}" IsEnabled="{Binding IsChecked, ElementName=C10, Converter={StaticResource BoolToEnabledConverter}}"/>
+            <TextBox  Name="C12"  Height="{StaticResource Height}" IsEnabled="{Binding IsChecked, ElementName=C10, Converter={StaticResource BoolToEnabledConverter}}"/>
+            <TextBox  Name="C13"  Height="{StaticResource Height}"  IsEnabled="{Binding IsChecked, ElementName=C10, Converter={StaticResource BoolToEnabledConverter}}"/>
+        </StackPanel>
+        <StackPanel Grid.Column="7" Grid.Row="12" Grid.RowSpan="4">
+            <CheckBox Name="D10"  Height="{StaticResource Height}" HorizontalAlignment="Center"/>
+            <TextBox  Name="D11"  Height="{StaticResource Height}" IsEnabled="{Binding IsChecked, ElementName=D10, Converter={StaticResource BoolToEnabledConverter}}"/>
+            <TextBox  Name="D12"  Height="{StaticResource Height}" IsEnabled="{Binding IsChecked, ElementName=D10, Converter={StaticResource BoolToEnabledConverter}}"/>
+            <TextBox  Name="D13"  Height="{StaticResource Height}"  IsEnabled="{Binding IsChecked, ElementName=D10, Converter={StaticResource BoolToEnabledConverter}}"/>
         </StackPanel>
     </Grid>
 </Window>
