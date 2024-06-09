@@ -22,6 +22,7 @@ namespace BDC.Forms
         public FormDuct()
         {
             InitializeComponent();
+
         }
     }
 }
