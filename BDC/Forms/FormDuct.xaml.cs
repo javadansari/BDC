@@ -47,81 +47,65 @@ namespace BDC.Forms
         }
         private void setValue()
         {
-            bool IsNumericAndLessThanEqualTo100(string input)
-            {
-                double number;
-                bool isNumeric = double.TryParse(input, NumberStyles.Any, CultureInfo.InvariantCulture, out number);
-                //       bool isNumeric = double.TryParse(input, out number);
-                return isNumeric && number <= 100;
-            }
-
-            for (int i = 1; i < 14; i++)
-            {
-                TextBox textBox = FindName("A" + i) as TextBox; if (textBox != null)  if (!IsNumericAndLessThanEqualTo100(textBox.Text))    textBox.Text = "0";
-                 textBox = FindName("B" + i) as TextBox; if (textBox != null)  if (!IsNumericAndLessThanEqualTo100(textBox.Text))    textBox.Text = "0";
-                 textBox = FindName("C" + i) as TextBox; if (textBox != null)  if (!IsNumericAndLessThanEqualTo100(textBox.Text))    textBox.Text = "0";
-                 textBox = FindName("D" + i) as TextBox; if (textBox != null)  if (!IsNumericAndLessThanEqualTo100(textBox.Text))    textBox.Text = "0";
-   
-
-            }
+           
             
             if (A1.IsChecked == true) Duct.A1 = 1;
-            Duct.A2 = double.Parse(A2.Text, NumberStyles.Any, CultureInfo.InvariantCulture);
-            Duct.A3 = double.Parse(A3.Text, NumberStyles.Any, CultureInfo.InvariantCulture);
-            Duct.A4 = double.Parse(A4.Text, NumberStyles.Any, CultureInfo.InvariantCulture);
+            Duct.A2 = A2.Text;
+            Duct.A3 = A3.Text;
+            Duct.A4 = A4.Text;
             if (A5.IsChecked == true) Duct.A5 = 1;
-            Duct.A6 = double.Parse(A6.Text, NumberStyles.Any, CultureInfo.InvariantCulture);
-            Duct.A7 = double.Parse(A7.Text, NumberStyles.Any, CultureInfo.InvariantCulture);
-            Duct.A8 = double.Parse(A8.Text, NumberStyles.Any, CultureInfo.InvariantCulture);
-            Duct.A9 = double.Parse(A9.Text, NumberStyles.Any, CultureInfo.InvariantCulture);
+            Duct.A6 = A6.Text;
+            Duct.A7 = A7.Text;
+            Duct.A8 = A8.Text;
+            Duct.A9 = A9.Text;
             if (A10.IsChecked == true) Duct.A10 = 1;
-            Duct.A11 = double.Parse(A11.Text, NumberStyles.Any, CultureInfo.InvariantCulture);
-            Duct.A12 = double.Parse(A12.Text, NumberStyles.Any, CultureInfo.InvariantCulture);
-            Duct.A13 = double.Parse(A13.Text, NumberStyles.Any, CultureInfo.InvariantCulture);
+            Duct.A11 = A11.Text;
+            Duct.A12 = A12.Text;
+            Duct.A13 = A13.Text;
 
             if (B1.IsChecked == true) Duct.B1 = 1;
-            Duct.B2 = double.Parse(B2.Text, NumberStyles.Any, CultureInfo.InvariantCulture);
-            Duct.B3 = double.Parse(B3.Text, NumberStyles.Any, CultureInfo.InvariantCulture);
-            Duct.B4 = double.Parse(B4.Text, NumberStyles.Any, CultureInfo.InvariantCulture);
+            Duct.B2 = B2.Text;
+            Duct.B3 = B3.Text;
+            Duct.B4 = B4.Text;
             if (B5.IsChecked == true) Duct.B5 = 1;
-            Duct.B6 = double.Parse(B6.Text, NumberStyles.Any, CultureInfo.InvariantCulture);
-            Duct.B7 = double.Parse(B7.Text, NumberStyles.Any, CultureInfo.InvariantCulture);
-            Duct.B8 = double.Parse(B8.Text, NumberStyles.Any, CultureInfo.InvariantCulture);
-            Duct.B9 = double.Parse(B9.Text, NumberStyles.Any, CultureInfo.InvariantCulture);
+            Duct.B6 = B6.Text;
+            Duct.B7 = B7.Text;
+            Duct.B8 = B8.Text;
+            Duct.B9 = B9.Text;
             if (B10.IsChecked == true) Duct.B10 = 1;
-            Duct.B11 = double.Parse(B11.Text, NumberStyles.Any, CultureInfo.InvariantCulture);
-            Duct.B12 = double.Parse(B12.Text, NumberStyles.Any, CultureInfo.InvariantCulture);
-            Duct.B13 = double.Parse(B13.Text, NumberStyles.Any, CultureInfo.InvariantCulture);
+            Duct.B11 = B11.Text;
+            Duct.B12 = B12.Text;
+            Duct.B13 = B13.Text;
 
 
             if (C1.IsChecked == true) Duct.C1 = 1;
-            Duct.C2 = double.Parse(C2.Text, NumberStyles.Any, CultureInfo.InvariantCulture);
-            Duct.C3 = double.Parse(C3.Text, NumberStyles.Any, CultureInfo.InvariantCulture);
-            Duct.C4 = double.Parse(C4.Text, NumberStyles.Any, CultureInfo.InvariantCulture);
+            Duct.C2 = C2.Text;
+            Duct.C3 = C3.Text;
+            Duct.C4 = C4.Text;
             if (C5.IsChecked == true) Duct.C5 = 1;
-            Duct.C6 = double.Parse(C6.Text, NumberStyles.Any, CultureInfo.InvariantCulture);
-            Duct.C7 = double.Parse(C7.Text, NumberStyles.Any, CultureInfo.InvariantCulture);
-            Duct.C8 = double.Parse(C8.Text, NumberStyles.Any, CultureInfo.InvariantCulture);
-            Duct.C9 = double.Parse(C9.Text, NumberStyles.Any, CultureInfo.InvariantCulture);
+            Duct.C6 = C6.Text;
+            Duct.C7 = C7.Text;
+            Duct.C8 = C8.Text;
+            Duct.C9 = C9.Text;
             if (C10.IsChecked == true) Duct.C10 = 1;
-            Duct.C11 = double.Parse(C11.Text, NumberStyles.Any, CultureInfo.InvariantCulture);
-            Duct.C12 = double.Parse(C12.Text, NumberStyles.Any, CultureInfo.InvariantCulture);
-            Duct.C13 = double.Parse(C13.Text, NumberStyles.Any, CultureInfo.InvariantCulture); 
+            Duct.C11 = C11.Text;
+            Duct.C12 = C12.Text;
+            Duct.C13 = C13.Text; 
 
 
             if (D1.IsChecked == true) Duct.D1 = 1;
-            Duct.D2 = double.Parse(D2.Text, NumberStyles.Any, CultureInfo.InvariantCulture);
-            Duct.D3 = double.Parse(D3.Text, NumberStyles.Any, CultureInfo.InvariantCulture);
-            Duct.D4 = double.Parse(D4.Text, NumberStyles.Any, CultureInfo.InvariantCulture);
+            Duct.D2 = D2.Text;
+            Duct.D3 = D3.Text;
+            Duct.D4 = D4.Text;
             if (D5.IsChecked == true) Duct.D5 = 1;
-            Duct.D6 = double.Parse(D6.Text, NumberStyles.Any, CultureInfo.InvariantCulture);
-            Duct.D7 = double.Parse(D7.Text, NumberStyles.Any, CultureInfo.InvariantCulture);
-            Duct.D8 = double.Parse(D8.Text, NumberStyles.Any, CultureInfo.InvariantCulture);
-            Duct.D9 = double.Parse(D9.Text, NumberStyles.Any, CultureInfo.InvariantCulture);
+            Duct.D6 = D6.Text;
+            Duct.D7 = D7.Text;
+            Duct.D8 = D8.Text;
+            Duct.D9 = D9.Text;
             if (D10.IsChecked == true) Duct.D10 = 1;
-            Duct.D11 = double.Parse(D11.Text, NumberStyles.Any, CultureInfo.InvariantCulture);
-            Duct.D12 = double.Parse(D12.Text, NumberStyles.Any, CultureInfo.InvariantCulture);
-            Duct.D13 = double.Parse(D13.Text, NumberStyles.Any, CultureInfo.InvariantCulture);
+            Duct.D11 = D11.Text;
+            Duct.D12 = D12.Text;
+            Duct.D13 = D13.Text;
 
         }
             private void getValue()

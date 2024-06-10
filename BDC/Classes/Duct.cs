@@ -10,60 +10,60 @@ namespace BDC.Classes
     public class Duct
     {
 
-        public double A1 { get; set; }
-        public double A2 { get; set; }
-        public double A3 { get; set; }
-        public double A4 { get; set; }
-        public double A5 { get; set; }
-        public double A6 { get; set; }
-        public double A7 { get; set; }
-        public double A8 { get; set; }
-        public double A9 { get; set; }
-        public double A10 { get; set; }
-        public double A11 { get; set; }
-        public double A12 { get; set; }
-        public double A13 { get; set; }
-
-        public double B1 { get; set; }
-        public double B2 { get; set; }
-        public double B3 { get; set; }
-        public double B4 { get; set; }
-        public double B5 { get; set; }
-        public double B6 { get; set; }
-        public double B7 { get; set; }
-        public double B8 { get; set; }
-        public double B9 { get; set; }
-        public double B10 { get; set; }
-        public double B11 { get; set; }
-        public double B12 { get; set; }
-        public double B13 { get; set; }
-
-        public double C1 { get; set; }
-        public double C2 { get; set; }
-        public double C3 { get; set; }
-        public double C4 { get; set; }
-        public double C5 { get; set; }
-        public double C6 { get; set; }
-        public double C7 { get; set; }
-        public double C8 { get; set; }
-        public double C9 { get; set; }
-        public double C10 { get; set; }
-        public double C11 { get; set; }
-        public double C12 { get; set; }
-        public double C13 { get; set; }
-
-        public double D1 { get; set; }
-        public double D2 { get; set; }
-        public double D3 { get; set; }
-        public double D4 { get; set; }
-        public double D5 { get; set; }
-        public double D6 { get; set; }
-        public double D7 { get; set; }
-        public double D8 { get; set; }
-        public double D9 { get; set; }
-        public double D10 { get; set; }
-        public double D11 { get; set; }
-        public double D12 { get; set; }
-        public double D13 { get; set; }
+        public int A1 { get; set; }
+        public string A2 { get; set; }
+        public string A3 { get; set; }
+        public string A4 { get; set; }
+        public int A5 { get; set; }
+        public string A6 { get; set; }
+        public string A7 { get; set; }
+        public string A8 { get; set; }
+        public string A9 { get; set; }
+        public int A10 { get; set; }
+        public string A11 { get; set; }
+        public string A12 { get; set; }
+        public string A13 { get; set; }
+               
+        public int B1 { get; set; }
+        public string B2 { get; set; }
+        public string B3 { get; set; }
+        public string B4 { get; set; }
+        public int B5 { get; set; }
+        public string B6 { get; set; }
+        public string B7 { get; set; }
+        public string B8 { get; set; }
+        public string B9 { get; set; }
+        public int B10 { get; set; }
+        public string B11 { get; set; }
+        public string B12 { get; set; }
+        public string B13 { get; set; }
+               
+        public int C1 { get; set; }
+        public string C2 { get; set; }
+        public string C3 { get; set; }
+        public string C4 { get; set; }
+        public int C5 { get; set; }
+        public string C6 { get; set; }
+        public string C7 { get; set; }
+        public string C8 { get; set; }
+        public string C9 { get; set; }
+        public int C10 { get; set; }
+        public string C11 { get; set; }
+        public string C12 { get; set; }
+        public string C13 { get; set; }
+               
+        public int D1 { get; set; }
+        public string D2 { get; set; }
+        public string D3 { get; set; }
+        public string D4 { get; set; }
+        public int D5 { get; set; }
+        public string D6 { get; set; }
+        public string D7 { get; set; }
+        public string D8 { get; set; }
+        public string D9 { get; set; }
+        public int D10 { get; set; }
+        public string D11 { get; set; }
+        public string D12 { get; set; }
+        public string D13 { get; set; }
     }
 }
