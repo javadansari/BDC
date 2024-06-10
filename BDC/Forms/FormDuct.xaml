@@ -7,7 +7,7 @@
         xmlns:style="clr-namespace:BDC.View"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="DUCT PRESSURE DROP CALCULATION" Height="550" Width="640">
+        Title="DUCT PRESSURE DROP CALCULATION" Height="550" Width="680">
 
     <Window.Resources>
         <sys:Double x:Key="LabelFontSize">10</sys:Double>

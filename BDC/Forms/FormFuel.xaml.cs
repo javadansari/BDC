@@ -50,7 +50,8 @@ namespace BDC.Forms
 
         private void setValue()
         {
-
+            OilFuels = new List<OilFuel>();
+            GasFuels = new List<GasFuel>();
             for (int i = 1; i < 3; i++)
             {
                 OilFuel oilFuel = new OilFuel();

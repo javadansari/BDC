@@ -130,43 +130,72 @@ namespace BDC.DataBase
         }
 
         
-       public List<Duct> ImportDucts()
+       public Duct ImportDucts()
         {
-            List<Duct> ducts = new List<Duct>();
-            for (int i = 26; i <= 29; i++)
+            Duct duct = new Duct();
+            for (int i = 26; i <= 26; i++)
             {
                string line = File.ReadLines(filePath).Skip(i).Take(1).First();
                string[] items = line.Split(',');
-               Duct duct = new Duct();
-               duct.id = i - 25;
-                duct.name = items[2];
-               duct.active = int.TryParse(items[3], out intValue) ? intValue : 0;
-                duct.a = double.TryParse(items[4], out doubleValue) ? doubleValue : 0;
-                duct.b = double.TryParse(items[5], out doubleValue) ? doubleValue : 0;
-                duct.aPrim = double.TryParse(items[6], out doubleValue) ? doubleValue : 0;
-                duct.bPrim = double.TryParse(items[7], out doubleValue) ? doubleValue : 0;
-                duct.L = double.TryParse(items[8], out doubleValue) ? doubleValue : 0;
-                duct.Bend_Joint = int.TryParse(items[9], out intValue) ? intValue : 0;
-                duct.ri = int.TryParse(items[10], out intValue) ? intValue : 0;
-                duct.C = double.TryParse(items[11], out doubleValue) ? doubleValue : 0;
-                duct.C_degree = double.TryParse(items[12], out doubleValue) ? doubleValue : 0;
-                duct.Bend_Hopper = int.TryParse(items[13], out intValue) ? intValue : 0;
-                duct.Enlargement = int.TryParse(items[14], out intValue) ? intValue : 0;
-                duct.typeEnlargement = int.TryParse(items[15], out intValue) ? intValue : 0;
-                duct.Enlargement_Degree = double.TryParse(items[16], out doubleValue) ? doubleValue : 0;
-                duct.Contraction = int.TryParse(items[17], out intValue) ? intValue : 0;
-                duct.typeContraction = int.TryParse(items[18], out intValue) ? intValue : 0;
-                duct.Contraction_Degree = double.TryParse(items[19], out doubleValue) ? doubleValue : 0;
-                duct.Splitter = int.TryParse(items[20], out intValue) ? intValue : 0;
-                duct.DUCT_sectional_area = double.TryParse(items[21], out doubleValue) ? doubleValue : 0;
-                duct.DUCT_open_close = int.TryParse(items[22], out intValue) ? intValue : 0;
-                duct.Splitter_Degree = double.TryParse(items[23], out doubleValue) ? doubleValue : 0;
-                duct.DAMPER_quantity = int.TryParse(items[24], out intValue) ? intValue : 0;
-                duct.Width_of_truss = int.TryParse(items[25], out intValue) ? intValue : 0;
+                duct.A1 = double.TryParse(items[1], out doubleValue) ? doubleValue : 0;
+                duct.A2 = double.TryParse(items[2], out doubleValue) ? doubleValue : 0;
+                duct.A3 = double.TryParse(items[3], out doubleValue) ? doubleValue : 0;
+                duct.A4 = double.TryParse(items[4], out doubleValue) ? doubleValue : 0;
+                duct.A5 = double.TryParse(items[5], out doubleValue) ? doubleValue : 0;
+                duct.A6 = double.TryParse(items[6], out doubleValue) ? doubleValue : 0;
+                duct.A7 = double.TryParse(items[7], out doubleValue) ? doubleValue : 0;
+                duct.A8 = double.TryParse(items[8], out doubleValue) ? doubleValue : 0;
+                duct.A9 = double.TryParse(items[9], out doubleValue) ? doubleValue : 0;
+                duct.A10 = double.TryParse(items[10], out doubleValue) ? doubleValue : 0;
+                duct.A11 = double.TryParse(items[11], out doubleValue) ? doubleValue : 0;
+                duct.A12 = double.TryParse(items[12], out doubleValue) ? doubleValue : 0;
+                duct.A13 = double.TryParse(items[13], out doubleValue) ? doubleValue : 0;
 
-                ducts.Add(duct);
+                duct.B1 = double.TryParse(items[14], out doubleValue) ? doubleValue : 0;
+                duct.B2 = double.TryParse(items[15], out doubleValue) ? doubleValue : 0;
+                duct.B3 = double.TryParse(items[16], out doubleValue) ? doubleValue : 0;
+                duct.B4 = double.TryParse(items[17], out doubleValue) ? doubleValue : 0;
+                duct.B5 = double.TryParse(items[18], out doubleValue) ? doubleValue : 0;
+                duct.B6 = double.TryParse(items[19], out doubleValue) ? doubleValue : 0;
+                duct.B7 = double.TryParse(items[20], out doubleValue) ? doubleValue : 0;
+                duct.B8 = double.TryParse(items[21], out doubleValue) ? doubleValue : 0;
+                duct.B9 = double.TryParse(items[22], out doubleValue) ? doubleValue : 0;
+                duct.B10 = double.TryParse(items[23], out doubleValue) ? doubleValue : 0;
+                duct.B11 = double.TryParse(items[24], out doubleValue) ? doubleValue : 0;
+                duct.B12 = double.TryParse(items[25], out doubleValue) ? doubleValue : 0;
+                duct.B13 = double.TryParse(items[26], out doubleValue) ? doubleValue : 0;
+
+
+                duct.C1 = double.TryParse(items[27], out doubleValue) ? doubleValue : 0;
+                duct.C2 = double.TryParse(items[28], out doubleValue) ? doubleValue : 0;
+                duct.C3 = double.TryParse(items[29], out doubleValue) ? doubleValue : 0;
+                duct.C4 = double.TryParse(items[30], out doubleValue) ? doubleValue : 0;
+                duct.C5 = double.TryParse(items[31], out doubleValue) ? doubleValue : 0;
+                duct.C6 = double.TryParse(items[32], out doubleValue) ? doubleValue : 0;
+                duct.C7 = double.TryParse(items[33], out doubleValue) ? doubleValue : 0;
+                duct.C8 = double.TryParse(items[34], out doubleValue) ? doubleValue : 0;
+                duct.C9 = double.TryParse(items[35], out doubleValue) ? doubleValue : 0;
+                duct.C10 = double.TryParse(items[36], out doubleValue) ? doubleValue : 0;
+                duct.C11 = double.TryParse(items[37], out doubleValue) ? doubleValue : 0;
+                duct.C12 = double.TryParse(items[38], out doubleValue) ? doubleValue : 0;
+                duct.C13 = double.TryParse(items[39], out doubleValue) ? doubleValue : 0;
+
+                duct.D1 = double.TryParse(items[40], out doubleValue) ? doubleValue : 0;
+                duct.D2 = double.TryParse(items[41], out doubleValue) ? doubleValue : 0;
+                duct.D3 = double.TryParse(items[42], out doubleValue) ? doubleValue : 0;
+                duct.D4 = double.TryParse(items[43], out doubleValue) ? doubleValue : 0;
+                duct.D5 = double.TryParse(items[44], out doubleValue) ? doubleValue : 0;
+                duct.D6 = double.TryParse(items[45], out doubleValue) ? doubleValue : 0;
+                duct.D7 = double.TryParse(items[46], out doubleValue) ? doubleValue : 0;
+                duct.D8 = double.TryParse(items[47], out doubleValue) ? doubleValue : 0;
+                duct.D9 = double.TryParse(items[48], out doubleValue) ? doubleValue : 0;
+                duct.D10 = double.TryParse(items[49], out doubleValue) ? doubleValue : 0;
+                duct.D11 = double.TryParse(items[50], out doubleValue) ? doubleValue : 0;
+                duct.D12 = double.TryParse(items[51], out doubleValue) ? doubleValue : 0;
+                duct.D13 = double.TryParse(items[52], out doubleValue) ? doubleValue : 0;
+
             }
-            return ducts;
+            return duct;
         }
         public List<OilFuel> ImportOilFuels()
         {

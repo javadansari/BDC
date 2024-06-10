@@ -61,7 +61,7 @@ namespace BDC
 
         public Furnace furnace { get; set; }
 
-        public List<Duct> ducts { get; set; }
+        public Duct duct { get; set; }
 
         public List<GasFuel> gasFuels { get; set; }
         public List<OilFuel> oilFuels { get; set; }
@@ -104,10 +104,7 @@ namespace BDC
             draggedImage = new Image();
             furnace = new Furnace();
             element = new Element();
-            ducts = new List<Duct>();
-            Duct duct = new Duct();
-            duct.id = 1;
-            ducts.Add(duct);
+            duct = new Duct();
             gasFuels = new List<GasFuel>();
             GasFuel gasFuel = new GasFuel();
             gasFuel.id = 1;
@@ -711,7 +708,7 @@ namespace BDC
 
         private void formDuct_Click(object sender, RoutedEventArgs e)
         {
-            FormDuct formDuct = new FormDuct();
+            FormDuct formDuct = new FormDuct(duct,this);
             formDuct.Show();
 
         }
@@ -749,7 +746,7 @@ namespace BDC
                 export.ExportInput(inputs);
                 export.ExportFurnace(furnace);
                 export.ExportElement(elements);
-                export.ExportDuct(ducts);
+                export.ExportDuct(duct);
             }
             export.ExportOilFuel(oilFuels);
             export.ExportGasFuel(gasFuels);
@@ -841,7 +838,7 @@ namespace BDC
             inputs = import.ImportInputs();
             furnace = import.ImportFurnace();
             elements = import.ImportElements();
-            ducts = import.ImportDucts();
+            duct = import.ImportDucts();
             gasFuels = import.ImportGasFuels();
             oilFuels = import.ImportOilFuels();
             ClasesCases();

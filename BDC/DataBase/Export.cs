@@ -97,11 +97,11 @@ namespace BDC.DataBase
             }
             return true;
         }
-        public bool ExportDuct(List<Duct> ducts)
+        public bool ExportDuct(Duct duct)
         {
             ExportSpacer("Duct");
             string line = "";
-            Type objType = ducts[0].GetType();
+            Type objType = duct.GetType();
             PropertyInfo[] properties = objType.GetProperties();
             foreach (PropertyInfo prop in properties)
             {
@@ -112,20 +112,19 @@ namespace BDC.DataBase
             {
                 writer.WriteLine(line);
             }
-            foreach (Duct duct in ducts)
-            {
-                using (StreamWriter writer = new StreamWriter(filePath, true))
-                {
-                    line = "";
-                    foreach (PropertyInfo prop in properties)
-                    {
-                        object value = prop.GetValue(duct);
-                        line = line + "," + value;
 
-                    }
-                    writer.WriteLine(line);
+            using (StreamWriter writer = new StreamWriter(filePath, true))
+            {
+                line = "";
+                foreach (PropertyInfo prop in properties)
+                {
+                    object value = prop.GetValue(duct);
+                    line = line + "," + value;
+
                 }
+                writer.WriteLine(line);
             }
+            ExportSpacer("-");
             return true;
         }
 
