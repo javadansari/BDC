@@ -89,6 +89,7 @@ namespace BDC.Forms
             oilFuel.H2O_ = (FindName("H2O_" + oilFuel.id) as TextBox).Text;
             oilFuel.S = (FindName("S" + oilFuel.id) as TextBox).Text;
             oilFuel.O = (FindName("O" + oilFuel.id) as TextBox).Text;
+            oilFuel.N = (FindName("N" + oilFuel.id) as TextBox).Text;
             oilFuel.Total_ = (FindName("Total_" + oilFuel.id) as TextBox).Text;
             oilFuel.FuelPressure_ = (FindName("FuelPressure_" + oilFuel.id) as TextBox).Text;
             oilFuel.FuelTemperature_ = (FindName("FuelTemperature_" + oilFuel.id) as TextBox).Text;
@@ -158,6 +159,7 @@ namespace BDC.Forms
                 (FindName("H2O_" + oilFuel.id) as TextBox).Text = oilFuel.H2O_.ToString();
                 (FindName("S" + oilFuel.id) as TextBox).Text = oilFuel.S.ToString();
                 (FindName("O" + oilFuel.id) as TextBox).Text = oilFuel.O.ToString();
+                (FindName("N" + oilFuel.id) as TextBox).Text = oilFuel.N.ToString();
                 (FindName("Total_" + oilFuel.id) as TextBox).Text = oilFuel.Total_.ToString();
                 (FindName("FuelPressure_" + oilFuel.id) as TextBox).Text = oilFuel.FuelPressure_.ToString();
                 (FindName("FuelTemperature_" + oilFuel.id) as TextBox).Text = oilFuel.FuelTemperature_.ToString();
@@ -200,7 +202,12 @@ namespace BDC.Forms
 
         private void Check_Click(object sender, RoutedEventArgs e)
         {
+            TextChange();
 
+        }
+
+        private void TextChange()
+        {
             setValue();
             foreach (GasFuel gasFuel in GasFuels)
             {
@@ -213,7 +220,7 @@ namespace BDC.Forms
                     {
                         double number;
                         bool isNumeric = double.TryParse(input, NumberStyles.Any, CultureInfo.InvariantCulture, out number);
-                 //       bool isNumeric = double.TryParse(input, out number);
+                        //       bool isNumeric = double.TryParse(input, out number);
                         return isNumeric && number <= 100;
                     }
 
@@ -227,8 +234,9 @@ namespace BDC.Forms
                             {
                                 textBox.Text = "0";
                             }
-                          
-                            else {
+
+                            else
+                            {
                                 double thisCalc = double.Parse(textBox.Text, NumberStyles.Any, CultureInfo.InvariantCulture);
                                 total += thisCalc;
                                 if (component.ToString() == "CH4") calc1 += thisCalc * 0.00374;
@@ -256,21 +264,21 @@ namespace BDC.Forms
                                 if (component.ToString() == "CH4") calc2 += thisCalc * 0.00374 * 50.016;
                                 else if (component.ToString() == "C2H6") calc2 += thisCalc * 30.06964 * 47.525;
                                 else if (component.ToString() == "C2H4") calc2 += thisCalc * 28.05376 * 47.167;
-                                else if (component.ToString() == "C3H8") calc2 += thisCalc * 44.09652 *46.341;
-                                else if (component.ToString() == "C3H6") calc2 += thisCalc * 42.08064 *45.771;
-                                else if (component.ToString() == "N_C4H10") calc2 += thisCalc * 58.1234 *45.559;
-                                else if (component.ToString() == "ISO_C4H10") calc2 += thisCalc * 58.1234 *45.727;
-                                else if (component.ToString() == "C4H8") calc2 += thisCalc * 56.10752* 45.241;
-                                else if (component.ToString() == "ISO_C5H12") calc2 += thisCalc * 72.15028* 45.255;
-                                else if (component.ToString() == "N_C5H12") calc2 += thisCalc * 72.15028* 45.352;
-                                else if (component.ToString() == "C5H10") calc2 += thisCalc * 70.1344 *44.957;
-                                else if (component.ToString() == "C6H14") calc2 += thisCalc * 86.17716 *45.015;
+                                else if (component.ToString() == "C3H8") calc2 += thisCalc * 44.09652 * 46.341;
+                                else if (component.ToString() == "C3H6") calc2 += thisCalc * 42.08064 * 45.771;
+                                else if (component.ToString() == "N_C4H10") calc2 += thisCalc * 58.1234 * 45.559;
+                                else if (component.ToString() == "ISO_C4H10") calc2 += thisCalc * 58.1234 * 45.727;
+                                else if (component.ToString() == "C4H8") calc2 += thisCalc * 56.10752 * 45.241;
+                                else if (component.ToString() == "ISO_C5H12") calc2 += thisCalc * 72.15028 * 45.255;
+                                else if (component.ToString() == "N_C5H12") calc2 += thisCalc * 72.15028 * 45.352;
+                                else if (component.ToString() == "C5H10") calc2 += thisCalc * 70.1344 * 44.957;
+                                else if (component.ToString() == "C6H14") calc2 += thisCalc * 86.17716 * 45.015;
                                 else if (component.ToString() == "N2") calc2 += thisCalc * 28.01348 * 0;
-                                else if (component.ToString() == "CO") calc2 += thisCalc * 28.0104 *10.099;
-                                else if (component.ToString() == "CO2") calc2 += thisCalc * 44.0098 *0;
-                                else if (component.ToString() == "H2O") calc2 += thisCalc * 18.01528 *0 ;
-                                else if (component.ToString() == "H2S") calc2 += thisCalc * 34.08188 *15.198;
-                                else if (component.ToString() == "H2") calc2 += thisCalc * 2.01588 *119.943;
+                                else if (component.ToString() == "CO") calc2 += thisCalc * 28.0104 * 10.099;
+                                else if (component.ToString() == "CO2") calc2 += thisCalc * 44.0098 * 0;
+                                else if (component.ToString() == "H2O") calc2 += thisCalc * 18.01528 * 0;
+                                else if (component.ToString() == "H2S") calc2 += thisCalc * 34.08188 * 15.198;
+                                else if (component.ToString() == "H2") calc2 += thisCalc * 2.01588 * 119.943;
                                 else if (component.ToString() == "He") calc2 += thisCalc * 4.0026 * 0;
                                 else if (component.ToString() == "O2") calc2 += thisCalc * 31.9988 * 0;
                                 else if (component.ToString() == "Ar") calc2 += thisCalc * 39.948 * 0;
@@ -285,7 +293,7 @@ namespace BDC.Forms
                     }
 
                       (FindName("Total" + gasFuel.id) as TextBox).Text = total.ToString();
-                     if (total != 100) (FindName("Total" + gasFuel.id) as TextBox).Background = Brushes.IndianRed;
+                    if (total != 100) (FindName("Total" + gasFuel.id) as TextBox).Background = Brushes.IndianRed;
                     else (FindName("Total" + gasFuel.id) as TextBox).Background = Brushes.Green;
 
                     calc1 = Math.Round(calc1, 2);
@@ -294,7 +302,7 @@ namespace BDC.Forms
                     (FindName("LHV_kj_kg_Calculated" + gasFuel.id) as TextBox).Text = calc2.ToString();
 
                     double density = calc1 / 22.414;
-                    density  = Math.Round(density, 2);
+                    density = Math.Round(density, 2);
                     (FindName("Density" + gasFuel.id) as TextBox).Text = density.ToString();
 
                 }
@@ -302,6 +310,10 @@ namespace BDC.Forms
                 //  all1 = gasFuel.CH4 
 
             }
+        }
+        private void TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextChange();
         }
     }
 }

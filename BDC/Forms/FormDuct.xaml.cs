@@ -58,10 +58,12 @@ namespace BDC.Forms
             Duct.A7 = A7.Text;
             Duct.A8 = A8.Text;
             Duct.A9 = A9.Text;
-            if (A10.IsChecked == true) Duct.A10 = 1;
-            Duct.A11 = A11.Text;
+            Duct.A10 = A10.Text;
+            if (A11.IsChecked == true) Duct.A11 = 1;
             Duct.A12 = A12.Text;
             Duct.A13 = A13.Text;
+            Duct.A14 = A14.Text;
+            Duct.A15 = A15.Text;
 
             if (B1.IsChecked == true) Duct.B1 = 1;
             Duct.B2 = B2.Text;
@@ -72,10 +74,12 @@ namespace BDC.Forms
             Duct.B7 = B7.Text;
             Duct.B8 = B8.Text;
             Duct.B9 = B9.Text;
-            if (B10.IsChecked == true) Duct.B10 = 1;
-            Duct.B11 = B11.Text;
+            Duct.B10 = B10.Text;
+            if (B11.IsChecked == true) Duct.B11 = 1;
             Duct.B12 = B12.Text;
             Duct.B13 = B13.Text;
+            Duct.B14 = B14.Text;
+            Duct.B15 = B15.Text;
 
 
             if (C1.IsChecked == true) Duct.C1 = 1;
@@ -87,10 +91,12 @@ namespace BDC.Forms
             Duct.C7 = C7.Text;
             Duct.C8 = C8.Text;
             Duct.C9 = C9.Text;
-            if (C10.IsChecked == true) Duct.C10 = 1;
-            Duct.C11 = C11.Text;
+            Duct.C10 = C10.Text;
+            if (C11.IsChecked == true) Duct.C11 = 1;
             Duct.C12 = C12.Text;
             Duct.C13 = C13.Text; 
+            Duct.C14 = C14.Text; 
+            Duct.C15 = C15.Text; 
 
 
             if (D1.IsChecked == true) Duct.D1 = 1;
@@ -102,10 +108,12 @@ namespace BDC.Forms
             Duct.D7 = D7.Text;
             Duct.D8 = D8.Text;
             Duct.D9 = D9.Text;
-            if (D10.IsChecked == true) Duct.D10 = 1;
-            Duct.D11 = D11.Text;
+            Duct.D10 = D10.Text;
+            if (D11.IsChecked == true) Duct.D11 = 1;
             Duct.D12 = D12.Text;
             Duct.D13 = D13.Text;
+            Duct.D14 = D14.Text;
+            Duct.D15 = D15.Text;
 
         }
             private void getValue()
@@ -119,10 +127,12 @@ namespace BDC.Forms
             A7.Text = Duct.A7.ToString();
             A8.Text = Duct.A8.ToString();
             A9.Text = Duct.A9.ToString();
-            if (Duct.A10 == 1) A10.IsChecked = true;
-            A11.Text = Duct.A11.ToString();
+            A10.Text = Duct.A10.ToString();
+            if (Duct.A11 == 1) A11.IsChecked = true;
             A12.Text = Duct.A12.ToString();
             A13.Text = Duct.A13.ToString();
+            A14.Text = Duct.A14.ToString();
+            A15.Text = Duct.A15.ToString();
 
             if (Duct.B1 == 1) B1.IsChecked = true;
             B2.Text = Duct.B2.ToString();
@@ -133,10 +143,12 @@ namespace BDC.Forms
             B7.Text = Duct.B7.ToString();
             B8.Text = Duct.B8.ToString();
             B9.Text = Duct.B9.ToString();
-            if (Duct.B10 == 1) B10.IsChecked = true;
-            B11.Text = Duct.B11.ToString();
+            B10.Text = Duct.B10.ToString();
+            if (Duct.B11 == 1) B11.IsChecked = true;
             B12.Text = Duct.B12.ToString();
             B13.Text = Duct.B13.ToString();
+            B14.Text = Duct.B14.ToString();
+            B15.Text = Duct.B15.ToString();
 
 
             if (Duct.C1 == 1) C1.IsChecked = true;
@@ -148,10 +160,12 @@ namespace BDC.Forms
             C7.Text = Duct.C7.ToString();
             C8.Text = Duct.C8.ToString();
             C9.Text = Duct.C9.ToString();
-            if (Duct.C10 == 1) C10.IsChecked = true;
-            C11.Text = Duct.C11.ToString();
+            C10.Text = Duct.C10.ToString();
+            if (Duct.C11 == 1) C11.IsChecked = true;
             C12.Text = Duct.C12.ToString();
             C13.Text = Duct.C13.ToString();
+            C14.Text = Duct.C14.ToString();
+            C15.Text = Duct.C15.ToString();
 
 
             if (Duct.D1 == 1) D1.IsChecked = true;
@@ -163,10 +177,12 @@ namespace BDC.Forms
             D7.Text = Duct.D7.ToString();
             D8.Text = Duct.D8.ToString();
             D9.Text = Duct.D9.ToString();
-            if (Duct.D10 == 1) D10.IsChecked = true;
-            D11.Text = Duct.D11.ToString();
+            D10.Text = Duct.D10.ToString();
+            if (Duct.D11 == 1) D11.IsChecked = true;
             D12.Text = Duct.D12.ToString();
             D13.Text = Duct.D13.ToString();
+            D14.Text = Duct.D14.ToString();
+            D15.Text = Duct.D15.ToString();
 
         }
 
