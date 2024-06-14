@@ -76,7 +76,7 @@ namespace BDC.Forms
             process.Heat_exchange_ducty = (FindName("Heat_exchange_ducty_" + process.id) as TextBox).Text;
             process.Steam_Pressure_At_T_P = (FindName("Steam_Pressure_At_T_P_" + process.id) as TextBox).Text;
             process.Main_steam_Pressue_Drop = (FindName("Main_steam_Pressue_Drop_" + process.id) as TextBox).Text;
-            process.Location_of_DESH = (FindName("Location_of_DESH_" + process.id) as TextBox).Text;
+            process.Location_of_DESH = (FindName("Location_of_DESH_" + process.id) as ComboBox).SelectedIndex;
             process.Steam_temperature_set_point_T_P = (FindName("Steam_temperature_set_point_T_P_" + process.id) as TextBox).Text;
             process.Min_SH_degree_at_desperheater_outlet = (FindName("Min_SH_degree_at_desperheater_outlet_" + process.id) as TextBox).Text;
             process.Feed_water_Pressure = (FindName("Feed_water_Pressure_" + process.id) as TextBox).Text;
@@ -118,7 +118,7 @@ namespace BDC.Forms
                 (FindName("Heat_exchange_ducty_" + process.id) as TextBox).Text = process.Heat_exchange_ducty.ToString();
                 (FindName("Steam_Pressure_At_T_P_" + process.id) as TextBox).Text = process.Steam_Pressure_At_T_P.ToString();
                 (FindName("Main_steam_Pressue_Drop_" + process.id) as TextBox).Text = process.Main_steam_Pressue_Drop.ToString();
-                (FindName("Location_of_DESH_" + process.id) as TextBox).Text = process.Location_of_DESH.ToString();
+                (FindName("Location_of_DESH_" + process.id) as ComboBox).SelectedIndex = process.Location_of_DESH;
                 (FindName("Steam_temperature_set_point_T_P_" + process.id) as TextBox).Text = process.Steam_temperature_set_point_T_P.ToString();
                 (FindName("Min_SH_degree_at_desperheater_outlet_" + process.id) as TextBox).Text = process.Min_SH_degree_at_desperheater_outlet.ToString();
                 (FindName("Feed_water_Pressure_" + process.id) as TextBox).Text = process.Feed_water_Pressure.ToString();

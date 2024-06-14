@@ -31,7 +31,7 @@ namespace BDC.Classes
             public string Heat_exchange_ducty { get; set; } = "-";
             public string Steam_Pressure_At_T_P { get; set; } = "-";
             public string Main_steam_Pressue_Drop { get; set; } = "-";
-            public string Location_of_DESH { get; set; } = "-";
+            public int Location_of_DESH { get; set; } = 0;
             public string Steam_temperature_set_point_T_P { get; set; } = "-";
             public string Min_SH_degree_at_desperheater_outlet { get; set; } = "-";
             public string Feed_water_Pressure { get; set; } = "-";

@@ -30,4 +30,9 @@
         <Setter Property="Padding"  Value="2,0" />
     </Style>
 
+    <x:Array x:Key="ComboBoxItems" Type="{x:Type sys:String}">
+        <sys:String>Inter-Stage</sys:String>
+        <sys:String>Final-Stage</sys:String>
+    </x:Array>
+
 </ResourceDictionary>

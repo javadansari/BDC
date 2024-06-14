@@ -307,7 +307,7 @@ namespace BDC.DataBase
                process.Heat_exchange_ducty = items[19];
                process.Steam_Pressure_At_T_P = items[20];
                process.Main_steam_Pressue_Drop = items[21];
-               process.Location_of_DESH = items[22];
+               process.Location_of_DESH = int.Parse(items[22]);
                process.Steam_temperature_set_point_T_P = items[23];
                process.Min_SH_degree_at_desperheater_outlet = items[24];
                process.Feed_water_Pressure = items[25];

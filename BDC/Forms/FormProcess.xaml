@@ -90,7 +90,7 @@
                         <TextBox Name="Steam_Pressure_At_T_P_1" Style="{StaticResource textBox}" />
                         <TextBox Name="Main_steam_Pressue_Drop_1" Style="{StaticResource textBox}" />
                         <Label  Content="" Width="20" Padding="0" Margin="0"/>
-                        <TextBox Name="Location_of_DESH_1" Style="{StaticResource textBox}" />
+                        <ComboBox Name="Location_of_DESH_1" Height="25" Width="50"   ItemsSource="{StaticResource ComboBoxItems}" />
                         <TextBox Name="Steam_temperature_set_point_T_P_1" Style="{StaticResource textBox}" />
                         <TextBox Name="Min_SH_degree_at_desperheater_outlet_1" Style="{StaticResource textBox}" />
                         <Label  Content="" Width="20" Padding="0" Margin="0"/>
@@ -131,7 +131,7 @@
                         <TextBox Name="Steam_Pressure_At_T_P_2" Style="{StaticResource textBox}" />
                         <TextBox Name="Main_steam_Pressue_Drop_2" Style="{StaticResource textBox}" />
                         <Label  Content="" Width="20" Padding="0" Margin="0"/>
-                        <TextBox Name="Location_of_DESH_2" Style="{StaticResource textBox}" />
+                        <ComboBox Name="Location_of_DESH_2" Height="25" Width="50"  ItemsSource="{StaticResource ComboBoxItems}" />
                         <TextBox Name="Steam_temperature_set_point_T_P_2" Style="{StaticResource textBox}" />
                         <TextBox Name="Min_SH_degree_at_desperheater_outlet_2" Style="{StaticResource textBox}" />
                         <Label  Content="" Width="20" Padding="0" Margin="0"/>
@@ -172,7 +172,7 @@
                         <TextBox Name="Steam_Pressure_At_T_P_3" Style="{StaticResource textBox}" />
                         <TextBox Name="Main_steam_Pressue_Drop_3" Style="{StaticResource textBox}" />
                         <Label  Content="" Width="20" Padding="0" Margin="0"/>
-                        <TextBox Name="Location_of_DESH_3" Style="{StaticResource textBox}" />
+                        <ComboBox Name="Location_of_DESH_3" Height="25" Width="50"  ItemsSource="{StaticResource ComboBoxItems}" />
                         <TextBox Name="Steam_temperature_set_point_T_P_3" Style="{StaticResource textBox}" />
                         <TextBox Name="Min_SH_degree_at_desperheater_outlet_3" Style="{StaticResource textBox}" />
                         <Label  Content="" Width="20" Padding="0" Margin="0"/>
@@ -213,7 +213,7 @@
                         <TextBox Name="Steam_Pressure_At_T_P_4" Style="{StaticResource textBox}" />
                         <TextBox Name="Main_steam_Pressue_Drop_4" Style="{StaticResource textBox}" />
                         <Label  Content="" Width="20" Padding="0" Margin="0"/>
-                        <TextBox Name="Location_of_DESH_4" Style="{StaticResource textBox}" />
+                        <ComboBox Name="Location_of_DESH_4" Height="25" Width="50"  ItemsSource="{StaticResource ComboBoxItems}" />
                         <TextBox Name="Steam_temperature_set_point_T_P_4" Style="{StaticResource textBox}" />
                         <TextBox Name="Min_SH_degree_at_desperheater_outlet_4" Style="{StaticResource textBox}" />
                         <Label  Content="" Width="20" Padding="0" Margin="0"/>
@@ -254,7 +254,7 @@
                         <TextBox Name="Steam_Pressure_At_T_P_5" Style="{StaticResource textBox}" />
                         <TextBox Name="Main_steam_Pressue_Drop_5" Style="{StaticResource textBox}" />
                         <Label  Content="" Width="20" Padding="0" Margin="0"/>
-                        <TextBox Name="Location_of_DESH_5" Style="{StaticResource textBox}" />
+                        <ComboBox Name="Location_of_DESH_5" Height="25" Width="50"  ItemsSource="{StaticResource ComboBoxItems}" />
                         <TextBox Name="Steam_temperature_set_point_T_P_5" Style="{StaticResource textBox}" />
                         <TextBox Name="Min_SH_degree_at_desperheater_outlet_5" Style="{StaticResource textBox}" />
                         <Label  Content="" Width="20" Padding="0" Margin="0"/>
@@ -295,7 +295,7 @@
                         <TextBox Name="Steam_Pressure_At_T_P_6" Style="{StaticResource textBox}" />
                         <TextBox Name="Main_steam_Pressue_Drop_6" Style="{StaticResource textBox}" />
                         <Label  Content="" Width="20" Padding="0" Margin="0"/>
-                        <TextBox Name="Location_of_DESH_6" Style="{StaticResource textBox}" />
+                        <ComboBox Name="Location_of_DESH_6" Height="25" Width="50"  ItemsSource="{StaticResource ComboBoxItems}" />
                         <TextBox Name="Steam_temperature_set_point_T_P_6" Style="{StaticResource textBox}" />
                         <TextBox Name="Min_SH_degree_at_desperheater_outlet_6" Style="{StaticResource textBox}" />
                         <Label  Content="" Width="20" Padding="0" Margin="0"/>
@@ -336,7 +336,7 @@
                         <TextBox Name="Steam_Pressure_At_T_P_7" Style="{StaticResource textBox}" />
                         <TextBox Name="Main_steam_Pressue_Drop_7" Style="{StaticResource textBox}" />
                         <Label  Content="" Width="20" Padding="0" Margin="0"/>
-                        <TextBox Name="Location_of_DESH_7" Style="{StaticResource textBox}" />
+                        <ComboBox Name="Location_of_DESH_7" Height="25" Width="50"   ItemsSource="{StaticResource ComboBoxItems}" />
                         <TextBox Name="Steam_temperature_set_point_T_P_7" Style="{StaticResource textBox}" />
                         <TextBox Name="Min_SH_degree_at_desperheater_outlet_7" Style="{StaticResource textBox}" />
                         <Label  Content="" Width="20" Padding="0" Margin="0"/>
@@ -377,7 +377,7 @@
                         <TextBox Name="Steam_Pressure_At_T_P_8" Style="{StaticResource textBox}" />
                         <TextBox Name="Main_steam_Pressue_Drop_8" Style="{StaticResource textBox}" />
                         <Label  Content="" Width="20" Padding="0" Margin="0"/>
-                        <TextBox Name="Location_of_DESH_8" Style="{StaticResource textBox}" />
+                        <ComboBox Name="Location_of_DESH_8" Height="25" Width="50"  ItemsSource="{StaticResource ComboBoxItems}" />
                         <TextBox Name="Steam_temperature_set_point_T_P_8" Style="{StaticResource textBox}" />
                         <TextBox Name="Min_SH_degree_at_desperheater_outlet_8" Style="{StaticResource textBox}" />
                         <Label  Content="" Width="20" Padding="0" Margin="0"/>

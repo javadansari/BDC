@@ -82,9 +82,9 @@
             <StackPanel Orientation="Horizontal">
                 <Label Content="Wall ►" FontWeight="Bold" Foreground="#FF2E9809"></Label>
                 <Label Content="Front" Width="100" FontWeight="Bold" Margin="50,0,0,0" Foreground="#FF0B34B1"></Label>
-                <Label Content="Real" Width="100" FontWeight="Bold"  Foreground="#FF0B34B1"></Label>
-                <Label Content="Side Wall" Width="100" FontWeight="Bold"  Foreground="#FF0B34B1"></Label>
-                <Label Content="D Wall" FontWeight="Bold" Width="100" Foreground="#FF0B34B1"></Label>
+                <Label Content="Rear" Width="100" FontWeight="Bold" Margin="10,0,0,0"  Foreground="#FF0B34B1"></Label>
+                <Label Content="Right" Width="100" FontWeight="Bold" Margin="10,0,0,0"  Foreground="#FF0B34B1"></Label>
+                <Label Content="Left" FontWeight="Bold" Width="100" Margin="10,0,0,0"  Foreground="#FF0B34B1"></Label>
             </StackPanel>
             <StackPanel Orientation="Horizontal" >
                 <Label  Width="100" Content="ODw (mm)"></Label>
