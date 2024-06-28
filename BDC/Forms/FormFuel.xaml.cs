@@ -25,13 +25,16 @@ namespace BDC.Forms
         List<OilFuel> OilFuels;
         List<GasFuel> GasFuels;
         MainWindow Main;
+        bool isEdit = false;
         public FormFuel(List<OilFuel> oilFuels, List<GasFuel> gasFuels, MainWindow main)
         {
             InitializeComponent();
             OilFuels = oilFuels;
             GasFuels = gasFuels;
             Main = main;
+            isEdit = false;
             getValue();
+            isEdit = true;
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
@@ -350,6 +353,7 @@ namespace BDC.Forms
         }
         private void TextChanged(object sender, TextChangedEventArgs e)
         {
+            if (isEdit)
             TextChange();
         }
     }
