@@ -4,36 +4,31 @@
 
     <!-- Define a collection of items -->
     <x:Array x:Key="ComboBoxItemsSH" Type="{x:Type sys:String}">
-        <sys:String>0</sys:String>
-        <sys:String>1</sys:String>
-        <sys:String>2</sys:String>
-        <sys:String>3</sys:String>
+        <sys:String>Dittus-Boelter</sys:String>
+        <sys:String>Gnielinski</sys:String>
+        <sys:String>Babcock</sys:String>
     </x:Array>
 
     <!-- Define a collection of items -->
     <x:Array x:Key="ComboBoxItemsEV" Type="{x:Type sys:String}">
-        <sys:String>0</sys:String>
-        <sys:String>1</sys:String>
-        <sys:String>2</sys:String>
-        <sys:String>3</sys:String>
+        <sys:String>Thom</sys:String>
+        <sys:String>Jens-Lottes</sys:String>
     </x:Array>
 
     <x:Array x:Key="ComboBoxItemsEco" Type="{x:Type sys:String}">
-        <sys:String>0</sys:String>
-        <sys:String>1</sys:String>
-        <sys:String>2</sys:String>
-        <sys:String>3</sys:String>
+        <sys:String>Dittus-Boelter</sys:String>
+        <sys:String>Gnielinski</sys:String>
+        <sys:String>Babcock</sys:String>
     </x:Array>
 
     <x:Array x:Key="ComboBoxItemsBare" Type="{x:Type sys:String}">
-        <sys:String>0</sys:String>
-        <sys:String>1</sys:String>
+        <sys:String>Grimson</sys:String>
+        <sys:String>Zukauskas</sys:String>
+        <sys:String>Gnielinski</sys:String>
     </x:Array>
 
     <x:Array x:Key="ComboBoxItemsFinned" Type="{x:Type sys:String}">
-        <sys:String>0</sys:String>
-        <sys:String>1</sys:String>
-        <sys:String>2</sys:String>
+        <sys:String>SCOA</sys:String>
     </x:Array>
 
     <sys:Double x:Key="sizeBox">40</sys:Double>

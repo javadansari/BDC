@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BDC.Forms"
         mc:Ignorable="d"
-        Title="GeneralInput" Height="250" Width="400">
+        Title="GeneralInput" Height="250" Width="450">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -20,23 +20,23 @@
         <StackPanel  Orientation="Vertical">
             <StackPanel   Orientation="Horizontal" HorizontalAlignment="Left" Margin="2">
                 <Label Style="{StaticResource label}" Content="Superheater Internal heat Transfer Coefficient" Width="250" Height="25" Margin="0,0,50,0"/>
-                <ComboBox Name="Input_1" Style="{StaticResource comboBoxItems}" ItemsSource="{StaticResource ComboBoxItemsSH}"  Width="70" Height="25"/>
+                <ComboBox Name="Input_1" Style="{StaticResource comboBoxItems}" ItemsSource="{StaticResource ComboBoxItemsSH}"  Width="120" Height="25"/>
             </StackPanel>
             <StackPanel   Orientation="Horizontal" HorizontalAlignment="Left" Margin="2">
                 <Label Style="{StaticResource label}" Content="Evaporator Internal heat Transfer Coefficient" Width="250" Height="25"  Margin="0,0,50,0"/>
-                <ComboBox Name="Input_2" Style="{StaticResource comboBoxItems}" ItemsSource="{StaticResource ComboBoxItemsEV}"  Width="70" Height="25"/>
+                <ComboBox Name="Input_2" Style="{StaticResource comboBoxItems}" ItemsSource="{StaticResource ComboBoxItemsEV}"  Width="120" Height="25"/>
             </StackPanel>
             <StackPanel   Orientation="Horizontal" HorizontalAlignment="Left" Margin="2">
                 <Label Style="{StaticResource label}" Content="Economizer Internal heat Transfer Coefficient" Width="250" Height="25"  Margin="0,0,50,0"/>
-                <ComboBox Name="Input_3" Style="{StaticResource comboBoxItems}" ItemsSource="{StaticResource ComboBoxItemsEco}"  Width="70" Height="25"/>
+                <ComboBox Name="Input_3" Style="{StaticResource comboBoxItems}" ItemsSource="{StaticResource ComboBoxItemsEco}"  Width="120" Height="25"/>
             </StackPanel>
             <StackPanel   Orientation="Horizontal" HorizontalAlignment="Left" Margin="2">
                 <Label Style="{StaticResource label}" Content="Bare Tube External Heat Transfer Coefficient" Width="250" Height="25"  Margin="0,0,50,0"/>
-                <ComboBox Name="Input_4" Style="{StaticResource comboBoxItems}" ItemsSource="{StaticResource ComboBoxItemsBare}"  Width="70" Height="25"/>
+                <ComboBox Name="Input_4" Style="{StaticResource comboBoxItems}" ItemsSource="{StaticResource ComboBoxItemsBare}"  Width="120" Height="25"/>
             </StackPanel>
             <StackPanel   Orientation="Horizontal" HorizontalAlignment="Left" Margin="2">
                 <Label Style="{StaticResource label}" Content="Finned Tube Externall Heat Transfer Coefficient" Width="250" Height="25" Margin="0,0,50,0"/>
-                <ComboBox Name="Input_5" Style="{StaticResource comboBoxItems}" ItemsSource="{StaticResource ComboBoxItemsFinned}"  Width="70" Height="25"/>
+                <ComboBox Name="Input_5" Style="{StaticResource comboBoxItems}" ItemsSource="{StaticResource ComboBoxItemsFinned}"  Width="120" Height="25"/>
             </StackPanel>
             <StackPanel  HorizontalAlignment="Right" Orientation="Horizontal" Margin="10">
               <Button Margin="4,0,4,0" Style="{StaticResource RoundedButtonStyleG}" Content="Apply" Click="Save_Click" />
