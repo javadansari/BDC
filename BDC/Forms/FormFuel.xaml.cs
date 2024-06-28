@@ -35,6 +35,7 @@ namespace BDC.Forms
             isEdit = false;
             getValue();
             isEdit = true;
+            TextChange();
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
