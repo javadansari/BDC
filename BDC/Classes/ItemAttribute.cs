@@ -13,7 +13,7 @@ namespace BDC.Classes
         public bool active { get; set; } = false;
 
         [DisplayName("Section Name")]
-        public string sectionName { get; set; } = "-";
+        public string sectionName { get; set; } = "";
 
 
         [DisplayName("Section")]
@@ -23,10 +23,10 @@ namespace BDC.Classes
         public int sectionNumber { get; set; } = 0;
 
         [DisplayName("Channel Height (m)")]
-        public string Channel_Height { get; set; } = "-";
+        public string Channel_Height { get; set; } = "";
 
         [DisplayName("Channel Width (m)")]
-        public string Channel_Width { get; set; } = "-";
+        public string Channel_Width { get; set; } = "";
 
         public int TubeArrangement { get; set; } = 0;
      
@@ -34,31 +34,31 @@ namespace BDC.Classes
         public int Water_Gas_Flow_Pattern { get; set; } = 0;
       
         [DisplayName("NO# Rows")]
-        public string No_Rows { get; set; } = "-";
+        public string No_Rows { get; set; } = "";
 
         [DisplayName("NO# Tubes/Row")]
-        public string No_Tubes_Row { get; set; } = "-";
+        public string No_Tubes_Row { get; set; } = "";
 
         [DisplayName("Longitudinal Pitch (mm)")]
-        public string Longitudinal_Pitch { get; set; } = "-";
+        public string Longitudinal_Pitch { get; set; } = "";
 
         [DisplayName("Transverse Pitch (mm)")]
-        public string Transverse_Pitch { get; set; } = "-";
+        public string Transverse_Pitch { get; set; } = "";
 
         [DisplayName("NO# Water Carrying Tubes")]
-        public string NO_Water_Carrying_Tubes { get; set; } = "-";
+        public string NO_Water_Carrying_Tubes { get; set; } = "";
 
        [DisplayName("Tube Length/Water Flow (m)")]
-        public string Tube_Length { get; set; } = "-";
+        public string Tube_Length { get; set; } = "";
 
         [DisplayName("Tube Outer Diameter (mm)")]
-        public string Tube_Outer_Diameter { get; set; } = "-";
+        public string Tube_Outer_Diameter { get; set; } = "";
       
         [DisplayName("Tube Wall Thickness (mm)")]
-        public string Tube_Wall_Thickness { get; set; } = "-";
+        public string Tube_Wall_Thickness { get; set; } = "";
         
         [DisplayName("Incidence Angle (deg)")]
-        public string Incidence_Angle { get; set; } = "-";
+        public string Incidence_Angle { get; set; } = "";
 
         [DisplayName("Tubes Material")]
         public int Tubes_Material { get; set; } = 0;
@@ -67,35 +67,35 @@ namespace BDC.Classes
         public int Fin_Type { get; set; } = 0;
 
         [DisplayName("Fin Height (mm)")]
-        public string Fin_Height { get; set; } = "-";
+        public string Fin_Height { get; set; } = "";
 
         [DisplayName("Fin Thickness (mm)")]
-        public string Fin_Thickness { get; set; } = "-";
+        public string Fin_Thickness { get; set; } = "";
 
         [DisplayName("Fin Density (fin/m)")]
-        public string Fin_Density { get; set; } = "-";
+        public string Fin_Density { get; set; } = "";
 
 
         [DisplayName("Fin Uncut Height (mm)")]
-        public string Fin_Uncut_Height { get; set; } = "-";
+        public string Fin_Uncut_Height { get; set; } = "";
 
 
         [DisplayName("Fin Segment Width (mm)")]
-        public string Fin_Segment_Width { get; set; } = "-";
+        public string Fin_Segment_Width { get; set; } = "";
 
 
         [DisplayName("Fin Material")]
         public int Fin_Material { get; set; } = 0;
 
         [DisplayName("Water-Side Founling Factor (m2K/W)")]
-        public string Water_Side_Founling_Factor { get; set; } = "-";
+        public string Water_Side_Founling_Factor { get; set; } = "";
 
 
         [DisplayName("Gas-Side Founling Factor (m2K/W)")]
-        public string Gas_Side_Founling_Factor { get; set; } = "-";
+        public string Gas_Side_Founling_Factor { get; set; } = "";
 
 
         [DisplayName("Usage Factor (0,1)")]
-        public string Usage_Factor { get; set; } = "-";
+        public string Usage_Factor { get; set; } = "";
     }
 }
