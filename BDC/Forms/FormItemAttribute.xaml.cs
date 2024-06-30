@@ -419,17 +419,18 @@ namespace BDC.Forms
                 if (sender is TextBox textBox)
                 {
                     // Try to parse the text as a double
-                    if (double.TryParse(textBox.Text, out double result))
-                    {
-                        textBox.Text = result.ToString();
-                    }
-                    else
-                    {
-                        if (textBox.Text.Length > 0) textBox.Text = textBox.Text.Substring(0, textBox.Text.Length - 1);
-                        textBox.Select(textBox.Text.Length, 0);
-                        textBox.Focus();
-                    }
+                    //if (double.TryParse(textBox.Text, out double result))
+                    //{
+                    //    textBox.Text = result.ToString();
+                    //}
+                    //else
+                    //{
+                    //    if (textBox.Text.Length > 0) textBox.Text = textBox.Text.Substring(0, textBox.Text.Length - 1);
+                    //    textBox.Select(textBox.Text.Length, 0);
+                    //    textBox.Focus();
+                    //}
 
+                  
 
                     Element associatedElement = Elements.Find(e => e.Id == element.Id);
 
