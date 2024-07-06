@@ -25,10 +25,10 @@ namespace BDC.DataBase
             string runPath = System.AppDomain.CurrentDomain.BaseDirectory + @"\Run.exe";
          //   Thread newThread = new Thread(new ThreadStart(Work));
         //    newThread.Start();
-        //    var process = System.Diagnostics.Process.Start(runPath, path +" Run-" + caseName + ".txt");
-            var process = System.Diagnostics.Process.Start(runPath, path );
+            var process = System.Diagnostics.Process.Start(runPath, path +" Run-" + caseName + ".txt");
+        //    var process = System.Diagnostics.Process.Start(runPath, path );
             process.WaitForExit();
-            string resultPath = System.AppDomain.CurrentDomain.BaseDirectory + @"\Run.txt";
+            string resultPath = System.AppDomain.CurrentDomain.BaseDirectory  + @"\Run-" + caseName + ".txt";
        //     newThread.Join();
             System.Diagnostics.Process.Start("notepad.exe", resultPath);
             return true;
