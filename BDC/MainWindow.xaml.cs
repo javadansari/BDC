@@ -668,8 +668,8 @@ namespace BDC
                     {
                         /// RUN
                         //  Export();
-                        string path = saweItems.Item2 + @"Run-" + item.Tag + ".txt";
-                  //      string path = System.AppDomain.CurrentDomain.BaseDirectory + @"Export-" + item.Tag + ".txt";
+                  //      string path = saweItems.Item2 + @"Case-" + item.Tag + ".txt";
+                        string path =  @"Result-Case-" + item.Tag + ".txt";
                         Case thisCase = cases.FirstOrDefault(c => c.Name == item.Tag);
                         Export export = new Export(path);
                         Export(path, new List<Process> { thisCase.process });
