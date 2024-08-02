@@ -46,7 +46,7 @@
                 <Separator/>
                 <MenuItem Header="Exit" Click="Exit_Click"/>
             </MenuItem>
-            <MenuItem Header="Edit">
+            <MenuItem Header="Edit" Visibility="Collapsed">
                 <MenuItem Header="Cut"/>
                 <MenuItem Header="Copy"/>
                 <MenuItem Header="Paste"/>
@@ -54,8 +54,8 @@
             <MenuItem Header="Information">
                 <MenuItem Header="Attributes" Click="Attributes_Click"/>
             </MenuItem>
-            <MenuItem Header="Result">
-                <MenuItem Header="Result" Click="CasesMenu_Click"/>
+            <MenuItem Header="Result" Name="Result">
+                <MenuItem Header="Result" Click="CasesMenu_Click" Visibility="Collapsed"/>
             </MenuItem>
             <MenuItem Header="Export" Visibility="Hidden">
                 <MenuItem Header="Export" Click="ExportMenu_Click"/>
@@ -116,8 +116,12 @@
             </ListBox.ItemTemplate>
         </ListBox>
         <Grid Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
-            <Image Source="Images\Elements\all.jpg"/>
-            <StackPanel Margin="50,50,0,0"   Orientation="Vertical" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="43*"/>
+                <ColumnDefinition Width="297*"/>
+            </Grid.ColumnDefinitions>
+            <Image Source="Images\Elements\all.jpg" Grid.ColumnSpan="2"/>
+            <StackPanel Margin="50,50,0,0"   Orientation="Vertical" Grid.ColumnSpan="2" >
                 <StackPanel Orientation="Horizontal">
                     <StackPanel Orientation="Horizontal" Margin="0,105,0,0"  >
                         <Grid Name="boilerStage_1_grid" Width="{StaticResource imageHolderWidth}" Height="{StaticResource imageHolderHeight}"  MouseLeftButtonDown="GridElement_MouseLeftButtonDown" >

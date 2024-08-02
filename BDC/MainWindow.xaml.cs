@@ -39,6 +39,7 @@ using System.ComponentModel;
 using System.Runtime.ConstrainedExecution;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.Globalization;
+using System.Security.Cryptography;
 
 
 namespace BDC
@@ -85,9 +86,8 @@ namespace BDC
         private Point startPoint;
         private int iconSize = 48;
         private double currentScale = 1.0;
-        private string loadCalse = "base";
-
-
+        private string loadCase = "base";
+        private string projectName = "New Project";
         public MainWindow()
         {
             InitializeComponent();
@@ -99,7 +99,7 @@ namespace BDC
         private void startInitialize()
         {
 
-
+            setTitle(projectName);
             inputs = new Inputs();
             draggedImage = new Image();
             furnace = new Furnace();
@@ -669,7 +669,7 @@ namespace BDC
                         /// RUN
                         //  Export();
                   //      string path = saweItems.Item2 + @"Case-" + item.Tag + ".txt";
-                        string path =  @"Result-Case-" + item.Tag + ".txt";
+                        string path =  @"Result-Case-" + item.Tag + ".out";
                         Case thisCase = cases.FirstOrDefault(c => c.Name == item.Tag);
                         Export export = new Export(path);
                         Export(path, new List<Process> { thisCase.process });
@@ -751,7 +751,7 @@ namespace BDC
             export.ExportOilFuel(oilFuels);
             export.ExportGasFuel(gasFuels);
             export.ExportProcess(processes);
-            MessageBox.Show("Project saved in : " + exportPath);
+   //         MessageBox.Show("Project saved in : " + exportPath);
 
         }
         public static void ExportToFile(object obj, string filePath)
@@ -794,8 +794,8 @@ namespace BDC
 
             SaveFileDialog dlg = new SaveFileDialog();
             dlg.FileName = "Export"; // Default file name
-            dlg.DefaultExt = ".txt"; // Default file extension
-            dlg.Filter = "Text documents (.txt)|*.txt"; // Filter files by extension
+            dlg.DefaultExt = ".in"; // Default file extension
+            dlg.Filter = "Text documents (.in)|*.in"; // Filter files by extension
             string exportPath = "";
             // Show save file dialog box
             Nullable<bool> result = dlg.ShowDialog();
@@ -805,6 +805,7 @@ namespace BDC
             {
                 // Save document
                 exportPath = dlg.FileName;
+                setTitle(exportPath);
                 //    string exportPath = System.AppDomain.CurrentDomain.BaseDirectory + @"Export.txt";
                 Export(exportPath, processes);
             }
@@ -820,8 +821,8 @@ namespace BDC
             OpenFileDialog dlg = new OpenFileDialog();
 
             // Set filter for file extension and default file extension 
-            dlg.DefaultExt = ".txt";
-            dlg.Filter = "BDC File (*.txt)|*.txt";
+            dlg.DefaultExt = ".in";
+            dlg.Filter = "BDC File (*.in)|*.in";
 
             // Display OpenFileDialog by calling ShowDialog method 
             Nullable<bool> result = dlg.ShowDialog();
@@ -832,9 +833,9 @@ namespace BDC
             {
                 // Open document 
                 filename = dlg.FileName;
+                setTitle(filename);
 
-            
-            Import import = new Import(filename);
+                Import import = new Import(filename);
             inputs = import.ImportInputs();
             furnace = import.ImportFurnace();
             elements = import.ImportElements();
@@ -848,10 +849,30 @@ namespace BDC
                 addCase(@case.Name);
             }
             this.updateElement();
+
+                DirectoryInfo dinfo = new DirectoryInfo(System.IO.Path.GetDirectoryName(dlg.FileName));
+                FileInfo[] Files = dinfo.GetFiles("*.out");
+                MenuItem ResultMenu = (MenuItem)this.Result;
+                ResultMenu.Items.Clear();
+                foreach (FileInfo file in Files)
+                {
+                    MenuItem fileMenu = new MenuItem();
+                    fileMenu.Header = file.Name;
+                    ResultMenu.Items.Add(fileMenu);
+                    fileMenu.Click += clickFileResultMenu;
+
+                }
+                //     Result.
+
             }
 
         }
-
+        private void clickFileResultMenu(object sender, EventArgs e)
+        {
+            MenuItem fileMenu = sender as MenuItem;
+            string resultPath = System.AppDomain.CurrentDomain.BaseDirectory + fileMenu.Header;
+            System.Diagnostics.Process.Start("notepad.exe", resultPath);
+        }
         private void NewButton_Click(object sender, RoutedEventArgs e)
         {
 
@@ -861,6 +882,11 @@ namespace BDC
             mainWindow.Show();
 
 
+        }
+
+        private void setTitle(string title)
+        {
+            this.Title = title;
         }
 
 

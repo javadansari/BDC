@@ -283,7 +283,7 @@ namespace BDC.Forms
                 List<string> materialList = new List<string> { "SA178-A", "SA178-C", "SA210-A1", "SA192", "SA213-T11", "SA213-T22", "SA213-T91", "SA213-T304" };
                 buildCombo(materialList, e => e.attribute.Tubes_Material, element, (e, index) => e.attribute.Tubes_Material = index);
              
-                List<string> typeList = new List<string> { "Serrated", "In-Solid", "Bare" };
+                List<string> typeList = new List<string> { "Serrated", "Solid", "Bare" };
                 buildCombo(typeList, e => e.attribute.Fin_Type, element, (e, index) => e.attribute.Fin_Type = index);
 
 
